@@ -158,18 +158,19 @@
 </head>
 
 <body>
-<link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/style.css" />
   <div>
-  <link href="/css/index.css" rel="stylesheet" />
+    <link href="/css/index.css" rel="stylesheet" />
 
     <div class="home-container">
       <navbar-wrapper class="navbar-navbar-wrapper">
         <header class="navbar-container">
           <header data-thq="thq-navbar" class="navbar-navbar-interactive">
             <img
-              alt="Louis Vuitton Logo"
-              src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/84ec08e8-34e9-42c7-9445-d2806d156403/fac575ac-7a41-484f-b7ac-875042de11f8?org_if_sml=1&amp;force_format=original"
-              class="navbar-image1" />
+              alt="IRVASCA Logo"
+              src="{{ asset('images/logo/logo_ungu.jpg') }}"
+              class="navbar-image1"
+              style="width: 120px; height: auto;" />
             <div data-thq="thq-navbar-nav" class="navbar-desktop-menu">
               <nav class="navbar-links1">
                 <span class="thq-link thq-body-small"><span>Home</span></span>
@@ -185,13 +186,11 @@
                 </span>
               </nav>
               <div class="navbar-buttons1">
-                <button
-                  class="navbar-action11 thq-button-animated thq-button-filled">
-                  <span class="thq-body-small">Action 1</span>
+                <button class="navbar-action11 thq-button-animated thq-button-filled" style="background-color: #b78027; border-color: #b78027;">
+                  <span class="thq-body-small">Login</span>
                 </button>
-                <button
-                  class="navbar-action21 thq-button-outline thq-button-animated">
-                  <span class="thq-body-small">Action 2</span>
+                <button class="navbar-action21 thq-button-outline thq-button-animated" style="color: #b78027; border-color: #b78027;">
+                  <span class="thq-body-small">Register</span>
                 </button>
               </div>
             </div>
@@ -205,9 +204,10 @@
               <div class="navbar-nav">
                 <div class="navbar-top">
                   <img
-                    alt="Louis Vuitton Logo"
-                    src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/84ec08e8-34e9-42c7-9445-d2806d156403/fac575ac-7a41-484f-b7ac-875042de11f8?org_if_sml=1&amp;force_format=original"
-                    class="navbar-logo" />
+                    alt="IRVASCA Logo"
+                    src="{{ asset('images/logo/logo_putih.jpg') }}"
+                    class="navbar-logo"
+                    style="width: 120px; height: auto;" />
                   <div data-thq="thq-close-menu" class="navbar-close-menu">
                     <svg viewBox="0 0 1024 1024" class="navbar-icon3">
                       <path
@@ -234,8 +234,8 @@
                 </nav>
               </div>
               <div class="navbar-buttons2">
-                <button class="thq-button-filled">Login</button>
-                <button class="thq-button-outline">Register</button>
+                <button class="thq-button-filled" style="color: #b78027; border-color: #b78027;">Login</button>
+                <button class="thq-button-outline" style="color: #b78027; border-color: #b78027;">Register</button>
               </div>
             </div>
           </header>
@@ -251,15 +251,15 @@
               <p class="hero-text2 thq-body-large">
                 <span>
                   Experience the epitome of luxury with our exclusive
-                  collection of handcrafted bags, accessories, and more.
+                  collection of outfit, accessories, and more.
                 </span>
               </p>
             </div>
             <div class="hero-actions">
-              <button class="thq-button-filled hero-button1">
+              <button class="thq-button-filled hero-button1" style="background-color: #b78027; border-color: #b78027;">
                 <span class="thq-body-small"><span>Shop Now</span></span>
               </button>
-              <button class="thq-button-outline hero-button2">
+              <button class="thq-button-outline hero-button2" style="border-color: #b78027;">
                 <span class="thq-body-small"><span>Discover More</span></span>
               </button>
             </div>
@@ -485,7 +485,7 @@
                   <div class="cta-actions">
                     <button
                       type="button"
-                      class="thq-button-filled cta-button">
+                      class="thq-button-filled cta-button" style="background-color: #b78027; border-color: #b78027;">
                       <span>Shop Now</span>
                     </button>
                   </div>
@@ -1016,135 +1016,6 @@
           </div>
         </div>
       </steps-wrapper>
-      <testimonial-wrapper class="testimonial-testimonial-wrapper">
-        <div class="thq-section-padding">
-          <div class="testimonial-max-width thq-section-max-width">
-            <div class="testimonial-container10">
-              <h2 class="thq-heading-2"><span>Testimonials</span></h2>
-              <span class="testimonial-text11 thq-body-small">
-                <span>
-                  Read what our customers have to say about their experience
-                  with our products.
-                </span>
-              </span>
-            </div>
-            <div class="thq-grid-2">
-              <div class="thq-animated-card-bg-2">
-                <div class="thq-animated-card-bg-1">
-                  <div
-                    data-animated="true"
-                    class="thq-card testimonial-card1">
-                    <div class="testimonial-container12">
-                      <img
-                        alt="Image of John Doe"
-                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTcyMzU4NDAzNnw&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080"
-                        class="testimonial-image1" />
-                      <div class="testimonial-container13">
-                        <strong class="thq-body-large">
-                          <span>John Doe</span>
-                        </strong>
-                        <span class="thq-body-small">
-                          <span>Fashion Blogger</span>
-                        </span>
-                      </div>
-                    </div>
-                    <span class="testimonial-text14 thq-body-small">
-                      <span>
-                        I absolutely love the quality and design of the
-                        products. They never fail to impress!
-                      </span>
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <div class="thq-animated-card-bg-2">
-                <div class="thq-animated-card-bg-1">
-                  <div
-                    data-animated="true"
-                    class="thq-card testimonial-card2">
-                    <div class="testimonial-container14">
-                      <img
-                        alt="Image of Jane Smith"
-                        src="https://images.unsplash.com/photo-1461280360983-bd93eaa5051b?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTcyMzU4NDAzNnw&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080"
-                        class="testimonial-image2" />
-                      <div class="testimonial-container15">
-                        <strong class="thq-body-large">
-                          <span>Jane Smith</span>
-                        </strong>
-                        <span class="thq-body-small">
-                          <span>Fashion Designer</span>
-                        </span>
-                      </div>
-                    </div>
-                    <span class="testimonial-text17 thq-body-small">
-                      <span>
-                        As a designer myself, I appreciate the attention to
-                        detail and craftsmanship in every piece.
-                      </span>
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <div class="thq-animated-card-bg-2">
-                <div class="thq-animated-card-bg-1">
-                  <div
-                    data-animated="true"
-                    class="thq-card testimonial-card3">
-                    <div class="testimonial-container16">
-                      <img
-                        alt="Image of Michael Johnson"
-                        src="https://images.unsplash.com/photo-1645378999488-63138abdecd2?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTcyMzU4NDAzN3w&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080"
-                        class="testimonial-image3" />
-                      <div class="testimonial-container17">
-                        <strong class="thq-body-large">
-                          <span>Michael Johnson</span>
-                        </strong>
-                        <span class="thq-body-small">
-                          <span>Style Influencer</span>
-                        </span>
-                      </div>
-                    </div>
-                    <span class="testimonial-text20 thq-body-small">
-                      <span>
-                        I always feel confident and stylish when wearing items
-                        from this brand. Highly recommended!
-                      </span>
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <div class="thq-animated-card-bg-2">
-                <div class="thq-animated-card-bg-1">
-                  <div
-                    data-animated="true"
-                    class="thq-card testimonial-card4">
-                    <div class="testimonial-container18">
-                      <img
-                        alt="Image of Sarah Williams"
-                        src="https://images.unsplash.com/photo-1543096222-72de739f7917?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTcyMzU4NDAzNnw&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080"
-                        class="testimonial-image4" />
-                      <div class="testimonial-container19">
-                        <strong class="thq-body-large">
-                          <span>Sarah Williams</span>
-                        </strong>
-                        <span class="thq-body-small">
-                          <span>Fashion Enthusiast</span>
-                        </span>
-                      </div>
-                    </div>
-                    <span class="testimonial-text23 thq-body-small">
-                      <span>
-                        The products exceeded my expectations. I can't wait to
-                        add more pieces to my collection.
-                      </span>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </testimonial-wrapper>
       <contact-wrapper class="contact-contact-wrapper">
         <div class="contact-contact20 thq-section-padding">
           <div class="contact-max-width thq-section-max-width">
@@ -1176,17 +1047,17 @@
                     <h3 class="contact-text4 thq-heading-3">Email</h3>
                     <p class="contact-text5 thq-body-large">
                       <span>
-                        For press inquiries, please contact
-                        press@louisvuitton.com.
+                        For any inquiries, please contact
+                        support@irvasca.com
                       </span>
                     </p>
                   </div>
                   <span class="contact-email thq-body-small">
-                    <span>info@louisvuitton.com</span>
+                    <span>support@irvasca.com</span>
                   </span>
                 </div>
               </div>
-              <div class="contact-content4">
+              <!-- <div class="contact-content4">
                 <svg viewBox="0 0 1024 1024" class="thq-icon-medium">
                   <path
                     d="M282 460q96 186 282 282l94-94q20-20 44-10 72 24 152 24 18 0 30 12t12 30v150q0 18-12 30t-30 12q-300 0-513-213t-213-513q0-18 12-30t30-12h150q18 0 30 12t12 30q0 80 24 152 8 26-10 44z"></path>
@@ -1205,7 +1076,7 @@
                     <span>+1-800-123-4567</span>
                   </span>
                 </div>
-              </div>
+              </div> -->
               <div class="contact-content6">
                 <svg viewBox="0 0 1024 1024" class="thq-icon-medium">
                   <path
@@ -1221,7 +1092,7 @@
                     </p>
                   </div>
                   <span class="contact-address thq-body-small">
-                    <span>123 Luxury Avenue, Paris, France</span>
+                    <span>Griya Pamoyanan, Blok G 17, Pamoyanan, Bogor Selatan, Bogor, 16136</span>
                   </span>
                 </div>
               </div>
@@ -1235,9 +1106,10 @@
             <div class="footer-content">
               <div class="footer-newsletter">
                 <img
-                  alt="Louis Vuitton Logo"
-                  src="https://presentation-website-assets.teleporthq.io/logos/logo.png"
-                  class="footer-image1" />
+                  alt="IRVASCA Logo"
+                  src="{{ asset('images/logo/logo_ungu.jpg') }}"
+                  class="footer-image1"
+                  style="width: 120px; height: auto;" />
                 <span class="thq-body-small">
                   Subscribe to our newsletter for the latest updates on new
                   features and product releases.
@@ -1358,6 +1230,7 @@
                         viewBox="0 0 877.7142857142857 1024"
                         class="thq-icon-small">
                         <path
+                          fill="#b78027"
                           d="M713.143 73.143c90.857 0 164.571 73.714 164.571 164.571v548.571c0 90.857-73.714 164.571-164.571 164.571h-107.429v-340h113.714l17.143-132.571h-130.857v-84.571c0-38.286 10.286-64 65.714-64l69.714-0.571v-118.286c-12-1.714-53.714-5.143-101.714-5.143-101.143 0-170.857 61.714-170.857 174.857v97.714h-114.286v132.571h114.286v340h-304c-90.857 0-164.571-73.714-164.571-164.571v-548.571c0-90.857 73.714-164.571 164.571-164.571h548.571z"></path>
                       </svg>
                       <span class="thq-body-small">Facebook</span>
@@ -1367,6 +1240,7 @@
                         viewBox="0 0 877.7142857142857 1024"
                         class="thq-icon-small">
                         <path
+                          fill="#b78027"
                           d="M585.143 512c0-80.571-65.714-146.286-146.286-146.286s-146.286 65.714-146.286 146.286 65.714 146.286 146.286 146.286 146.286-65.714 146.286-146.286zM664 512c0 124.571-100.571 225.143-225.143 225.143s-225.143-100.571-225.143-225.143 100.571-225.143 225.143-225.143 225.143 100.571 225.143 225.143zM725.714 277.714c0 29.143-23.429 52.571-52.571 52.571s-52.571-23.429-52.571-52.571 23.429-52.571 52.571-52.571 52.571 23.429 52.571 52.571zM438.857 152c-64 0-201.143-5.143-258.857 17.714-20 8-34.857 17.714-50.286 33.143s-25.143 30.286-33.143 50.286c-22.857 57.714-17.714 194.857-17.714 258.857s-5.143 201.143 17.714 258.857c8 20 17.714 34.857 33.143 50.286s30.286 25.143 50.286 33.143c57.714 22.857 194.857 17.714 258.857 17.714s201.143 5.143 258.857-17.714c20-8 34.857-17.714 50.286-33.143s25.143-30.286 33.143-50.286c22.857-57.714 17.714-194.857 17.714-258.857s5.143-201.143-17.714-258.857c-8-20-17.714-34.857-33.143-50.286s-30.286-25.143-50.286-33.143c-57.714-22.857-194.857-17.714-258.857-17.714zM877.714 512c0 60.571 0.571 120.571-2.857 181.143-3.429 70.286-19.429 132.571-70.857 184s-113.714 67.429-184 70.857c-60.571 3.429-120.571 2.857-181.143 2.857s-120.571 0.571-181.143-2.857c-70.286-3.429-132.571-19.429-184-70.857s-67.429-113.714-70.857-184c-3.429-60.571-2.857-120.571-2.857-181.143s-0.571-120.571 2.857-181.143c3.429-70.286 19.429-132.571 70.857-184s113.714-67.429 184-70.857c60.571-3.429 120.571-2.857 181.143-2.857s120.571-0.571 181.143 2.857c70.286 3.429 132.571 19.429 184 70.857s67.429 113.714 70.857 184c3.429 60.571 2.857 120.571 2.857 181.143z"></path>
                       </svg>
                       <span class="thq-body-small">Instagram</span>
@@ -1376,6 +1250,7 @@
                         viewBox="0 0 950.8571428571428 1024"
                         class="thq-icon-small">
                         <path
+                          fill="#b78027"
                           d="M925.714 233.143c-25.143 36.571-56.571 69.143-92.571 95.429 0.571 8 0.571 16 0.571 24 0 244-185.714 525.143-525.143 525.143-104.571 0-201.714-30.286-283.429-82.857 14.857 1.714 29.143 2.286 44.571 2.286 86.286 0 165.714-29.143 229.143-78.857-81.143-1.714-149.143-54.857-172.571-128 11.429 1.714 22.857 2.857 34.857 2.857 16.571 0 33.143-2.286 48.571-6.286-84.571-17.143-148-91.429-148-181.143v-2.286c24.571 13.714 53.143 22.286 83.429 23.429-49.714-33.143-82.286-89.714-82.286-153.714 0-34.286 9.143-65.714 25.143-93.143 90.857 112 227.429 185.143 380.571 193.143-2.857-13.714-4.571-28-4.571-42.286 0-101.714 82.286-184.571 184.571-184.571 53.143 0 101.143 22.286 134.857 58.286 41.714-8 81.714-23.429 117.143-44.571-13.714 42.857-42.857 78.857-81.143 101.714 37.143-4 73.143-14.286 106.286-28.571z"></path>
                       </svg>
                       <span class="thq-body-small">X</span>
@@ -1385,6 +1260,7 @@
                         viewBox="0 0 877.7142857142857 1024"
                         class="thq-icon-small">
                         <path
+                          fill="#b78027"
                           d="M135.429 808h132v-396.571h-132v396.571zM276 289.143c-0.571-38.857-28.571-68.571-73.714-68.571s-74.857 29.714-74.857 68.571c0 37.714 28.571 68.571 73.143 68.571h0.571c46.286 0 74.857-30.857 74.857-68.571zM610.286 808h132v-227.429c0-121.714-65.143-178.286-152-178.286-70.857 0-102.286 39.429-119.429 66.857h1.143v-57.714h-132s1.714 37.143 0 396.571v0h132v-221.714c0-11.429 0.571-23.429 4-32 9.714-23.429 31.429-48 68-48 47.429 0 66.286 36 66.286 89.714v212zM877.714 237.714v548.571c0 90.857-73.714 164.571-164.571 164.571h-548.571c-90.857 0-164.571-73.714-164.571-164.571v-548.571c0-90.857 73.714-164.571 164.571-164.571h548.571c90.857 0 164.571 73.714 164.571 164.571z"></path>
                       </svg>
                       <span class="thq-body-small">LinkedIn</span>
@@ -1392,6 +1268,7 @@
                     <div class="footer-link5">
                       <svg viewBox="0 0 1024 1024" class="thq-icon-small">
                         <path
+                          fill="#b78027"
                           d="M406.286 644.571l276.571-142.857-276.571-144.571v287.429zM512 152c215.429 0 358.286 10.286 358.286 10.286 20 2.286 64 2.286 102.857 43.429 0 0 31.429 30.857 40.571 101.714 10.857 82.857 10.286 165.714 10.286 165.714v77.714s0.571 82.857-10.286 165.714c-9.143 70.286-40.571 101.714-40.571 101.714-38.857 40.571-82.857 40.571-102.857 42.857 0 0-142.857 10.857-358.286 10.857v0c-266.286-2.286-348-10.286-348-10.286-22.857-4-74.286-2.857-113.143-43.429 0 0-31.429-31.429-40.571-101.714-10.857-82.857-10.286-165.714-10.286-165.714v-77.714s-0.571-82.857 10.286-165.714c9.143-70.857 40.571-101.714 40.571-101.714 38.857-41.143 82.857-41.143 102.857-43.429 0 0 142.857-10.286 358.286-10.286v0z"></path>
                       </svg>
                       <span class="thq-body-small">Youtube</span>
@@ -1404,7 +1281,7 @@
               <div class="thq-divider-horizontal"></div>
               <div class="footer-row">
                 <span class="thq-body-small">
-                  <span>© 2023 Louis Vuitton. All Rights Reserved.</span>
+                  <span>© 2024 IRVASCA. All Rights Reserved.</span>
                 </span>
                 <div class="footer-footer-links3">
                   <span class="thq-body-small">
