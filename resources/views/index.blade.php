@@ -173,24 +173,18 @@
               style="width: 120px; height: auto;" />
             <div data-thq="thq-navbar-nav" class="navbar-desktop-menu">
               <nav class="navbar-links1">
-                <span class="thq-link thq-body-small"><span>Home</span></span>
-                <span class="thq-link thq-body-small"><span>Shop</span></span>
-                <span class="thq-link thq-body-small">
-                  <span>Collections</span>
-                </span>
-                <span class="thq-link thq-body-small">
-                  <span>About Us</span>
-                </span>
-                <span class="thq-link thq-body-small">
-                  <span>Contact</span>
-                </span>
+                <span class="thq-link thq-body-small" style="color: white;"><span>Home</span></span>
+                <span class="thq-link thq-body-small" style="color: white;"><span>Shop</span></span>
+                <span class="thq-link thq-body-small" style="color: white;"><span>Collections</span></span>
+                <span class="thq-link thq-body-small" style="color: white;"><span>About Us</span></span>
+                <span class="thq-link thq-body-small" style="color: white;"><span>Contact</span></span>
               </nav>
               <div class="navbar-buttons1">
                 <button class="navbar-action11 thq-button-animated thq-button-filled" style="background-color: #b78027; border-color: #b78027;">
-                  <span class="thq-body-small">Login</span>
+                  <span class="thq-body-smallnav">Login</span>
                 </button>
                 <button class="navbar-action21 thq-button-outline thq-button-animated" style="color: #b78027; border-color: #b78027;">
-                  <span class="thq-body-small">Register</span>
+                  <span class="thq-body-smallnav">Register</span>
                 </button>
               </div>
             </div>
@@ -216,19 +210,19 @@
                   </div>
                 </div>
                 <nav class="navbar-links2">
-                  <span class="thq-link thq-body-small">
+                  <span class="thq-linkm thq-body-small">
                     <span>Home</span>
                   </span>
-                  <span class="thq-link thq-body-small">
+                  <span class="thq-linkm thq-body-small">
                     <span>Shop</span>
                   </span>
-                  <span class="thq-link thq-body-small">
+                  <span class="thq-linkm thq-body-small">
                     <span>Collections</span>
                   </span>
-                  <span class="thq-link thq-body-small">
+                  <span class="thq-linkm thq-body-small">
                     <span>About Us</span>
                   </span>
-                  <span class="thq-link thq-body-small">
+                  <span class="thq-linkm thq-body-small">
                     <span>Contact</span>
                   </span>
                 </nav>
@@ -570,35 +564,35 @@
           <div class="pricing-max-width thq-section-max-width">
             <div class="pricing-section-title">
               <span class="pricing-text10 thq-body-small">
-                <span>Choose the perfect plan for you</span>
+                <span>Choose the perfect for you</span>
               </span>
               <div class="pricing-content">
                 <h2 class="pricing-text11 thq-heading-2">
-                  <span>Pricing plan</span>
+                  <span> Colections</span>
                 </h2>
                 <p class="pricing-text12 thq-body-large">
                   <span>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Discover our selections.
                   </span>
                 </p>
               </div>
             </div>
             <div class="pricing-tabs">
               <button
-                class="pricing-button10 thq-button-animated thq-button-filled">
-                <span class="thq-body-small">Monthly</span>
+                class="pricing-button11 thq-button-outline thq-button-animated">
+                <span class="thq-body-small">Women Bags</span>
               </button>
               <button
                 class="pricing-button11 thq-button-outline thq-button-animated">
-                <span class="thq-body-small">Monthly</span>
+                <span class="thq-body-small">Tee</span>
               </button>
               <button
-                class="pricing-button12 thq-button-animated thq-button-filled">
-                <span class="thq-body-small">Yearly</span>
+                class="pricing-button11 thq-button-outline thq-button-animated">
+                <span class="thq-body-small">Jackets</span>
               </button>
               <button
-                class="pricing-button13 thq-button-outline thq-button-animated">
-                <span class="thq-body-small">Yearly</span>
+                class="pricing-button11 thq-button-outline thq-button-animated">
+                <span class="thq-body-small">Accessories</span>
               </button>
             </div>
             <div class="pricing-container1">
@@ -606,7 +600,7 @@
                 <div class="pricing-price10">
                   <div class="pricing-price11">
                     <p class="pricing-text17 thq-body-large">
-                      <span>Basic plan</span>
+                      <span>T-shirt1</span>
                     </p>
                     <h3 class="pricing-text18 thq-heading-3">
                       <span>$99</span>
@@ -652,7 +646,7 @@
                 <div class="pricing-price12">
                   <div class="pricing-price13">
                     <p class="pricing-text24 thq-body-large">
-                      <span>Business plan</span>
+                      <span>T-shirt2</span>
                     </p>
                     <h3 class="pricing-text25 thq-heading-3">
                       <span>$199</span>
@@ -698,8 +692,7 @@
                     </div>
                   </div>
                 </div>
-                <button
-                  class="pricing-button15 thq-button-animated thq-button-filled">
+                <button class="pricing-button14 thq-button-outline thq-button-animated">
                   <span class="thq-body-small"><span>Buy Now</span></span>
                 </button>
               </div>
@@ -707,7 +700,7 @@
                 <div class="pricing-price14">
                   <div class="pricing-price15">
                     <p class="pricing-text32 thq-body-large">
-                      <span>Enterprise plan</span>
+                      <span>T-shirt3</span>
                     </p>
                     <h3 class="pricing-text33 thq-heading-3">
                       <span>$299</span>
@@ -762,8 +755,7 @@
                     </div>
                   </div>
                 </div>
-                <button
-                  class="pricing-button16 thq-button-animated thq-button-filled">
+                <button class="pricing-button14 thq-button-outline thq-button-animated">
                   <span class="thq-body-small"><span>Buy Now</span></span>
                 </button>
               </div>
@@ -773,14 +765,11 @@
                 <div class="pricing-price16">
                   <div class="pricing-price17">
                     <span class="pricing-text41 thq-body-large">
-                      <span>Basic plan</span>
+                      <span>T-shirt4</span>
                     </span>
                     <h3 class="pricing-text42 thq-heading-3">
-                      <span>$200/yr</span>
+                      <span>$200</span>
                     </h3>
-                    <span class="thq-body-large">
-                      <span>or $20 monthly</span>
-                    </span>
                   </div>
                   <div class="pricing-list4">
                     <div class="pricing-list-item22">
@@ -812,23 +801,19 @@
                     </div>
                   </div>
                 </div>
-                <button
-                  class="pricing-button17 thq-button-outline thq-button-animated">
-                  <span class="thq-body-small"><span>Get started</span></span>
+                <button class="pricing-button14 thq-button-outline thq-button-animated">
+                  <span class="thq-body-small"><span>Buy Now</span></span>
                 </button>
               </div>
               <div class="pricing-column5 thq-card">
                 <div class="pricing-price18">
                   <div class="pricing-price19">
                     <span class="pricing-text48 thq-body-large">
-                      <span>Business plan</span>
+                      <span>T-shirt3</span>
                     </span>
                     <h3 class="pricing-text49 thq-heading-3">
-                      <span>$299/yr</span>
+                      <span>$299</span>
                     </h3>
-                    <span class="thq-body-large">
-                      <span>or $29 monthly</span>
-                    </span>
                   </div>
                   <div class="pricing-list5">
                     <div class="pricing-list-item25">
@@ -869,23 +854,19 @@
                     </div>
                   </div>
                 </div>
-                <button
-                  class="pricing-button18 thq-button-animated thq-button-filled">
-                  <span class="thq-body-small"><span>Get started</span></span>
+                <button class="pricing-button14 thq-button-outline thq-button-animated">
+                  <span class="thq-body-small"><span>Buy Now</span></span>
                 </button>
               </div>
               <div class="pricing-column6 thq-card">
                 <div class="pricing-price20">
                   <div class="pricing-price21">
                     <span class="pricing-text56 thq-body-large">
-                      <span>Enterprise plan</span>
+                      <span>T-shirt4</span>
                     </span>
                     <h3 class="pricing-text57 thq-heading-3">
-                      <span>$499/yr</span>
+                      <span>$499</span>
                     </h3>
-                    <span class="thq-body-large">
-                      <span>or $49 monthly</span>
-                    </span>
                   </div>
                   <div class="pricing-list6">
                     <div class="pricing-list-item29">
@@ -935,9 +916,8 @@
                     </div>
                   </div>
                 </div>
-                <button
-                  class="pricing-button19 thq-button-animated thq-button-filled">
-                  <span class="thq-body-small"><span>Get started</span></span>
+                <button class="pricing-button14 thq-button-outline thq-button-animated">
+                  <span class="thq-body-small"><span>Buy Now</span></span>
                 </button>
               </div>
             </div>
@@ -961,7 +941,7 @@
                 <div class="steps-actions">
                   <button
                     class="thq-button-animated thq-button-filled steps-button">
-                    <span class="thq-body-small">Main action</span>
+                    <span class="thq-body-smallnav">Browse Now</span>
                   </button>
                 </div>
               </div>
@@ -1110,7 +1090,7 @@
                   src="{{ asset('images/logo/logo_ungu.jpg') }}"
                   class="footer-image1"
                   style="width: 120px; height: auto;" />
-                <span class="thq-body-small">
+                <span class="thq-body1-small">
                   Subscribe to our newsletter for the latest updates on new
                   features and product releases.
                 </span>
@@ -1123,7 +1103,7 @@
                         class="footer-text-input thq-input" />
                     </div>
                     <button class="thq-button-outline footer-button">
-                      <span class="thq-body-small">
+                      <span class="thq-body-smallnav">
                         <span>Subscribe to Newsletter</span>
                       </span>
                     </button>
@@ -1280,17 +1260,17 @@
             <div class="footer-credits">
               <div class="thq-divider-horizontal"></div>
               <div class="footer-row">
-                <span class="thq-body-small">
+                <span class="thq-body2-small">
                   <span>© 2024 IRVASCA. All Rights Reserved.</span>
                 </span>
                 <div class="footer-footer-links3">
-                  <span class="thq-body-small">
+                  <span class="thq-body2-small">
                     <span>/privacy-policy</span>
                   </span>
-                  <span class="thq-body-small">
+                  <span class="thq-body2-small">
                     <span>/terms-and-conditions</span>
                   </span>
-                  <span class="thq-body-small">
+                  <span class="thq-body2-small">
                     <span>/cookies-policy</span>
                   </span>
                 </div>

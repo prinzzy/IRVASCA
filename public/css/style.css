@@ -106,7 +106,7 @@
     padding-right: var(--dl-space-space-oneandhalfunits);
     padding-bottom: var(--dl-space-space-halfunit);
     justify-content: center;
-    background-color: var(--dl-color-theme-primary1);
+    background-color: #520055;
 }
 .thq-button-filled:hover {
     fill: var(--dl-color-theme-secondary2);
@@ -167,29 +167,40 @@
     background-color: var(--dl-color-theme-primary2);
 }
 .thq-heading-1 {
+    color: #520055;
     font-size: 48px;
     font-family: STIX Two Text;
     font-weight: 700;
     line-height: 1.5;
 }
 .thq-heading-2 {
+    color: #520055;
     font-size: 35px;
     font-family: STIX Two Text;
     font-weight: 600;
     line-height: 1.5;
 }
 .thq-heading-3 {
+    color: #520055;
     font-size: 26px;
     font-family: STIX Two Text;
     font-weight: 600;
     line-height: 1.5;
 }
 .thq-body-large {
+    color: #520055;
     font-size: 18px;
     font-family: Noto Sans;
     line-height: 1.5;
 }
 .thq-body-small {
+    color: #520055;
+    font-size: 16px;
+    font-family: Noto Sans;
+    line-height: 1.5;
+}
+.thq-body-smallnav {
+    color: white;
     font-size: 16px;
     font-family: Noto Sans;
     line-height: 1.5;
@@ -339,21 +350,23 @@
     cursor: pointer;
     display: inline-block;
     overflow: hidden;
+    font-weight: 600;
+    color: white; /* Set the base font color to white */
     background: linear-gradient(
         to right,
         #b78027 50%,
-        var(--dl-color-theme-neutral-dark) 50%
+        white 50% /* Update to white as the base color */
     );
-    transition: background-position 300ms ease;
-    font-weight: 600;
+    transition: background-position 300ms ease, color 300ms ease; /* Smooth transition for the background position and color change */
     background-clip: text;
     background-size: 200% 100%;
     background-position: 100%;
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent; /* Makes the gradient text effect work */
 }
 
 .thq-link:hover {
     background-position: 0 100%;
+    -webkit-text-fill-color: #b78027; /* Change the color to gold when hovered */
 }
 
 .thq-grid-auto-300 {
@@ -581,23 +594,79 @@
 }
 
 .footer-footer-links1 a {
-    color: #b78027; /* Set the text color to #b78027 */
+    color: #ffffff; /* Set the text color to white */
     text-decoration: none; /* Remove underline */
     transition: color 0.3s ease; /* Smooth transition for hover effect */
 }
 
 .footer-footer-links1 a:hover {
-    color: #85661b; /* Slightly darker shade on hover */
+    color: #b78027; /* Change to gold on hover */
     text-decoration: underline; /* Add underline on hover */
 }
 
 .footer-footer-links2 a {
-    color: #b78027; /* Set the text color to #b78027 */
+    color: #ffffff; /* Set the text color to white */
     text-decoration: none; /* Remove underline */
     transition: color 0.3s ease; /* Smooth transition for hover effect */
 }
 
 .footer-footer-links2 a:hover {
-    color: #85661b; /* Slightly darker shade on hover */
+    color: #b78027; /* Change to gold on hover */
     text-decoration: underline; /* Add underline on hover */
+}
+
+.footer-column3 .footer-social-link1-title span,
+.footer-column3 .footer-social-links .thq-body-small,
+.footer-column3 .footer-social-links svg {
+    color: white;
+    fill: white;
+}
+
+.footer-column2-title span {
+    color: white;
+}
+
+.footer-column1-title span {
+    color: white;
+}
+
+.thq-body1-small {
+    font-size: 16px;
+    font-family: Noto Sans;
+    line-height: 1.5;
+    color: white;
+}
+
+.thq-body2-small {
+    font-size: 16px;
+    font-family: Noto Sans;
+    line-height: 1.5;
+    color: white;
+}
+
+.footer-content2.thq-body-small span {
+    color: white;
+}
+
+.thq-linkm {
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    font-weight: 600;
+    color: white; /* Set the base font color to white */
+    background: linear-gradient(
+        to right,
+        #b78027 50%,
+        #520055 50% /* Update to white as the base color */
+    );
+    transition: background-position 300ms ease, color 300ms ease; /* Smooth transition for the background position and color change */
+    background-clip: text;
+    background-size: 200% 100%;
+    background-position: 100%;
+    -webkit-text-fill-color: transparent; /* Makes the gradient text effect work */
+}
+
+.thq-linkm:hover {
+    background-position: 0 100%;
+    -webkit-text-fill-color: #b78027; /* Change the color to gold when hovered */
 }

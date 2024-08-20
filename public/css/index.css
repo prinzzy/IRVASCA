@@ -178,7 +178,21 @@
     position: relative;
     align-items: flex-start;
     flex-direction: column;
+    padding: 10px;
+    margin: 0 auto;
+    max-width: 1600px;
 }
+
+/* .hero-content2 img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    height: auto;
+    z-index: 1;
+} */
+
 .hero-row-container1 {
     width: 100%;
 }
@@ -313,9 +327,12 @@
     grid-template-columns: 1fr 1fr;
 }
 .features1-image-container {
-    height: 100%;
-    display: flex;
     position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 1200px;
 }
 .features1-image1 {
     animation-name: fadeIn;
@@ -492,7 +509,7 @@
 }
 .cta-container2:hover {
     color: var(--dl-color-theme-neutral-light);
-    background-color: var(--dl-color-theme-neutral-dark);
+    background-color: var(--dl-color-theme-neutral-light);
 }
 .cta-content {
     gap: var(--dl-space-space-oneandhalfunits);
@@ -634,9 +651,12 @@
     justify-content: center;
 }
 .features2-image-container {
-    height: 100%;
-    display: flex;
     position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 1200px;
 }
 .features2-image1 {
     animation-name: fadeIn;
