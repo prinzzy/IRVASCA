@@ -10,45 +10,49 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::all();
-        return view('categories.index', compact('categories'));
+        return view('admin.products.index', compact('categories'));
     }
 
     public function create()
     {
-        return view('categories.create');
+        return view('admin.products.index');
     }
 
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:255|unique:categories,name',
+        ], [
+            'name.unique' => 'The category name already exists. Please choose a different name.',
         ]);
 
         Category::create($request->all());
 
-        return redirect()->route('categories.index')->with('success', 'Category created successfully.');
+        return redirect()->route('admin.products.index')->with('success', 'Category created successfully.');
     }
 
     public function edit(Category $category)
     {
-        return view('categories.edit', compact('category'));
+        return view('admin.products.index', compact('category'));
     }
 
     public function update(Request $request, Category $category)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:255|unique:categories,name,' . $category->id,
+        ], [
+            'name.unique' => 'The category name already exists. Please choose a different name.',
         ]);
-
+        
         $category->update($request->all());
 
-        return redirect()->route('categories.index')->with('success', 'Category updated successfully.');
+        return redirect()->route('admin.products.index')->with('success', 'Category updated successfully.');
     }
 
     public function destroy(Category $category)
     {
         $category->delete();
 
-        return redirect()->route('categories.index')->with('success', 'Category deleted successfully.');
+        return redirect()->route('admin.products.index')->with('success', 'Category deleted successfully.');
     }
 }

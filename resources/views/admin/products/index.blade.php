@@ -6,6 +6,17 @@
         <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createProductModal">Add Product</button>
         <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#createCategoryModal">Add Category</button>
         <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#createSubcategoryModal">Add Subcategory</button>
+        
+     <!-- Display Validation Errors -->
+     @if ($errors->any())
+            <div class="alert alert-danger mt-3">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
 
         <!-- Product Table -->
         <table class="table mt-3">
