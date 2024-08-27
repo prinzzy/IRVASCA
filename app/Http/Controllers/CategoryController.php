@@ -10,12 +10,12 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::all();
-        return view('admin.products.index', compact('categories'));
+        return view('products.index', compact('categories'));
     }
 
     public function create()
     {
-        return view('admin.products.index');
+        return view('products.index');
     }
 
     public function store(Request $request)
@@ -28,12 +28,12 @@ class CategoryController extends Controller
 
         Category::create($request->all());
 
-        return redirect()->route('admin.products.index')->with('success', 'Category created successfully.');
+        return redirect()->route('products.index')->with('success', 'Category created successfully.');
     }
 
     public function edit(Category $category)
     {
-        return view('admin.products.index', compact('category'));
+        return view('products.index', compact('category'));
     }
 
     public function update(Request $request, Category $category)
@@ -46,13 +46,13 @@ class CategoryController extends Controller
         
         $category->update($request->all());
 
-        return redirect()->route('admin.products.index')->with('success', 'Category updated successfully.');
+        return redirect()->route('products.index')->with('success', 'Category updated successfully.');
     }
 
     public function destroy(Category $category)
     {
         $category->delete();
 
-        return redirect()->route('admin.products.index')->with('success', 'Category deleted successfully.');
+        return redirect()->route('products.index')->with('success', 'Category deleted successfully.');
     }
 }
