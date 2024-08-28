@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
@@ -7,6 +8,7 @@ use App\Models\Subcategory;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Log;
 
 class AdminProductController extends Controller
 {
@@ -33,7 +35,15 @@ class AdminProductController extends Controller
         $data = $request->all();
 
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('product_images', 'public');
+            // Get the original image name
+            $originalName = pathinfo($request->file('image')->getClientOriginalName(), PATHINFO_FILENAME);
+
+            // Generate a unique filename based on the product name and current timestamp
+            $filename = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $data['name'])));
+            $filename = $filename . '-' . time() . '.' . $request->file('image')->getClientOriginalExtension();
+
+            // Store the image with the new filename
+            $imagePath = $request->file('image')->storeAs('product_images', $filename, 'public');
             $data['image_path'] = $imagePath;
         }
 
@@ -41,6 +51,7 @@ class AdminProductController extends Controller
 
         return redirect()->route('products.index')->with('success', 'Product created successfully.');
     }
+
 
     public function update(Request $request, $id)
     {
@@ -61,6 +72,8 @@ class AdminProductController extends Controller
                 Storage::delete('public/' . $product->image_path);
             }
             $imagePath = $request->file('image')->store('product_images', 'public');
+            dd($imagePath);
+            Log::info('Uploaded file path: ' . $imagePath);
             $validatedData['image_path'] = $imagePath;
         }
 
