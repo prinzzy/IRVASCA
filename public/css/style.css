@@ -100,6 +100,7 @@
     padding-top: var(--dl-space-space-halfunit);
     white-space: nowrap;
     border-color: var(--dl-color-theme-primary1);
+    
     border-width: 1px;
     padding-left: var(--dl-space-space-oneandhalfunits);
     border-radius: var(--dl-radius-radius-buttonradius);

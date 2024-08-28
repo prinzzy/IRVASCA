@@ -22,35 +22,38 @@ class AdminProductController extends Controller
     }
 
     public function store(Request $request)
-    {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'price' => 'required|numeric',
-            'category_id' => 'required|exists:categories,id',
-            'subcategory_id' => 'nullable|exists:subcategories,id',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-        ]);
+{
+    Log::info('Store method started');
 
-        $data = $request->all();
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'description' => 'nullable|string',
+        'price' => 'required|numeric',
+        'category_id' => 'required|exists:categories,id',
+        'subcategory_id' => 'nullable|exists:subcategories,id',
+        'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+    ]);
 
-        if ($request->hasFile('image')) {
-            // Get the original image name
-            $originalName = pathinfo($request->file('image')->getClientOriginalName(), PATHINFO_FILENAME);
+    Log::info('Validation passed');
 
-            // Generate a unique filename based on the product name and current timestamp
-            $filename = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $data['name'])));
-            $filename = $filename . '-' . time() . '.' . $request->file('image')->getClientOriginalExtension();
+    $data = $request->except('image'); // Exclude image from $data initially
 
-            // Store the image with the new filename
-            $imagePath = $request->file('image')->storeAs('product_images', $filename, 'public');
-            $data['image_path'] = $imagePath;
-        }
+    if ($request->hasFile('image')) {
 
-        Product::create($data);
+        $image = $request->file('image');
+        $imageName = strtolower(trim($request->input('name'))) . '.' . $image->getClientOriginalExtension(); // Name the image after the product
+        $imagePath = $image->storeAs('product_images', $imageName, 'public'); // Store with the new name
 
-        return redirect()->route('products.index')->with('success', 'Product created successfully.');
-    }
+
+        // Update data with the stored image path
+        $data['image_path'] = $imagePath;
+    } 
+
+    Product::create($data);
+
+    return redirect()->route('products.index')->with('success', 'Product created successfully.');
+}
+
 
 
     public function update(Request $request, $id)
