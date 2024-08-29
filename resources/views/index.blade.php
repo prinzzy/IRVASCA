@@ -173,9 +173,12 @@
               style="width: 120px; height: auto;" />
             <div data-thq="thq-navbar-nav" class="navbar-desktop-menu">
               <nav class="navbar-links1">
-                <span class="thq-link thq-body-small" style="color: white;"><span>Home</span></span>
-                <span class="thq-link thq-body-small" style="color: white;"><span>Shop</span></span>
-                <span class="thq-link thq-body-small" style="color: white;"><span>Collections</span></span>
+              <a href="{{ route('index') }}" class="thq-link thq-body-small" style="color: white;">
+              <span>Home</span></a>
+                <a href="{{ route('catalog.index') }}" class="thq-link thq-body-small" style="color: white;">
+                <span>Shop</span></a>
+                <a href="{{ route('catalog.index') }}" class="thq-link thq-body-small" style="color: white;">
+             <span>Collections</span></a>
                 <span class="thq-link thq-body-small" style="color: white;"><span>About Us</span></span>
                 <span class="thq-link thq-body-small" style="color: white;"><span>Contact</span></span>
               </nav>

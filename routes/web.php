@@ -46,8 +46,8 @@ Route::delete('subcategories/{subcategory}', [SubcategoryController::class, 'des
 
 
 Route::get('/', function () {
-    return view('index');
-});
+    return view('index'); })->name('index');
+    
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
