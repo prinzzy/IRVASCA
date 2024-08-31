@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coming Soon!</title>
+    <link rel="icon" href="{{ asset('images/logo/logo_ungu.png') }}" type="image/png">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
@@ -21,6 +22,7 @@
             background-color: #520055;
             color: #ffffff;
             overflow-x: hidden;
+            /* Prevent horizontal scrolling */
         }
 
         .logo {
@@ -93,6 +95,10 @@
             border-radius: 5px;
             border: none;
             width: 100%;
+            min-width: 350px;
+            /* Ensure it stays long on larger screens */
+            max-width: 600px;
+            /* Set a maximum width */
             font-family: 'Noto Sans', sans-serif !important;
             font-size: 1.2rem;
         }
@@ -129,15 +135,28 @@
             width: 100%;
             box-sizing: border-box;
             position: relative;
-            min-height: 340px;
-            /* Adjust as needed to ensure the content appears properly */
-        }
+            min-height: 220px;
+            overflow: hidden;
+            /* Prevent horizontal scrolling 
+}
 
-        .carousel-container {
-            position: relative;
-            width: 100%;
-            max-width: 1400px;
-            margin: 0 auto;
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.carousel-inner {
+    width: 100%;
+}
+
+.carousel-item {
+    display: flex;
+    justify-content: center; /* Center align items */
+            align-items: center;
+            /* Vertically center items */
+            overflow: hidden;
         }
 
         .carousel-item img {
@@ -146,7 +165,6 @@
             max-height: 400px;
             object-fit: cover;
             border-radius: 10px;
-            filter: blur(3px);
             transition: filter 0.3s ease-in-out;
         }
 
@@ -233,6 +251,11 @@
                 max-width: 250px;
                 padding: 8px;
             }
+
+            .carousel-wrapper {
+                padding: 20px 0;
+                /* Adjust padding for smaller screens */
+            }
         }
 
         @media (max-width: 576px) {
@@ -266,6 +289,11 @@
                 max-width: 200px;
                 padding: 6px;
             }
+
+            .carousel-wrapper {
+                padding: 15px 0;
+                /* Adjust padding for extra small screens */
+            }
         }
 
         .toast {
@@ -289,6 +317,162 @@
             to {
                 transform: translateX(0);
                 opacity: 1;
+            }
+        }
+
+        @media (max-device-width: 812px) and (orientation: portrait) {
+            .coming-soon-text {
+                font-size: 1.8rem;
+                /* Smaller font size for portrait mode on iPhones */
+                padding: 0 10px;
+                /* Adjusted padding */
+            }
+
+            .countdown span {
+                font-size: 1.4rem;
+            }
+
+            .subscribe-message {
+                font-size: 0.60rem;
+                /* Reduced font size */
+                padding: 0 10px;
+                /* Adjusted padding */
+            }
+
+            .carousel-item-content h3 {
+                font-size: 1.1rem;
+                /* Adjusted font size */
+            }
+
+            .carousel-item img {
+                max-height: 180px;
+                /* Reduced height for better fit */
+            }
+
+            .carousel-item-content {
+                width: 65%;
+                /* Reduced width for iPhone portrait */
+                max-width: 180px;
+                padding: 5px;
+            }
+
+            .carousel-wrapper {
+                padding: 10px 0;
+                /* Adjust padding */
+            }
+        }
+
+        @media (max-device-width: 812px) and (orientation: landscape) {
+            .coming-soon-text {
+                font-size: 1.9rem;
+                /* Adjusted font size for landscape mode */
+                padding: 0 15px;
+                /* Adjusted padding */
+            }
+
+            .countdown span {
+                font-size: 1.6rem;
+            }
+
+            .subscribe-message {
+                font-size: 0.8rem;
+                /* Slightly reduced font size */
+                padding: 0 15px;
+                /* Adjusted padding */
+            }
+
+            .carousel-item-content h3 {
+                font-size: 1.2rem;
+                /* Adjusted font size */
+            }
+
+            .carousel-item img {
+                max-height: 220px;
+                /* Slightly increased height for landscape */
+            }
+
+            .carousel-item-content {
+                width: 75%;
+                /* Increased width for iPhone landscape */
+                max-width: 220px;
+                padding: 6px;
+            }
+
+            .carousel-wrapper {
+                padding: 15px 0;
+                /* Adjust padding */
+            }
+        }
+
+        .toast-container {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 600px;
+            /* Adjust based on your design */
+            z-index: 1050;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            padding: 20px;
+        }
+
+        .toast {
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            animation: slideIn 0.5s ease-out;
+            background-color: #520055;
+            color: #b78027;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .toast-header {
+            background-color: #520055;
+            color: #b78027;
+        }
+
+        .toast-body {
+            background-color: #520055;
+            color: #b78027;
+        }
+
+        .toast .close {
+            color: #b78027;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .toast-container {
+                padding: 10px;
+            }
+
+            .toast {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .toast-container {
+                padding: 5px;
+            }
+
+            .toast {
+                font-size: 0.8rem;
             }
         }
     </style>
@@ -394,7 +578,7 @@
                     <div class="carousel-item @if($index == 0) active @endif">
                         <div class="row no-gutters">
                             @foreach($chunk as $product)
-                            <div class="col-4">
+                            <div class="col-4 d-flex align-items-center justify-content-center">
                                 <div class="carousel-item-content">
                                     <h3>Coming Soon</h3>
                                 </div>
