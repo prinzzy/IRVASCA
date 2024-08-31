@@ -168,17 +168,17 @@
           <header data-thq="thq-navbar" class="navbar-navbar-interactive">
             <img
               alt="IRVASCA Logo"
-              src="{{ asset('images/logo/logo_ungu.jpg') }}"
+              src="{{ asset('images/logo/logo_ungu.png') }}"
               class="navbar-image1"
               style="width: 120px; height: auto;" />
             <div data-thq="thq-navbar-nav" class="navbar-desktop-menu">
               <nav class="navbar-links1">
-              <a href="{{ route('index') }}" class="thq-link thq-body-small" style="color: white;">
-              <span>Home</span></a>
+                <a href="{{ route('index') }}" class="thq-link thq-body-small" style="color: white;">
+                  <span>Home</span></a>
                 <a href="{{ route('catalog.index') }}" class="thq-link thq-body-small" style="color: white;">
-                <span>Shop</span></a>
+                  <span>Shop</span></a>
                 <a href="{{ route('catalog.index') }}" class="thq-link thq-body-small" style="color: white;">
-             <span>Collections</span></a>
+                  <span>Collections</span></a>
                 <span class="thq-link thq-body-small" style="color: white;"><span>About Us</span></span>
                 <span class="thq-link thq-body-small" style="color: white;"><span>Contact</span></span>
               </nav>
@@ -1090,7 +1090,7 @@
               <div class="footer-newsletter">
                 <img
                   alt="IRVASCA Logo"
-                  src="{{ asset('images/logo/logo_ungu.jpg') }}"
+                  src="{{ asset('images/logo/logo_ungu.png') }}"
                   class="footer-image1"
                   style="width: 120px; height: auto;" />
                 <span class="thq-body1-small">

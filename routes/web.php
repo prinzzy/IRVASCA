@@ -5,6 +5,8 @@ use App\Http\Controllers\Admin\AdminProductController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SubcategoryController;
+use App\Http\Controllers\EmailController;
+use App\Models\Product;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,8 +48,15 @@ Route::delete('subcategories/{subcategory}', [SubcategoryController::class, 'des
 
 
 Route::get('/', function () {
-    return view('index'); })->name('index');
-    
+    $products = Product::all(); // Fetch all products
+    return view('countdown', compact('products'));
+})->name('countdown');
+
+Route::get('/index', function () {
+    return view('index');
+})->name('index');
+
+
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
@@ -61,5 +70,15 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         })->name('accordion');
     });
 });
+
+// Countdown
+Route::get('/countdown', function () {
+    $products = Product::all(); // Fetch all products
+    return view('countdown', compact('products'));
+});
+
+// Subcribed Email
+Route::post('/emails', [EmailController::class, 'store'])->name('emails.store');
+Route::get('/emails', [EmailController::class, 'index'])->name('emails.index');
 
 Route::get('/catalog', [ProductController::class, 'index'])->name('catalog.index');
