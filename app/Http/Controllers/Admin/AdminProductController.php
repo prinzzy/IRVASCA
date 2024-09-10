@@ -22,37 +22,34 @@ class AdminProductController extends Controller
     }
 
     public function store(Request $request)
-{
-    Log::info('Store method started');
+    {
+        Log::info('Store method started');
 
-    $request->validate([
-        'name' => 'required|string|max:255',
-        'description' => 'nullable|string',
-        'price' => 'required|numeric',
-        'category_id' => 'required|exists:categories,id',
-        'subcategory_id' => 'nullable|exists:subcategories,id',
-        'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-    ]);
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'price' => 'required|numeric',
+            'category_id' => 'required|exists:categories,id',
+            'subcategory_id' => 'nullable|exists:subcategories,id',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
 
-    Log::info('Validation passed');
+        Log::info('Validation passed');
 
-    $data = $request->except('image'); // Exclude image from $data initially
+        $data = $request->except('image'); // Exclude image from $data initially
 
-    if ($request->hasFile('image')) {
+        if ($request->hasFile('image')) {
 
-        $image = $request->file('image');
-        $imageName = strtolower(trim($request->input('name'))) . '.' . $image->getClientOriginalExtension(); // Name the image after the product
-        $imagePath = $image->storeAs('product_images', $imageName, 'public'); // Store with the new name
+            $image = $request->file('image');
+            $imageName = strtolower(trim($request->input('name'))) . '.' . $image->getClientOriginalExtension(); // Name the image after the product
+            $imagePath = $image->storeAs('product_images', $imageName, 'public'); // Store with the new name
+            $data['image_path'] = $imagePath;
+        }
 
+        Product::create($data);
 
-        // Update data with the stored image path
-        $data['image_path'] = $imagePath;
-    } 
-
-    Product::create($data);
-
-    return redirect()->route('products.index')->with('success', 'Product created successfully.');
-}
+        return redirect()->route('products.index')->with('success', 'Product created successfully.');
+    }
 
 
 
@@ -75,8 +72,6 @@ class AdminProductController extends Controller
                 Storage::delete('public/' . $product->image_path);
             }
             $imagePath = $request->file('image')->store('product_images', 'public');
-            dd($imagePath);
-            Log::info('Uploaded file path: ' . $imagePath);
             $validatedData['image_path'] = $imagePath;
         }
 

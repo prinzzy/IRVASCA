@@ -1,11 +1,13 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminProductController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SubcategoryController;
 use App\Http\Controllers\EmailController;
+use App\Http\Controllers\Admin\AdminEmailController;
 use App\Models\Product;
 
 /*
@@ -26,6 +28,10 @@ Route::prefix('admin')->middleware(['auth:sanctum', 'admin'])->group(function ()
     Route::get('products/{product}', [AdminProductController::class, 'show'])->name('products.show');
     Route::put('products/{product}', [AdminProductController::class, 'update'])->name('products.update');
     Route::delete('products/{product}', [AdminProductController::class, 'destroy'])->name('products.destroy');
+
+    Route::get('emails', [AdminEmailController::class, 'index'])->name('admin.emails.index');
+    Route::get('admin/emails/statsByMonth', [AdminEmailController::class, 'getEmailStatsByMonth'])->name('admin.emails.statsByMonth');
+    Route::get('admin/emails/counts-by-day', [AdminEmailController::class, 'countsByDay'])->name('admin.emails.countsByDay');
 });
 
 
@@ -44,6 +50,9 @@ Route::post('subcategories', [SubcategoryController::class, 'store'])->name('sub
 Route::get('subcategories/{subcategory}/edit', [SubcategoryController::class, 'edit'])->name('subcategories.edit');
 Route::put('subcategories/{subcategory}', [SubcategoryController::class, 'update'])->name('subcategories.update');
 Route::delete('subcategories/{subcategory}', [SubcategoryController::class, 'destroy'])->name('subcategories.destroy');
+
+
+
 
 
 
@@ -80,5 +89,8 @@ Route::get('/countdown', function () {
 // Subcribed Email
 Route::post('/emails', [EmailController::class, 'store'])->name('emails.store');
 Route::get('/emails', [EmailController::class, 'index'])->name('emails.index');
+
+Route::post('admin/emails/import', [AdminEmailController::class, 'importEmails'])->name('admin.emails.import');
+
 
 Route::get('/catalog', [ProductController::class, 'index'])->name('catalog.index');
