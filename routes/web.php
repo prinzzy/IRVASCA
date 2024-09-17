@@ -21,7 +21,7 @@ use App\Models\Product;
 |
 */
 
-
+// ADMIN ONLY
 Route::prefix('admin')->middleware(['auth:sanctum', 'admin'])->group(function () {
     Route::get('products', [AdminProductController::class, 'index'])->name('products.index');
     Route::post('products', [AdminProductController::class, 'store'])->name('products.store');
@@ -32,9 +32,9 @@ Route::prefix('admin')->middleware(['auth:sanctum', 'admin'])->group(function ()
     Route::get('emails', [AdminEmailController::class, 'index'])->name('admin.emails.index');
     Route::get('admin/emails/statsByMonth', [AdminEmailController::class, 'getEmailStatsByMonth'])->name('admin.emails.statsByMonth');
     Route::get('admin/emails/counts-by-day', [AdminEmailController::class, 'countsByDay'])->name('admin.emails.countsByDay');
+    Route::get('/admin/emails/data', [AdminEmailController::class, 'getEmailData'])->name('admin.emails.data');
+    Route::post('admin/emails/import', [AdminEmailController::class, 'importEmails'])->name('admin.emails.import');
 });
-
-
 
 Route::get('categories', [CategoryController::class, 'index'])->name('categories.index');
 Route::get('categories/create', [CategoryController::class, 'create'])->name('categories.create');
@@ -43,7 +43,6 @@ Route::get('categories/{category}/edit', [CategoryController::class, 'edit'])->n
 Route::put('categories/{category}', [CategoryController::class, 'update'])->name('categories.update');
 Route::delete('categories/{category}', [CategoryController::class, 'destroy'])->name('categories.destroy');
 
-
 Route::get('subcategories', [SubcategoryController::class, 'index'])->name('subcategories.index');
 Route::get('subcategories/create', [SubcategoryController::class, 'create'])->name('subcategories.create');
 Route::post('subcategories', [SubcategoryController::class, 'store'])->name('subcategories.store');
@@ -51,6 +50,52 @@ Route::get('subcategories/{subcategory}/edit', [SubcategoryController::class, 'e
 Route::put('subcategories/{subcategory}', [SubcategoryController::class, 'update'])->name('subcategories.update');
 Route::delete('subcategories/{subcategory}', [SubcategoryController::class, 'destroy'])->name('subcategories.destroy');
 
+
+
+// HOMEPAGE
+
+Route::get('/login-member', function () {
+    return view('home.07_login_register');
+});
+Route::get('/register-member', function () {
+    return view('home.05_register');
+});
+
+Route::get('/product', function () {
+    return view('home.03_product'); // home/product.blade.php
+});
+Route::get('/single-product', function () {
+    return view('home.04_single_product'); // home/single_product.blade.php
+});
+Route::get('/single-product-2', function () {
+    return view('home.04_single_product-2'); // home/single_product_2.blade.php
+});
+Route::get('/shopping-cart', function () {
+    return view('home.06_shopping_cart'); // home/shopping_cart.blade.php
+});
+Route::get('/ctg', function () {
+    return view('home.02_categories');
+});
+
+Route::get('/single-product-2', function () {
+    return view('home.14_contact'); // home/single_product_2.blade.php
+});
+Route::get('/about', function () {
+    return view('home.about'); // home/shopping_cart.blade.php
+});
+Route::get('/lookbook', function () {
+    return view('home.look-book');
+});
+Route::get('/blog', function () {
+    return view('home.12_blog');
+});
+Route::get('/shortcodes', function () {
+    return view('home.shortcodes');
+});
+
+Route::get('/contact', function () {
+    return view('home.14_contact');
+});
 
 
 
@@ -62,7 +107,7 @@ Route::get('/', function () {
 })->name('countdown');
 
 Route::get('/index', function () {
-    return view('index');
+    return view('home.index');
 })->name('index');
 
 
@@ -90,7 +135,6 @@ Route::get('/countdown', function () {
 Route::post('/emails', [EmailController::class, 'store'])->name('emails.store');
 Route::get('/emails', [EmailController::class, 'index'])->name('emails.index');
 
-Route::post('admin/emails/import', [AdminEmailController::class, 'importEmails'])->name('admin.emails.import');
 
 
 Route::get('/catalog', [ProductController::class, 'index'])->name('catalog.index');

@@ -6,6 +6,7 @@
     </x-slot>
 
     <div class="container my-4">
+        <!-- File Upload Form -->
         <form action="{{ route('admin.emails.import') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
@@ -14,72 +15,84 @@
             </div>
             <button type="submit" class="btn btn-primary">Import Emails</button>
         </form>
-        <!-- Email Table -->
-        <div class="mb-4">
-            <h3 class="text-lg font-weight-bold mb-3">Email List</h3>
-            <div class="table-responsive">
-                <table class="table table-bordered table-hover" id="emailTable">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th>ID</th>
-                            <th>Email</th>
-                            <th>Created At</th>
-                            <th>Updated At</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @forelse($emails as $email)
-                        <tr>
-                            <td>{{ $email->id }}</td>
-                            <td>{{ $email->email }}</td>
-                            <td>{{ $email->created_at }}</td>
-                            <td>{{ $email->updated_at }}</td>
-                        </tr>
-                        @empty
-                        <tr>
-                            <td colspan="4" class="text-center">No emails found</td>
-                        </tr>
-                        @endforelse
-                    </tbody>
-                </table>
-            </div>
-        </div>
 
-        <!-- Total Emails Per Month -->
-        <div class="mb-4">
-            <h3 class="text-lg font-weight-bold mb-3">Total Emails Per Month</h3>
-            <ul id="emailTotalsList" class="list-group">
-                <!-- Totals will be injected here -->
-            </ul>
-            <div class="mt-4">
-                <canvas id="emailStatsChart"></canvas>
-            </div>
-        </div>
-
-        <!-- Email Counts by Day Chart -->
-        <div>
-            <h3 class="text-lg font-weight-bold mb-3">Email Counts by Day</h3>
-            <div class="mt-4">
-                <canvas id="emailCountsByDayChart"></canvas>
+        <div class="progress mt-4">
+            <div id="progress-bar" class="progress-bar" role="progressbar"
+                style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                0% emails processed
             </div>
         </div>
     </div>
 
-    <!-- External Libraries -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap4.min.css">
+    <!-- Email Table -->
+    <div class="mb-4">
+        <h3 class="text-lg font-weight-bold mb-3">Email List</h3>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover" id="emailTable">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Email</th>
+                        <th>Created At</th>
+                        <th>Updated At</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+
+    <!-- Total Emails Per Month -->
+    <div class="mb-4">
+        <h3 class="text-lg font-weight-bold mb-3">Total Emails Per Month</h3>
+        <ul id="emailTotalsList" class="list-group"></ul>
+        <div class="mt-4">
+            <canvas id="emailStatsChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Email Counts by Day Chart -->
+    <div>
+        <h3 class="text-lg font-weight-bold mb-3">Email Counts by Day</h3>
+        <div class="mt-4">
+            <canvas id="emailCountsByDayChart"></canvas>
+        </div>
+    </div>
+    </div>
+
+    <!-- DataTables and Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@latest"></script>
 
-    <!-- JavaScript for DataTables and Charts -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize DataTable for the email table
-            $('#emailTable').DataTable();
+            // Initialize DataTable with server-side processing
+            $('#emailTable').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: '{{ route("admin.emails.data") }}',
+                columns: [{
+                        data: 'id',
+                        name: 'id'
+                    },
+                    {
+                        data: 'email',
+                        name: 'email'
+                    },
+                    {
+                        data: 'created_at',
+                        name: 'created_at'
+                    },
+                    {
+                        data: 'updated_at',
+                        name: 'updated_at'
+                    }
+                ]
+            });
 
-            // Fetch and display total emails per month
+            // Fetch email statistics asynchronously
             fetch(`{{ route('admin.emails.statsByMonth') }}`)
                 .then(response => response.json())
                 .then(data => {
@@ -108,11 +121,7 @@
                             responsive: true,
                             scales: {
                                 y: {
-                                    beginAtZero: true,
-                                    title: {
-                                        display: true,
-                                        text: 'Count'
-                                    }
+                                    beginAtZero: true
                                 },
                                 x: {
                                     title: {
@@ -123,10 +132,9 @@
                             }
                         }
                     });
-                })
-                .catch(error => console.error('Error fetching email stats by month:', error));
+                });
 
-            // Fetch and display email counts by day (existing logic)
+            // Email counts by day
             fetch(`{{ route('admin.emails.countsByDay') }}`)
                 .then(response => response.json())
                 .then(data => {
@@ -171,6 +179,22 @@
                     });
                 })
                 .catch(error => console.error('Error fetching email counts by day:', error));
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if session data for progress exists
+            var progress = "{{ session('progress.total', 0) }}"; // Default to 0 if session not set
+            var progressBar = document.getElementById('progress-bar');
+
+            // Ensure progress is a valid percentage
+            var percentage = Math.min(100, parseInt(progress, 10));
+
+            // Update the progress bar dynamically based on session data
+            if (percentage > 0) {
+                progressBar.style.width = percentage + '%';
+                progressBar.setAttribute('aria-valuenow', percentage);
+                progressBar.textContent = percentage + '% emails processed';
+            }
         });
     </script>
 </x-app-layout>

@@ -9,16 +9,28 @@ use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\EmailsImport;
-
+use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Log;
 
 class AdminEmailController extends Controller
 {
     public function index()
     {
-        $emails = Email::all();
-        return view('admin.emails.index', [
-            'emails' => $emails
-        ]);
+        return view('admin.emails.index');
+    }
+
+    public function getEmailData(Request $request)
+    {
+        $emails = Email::query();
+        return DataTables::of($emails)
+            ->editColumn('created_at', function ($email) {
+                return $email->created_at->format('Y-m-d H:i:s');
+            })
+            ->editColumn('updated_at', function ($email) {
+                return $email->updated_at->format('Y-m-d H:i:s');
+            })
+            ->make(true);
     }
 
     public function getEmailStatsByMonth()
@@ -36,7 +48,6 @@ class AdminEmailController extends Controller
                 ];
             });
 
-
         return response()->json($emailsPerMonth);
     }
 
@@ -53,21 +64,20 @@ class AdminEmailController extends Controller
 
     public function importEmails(Request $request)
     {
-
         set_time_limit(300);
-        // Validate that a CSV or Excel file has been uploaded
-        $request->validate([
-            'email_file' => 'required|mimes:csv,xlsx,xls',
-        ]);
+        $request->validate(['email_file' => 'required|mimes:csv,xlsx,xls']);
 
         try {
-            // Use Laravel Excel to import the file
+            session()->put('progress', ['total' => 0]); // Reset progress before processing
+
+            // Import emails using Laravel Excel
             Excel::import(new EmailsImport, $request->file('email_file'));
 
-            // Redirect back with success message
+            // Set progress to 100% after successful processing
+            session()->put('progress', ['total' => 100]);
+
             return redirect()->back()->with('success', 'Emails imported successfully.');
         } catch (\Exception $e) {
-            // Redirect back with error message
             return redirect()->back()->with('error', 'Failed to import emails: ' . $e->getMessage());
         }
     }

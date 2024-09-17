@@ -8,39 +8,53 @@ use Illuminate\Support\Facades\Validator;
 use App\Models\Email;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Log;
 
 class EmailsImport implements ToCollection
 {
     protected $emails = [];
+    protected $validCount = 0;
+    protected $invalidCount = 0;
+    protected $skippedCount = 0;
+    protected $failedCount = 0;
 
     public function collection(Collection $rows)
     {
-        // Define the time zone for Jakarta
         $timezone = 'Asia/Jakarta';
 
         foreach ($rows as $row) {
             $email = $row[1]; // Assuming email is in the second column
 
-            // Validate email format
             $validator = Validator::make(['email' => $email], [
                 'email' => 'required|email'
             ]);
 
-            if (!$validator->fails() && !$this->emailExists($email)) {
-                $now = Carbon::now($timezone); // Set the time zone for now()
+            if (!$validator->fails()) {
+                if (!$this->emailExists($email)) {
+                    try {
+                        $now = Carbon::now($timezone);
 
-                $this->emails[] = [
-                    'email' => $email,
-                    'created_at' => $now,
-                    'updated_at' => $now,
-                ];
+                        $this->emails[] = [
+                            'email' => $email,
+                            'created_at' => $now,
+                            'updated_at' => $now,
+                        ];
+                        $this->validCount++;
+                    } catch (\Exception $e) {
+                        $this->failedCount++;
+                    }
+                } else {
+                    $this->skippedCount++;
+                }
+            } else {
+                $this->invalidCount++;
             }
         }
 
-        // Insert emails in batches
-        if (count($this->emails) > 1000) { // Batch size
+        if (count($this->emails) > 1000) {
             Email::insert($this->emails);
-            $this->emails = []; // Clear the array
+            $this->emails = [];
         }
     }
 
@@ -51,9 +65,34 @@ class EmailsImport implements ToCollection
 
     public function __destruct()
     {
-        // Insert remaining emails
         if (count($this->emails) > 0) {
             Email::insert($this->emails);
         }
+    }
+
+    // Methods to get progress counts
+    public function getValidCount()
+    {
+        return $this->validCount;
+    }
+
+    public function getInvalidCount()
+    {
+        return $this->invalidCount;
+    }
+
+    public function getSkippedCount()
+    {
+        return $this->skippedCount;
+    }
+
+    public function getFailedCount()
+    {
+        return $this->failedCount;
+    }
+
+    public function getTotal()
+    {
+        return $this->validCount + $this->invalidCount + $this->skippedCount + $this->failedCount;
     }
 }
