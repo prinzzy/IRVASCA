@@ -160,15 +160,6 @@
 					<div class="col-12 col-md-12 col-lg-3 ow-right-padding ">
 						<div class="row">
 							<form class="col-12  col-sm-6 col-md-6 col-lg-7">
-								<!-- <div class="select-styled">
-									<select class="minimal">
-										<option>Dollar (&#36;)</option>
-										<option>Lira (&#8356;)</option>
-										<option>Cent (&cent;)</option>
-										<option>Pound (&pound;)</option>
-										<option>Yen (&yen;)</option>
-									</select>
-								</div> -->
 							</form>
 							<div class="col-12 col-sm-6 col-md-6 col-lg-5 cart-link ow-right-padding">
 								<svg width="16px" height="15px" viewBox="0 0 533.334 533.335">
@@ -437,15 +428,15 @@
 			<div class="row">
 				<div class="col-12 col-md-3 col-lg-3 categories-title">
 					<h3>Special Offer’s and Discount</h3>
-					<p>Vivamus nec urna luctus, dignissim est</p>
+					<p>We has special offers for you</p>
 				</div>
 				<div class="col-12 col-md-6 col-lg-6">
-					<h3>70,000+ Collection</h3>
-					<h4>500+ Stylish Brand’s</h4>
+					<h3>Collection</h3>
+					<h4>10.000+ Stylish Collection’s</h4>
 				</div>
 				<div class="col-12 col-md-3 col-lg-3 categories-title">
-					<h3>Free 30 Days Returns</h3>
-					<p>Sed at justo eget nulla placerat</p>
+					<h3>High Quality Granted</h3>
+					<p>We Always Deliver Perfect Quality Products for you</p>
 				</div>
 			</div>
 			<div class="category-box-main categories-slider">
@@ -522,9 +513,7 @@
 			<!-- Section Header -->
 			<div class="section-header">
 				<h3>Featured products</h3>
-				<p>Nam ac egestas est. Mauris et pulvinar risus, at tincidunt lorem. Maecenas tristique sit amet odio
-					sit amet aliquet. Quisque a pharetra quam. Sed in ultrices diam, eget sodales ligula. Sed ut
-					tincidunt lacus.</p>
+				<p>Explore our selection of featured products, carefully curated to meet diverse needs and preferences. Each item stands out for its quality, functionality, and design, ensuring they enhance your everyday life.</p>
 			</div><!-- Section Header /- -->
 
 			<div class="category-box-main product-box-main row">
@@ -764,160 +753,6 @@
 	<!-- Feature Product /- -->
 
 	<!-- Feature Product -->
-	<Section id="blog-section" class="blog-section bottom-shadow">
-		<!-- container -->
-		<div class="container">
-			<!-- Section Header -->
-			<div class="section-header">
-				<h3>Latest From Our Blog</h3>
-			</div><!-- Section Header /- -->
-			<div class="row">
-				<div class="col-12 col-md-12 col-lg-3">
-					<div class="badge-box">
-						<img src="images/blog/badge-img.jpg" alt="offer img" />
-						<div class="badge-icon">
-							<img src="images/blog/badge-icon.png" alt="badge icon" />
-						</div>
-					</div>
-				</div>
-
-				<div class="col-12 col-md-12 col-lg-6 blog-content">
-					<article>
-						<div class="row">
-							<div class="col-md-4 col-sm-4 col-xs-4 ow-left-padding">
-								<a class="post-thumbnail"><img src="images/blog/post-thumbnail-1.jpg"
-										alt="post-thumbnail" /></a>
-							</div>
-							<div class="col-md-8 col-sm-8 col-xs-8">
-								<header class="entry-header">
-									<h2 class="entry-title"><a href="13_single-blog-post.html">Etiam leo neque, fringilla eget interdum nec,
-											Aliquam vel justo.</a></h2>
-								</header>
-								<footer class="entry-footer">
-									<span class="posted-on">
-										<span class="sr-only">Posted on </span>
-										<a rel="bookmark" href="13_single-blog-post.html">
-											<span class="entry-date">04/12/14</span>
-											<svg viewBox="0 0 276.338 276.338">
-												<path
-													d="M267.207,99.838v-37.64v-4.123c0-21.569-19.036-39.141-42.689-39.748v0.005v9.549v0.009v9.6v0.019v5.454    c0,13.999-11.388,25.387-25.384,25.387c-13.997,0-25.385-11.388-25.385-25.387v-5.582v-9.558v-9.558h-71.98v9.558v9.558v5.582    c0,13.999-11.388,25.387-25.386,25.387c-13.997,0-25.384-11.388-25.384-25.387v-5.372v-0.033v-9.631v-0.009V18.37V18.36    C27.737,19.345,9.131,36.756,9.131,58.07v4.123v37.64v132.573c0,24.218,19.709,43.932,43.929,43.932h170.216    c24.217,0,43.927-19.714,43.927-43.932V99.838H267.207z M248.09,232.411c0,13.684-11.131,24.811-24.814,24.811H53.065    c-13.682,0-24.812-11.127-24.812-24.811V99.838H248.09V232.411z" />
-												<path
-													d="M65.339,11.049v7.215v9.558v9.558v5.582c0,6.104,4.945,11.049,11.049,11.049c6.102,0,11.049-4.945,11.049-11.049v-5.582    v-9.558v-9.558v-7.215C87.438,4.945,82.491,0,76.389,0C70.284,0.005,65.339,4.95,65.339,11.049z" />
-												<path
-													d="M199.137,0.005c-6.104,0-11.051,4.945-11.051,11.049v7.215v9.558v9.558v5.582c0,6.104,4.946,11.049,11.051,11.049    s11.052-4.945,11.052-11.049v-5.587v-9.558v-9.558v-7.215C210.18,4.95,205.238,0.005,199.137,0.005z" />
-												<path
-													d="M106.19,231.87c12.463,0,21.875-3.481,28.238-10.445c6.352-6.963,9.535-15.037,9.535-24.222    c0-8.737-2.719-15.626-8.163-20.666c-1.477-1.354-2.814-2.437-4.009-3.239c-2.188-1.475-2.352-2.529-0.292-4.125    c1.157-0.901,2.294-1.988,3.407-3.268c3.794-4.392,5.691-9.782,5.691-16.176c0-9.026-3.171-16.23-9.532-21.597    s-14.725-8.048-25.095-8.048c-5.582,0-10.296,0.674-14.137,2.021c-3.839,1.349-7.15,3.292-9.945,5.841    c-3.739,3.594-6.48,7.512-8.23,11.759c-1.15,3.388-1.949,6.921-2.39,10.584c-0.315,2.623,1.769,4.761,4.406,4.761h10.356    c2.64,0,4.674-2.156,5.057-4.77c0.465-3.174,1.505-5.853,3.116-8.032c2.366-3.192,6.065-4.793,11.093-4.793    c4.383,0,7.775,1.297,10.193,3.893c2.408,2.595,3.619,5.964,3.619,10.108c0,6.395-2.366,10.637-7.089,12.732    c-2.053,0.933-5.29,1.544-9.696,1.838c-2.632,0.168-4.774,2.324-4.774,4.957v5.717c0,2.637,2.147,4.756,4.784,4.9    c4.669,0.248,8.254,0.878,10.744,1.899c5.773,2.399,8.66,7.169,8.66,14.3c0,5.396-1.559,9.521-4.669,12.396    c-3.11,2.87-6.763,4.303-10.944,4.303c-6.823,0-11.532-2.618-14.118-7.859c-0.845-1.731-1.433-3.733-1.767-6.011    c-0.383-2.614-2.462-4.771-5.106-4.771H73.726c-2.639,0-4.718,2.138-4.427,4.761c0.714,6.478,2.343,11.878,4.879,16.194    C80.157,226.853,90.831,231.87,106.19,231.87z" />
-												<path
-													d="M165.582,154.303h15.976c2.637,0,4.778,2.138,4.778,4.779v65.312c0,2.637,2.143,4.779,4.779,4.779h12.308    c2.637,0,4.778-2.143,4.778-4.779v-99.005c0-2.637-2.142-4.779-4.778-4.779h-8.266c-2.637,0-4.812,0.994-5.064,2.188    c-0.135,0.63-0.312,1.349-0.541,2.151c-0.942,3.244-2.343,5.839-4.182,7.785c-2.688,2.842-6.175,4.739-10.454,5.691    c-1.997,0.448-5.115,0.808-9.344,1.092c-2.632,0.168-4.77,2.399-4.77,5.031v4.966    C160.802,152.161,162.949,154.303,165.582,154.303z" />
-											</svg>
-										</a>
-									</span>
-									<span class="comments-link">
-										<a href="#">12
-											<svg viewBox="0 0 441.6 441.6">
-												<path
-													d="M406.975,205.046v5.087c0,46.294-37.663,83.958-83.958,83.958H201.071v10.472c0,22.139,17.946,40.084,40.083,40.084    h101.938l46.158,45.411c1.645,1.617,3.828,2.477,6.047,2.477c1.123,0,2.254-0.221,3.33-0.67c3.204-1.344,5.289-4.479,5.289-7.951    v-39.345c21.019-1.242,37.683-18.675,37.683-40.006V244.75C441.6,224.467,426.528,207.711,406.975,205.046z" />
-												<path
-													d="M383.787,208.459v-95.437c0-35.323-28.636-63.958-63.958-63.958H63.958C28.635,49.064,0,77.699,0,113.022v95.437    c0,34.037,26.589,61.851,60.126,63.833v62.777c0,5.542,3.327,10.544,8.438,12.686c1.718,0.721,3.522,1.069,5.313,1.069    c3.542,0,7.025-1.368,9.649-3.95l73.65-72.457h162.651C355.152,272.418,383.787,243.783,383.787,208.459z" />
-											</svg>
-										</a>
-									</span>
-									<span class="byline">
-										<span class="author vcard">
-											<span class="sr-only">Author </span>
-											<a href="#" class="url fn n">Artist
-												<svg viewBox="0 0 43.028 43.028">
-													<path
-														d="M39.561,33.971l-0.145,0.174c-4.774,5.728-11.133,8.884-17.902,8.884c-6.77,0-13.128-3.155-17.903-8.884l-0.144-0.174   l0.034-0.223c0.922-6.014,4.064-10.845,8.847-13.606l0.34-0.196l0.271,0.284c2.259,2.37,5.297,3.674,8.554,3.674   s6.295-1.305,8.554-3.674l0.271-0.284l0.34,0.196c4.783,2.761,7.925,7.592,8.848,13.606L39.561,33.971z M21.514,21.489   c5.924,0,10.744-4.82,10.744-10.744C32.258,4.821,27.438,0,21.514,0S10.77,4.821,10.77,10.744S15.59,21.489,21.514,21.489z" />
-												</svg>
-											</a>
-										</span>
-									</span>
-								</footer>
-								<div class="entry-content">
-									<p>Quisque finibus eleifend elit, et mattis magna dignissim a. Phasellus auctor
-										facilisis mollis.</p>
-								</div>
-								<a href="13_single-blog-post.html" class="read-more">Read More</a>
-							</div>
-						</div>
-					</article>
-
-					<article>
-						<div class="row">
-							<div class="col-md-4 col-sm-4 col-xs-4 ow-left-padding">
-								<a class="post-thumbnail"><img src="images/blog/post-thumbnail-2.jpg"
-										alt="post-thumbnail" /></a>
-							</div>
-							<div class="col-md-8 col-sm-8 col-xs-8">
-								<header class="entry-header">
-									<h2 class="entry-title"><a href="13_single-blog-post.html">GOLD at mollis nibh, quis varius massa.
-											Pellentesque nibh massa.</a></h2>
-								</header>
-								<footer class="entry-footer">
-									<span class="posted-on">
-										<span class="sr-only">Posted on </span>
-										<a rel="bookmark" href="javascript:;">
-											<span class="entry-date">03/12/14
-												<svg viewBox="0 0 276.338 276.338">
-													<path
-														d="M267.207,99.838v-37.64v-4.123c0-21.569-19.036-39.141-42.689-39.748v0.005v9.549v0.009v9.6v0.019v5.454    c0,13.999-11.388,25.387-25.384,25.387c-13.997,0-25.385-11.388-25.385-25.387v-5.582v-9.558v-9.558h-71.98v9.558v9.558v5.582    c0,13.999-11.388,25.387-25.386,25.387c-13.997,0-25.384-11.388-25.384-25.387v-5.372v-0.033v-9.631v-0.009V18.37V18.36    C27.737,19.345,9.131,36.756,9.131,58.07v4.123v37.64v132.573c0,24.218,19.709,43.932,43.929,43.932h170.216    c24.217,0,43.927-19.714,43.927-43.932V99.838H267.207z M248.09,232.411c0,13.684-11.131,24.811-24.814,24.811H53.065    c-13.682,0-24.812-11.127-24.812-24.811V99.838H248.09V232.411z" />
-													<path
-														d="M65.339,11.049v7.215v9.558v9.558v5.582c0,6.104,4.945,11.049,11.049,11.049c6.102,0,11.049-4.945,11.049-11.049v-5.582    v-9.558v-9.558v-7.215C87.438,4.945,82.491,0,76.389,0C70.284,0.005,65.339,4.95,65.339,11.049z" />
-													<path
-														d="M199.137,0.005c-6.104,0-11.051,4.945-11.051,11.049v7.215v9.558v9.558v5.582c0,6.104,4.946,11.049,11.051,11.049    s11.052-4.945,11.052-11.049v-5.587v-9.558v-9.558v-7.215C210.18,4.95,205.238,0.005,199.137,0.005z" />
-													<path
-														d="M106.19,231.87c12.463,0,21.875-3.481,28.238-10.445c6.352-6.963,9.535-15.037,9.535-24.222    c0-8.737-2.719-15.626-8.163-20.666c-1.477-1.354-2.814-2.437-4.009-3.239c-2.188-1.475-2.352-2.529-0.292-4.125    c1.157-0.901,2.294-1.988,3.407-3.268c3.794-4.392,5.691-9.782,5.691-16.176c0-9.026-3.171-16.23-9.532-21.597    s-14.725-8.048-25.095-8.048c-5.582,0-10.296,0.674-14.137,2.021c-3.839,1.349-7.15,3.292-9.945,5.841    c-3.739,3.594-6.48,7.512-8.23,11.759c-1.15,3.388-1.949,6.921-2.39,10.584c-0.315,2.623,1.769,4.761,4.406,4.761h10.356    c2.64,0,4.674-2.156,5.057-4.77c0.465-3.174,1.505-5.853,3.116-8.032c2.366-3.192,6.065-4.793,11.093-4.793    c4.383,0,7.775,1.297,10.193,3.893c2.408,2.595,3.619,5.964,3.619,10.108c0,6.395-2.366,10.637-7.089,12.732    c-2.053,0.933-5.29,1.544-9.696,1.838c-2.632,0.168-4.774,2.324-4.774,4.957v5.717c0,2.637,2.147,4.756,4.784,4.9    c4.669,0.248,8.254,0.878,10.744,1.899c5.773,2.399,8.66,7.169,8.66,14.3c0,5.396-1.559,9.521-4.669,12.396    c-3.11,2.87-6.763,4.303-10.944,4.303c-6.823,0-11.532-2.618-14.118-7.859c-0.845-1.731-1.433-3.733-1.767-6.011    c-0.383-2.614-2.462-4.771-5.106-4.771H73.726c-2.639,0-4.718,2.138-4.427,4.761c0.714,6.478,2.343,11.878,4.879,16.194    C80.157,226.853,90.831,231.87,106.19,231.87z" />
-													<path
-														d="M165.582,154.303h15.976c2.637,0,4.778,2.138,4.778,4.779v65.312c0,2.637,2.143,4.779,4.779,4.779h12.308    c2.637,0,4.778-2.143,4.778-4.779v-99.005c0-2.637-2.142-4.779-4.778-4.779h-8.266c-2.637,0-4.812,0.994-5.064,2.188    c-0.135,0.63-0.312,1.349-0.541,2.151c-0.942,3.244-2.343,5.839-4.182,7.785c-2.688,2.842-6.175,4.739-10.454,5.691    c-1.997,0.448-5.115,0.808-9.344,1.092c-2.632,0.168-4.77,2.399-4.77,5.031v4.966    C160.802,152.161,162.949,154.303,165.582,154.303z" />
-												</svg>
-											</span>
-										</a>
-									</span>
-									<span class="comments-link">
-										<a href="#">55
-											<svg viewBox="0 0 441.6 441.6">
-												<path
-													d="M406.975,205.046v5.087c0,46.294-37.663,83.958-83.958,83.958H201.071v10.472c0,22.139,17.946,40.084,40.083,40.084    h101.938l46.158,45.411c1.645,1.617,3.828,2.477,6.047,2.477c1.123,0,2.254-0.221,3.33-0.67c3.204-1.344,5.289-4.479,5.289-7.951    v-39.345c21.019-1.242,37.683-18.675,37.683-40.006V244.75C441.6,224.467,426.528,207.711,406.975,205.046z" />
-												<path
-													d="M383.787,208.459v-95.437c0-35.323-28.636-63.958-63.958-63.958H63.958C28.635,49.064,0,77.699,0,113.022v95.437    c0,34.037,26.589,61.851,60.126,63.833v62.777c0,5.542,3.327,10.544,8.438,12.686c1.718,0.721,3.522,1.069,5.313,1.069    c3.542,0,7.025-1.368,9.649-3.95l73.65-72.457h162.651C355.152,272.418,383.787,243.783,383.787,208.459z" />
-											</svg>
-										</a>
-									</span>
-									<span class="byline">
-										<span class="author vcard">
-											<span class="sr-only">Author </span>
-											<a title="" href="#" class="url fn n">Ajay
-												<svg viewBox="0 0 43.028 43.028">
-													<path
-														d="M39.561,33.971l-0.145,0.174c-4.774,5.728-11.133,8.884-17.902,8.884c-6.77,0-13.128-3.155-17.903-8.884l-0.144-0.174   l0.034-0.223c0.922-6.014,4.064-10.845,8.847-13.606l0.34-0.196l0.271,0.284c2.259,2.37,5.297,3.674,8.554,3.674   s6.295-1.305,8.554-3.674l0.271-0.284l0.34,0.196c4.783,2.761,7.925,7.592,8.848,13.606L39.561,33.971z M21.514,21.489   c5.924,0,10.744-4.82,10.744-10.744C32.258,4.821,27.438,0,21.514,0S10.77,4.821,10.77,10.744S15.59,21.489,21.514,21.489z" />
-												</svg>
-											</a>
-										</span>
-									</span>
-								</footer>
-								<div class="entry-content">
-									<p>Quisque finibus eleifend elit, et mattis magna dignissim a. Phasellus auctor
-										facilisis mollis.</p>
-								</div>
-								<a href="13_single-blog-post.html" class="read-more">Read More</a>
-							</div>
-						</div>
-					</article>
-				</div>
-
-				<div class=" col-12 col-md-12 col-lg-3">
-					<div class="badge-box">
-						<img src="images/blog/badge-img-2.jpg" alt="offer img" />
-						<div class="middle-add">
-							<h3>Take a walk on the wild side</h3>
-							<a title="Read More" href="13_single-blog-post.html" class="read-more">Read More</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div> <!-- Container /- -->
-	</section>
 
 	<!-- Footer Section -->
 	<div id="footer-section" class="footer-section">
@@ -930,52 +765,6 @@
 			</div><!-- container /- -->
 		</div><!-- Add Banner /- -->
 
-		<!-- Our Partner -->
-		<div id="our-partner-section" class="our-partner-section bottom-shadow">
-			<!-- container -->
-			<div class="container">
-				<!-- Section Header -->
-				<div class="section-header">
-					<h3>Partners with us</h3>
-					<p>Nam ac egestas est. Mauris et pulvinar risus, at tincidunt lorem. Maecenas tristique sit amet
-						odio sit amet aliquet. Quisque a pharetra quam. Sed in ultrices diam, eget sodales ligula. Sed
-						ut tincidunt lacus.</p>
-				</div><!-- Section Header /- -->
-				<!-- Owl Carousel -->
-				<div id="our-partner" class="owl-carousel owl-theme our-partner">
-					<div class="item">
-						<a title="Partner" href="#" class="partner-box">
-							<img src="images/partner/partner-1.png" alt="partner-1" />
-						</a>
-					</div>
-					<div class="item">
-						<a title="Partner" href="#" class="partner-box">
-							<img src="images/partner/partner-2.png" alt="partner-1" />
-						</a>
-					</div>
-					<div class="item">
-						<a title="Partner" href="#" class="partner-box">
-							<img src="images/partner/partner-3.png" alt="partner-1" />
-						</a>
-					</div>
-					<div class="item">
-						<a title="Partner" href="#" class="partner-box">
-							<img src="images/partner/partner-4.png" alt="partner-1" />
-						</a>
-					</div>
-					<div class="item">
-						<a title="Partner" href="#" class="partner-box">
-							<img src="images/partner/partner-1.png" alt="partner-1" />
-						</a>
-					</div>
-					<div class="item">
-						<a title="Partner" href="#" class="partner-box">
-							<img src="images/partner/partner-2.png" alt="partner-1" />
-						</a>
-					</div>
-				</div><!-- Owl Carousel /- -->
-			</div><!-- container /- -->
-		</div><!-- Our Partner /- -->
 
 		<!-- News Letter -->
 		<div id="news-letter-section" class="news-letter-section">
@@ -1064,21 +853,6 @@
 							<p>Griya Pamoyanan, Blok G 17, Pamoyanan </p>
 							<p>Bogor, Indonesia, 16136</p>
 						</div>
-						<div class="helpline">
-							<svg viewBox="0 0 51.413 51.413">
-								<path
-									d="M25.989,12.274c8.663,0.085,14.09-0.454,14.823,9.148h10.564c0-14.875-12.973-16.88-25.662-16.88    c-12.69,0-25.662,2.005-25.662,16.88h10.482C11.345,11.637,17.398,12.19,25.989,12.274z" />
-								<path
-									d="M5.291,26.204c2.573,0,4.714,0.154,5.19-2.377c0.064-0.344,0.101-0.734,0.101-1.185H10.46H0    C0,26.407,2.369,26.204,5.291,26.204z" />
-								<path
-									d="M40.88,22.642h-0.099c0,0.454,0.039,0.845,0.112,1.185c0.502,2.334,2.64,2.189,5.204,2.189    c2.936,0,5.316,0.193,5.316-3.374H40.88z" />
-								<path
-									d="M35.719,20.078v-1.496c0-0.669-0.771-0.711-1.723-0.711h-1.555c-0.951,0-1.722,0.042-1.722,0.711    v1.289v1h-11v-1v-1.289c0-0.669-0.771-0.711-1.722-0.711h-1.556c-0.951,0-1.722,0.042-1.722,0.711v1.496v1.306    C12.213,23.988,4.013,35.073,3.715,36.415l0.004,8.955c0,0.827,0.673,1.5,1.5,1.5h40c0.827,0,1.5-0.673,1.5-1.5v-9    c-0.295-1.303-8.493-12.383-11-14.987V20.078z M19.177,37.62c-0.805,0-1.458-0.652-1.458-1.458s0.653-1.458,1.458-1.458    s1.458,0.652,1.458,1.458S19.982,37.62,19.177,37.62z M19.177,32.62c-0.805,0-1.458-0.652-1.458-1.458s0.653-1.458,1.458-1.458    s1.458,0.652,1.458,1.458S19.982,32.62,19.177,32.62z M19.177,27.621c-0.805,0-1.458-0.652-1.458-1.458    c0-0.805,0.653-1.458,1.458-1.458s1.458,0.653,1.458,1.458C20.635,26.969,19.982,27.621,19.177,27.621z M25.177,37.62    c-0.805,0-1.458-0.652-1.458-1.458s0.653-1.458,1.458-1.458c0.806,0,1.458,0.652,1.458,1.458S25.983,37.62,25.177,37.62z     M25.177,32.62c-0.805,0-1.458-0.652-1.458-1.458s0.653-1.458,1.458-1.458c0.806,0,1.458,0.652,1.458,1.458    S25.983,32.62,25.177,32.62z M25.177,27.621c-0.805,0-1.458-0.652-1.458-1.458c0-0.805,0.653-1.458,1.458-1.458    c0.806,0,1.458,0.653,1.458,1.458C26.635,26.969,25.983,27.621,25.177,27.621z M31.177,37.62c-0.806,0-1.458-0.652-1.458-1.458    s0.652-1.458,1.458-1.458s1.458,0.652,1.458,1.458S31.983,37.62,31.177,37.62z M31.177,32.62c-0.806,0-1.458-0.652-1.458-1.458    s0.652-1.458,1.458-1.458s1.458,0.652,1.458,1.458S31.983,32.62,31.177,32.62z M31.177,27.621c-0.806,0-1.458-0.652-1.458-1.458    c0-0.805,0.652-1.458,1.458-1.458s1.458,0.653,1.458,1.458C32.635,26.969,31.983,27.621,31.177,27.621z" />
-							</svg>
-							<h4>Help Lines</h4>
-							<p>+61 3 8376 6284</p>
-							<p>+61 3 8376 6285</p>
-						</div>
 					</aside><!-- widget about /- -->
 
 					<!-- col-md-6 -->
@@ -1133,7 +907,7 @@
 
 					<aside class="col-12 col-md-12 col-lg-3 widget widget_facebook">
 						<div class="widget-title">
-							<h4>IRVASCA <span>400.000 members </span></h4>
+							<h4>IRVASCA <span>1.000.000 members </span></h4>
 							<button type="submit" value="like" class="btn btn-default pull-right">Like <i
 									class="fa fa-thumbs-o-up"></i> </button>
 						</div>
