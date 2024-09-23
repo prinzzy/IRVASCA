@@ -1,9 +1,4 @@
 <!doctype html>
-<!--[if lt IE 7 ]> <html class="ie6"> <![endif]-->
-<!--[if IE 7 ]>    <html class="ie7"> <![endif]-->
-<!--[if IE 8 ]>    <html class="ie8"> <![endif]-->
-<!--[if IE 9 ]>    <html class="ie9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!-->
 <html class=""> <!--<![endif]-->
 
 <head>
@@ -381,7 +376,7 @@
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox">
 				<div class="carousel-item active">
-					<img src="images/slider/slide-1.jpg" alt="slide-1">
+					<img src="{{ asset('storage/product_images/baju.jpg') }}" alt="slide-1">
 					<div class="container">
 						<div class="slider-box">
 							<button class="btn">Button</button>
@@ -389,7 +384,7 @@
 					</div>
 				</div>
 				<div class="carousel-item">
-					<img src="images/slider/slide-2.jpg" alt="slide-1">
+					<img src="{{ asset('storage/product_images/baju2.jpg') }}" alt="slide-1">
 					<div class="container">
 						<div class="slider-box">
 							<button class="btn">Button</button>
@@ -397,7 +392,7 @@
 					</div>
 				</div>
 				<div class="carousel-item">
-					<img src="images/slider/slide-3.jpg" alt="slide-2">
+					<img src="{{ asset('storage/product_images/baju3.jpg') }}" alt="slide-2">
 					<div class="container">
 						<div class="slider-box">
 							<button class="btn">Button</button>

@@ -1,20 +1,4 @@
 <!doctype html>
-<!--
-**********************************************************************************************************
-    Copyright (c) 2024 Webstrot Technology 
-********************************************************************************************************** -->
-<!-- 
-Template Name: Luxury Shop Ecommerce HTML Template
-Version: 1.0.0
-Author: webstrot
-Website: http://webstrot.com/
-Purchase: http://themeforest.net/user/webstrot  -->
-
-<!--[if lt IE 7 ]> <html class="ie6"> <![endif]-->
-<!--[if IE 7 ]>    <html class="ie7"> <![endif]-->
-<!--[if IE 8 ]>    <html class="ie8"> <![endif]-->
-<!--[if IE 9 ]>    <html class="ie9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!-->
 <html class=""> <!--<![endif]-->
 
 <head>
@@ -23,21 +7,43 @@ Purchase: http://themeforest.net/user/webstrot  -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<title>Luxury Shop Ecommerce HTML Template</title>
+	<title>IRVASCA</title>
 
-	<link rel="shortcut icon" href="images/favicon.png">
-	<link href="libraries/bootstrap/bootstrap.min.css" rel="stylesheet" />
-	<link rel="stylesheet" href="libraries/fuelux/jquery-ui.min.css">
-	<linK href="libraries/owl-carousel/owl.carousel.min.css" rel="stylesheet" />
-	<linK href="libraries/owl-carousel/owl.theme.default.min.css" rel="stylesheet" />
-	<link href="libraries/fonts/font-awesome.min.css" rel="stylesheet" />
-	<link href="libraries/animate/animate.min.css" rel="stylesheet" />
-	<link href="libraries/flexslider/flexslider.css" rel="stylesheet" /> <!-- flexslider -->
-	<link href="libraries/magnific-popup.css" rel="stylesheet" /> <!-- Light Box -->
-	<link href="css/components.css" rel="stylesheet" />
-	<link href="css/style.css" rel="stylesheet" />
-	<link href="css/media.css" rel="stylesheet" />
-	<link id="color" href="css/color-schemes/default.css" rel="stylesheet" />
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="{{ asset('images/logo/logo_kecil.png') }}" sizes="16x16" type="image/png">
+	<link rel="shortcut icon" href="{{ asset('images/logo/logo_kecil.png') }}" sizes="32x32" type="image/png">
+	<link rel="shortcut icon" href="{{ asset('images/logo/logo_kecil.png') }}" sizes="48x48" type="image/png">
+
+	<!-- Bootstrap CSS -->
+	<link href="{{ asset('libraries/bootstrap/bootstrap.min.css') }}" rel="stylesheet" />
+
+	<!-- jQuery UI (Fuel UX) -->
+	<link rel="stylesheet" href="{{ asset('libraries/fuelux/jquery-ui.min.css') }}">
+
+	<!-- Owl Carousel -->
+	<link href="{{ asset('libraries/owl-carousel/owl.carousel.min.css') }}" rel="stylesheet" />
+	<link href="{{ asset('libraries/owl-carousel/owl.theme.default.min.css') }}" rel="stylesheet" />
+
+	<!-- Font Awesome -->
+	<link href="{{ asset('libraries/fonts/font-awesome.min.css') }}" rel="stylesheet" />
+
+	<!-- Animate CSS -->
+	<link href="{{ asset('libraries/animate/animate.min.css') }}" rel="stylesheet" />
+
+	<!-- Flexslider -->
+	<link href="{{ asset('libraries/flexslider/flexslider.css') }}" rel="stylesheet" />
+
+	<!-- Magnific Popup (Light Box) -->
+	<link href="{{ asset('libraries/magnific-popup.css') }}" rel="stylesheet" />
+
+	<!-- Custom CSS Files -->
+	<link href="{{ asset('css/components.css') }}" rel="stylesheet" />
+	<link href="{{ asset('css/style.css') }}" rel="stylesheet" />
+	<link href="{{ asset('css/media.css') }}" rel="stylesheet" />
+
+	<!-- Color Schemes -->
+	<link id="color" href="{{ asset('css/color-schemes/default.css') }}" rel="stylesheet" />
+
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -46,18 +52,12 @@ Purchase: http://themeforest.net/user/webstrot  -->
       <script src="js/html5/respond.min.js"></script>
     <![endif]-->
 
-	<link href='http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700,700italic' rel='stylesheet'
+	<link href='https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700,700italic' rel='stylesheet'
 		type='text/css'>
 	<link
-		href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,400italic,300italic,500,500italic,700,700italic,900,900italic'
+		href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,400italic,300italic,500,500italic,700,700italic,900,900italic'
 		rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,400italic,700,700italic,900,900italic'
-		rel='stylesheet' type='text/css'>
-	<link
-		href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,200italic,300,300italic,400italic,600,600italic,700,700italic,900,900italic'
-		rel='stylesheet' type='text/css'>
-	<link
-		href='http://fonts.googleapis.com/css?family=Lato:100,100italic,300,300italic,400,400italic,700,700italic,900,900italic'
+	<link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,400italic,700,700italic,900,900italic'
 		rel='stylesheet' type='text/css'>
 
 </head>
@@ -66,7 +66,7 @@ Purchase: http://themeforest.net/user/webstrot  -->
 	<!-- LOADER -->
 	<div id="site-loader" class="load-complete">
 		<div class="load-position">
-			<div class="logo"><img src="images/logo.png" alt="logo"></div>
+			<div class="logo"><img src=" {{ asset('images/logo/logo_putihNOBG.png') }}" alt="logo" style="max-width: 15%; height: auto;"></div>
 			<h6>Please wait, loading...</h6>
 			<div class="loading">
 				<div class="loading-line"></div>

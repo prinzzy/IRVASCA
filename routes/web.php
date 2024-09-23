@@ -78,7 +78,7 @@ Route::get('/ctg', function () {
 });
 
 Route::get('/single-product-2', function () {
-    return view('home.14_contact'); // home/single_product_2.blade.php
+    return view('home.04_single_product-2'); // home/single_product_2.blade.php
 });
 Route::get('/about', function () {
     return view('home.about'); // home/shopping_cart.blade.php
@@ -97,7 +97,20 @@ Route::get('/contact', function () {
     return view('home.14_contact');
 });
 
+Route::get('/shipping-member', function () {
+    return view('home.08_Shipping_Address');
+});
+Route::get('/payment-member', function () {
+    return view('home.09_payment');
+});
 
+Route::get('/summary-member', function () {
+    return view('home.10_summary');
+});
+
+Route::get('/finish-member', function () {
+    return view('home.11_finish');
+});
 
 
 

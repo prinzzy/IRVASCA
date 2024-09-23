@@ -1,20 +1,4 @@
 <!doctype html>
-<!--
-**********************************************************************************************************
-    Copyright (c) 2024 Webstrot Technology 
-********************************************************************************************************** -->
-<!-- 
-Template Name: Luxury Shop Ecommerce HTML Template
-Version: 1.0.0
-Author: webstrot
-Website: http://webstrot.com/
-Purchase: http://themeforest.net/user/webstrot  -->
-
-<!--[if lt IE 7 ]> <html class="ie6"> <![endif]-->
-<!--[if IE 7 ]>    <html class="ie7"> <![endif]-->
-<!--[if IE 8 ]>    <html class="ie8"> <![endif]-->
-<!--[if IE 9 ]>    <html class="ie9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!-->
 <html class=""> <!--<![endif]-->
 
 <head>
@@ -68,19 +52,19 @@ Purchase: http://themeforest.net/user/webstrot  -->
       <script src="js/html5/respond.min.js"></script>
     <![endif]-->
 
-	<link href='http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700,700italic' rel='stylesheet'
+	<link href='https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700,700italic' rel='stylesheet'
 		type='text/css'>
 	<link
-		href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,400italic,300italic,500,500italic,700,700italic,900,900italic'
+		href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,400italic,300italic,500,500italic,700,700italic,900,900italic'
 		rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,400italic,700,700italic,900,900italic'
+	<link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,400italic,700,700italic,900,900italic'
 		rel='stylesheet' type='text/css'>
 
 </head>
 
 <body data-offset="200" data-spy="scroll" data-target=".primary-navigation">
 	<!-- LOADER -->
-	<!-- <div id="site-loader" class="load-complete">
+	<div id="site-loader" class="load-complete">
 		<div class="load-position">
 			<div class="logo"><img src=" {{ asset('images/logo/logo_putihNOBG.png') }}" alt="logo" style="max-width: 15%; height: auto;"></div>
 			<h6>Please wait, loading...</h6>
@@ -91,7 +75,7 @@ Purchase: http://themeforest.net/user/webstrot  -->
 				<div class="loading-break loading-dot-3"></div>
 			</div>
 		</div>
-	</div> -->
+	</div>
 	<!-- Loader /- -->
 	<!-- Style Switcher -->
 	<div class="color-switcher" id="choose_color">
@@ -414,22 +398,15 @@ Purchase: http://themeforest.net/user/webstrot  -->
 					<div class="row">
 						<!-- col-md-6 -->
 						<div class="col-12 col-md-6 col-lg-6">
-							<img src="images/about/about-post-1.jpg" alt="about post" />
+							<img src=" {{ asset('images/foto/IVAN.png') }}" alt="about post" />
 						</div><!-- col-md-6 -->
 						<!-- col-md-6 -->
 						<div class="col-12 col-md-6 col-lg-6 content-box">
 							<h3>Ivan Rachma Vinasti</h3>
 							<p>Owner</p>
-							<p>Duis sit amet tellus a ligula consequat lobortis. Donec tincidunt malesuada magna vel
-								ultricies. Curabitur mattis rhoncus urna id rhoncus. In vel imperdiet urna. Etiam felis
-								eros, maximus vel nibh ac, pulvinar imperdiet sem. Aenean vitae ultricies nisl. Nullam
-								sollicitudin aliquam massa at sollicitudin.</p>
-							<p>Cras leo nunc, volutpat in aliquam sed, aliquet in metus. Pellentesque at nunc tortor.
-								Etiam consequat, tortor id tempus dignissim, arcu libero semper metus, ac sollicitudin
-								sem metus sit amet nibh. Cras convallis egestas arcu, nec sollicitudin metus facilisis
-								vitae. Curabitur in libero tempus, porttitor erat sed,</p>
-							<p>posuere orci. Phasellus pharetra, lorem vel semper auctor, urna diam dictum lectus, vel
-								tristique libero massa nec enim.</p>
+							<p>From the very beginning, I’ve always believed that building a successful business goes beyond just numbers—it’s about people, passion, and purpose. Every decision I’ve made has been with the goal of creating a lasting impact, both within the company and for our customers.</p>
+							<p>The journey has been filled with challenges, but those challenges have shaped our success. By staying adaptable, embracing innovation, and nurturing a talented team, we’ve built a business that not only meets market demands but also sets new standards in our industry.</p>
+							<p>It’s incredibly rewarding to see how far we’ve come, and I’m excited for the limitless potential that lies ahead.</p>
 						</div><!-- col-md-6 -->
 					</div>
 				</div>
@@ -439,20 +416,13 @@ Purchase: http://themeforest.net/user/webstrot  -->
 						<div class="col-12 col-md-6 col-lg-6 content-box">
 							<h3>Robby Akhroman</h3>
 							<p>President Director </p>
-							<p>Duis sit amet tellus a ligula consequat lobortis. Donec tincidunt malesuada magna vel
-								ultricies. Curabitur mattis rhoncus urna id rhoncus. In vel imperdiet urna. Etiam felis
-								eros, maximus vel nibh ac, pulvinar imperdiet sem. Aenean vitae ultricies nisl. Nullam
-								sollicitudin aliquam massa at sollicitudin.</p>
-							<p>Cras leo nunc, volutpat in aliquam sed, aliquet in metus. Pellentesque at nunc tortor.
-								Etiam consequat, tortor id tempus dignissim, arcu libero semper metus, ac sollicitudin
-								sem metus sit amet nibh. Cras convallis egestas arcu, nec sollicitudin metus facilisis
-								vitae. Curabitur in libero tempus, porttitor erat sed,</p>
-							<p>posuere orci. Phasellus pharetra, lorem vel semper auctor, urna diam dictum lectus, vel
-								tristique libero massa nec enim.</p>
+							<p>Watching the company grow from its humble beginnings to becoming an industry leader has been incredibly humbling. Every challenge has brought new insights, and every milestone has reinforced my belief in the importance of vision and leadership.</p>
+							<p>It’s been fulfilling to witness the transformation of our company, from early foundations to becoming a leader in the industry. Each strategic decision we make has the power to shape the future, and being entrusted with that responsibility is a privilege I don’t take lightly.</p>
+							<p>The relationships we’ve built—with our customers, partners, and within the team—are the foundation of our continued success, and I’m excited for what lies ahead as we continue to shape the future together.</p>
 						</div><!-- col-md-6 -->
 						<!-- col-md-6 -->
 						<div class="col-12 col-md-6 col-lg-6">
-							<img src="images/about/about-post-2.jpg" alt="about post" />
+							<img src=" {{ asset('images/foto/ROBBY.png') }}" alt="about post" />
 						</div><!-- col-md-6 -->
 					</div>
 				</div>
@@ -462,20 +432,13 @@ Purchase: http://themeforest.net/user/webstrot  -->
 						<div class="col-12 col-md-6 col-lg-6 content-box">
 							<h3>Okky Rusdiant</h3>
 							<p>Creative Director </p>
-							<p>Duis sit amet tellus a ligula consequat lobortis. Donec tincidunt malesuada magna vel
-								ultricies. Curabitur mattis rhoncus urna id rhoncus. In vel imperdiet urna. Etiam felis
-								eros, maximus vel nibh ac, pulvinar imperdiet sem. Aenean vitae ultricies nisl. Nullam
-								sollicitudin aliquam massa at sollicitudin.</p>
-							<p>Cras leo nunc, volutpat in aliquam sed, aliquet in metus. Pellentesque at nunc tortor.
-								Etiam consequat, tortor id tempus dignissim, arcu libero semper metus, ac sollicitudin
-								sem metus sit amet nibh. Cras convallis egestas arcu, nec sollicitudin metus facilisis
-								vitae. Curabitur in libero tempus, porttitor erat sed,</p>
-							<p>posuere orci. Phasellus pharetra, lorem vel semper auctor, urna diam dictum lectus, vel
-								tristique libero massa nec enim.</p>
+							<p>My journey as the Creative Director has been one of constant inspiration and evolution. From the early stages of defining our brand’s visual identity to leading creative projects that resonate with our audience, every step has been a testament to the power of creativity. One of the most rewarding experiences has been collaborating with a diverse team of designers, writers, and artists to bring bold ideas to life.</p>
+							<p>The challenge has always been to stay ahead of the trends while staying true to our unique voice, and it's a challenge I embrace every day. Creativity is more than just aesthetics—it’s about storytelling, problem-solving, and pushing the boundaries of what’s possible.</p>
+							<p>Seeing how our creative vision has played a pivotal role in the company’s growth has been incredibly fulfilling. I’m excited about the future, as we continue to explore new ways to inspire, engage, and captivate our audience through innovative and impactful creative strategies.</p>
 						</div><!-- col-md-6 -->
 						<!-- col-md-6 -->
 						<div class="col-12 col-md-6 col-lg-6">
-							<img src="images/about/about-post-2.jpg" alt="about post" />
+							<img src=" {{ asset('images/foto/OKKY.png') }}" alt="about post" />
 						</div><!-- col-md-6 -->
 					</div>
 				</div>
@@ -486,20 +449,12 @@ Purchase: http://themeforest.net/user/webstrot  -->
 							<h3>Gien Halga</h3>
 							<p>Marketing Director</p>
 							</p>
-							<p>Duis sit amet tellus a ligula consequat lobortis. Donec tincidunt malesuada magna vel
-								ultricies. Curabitur mattis rhoncus urna id rhoncus. In vel imperdiet urna. Etiam felis
-								eros, maximus vel nibh ac, pulvinar imperdiet sem. Aenean vitae ultricies nisl. Nullam
-								sollicitudin aliquam massa at sollicitudin.</p>
-							<p>Cras leo nunc, volutpat in aliquam sed, aliquet in metus. Pellentesque at nunc tortor.
-								Etiam consequat, tortor id tempus dignissim, arcu libero semper metus, ac sollicitudin
-								sem metus sit amet nibh. Cras convallis egestas arcu, nec sollicitudin metus facilisis
-								vitae. Curabitur in libero tempus, porttitor erat sed,</p>
-							<p>posuere orci. Phasellus pharetra, lorem vel semper auctor, urna diam dictum lectus, vel
-								tristique libero massa nec enim.</p>
+							<p>Looking back at the many campaigns and strategies we've developed, it’s amazing to see how far we’ve come. The brand we’ve built today is a reflection of countless hours of creative brainstorming, market research, and understanding the pulse of our audience. Every successful marketing campaign tells a story—not just of the product but of the people behind it and the vision we aim to share with the world.</p>
+							<p>It’s incredibly fulfilling to know that our efforts have not only elevated the company but also forged strong connections with our customers. What excites me the most is the challenge of staying ahead of the curve, consistently pushing boundaries, and exploring new ways to communicate our brand’s values in an ever-evolving market.</p>
 						</div><!-- col-md-6 -->
 						<!-- col-md-6 -->
 						<div class="col-12 col-md-6 col-lg-6">
-							<img src="images/about/about-post-2.jpg" alt="about post" />
+							<img src=" {{ asset('images/foto/ZEN.png') }}" alt="about post" />
 						</div><!-- col-md-6 -->
 					</div>
 				</div>
@@ -509,20 +464,13 @@ Purchase: http://themeforest.net/user/webstrot  -->
 						<div class="col-12 col-md-6 col-lg-6 content-box">
 							<h3>Attoek Faturachman</h3>
 							<p>Commissioner </p>
-							<p>Duis sit amet tellus a ligula consequat lobortis. Donec tincidunt malesuada magna vel
-								ultricies. Curabitur mattis rhoncus urna id rhoncus. In vel imperdiet urna. Etiam felis
-								eros, maximus vel nibh ac, pulvinar imperdiet sem. Aenean vitae ultricies nisl. Nullam
-								sollicitudin aliquam massa at sollicitudin.</p>
-							<p>Cras leo nunc, volutpat in aliquam sed, aliquet in metus. Pellentesque at nunc tortor.
-								Etiam consequat, tortor id tempus dignissim, arcu libero semper metus, ac sollicitudin
-								sem metus sit amet nibh. Cras convallis egestas arcu, nec sollicitudin metus facilisis
-								vitae. Curabitur in libero tempus, porttitor erat sed,</p>
-							<p>posuere orci. Phasellus pharetra, lorem vel semper auctor, urna diam dictum lectus, vel
-								tristique libero massa nec enim.</p>
+							<p>My experience as a Commissioner has been a continuous journey of guiding the company through various phases of growth, always with a focus on integrity, governance, and long-term success. It’s been fulfilling to witness the transformation of our company, from early foundations to becoming a leader in the industry.</p>
+							<p>Being part of this growth has reinforced my belief in strong corporate governance and the importance of balancing ambition with responsibility. Each strategic decision we make has the power to shape the future, and being entrusted with that responsibility is a privilege I don’t take lightly.</p>
+							<p>The opportunity to work alongside visionary leaders and contribute to the company's ethical and sustainable progress has been one of the most rewarding experiences of my career.</p>
 						</div><!-- col-md-6 -->
 						<!-- col-md-6 -->
 						<div class="col-12 col-md-6 col-lg-6">
-							<img src="images/about/about-post-2.jpg" alt="about post" />
+							<img src=" {{ asset('images/foto/ATOEK.png') }}" alt="about post" />
 						</div><!-- col-md-6 -->
 					</div>
 				</div>
@@ -532,20 +480,13 @@ Purchase: http://themeforest.net/user/webstrot  -->
 						<div class="col-12 col-md-6 col-lg-6 content-box">
 							<h3>Wardatulaini</h3>
 							<p>CFO </p>
-							<p>Duis sit amet tellus a ligula consequat lobortis. Donec tincidunt malesuada magna vel
-								ultricies. Curabitur mattis rhoncus urna id rhoncus. In vel imperdiet urna. Etiam felis
-								eros, maximus vel nibh ac, pulvinar imperdiet sem. Aenean vitae ultricies nisl. Nullam
-								sollicitudin aliquam massa at sollicitudin.</p>
-							<p>Cras leo nunc, volutpat in aliquam sed, aliquet in metus. Pellentesque at nunc tortor.
-								Etiam consequat, tortor id tempus dignissim, arcu libero semper metus, ac sollicitudin
-								sem metus sit amet nibh. Cras convallis egestas arcu, nec sollicitudin metus facilisis
-								vitae. Curabitur in libero tempus, porttitor erat sed,</p>
-							<p>posuere orci. Phasellus pharetra, lorem vel semper auctor, urna diam dictum lectus, vel
-								tristique libero massa nec enim.</p>
+							<p>Guiding the financial journey of this company has been an extraordinary experience. From navigating periods of economic uncertainty to capitalizing on growth opportunities, every step has been a learning moment. The ability to structure financial strategies that support our ambitions, while ensuring long-term stability, has been both a challenge and a rewarding experience.</p>
+							<p>Over the years, I’ve witnessed how sound financial planning can turn risks into opportunities, and how the company has grown stronger with each calculated decision. It’s not just about numbers;</p>
+							<p>it’s about laying the financial groundwork that empowers the entire company to achieve greatness. Watching the company thrive and knowing that the financial health plays a pivotal role in that success is what drives me every day.</p>
 						</div><!-- col-md-6 -->
 						<!-- col-md-6 -->
 						<div class="col-12 col-md-6 col-lg-6">
-							<img src="images/about/about-post-2.jpg" alt="about post" />
+							<img src=" {{ asset('images/foto/WARDA.png') }}" alt="about post" />
 						</div><!-- col-md-6 -->
 					</div>
 				</div>
@@ -555,33 +496,24 @@ Purchase: http://themeforest.net/user/webstrot  -->
 						<div class="col-12 col-md-6 col-lg-6 content-box">
 							<h3>Murfid Dzakwan Kamil</h3>
 							<p>CTO </p>
-							<p>Duis sit amet tellus a ligula consequat lobortis. Donec tincidunt malesuada magna vel
-								ultricies. Curabitur mattis rhoncus urna id rhoncus. In vel imperdiet urna. Etiam felis
-								eros, maximus vel nibh ac, pulvinar imperdiet sem. Aenean vitae ultricies nisl. Nullam
-								sollicitudin aliquam massa at sollicitudin.</p>
-							<p>Cras leo nunc, volutpat in aliquam sed, aliquet in metus. Pellentesque at nunc tortor.
-								Etiam consequat, tortor id tempus dignissim, arcu libero semper metus, ac sollicitudin
-								sem metus sit amet nibh. Cras convallis egestas arcu, nec sollicitudin metus facilisis
-								vitae. Curabitur in libero tempus, porttitor erat sed,</p>
-							<p>posuere orci. Phasellus pharetra, lorem vel semper auctor, urna diam dictum lectus, vel
-								tristique libero massa nec enim.</p>
+							<p>My journey as CTO has been nothing short of transformative. From the early days of building the company’s technical infrastructure to leading us into the digital age, the challenges we’ve faced have only made us more resilient. Innovation is at the heart of what we do, and seeing our technological solutions not only improve internal processes but also deliver superior experiences to our customers is immensely rewarding.</p>
+							<p>One of the most memorable experiences has been assembling a team of forward-thinking engineers who share the same passion for pushing technological boundaries. Together, we’ve created systems that have scaled alongside the company’s growth.</p>
+							<p>Each new project brings an opportunity to disrupt the status quo, and I’m proud of how we’ve positioned the company as a tech-driven leader in our field.</p>
 						</div><!-- col-md-6 -->
 						<!-- col-md-6 -->
 						<div class="col-12 col-md-6 col-lg-6">
-							<img src="images/about/about-post-2.jpg" alt="about post" />
+							<img src=" {{ asset('images/foto/MURFID.png') }}" alt="about post" />
 						</div><!-- col-md-6 -->
 					</div>
 				</div>
 			</div><!-- about-content /- -->
 
 			<div class="section-header">
-				<h3>Our Strategy</h3>
+				<h3>Our Vision</h3>
 			</div>
-			<h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod interdum lorem vitae dapibus.
-				Aliquam ut nibh ac dui gravida molestie non ut lorem. Interdum et malesuada fames ac ante ipsum primis
-				in faucibus. Etiam nec quam venenatis nisl scelerisque faucibus. Duis luctus in velit at tincidunt.
-				Mauris a nulla lacus. In auctor, massa eu vestibulum efficitur, mi nisi bibendum enim, vel dictum elit
-				quam eu magna.</h4>
+			<h4>Our vision is to empower individuals to express their unique style with confidence. Whether
+				it’s a sophisticated evening gown or a chic everyday ensemble, our collections are designed
+				to elevate any wardrobe. We celebrate diversity and inclusivity, offering designs that resonate with a wide array of tastes and lifestyles.</h4>
 
 		</div>
 		<!-- Container /- -->
@@ -601,51 +533,6 @@ Purchase: http://themeforest.net/user/webstrot  -->
 		</div><!-- Add Banner /- -->
 
 		<!-- Our Partner -->
-		<div id="our-partner-section" class="our-partner-section bottom-shadow">
-			<!-- container -->
-			<div class="container">
-				<!-- Section Header -->
-				<div class="section-header">
-					<h3>Partners with us</h3>
-					<p>Nam ac egestas est. Mauris et pulvinar risus, at tincidunt lorem. Maecenas tristique sit amet
-						odio sit amet aliquet. Quisque a pharetra quam. Sed in ultrices diam, eget sodales ligula. Sed
-						ut tincidunt lacus.</p>
-				</div><!-- Section Header /- -->
-				<!-- Owl Carousel -->
-				<div id="our-partner" class="owl-carousel owl-theme our-partner">
-					<div class="item">
-						<a title="Partner" href="#" class="partner-box">
-							<img src="images/partner/partner-1.png" alt="partner-1" />
-						</a>
-					</div>
-					<div class="item">
-						<a title="Partner" href="#" class="partner-box">
-							<img src="images/partner/partner-2.png" alt="partner-1" />
-						</a>
-					</div>
-					<div class="item">
-						<a title="Partner" href="#" class="partner-box">
-							<img src="images/partner/partner-3.png" alt="partner-1" />
-						</a>
-					</div>
-					<div class="item">
-						<a title="Partner" href="#" class="partner-box">
-							<img src="images/partner/partner-4.png" alt="partner-1" />
-						</a>
-					</div>
-					<div class="item">
-						<a title="Partner" href="#" class="partner-box">
-							<img src="images/partner/partner-1.png" alt="partner-1" />
-						</a>
-					</div>
-					<div class="item">
-						<a title="Partner" href="#" class="partner-box">
-							<img src="images/partner/partner-2.png" alt="partner-1" />
-						</a>
-					</div>
-				</div><!-- Owl Carousel /- -->
-			</div><!-- container /- -->
-		</div><!-- Our Partner /- -->
 
 		<!-- News Letter -->
 		<div id="news-letter-section" class="news-letter-section">
