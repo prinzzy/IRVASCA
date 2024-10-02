@@ -232,12 +232,12 @@
 									data-bs-toggle="dropdown">Shop</a>
 								<ul class="dropdown-menu">
 									<li><a title="product" class="dropdown-item" href="03_product.html">product</a></li>
-									<li><a title="Single product" class="dropdown-item"
-											href="{{ url('/single-product') }}">single product</a></li>
-									<li><a title="Single product" class="dropdown-item"
-											href="{{ url('/single-product-2') }}">single product 2</a></li>
-									<li><a title="Shopping cart" class="dropdown-item"
-											href="{{ url('/shopping_cart') }}">shopping cart</a></li>
+									<!--<li><a title="Single product" class="dropdown-item"-->
+									<!--		href="{{ url('/single-product') }}">single product</a></li>-->
+									<!--<li><a title="Single product" class="dropdown-item"-->
+									<!--		href="{{ url('/single-product-2') }}">single product 2</a></li>-->
+									<!--<li><a title="Shopping cart" class="dropdown-item"-->
+									<!--		href="{{ url('/shopping_cart') }}">shopping cart</a></li>-->
 								</ul>
 							</li>
 							<li class="nav-item dropdown mega-dropdown">
@@ -388,15 +388,15 @@
 			<ol class="breadcrumb">
 				<li><a title="Home" href="index.html">Home</a></li>
 				<li><a title="Clothing" href="#">Clothing</a></li>
-				<li class="active"> Women's Clothing</li>
+				<li class="active"> IRVASCA Catalog</li>
 			</ol>
 			<div class="return-home-link pull-right">
 				<a title="Return to home page" href="{{ url('/index') }}">return to home page</a>
 			</div>
 		</div>
 		<div class="page-header ow-bottom-padding categories">
-			<h3>Women's Clothing</h3>
-			<p>786+ Products</p>
+			<h3>IRVASCA Catalog</h3>
+			<p>700+ Products</p>
 		</div><!-- Section Header /- -->
 	</div><!-- container /- -->
 	<!-- Page Breadcrumb /- -->
@@ -491,13 +491,13 @@
 					</div>
 				</div>
 			</div>
-			<div class="pillbox">
-				<a title="Close Icon" href="#">Ethenic Wear <i class="fa fa-close"></i></a>
-				<a title="Close Icon" href="#">Gucchi <i class="fa fa-close"></i></a>
-				<a title="Close Icon" href="#">White <i class="fa fa-close"></i></a>
-				<a title="Close Icon" href="#">34-54 Size <i class="fa fa-close"></i></a>
-				<a title="Close Icon" href="#">clear All search tags</a>
-			</div>
+			<!--<div class="pillbox">-->
+			<!--	<a title="Close Icon" href="#">Ethenic Wear <i class="fa fa-close"></i></a>-->
+			<!--	<a title="Close Icon" href="#">Gucchi <i class="fa fa-close"></i></a>-->
+			<!--	<a title="Close Icon" href="#">White <i class="fa fa-close"></i></a>-->
+			<!--	<a title="Close Icon" href="#">34-54 Size <i class="fa fa-close"></i></a>-->
+			<!--	<a title="Close Icon" href="#">clear All search tags</a>-->
+			<!--</div>-->
 		</div>
 	</div>
 	<!-- Product Filter /- -->
@@ -512,7 +512,7 @@
 						<div class="category-box product-box">
 							<span class="sale">sales</span>
 							<div class="inner-product">
-								<img src="images/featured/featured-1.jpg" alt="featured-img" />
+								<img src="{{ asset('storage/product_images/clutchnew.jpg') }}" alt="featured-img" />
 								<div class="product-box-inner">
 									<ul>
 										<li><a title="Eye Icon" href="images/featured/featured-1.jpg"><i
@@ -523,7 +523,7 @@
 								</div>
 							</div>
 						</div>
-						<a title="Fashionable Pink Top" href="#" class="product-title">Bodycon Dress</a>
+						<a title="Fashionable Pink Top" href="#" class="product-title">Clutch</a>
 						<ul class="star">
 							<li>
 								<i class="fa fa-star"></i>
@@ -533,12 +533,12 @@
 								<i class="fa fa-star-o"></i>
 							</li>
 						</ul>
-						<span class="amount"><del>&dollar;24.99</del> &dollar;19.99</span>
+					<span class="amount"><del>850.000</del>&nbsp;525.000</span>
 					</div>
 					<div class="col-12 col-sm-6 col-md-6 col-lg-3  main-product">
 						<div class="category-box product-box">
 							<div class="inner-product">
-								<img src="images/featured/featured-2.jpg" alt="featured-img" />
+								<img src="{{ asset('storage/product_images/baju.jpg') }}" alt="featured-img" />
 								<div class="product-box-inner">
 									<ul>
 										<li><a title="Eye Icon" href="images/featured/featured-2.jpg"><i
@@ -549,7 +549,7 @@
 								</div>
 							</div>
 						</div>
-						<a title="Fashionable Pink Top" href="#" class="product-title">Fashionable Dress</a>
+						<a title="Fashionable Pink Top" href="#" class="product-title">T-Shirt</a>
 						<ul class="star">
 							<li>
 								<i class="fa fa-star"></i>
@@ -559,13 +559,13 @@
 								<i class="fa fa-star-o"></i>
 							</li>
 						</ul>
-						<span class="amount"><del>&dollar;24.99</del> &dollar;19.99</span>
+						<span class="amount"><del>750.000</del>&nbsp;450.000</span>
 					</div>
 					<div class="col-12 col-sm-6 col-md-6 col-lg-3 main-product">
 						<div class="category-box product-box">
 							<span class="sale">sales</span>
 							<div class="inner-product">
-								<img src="images/featured/featured-3.jpg" alt="featured-img" />
+								<img src="{{ asset('storage/product_images/baju2.jpg') }}" alt="featured-img" />
 								<div class="product-box-inner">
 									<ul>
 										<li><a title="Eye Icon" href="images/featured/featured-3.jpg"><i
@@ -576,7 +576,7 @@
 								</div>
 							</div>
 						</div>
-						<a title="Fashionable Pink Top" href="#" class="product-title">Strapless Dress</a>
+						<a title="Fashionable Pink Top" href="#" class="product-title">T-Shirt</a>
 						<ul class="star">
 							<li>
 								<i class="fa fa-star"></i>
@@ -586,12 +586,12 @@
 								<i class="fa fa-star-o"></i>
 							</li>
 						</ul>
-						<span class="amount"><del>&dollar;24.99</del> &dollar;19.99</span>
+						<span class="amount"><del>650.000</del>&nbsp;525.000</span>
 					</div>
 					<div class="col-12 col-sm-6 col-md-6 col-lg-3 main-product">
 						<div class="category-box product-box">
 							<div class="inner-product">
-								<img src="images/featured/featured-4.jpg" alt="featured-img" />
+								<img src="{{ asset('storage/product_images/tas 1.jpg') }}" alt="featured-img" />
 								<div class="product-box-inner">
 									<ul>
 										<li><a title="" href="images/featured/featured-4.jpg"><i
@@ -613,7 +613,7 @@
 								<i class="fa fa-star-o"></i>
 							</li>
 						</ul>
-						<span class="amount"><del>&dollar;24.99</del> &dollar;19.99</span>
+						<span class="amount"><del>550.000</del>&nbsp;425.000</span>
 					</div>
 				</div>
 			</div>
@@ -624,7 +624,7 @@
 						<div class="category-box product-box">
 							<span class="sale">sales</span>
 							<div class="inner-product">
-								<img src="images/featured/featured-5.jpg" alt="featured-img" />
+								<img src="{{ asset('storage/product_images/baju3.jpg') }}" alt="featured-img" />
 								<div class="product-box-inner">
 									<ul>
 										<li><a title="Eye Icon" href="images/featured/featured-5.jpg"><i
@@ -635,7 +635,7 @@
 								</div>
 							</div>
 						</div>
-						<a title="Fashionable Pink Top" href="#" class="product-title">Empire Waist Dress</a>
+						<a title="Fashionable Pink Top" href="#" class="product-title">T-Shirt</a>
 						<ul class="star">
 							<li>
 								<i class="fa fa-star"></i>
@@ -645,12 +645,12 @@
 								<i class="fa fa-star-o"></i>
 							</li>
 						</ul>
-						<span class="amount"><del>&dollar;24.99</del> &dollar;19.99</span>
+						<span class="amount"><del>950.000</del>&nbsp;675.000</span>
 					</div>
 					<div class="col-12 col-sm-6 col-md-6 col-lg-3 main-product">
 						<div class="category-box product-box">
 							<div class="inner-product">
-								<img src="images/featured/featured-6.jpg" alt="featured-img" />
+								<img src="{{ asset('storage/product_images/baju4.jpg') }}" alt="featured-img" />
 								<div class="product-box-inner">
 									<ul>
 										<li><a title="Eye Icon" href="images/featured/featured-6.jpg"><i
@@ -661,7 +661,7 @@
 								</div>
 							</div>
 						</div>
-						<a title="Fashionable Pink Top" href="#" class="product-title">Skater Dress</a>
+						<a title="Fashionable Pink Top" href="#" class="product-title">T-Shirt</a>
 						<ul class="star">
 							<li>
 								<i class="fa fa-star"></i>
@@ -671,13 +671,13 @@
 								<i class="fa fa-star-o"></i>
 							</li>
 						</ul>
-						<span class="amount"><del>&dollar;24.99</del> &dollar;19.99</span>
+						<span class="amount"><del>675.000</del>&nbsp;535.000</span>
 					</div>
 					<div class="col-12 col-sm-6 col-md-6 col-lg-3 main-product">
 						<div class="category-box product-box">
 							<span class="sale">sales</span>
 							<div class="inner-product">
-								<img src="images/featured/featured-7.jpg" alt="featured-img" />
+								<img src="{{ asset('storage/product_images/tascream.jpg') }}" alt="featured-img" />
 								<div class="product-box-inner">
 									<ul>
 										<li><a title="Eye Icon" href="images/featured/featured-7.jpg"><i
@@ -688,7 +688,7 @@
 								</div>
 							</div>
 						</div>
-						<a title="Fashionable Pink Top" href="#" class="product-title">Backless Dress</a>
+						<a title="Fashionable Pink Top" href="#" class="product-title">Bag</a>
 						<ul class="star">
 							<li>
 								<i class="fa fa-star"></i>
@@ -698,12 +698,12 @@
 								<i class="fa fa-star-o"></i>
 							</li>
 						</ul>
-						<span class="amount"><del>&dollar;24.99</del> &dollar;19.99</span>
+						<span class="amount"><del>750.000</del>&nbsp;575.000</span>
 					</div>
 					<div class="col-12 col-sm-6 col-md-6 col-lg-3 main-product">
 						<div class="category-box product-box">
 							<div class="inner-product">
-								<img src="images/featured/featured-8.jpg" alt="featured-img" />
+								<img src="{{ asset('storage/product_images/cluch.jpg') }}" alt="featured-img" />
 								<div class="product-box-inner">
 									<ul>
 										<li><a title="Eye Icon" href="images/featured/featured-8.jpg"><i
@@ -714,7 +714,7 @@
 								</div>
 							</div>
 						</div>
-						<a title="Fashionable Pink Top" href="#" class="product-title">A-line Dress</a>
+						<a title="Fashionable Pink Top" href="#" class="product-title">Clutch Bag</a>
 						<ul class="star">
 							<li>
 								<i class="fa fa-star"></i>
@@ -724,7 +724,7 @@
 								<i class="fa fa-star-o"></i>
 							</li>
 						</ul>
-						<span class="amount"><del>&dollar;24.99</del> &dollar;19.99</span>
+						<span class="amount"><del>775.000</del>&nbsp;600.000</span>
 					</div>
 				</div>
 			</div>
@@ -735,7 +735,7 @@
 						<div class="category-box product-box">
 							<span class="sale">sales</span>
 							<div class="inner-product">
-								<img src="images/featured/featured-1.jpg" alt="featured-img" />
+								<img src="{{ asset('storage/product_images/handbag.jpg') }}" alt="featured-img" />
 								<div class="product-box-inner">
 									<ul>
 										<li><a title="Eye Icon" href="images/featured/featured-1.jpg"><i
@@ -746,7 +746,7 @@
 								</div>
 							</div>
 						</div>
-						<a title="Fashionable Pink Top" href="#" class="product-title">Cape Dress</a>
+						<a title="Fashionable Pink Top" href="#" class="product-title">Hand Bag</a>
 						<ul class="star">
 							<li>
 								<i class="fa fa-star"></i>
@@ -756,12 +756,12 @@
 								<i class="fa fa-star-o"></i>
 							</li>
 						</ul>
-						<span class="amount"><del>&dollar;24.99</del> &dollar;19.99</span>
+						<span class="amount"><del>950.000</del>&nbsp;825.000</span>
 					</div>
 					<div class="col-12 col-sm-6 col-md-6 col-lg-3 main-product">
 						<div class="category-box product-box">
 							<div class="inner-product">
-								<img src="images/featured/featured-2.jpg" alt="featured-img" />
+								<img src="{{ asset('storage/product_images/handbag2.jpg') }}" alt="featured-img" />
 								<div class="product-box-inner">
 									<ul>
 										<li><a title="Eye Icon" href="images/featured/featured-2.jpg"><i
@@ -772,7 +772,7 @@
 								</div>
 							</div>
 						</div>
-						<a title="Fashionable Pink Top" href="#" class="product-title">Leather Dress</a>
+						<a title="Fashionable Pink Top" href="#" class="product-title">Hand Bag</a>
 						<ul class="star">
 							<li>
 								<i class="fa fa-star"></i>
@@ -782,13 +782,13 @@
 								<i class="fa fa-star-o"></i>
 							</li>
 						</ul>
-						<span class="amount"><del>&dollar;24.99</del> &dollar;19.99</span>
+						<span class="amount"><del>675.000</del>&nbsp;550.000</span>
 					</div>
 					<div class="col-12 col-sm-6 col-md-6 col-lg-3 main-product">
 						<div class="category-box product-box">
 							<span class="sale">sales</span>
 							<div class="inner-product">
-								<img src="images/featured/featured-3.jpg" alt="featured-img" />
+								<img src="{{ asset('storage/product_images/handbag3.jpg') }}" alt="featured-img" />
 								<div class="product-box-inner">
 									<ul>
 										<li><a title="Eye" href="images/featured/featured-3.jpg"><i
@@ -799,7 +799,7 @@
 								</div>
 							</div>
 						</div>
-						<a title="Fashionable Pink Top" href="#" class="product-title">Tube/Bandeau Dress</a>
+						<a title="Fashionable Pink Top" href="#" class="product-title">Hand Bag</a>
 						<ul class="star">
 							<li>
 								<i class="fa fa-star"></i>
@@ -809,12 +809,12 @@
 								<i class="fa fa-star-o"></i>
 							</li>
 						</ul>
-						<span class="amount"><del>&dollar;24.99</del> &dollar;19.99</span>
+						<span class="amount"><del>450.000</del>&nbsp;350.000</span>
 					</div>
 					<div class="col-12 col-sm-6 col-md-6 col-lg-3 main-product">
 						<div class="category-box product-box">
 							<div class="inner-product">
-								<img src="images/featured/featured-4.jpg" alt="featured-img" />
+								<img src="{{ asset('storage/product_images/handbag4.jpg') }}" alt="featured-img" />
 								<div class="product-box-inner">
 									<ul>
 										<li><a title="Eye" href="images/featured/featured-4.jpg"><i
@@ -825,7 +825,7 @@
 								</div>
 							</div>
 						</div>
-						<a title="Fashionable Pink Top" href="#" class="product-title">Sheath Dress</a>
+						<a title="Fashionable Pink Top" href="#" class="product-title">Hand Bag</a>
 						<ul class="star">
 							<li>
 								<i class="fa fa-star"></i>
@@ -835,7 +835,7 @@
 								<i class="fa fa-star-o"></i>
 							</li>
 						</ul>
-						<span class="amount"><del>&dollar;24.99</del> &dollar;19.99</span>
+						<span class="amount"><del>450.000</del>&nbsp;300.000</span>
 					</div>
 				</div>
 			</div>
@@ -854,12 +854,12 @@
 	<div id="footer-section" class="footer-section">
 
 		<!-- Add Banner -->
-		<div id="add-banner-section" class="add-banner-section bottom-shadow">
+		<!--<div id="add-banner-section" class="add-banner-section bottom-shadow">-->
 			<!-- container -->
-			<div class="container">
-				<a title="Add-banner" href="#"><img src="images/add-banner-2.jpg" alt="add-banner" /></a>
-			</div><!-- container /- -->
-		</div><!-- Add Banner /- -->
+		<!--	<div class="container">-->
+		<!--		<a title="Add-banner" href="#"><img src="images/add-banner-2.jpg" alt="add-banner" /></a>-->
+		<!--	</div><!--
+		<!--</div><!-- 
 
 		<!-- Our Partner -->
 
@@ -1002,32 +1002,32 @@
 						</div>
 					</div><!-- col-md-6 /- -->
 
-					<aside class="col-12 col-md-12 col-lg-3 widget widget_facebook">
-						<div class="widget-title">
-							<h4>IRVASCA <span>1.000.000 members </span></h4>
-							<button type="submit" value="like" class="btn btn-default pull-right">Like <i
-									class="fa fa-thumbs-o-up"></i> </button>
-						</div>
-						<ul>
-							<li><a title="Facebook photo" href="#"><img src="images/footer/fb-1.jpg"
-										alt="facebook-photo" /></a></li>
-							<li><a title="Facebook photo" href="#"><img src="images/footer/fb-2.jpg"
-										alt="facebook-photot" /></a></li>
-							<li><a title="Facebook photo" href="#"><img src="images/footer/fb-3.jpg"
-										alt="facebook-photo" /></a></li>
-							<li><a title="Facebook photo" href="#"><img src="images/footer/fb-4.jpg"
-										alt="facebook-photo" /></a></li>
-							<li><a title="Facebook photo" href="#"><img src="images/footer/fb-5.jpg"
-										alt="facebook-photo" /></a></li>
-							<li><a title="Facebook photo" href="#"><img src="images/footer/fb-6.jpg"
-										alt="facebook-photo" /></a></li>
-							<li><a title="Facebook photo" href="#"><img src="images/footer/fb-7.jpg"
-										alt="facebook-photo" /></a></li>
-							<li><a title="Facebook photo" href="#"><img src="images/footer/fb-8.jpg"
-										alt="facebook-photo" /></a></li>
-						</ul>
-						<a href="#"> facebook page </a>
-					</aside>
+					<!--<aside class="col-12 col-md-12 col-lg-3 widget widget_facebook">-->
+					<!--	<div class="widget-title">-->
+					<!--		<h4>IRVASCA <span>1.000.000 members </span></h4>-->
+					<!--		<button type="submit" value="like" class="btn btn-default pull-right">Like <i-->
+					<!--				class="fa fa-thumbs-o-up"></i> </button>-->
+					<!--	</div>-->
+					<!--	<ul>-->
+					<!--		<li><a title="Facebook photo" href="#"><img src="images/footer/fb-1.jpg"-->
+					<!--					alt="facebook-photo" /></a></li>-->
+					<!--		<li><a title="Facebook photo" href="#"><img src="images/footer/fb-2.jpg"-->
+					<!--					alt="facebook-photot" /></a></li>-->
+					<!--		<li><a title="Facebook photo" href="#"><img src="images/footer/fb-3.jpg"-->
+					<!--					alt="facebook-photo" /></a></li>-->
+					<!--		<li><a title="Facebook photo" href="#"><img src="images/footer/fb-4.jpg"-->
+					<!--					alt="facebook-photo" /></a></li>-->
+					<!--		<li><a title="Facebook photo" href="#"><img src="images/footer/fb-5.jpg"-->
+					<!--					alt="facebook-photo" /></a></li>-->
+					<!--		<li><a title="Facebook photo" href="#"><img src="images/footer/fb-6.jpg"-->
+					<!--					alt="facebook-photo" /></a></li>-->
+					<!--		<li><a title="Facebook photo" href="#"><img src="images/footer/fb-7.jpg"-->
+					<!--					alt="facebook-photo" /></a></li>-->
+					<!--		<li><a title="Facebook photo" href="#"><img src="images/footer/fb-8.jpg"-->
+					<!--					alt="facebook-photo" /></a></li>-->
+					<!--	</ul>-->
+					<!--	<a href="#"> facebook page </a>-->
+					<!--</aside>-->
 				</div>
 			</div><!-- container /- -->
 		</div><!-- widget section /- -->
@@ -1053,10 +1053,10 @@
 					<div class="col-12 col-md-6 col-lg-6 copy-rights">
 						<p> IRVASCA&copy; 2024 </p>
 					</div>
-					<div class="col-12 col-md-12 col-lg-3">
-						<a title="Payment-getway" href="#"><img src="images/footer/payment-getway-icon.png"
-								alt="payment-getway-icon"></a>
-					</div>
+					<!--<div class="col-12 col-md-12 col-lg-3">-->
+					<!--	<a title="Payment-getway" href="#"><img src="images/footer/payment-getway-icon.png"-->
+					<!--			alt="payment-getway-icon"></a>-->
+					<!--</div>-->
 				</div>
 			</div><!-- container /- -->
 			<a title="Back-to-top" id="back-to-top" href="#back-to-top" class="back-to-top"><i

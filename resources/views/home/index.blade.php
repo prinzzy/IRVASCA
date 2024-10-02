@@ -52,12 +52,12 @@
       <script src="js/html5/respond.min.js"></script>
     <![endif]-->
 
-	<link href='http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700,700italic' rel='stylesheet'
+	<link href='https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700,700italic' rel='stylesheet'
 		type='text/css'>
 	<link
-		href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,400italic,300italic,500,500italic,700,700italic,900,900italic'
+		href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,400italic,300italic,500,500italic,700,700italic,900,900italic'
 		rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,400italic,700,700italic,900,900italic'
+	<link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,400italic,700,700italic,900,900italic'
 		rel='stylesheet' type='text/css'>
 
 </head>
@@ -223,12 +223,12 @@
 									data-bs-toggle="dropdown">Shop</a>
 								<ul class="dropdown-menu">
 									<li><a title="product" class="dropdown-item" href="{{ url('/product') }}">product</a></li>
-									<li><a title="Single product" class="dropdown-item"
-											href="{{ url('/single-product') }}">single product</a></li>
-									<li><a title="Single product" class="dropdown-item"
-											href="{{ url('/single-product-2') }}">single product 2</a></li>
-									<li><a title="Shopping cart" class="dropdown-item"
-											href="{{ url('/shopping-cart') }}">shopping cart</a></li>
+									<!--<li><a title="Single product" class="dropdown-item"-->
+									<!--		href="{{ url('/single-product') }}">single product</a></li>-->
+									<!--<li><a title="Single product" class="dropdown-item"-->
+									<!--		href="{{ url('/single-product-2') }}">single product 2</a></li>-->
+									<!--<li><a title="Shopping cart" class="dropdown-item"-->
+									<!--		href="{{ url('/shopping-cart') }}">shopping cart</a></li>-->
 								</ul>
 							</li>
 							<li class="nav-item dropdown mega-dropdown">
@@ -376,26 +376,26 @@
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox">
 				<div class="carousel-item active">
-					<img src="{{ asset('storage/product_images/baju.jpg') }}" alt="slide-1">
+					<img src="{{ asset('storage/product_images/clutchnew.jpg') }}" alt="slide-1" style="width: 100%; height: auto;">
 					<div class="container">
 						<div class="slider-box">
-							<button class="btn">Button</button>
+							<button class="btn">Buy</button>
 						</div>
 					</div>
 				</div>
 				<div class="carousel-item">
-					<img src="{{ asset('storage/product_images/baju2.jpg') }}" alt="slide-1">
+					<img src="{{ asset('storage/product_images/tasblue.jpg') }}" alt="slide-1" style="width: 100%; height: auto;">
 					<div class="container">
 						<div class="slider-box">
-							<button class="btn">Button</button>
+							<button class="btn">Buy</button>
 						</div>
 					</div>
 				</div>
 				<div class="carousel-item">
-					<img src="{{ asset('storage/product_images/baju3.jpg') }}" alt="slide-2">
+				<img src="{{ asset('storage/product_images/tascream.jpg') }}" alt="slide-1" style="width: 100%; height: auto;">
 					<div class="container">
 						<div class="slider-box">
-							<button class="btn">Button</button>
+							<button class="btn">Buy</button>
 						</div>
 					</div>
 				</div>
@@ -441,8 +441,8 @@
 						<div class="item">
 							<div class="category-box">
 								<span class="sale">+786</span>
-								<a title="Women’s Wear" href="./02_categories.html">
-									<img src="images/category/cat-img-1.jpg" alt="cat-img" />
+								<a title="Women’s Bag" href="./02_categories.html">
+									<img src="{{ asset('storage/product_images/handbag4.jpg') }}" alt="cat-img" />
 									<span>Women’s Wear</span>
 									<div class="cat-hover"></div>
 								</a>
@@ -451,8 +451,8 @@
 						<div class="item">
 							<div class="category-box">
 								<a title="Accessories" href="./02_categories.html">
-									<img src="images/category/cat-img-2.jpg" alt="cat-img" />
-									<span>Accessories </span>
+									<img src="{{ asset('storage/product_images/baju3.jpg') }}" alt="cat-img" />
+									<span>Women's Top </span>
 									<div class="cat-hover"></div>
 								</a>
 							</div>
@@ -461,8 +461,8 @@
 							<div class="category-box">
 								<span class="new">New</span>
 								<a title="Kids Wear" href="./02_categories.html">
-									<img src="images/category/cat-img-3.jpg" alt="cat-img" />
-									<span>Women Shopping</span>
+									<img src="{{ asset('storage/product_images/baju cewe.jpg') }}" alt="cat-img" />
+									<span>Women's suit</span>
 									<div class="cat-hover"></div>
 								</a>
 							</div>
@@ -470,8 +470,8 @@
 						<div class="item">
 							<div class="category-box">
 								<a title="Women Accessories" href="./02_categories.html">
-									<img src="images/category/cat-img-4.jpg" alt="cat-img" />
-									<span>Women Cosmetic</span>
+									<img src="{{ asset('storage/product_images/tas.jpg') }}" alt="cat-img" />
+									<span>Women Handbag's</span>
 									<div class="cat-hover"></div>
 								</a>
 							</div>
@@ -489,7 +489,7 @@
 						<div class="item">
 							<div class="category-box">
 								<a title="Women Accessories" href="./02_categories.html">
-									<img src="images/category/cat-img-6.jpg" alt="cat-img" />
+									<img src="{{ asset('storage/product_images/tas2.jpg') }}" alt="cat-img" />
 									<span>Women Accessories</span>
 									<div class="cat-hover"></div>
 								</a>
@@ -517,7 +517,7 @@
 						<div class="category-box product-box">
 							<span class="sale">sales</span>
 							<div class="inner-product">
-								<img src="images/featured/featured-1.jpg" alt="featured-img" />
+								<img src="{{ asset('storage/product_images/productnew/totebag.png') }}" alt="featured-img" />
 								<div class="product-box-inner">
 									<ul>
 										<li><a title="Eye" href="images/featured/featured-1.jpg"><i
@@ -528,7 +528,7 @@
 								</div>
 							</div>
 						</div>
-						<a href="04_single_product.html" class="product-title">Skater Dress</a>
+						<a href="04_single_product.html" class="product-title">Bag </a>
 						<ul class="star">
 							<li>
 								<i class="fa fa-star"></i>
@@ -538,14 +538,14 @@
 								<i class="fa fa-star-o"></i>
 							</li>
 						</ul>
-						<span class="amount"><del>&dollar;24.99</del> &dollar;19.99</span>
+						<span class="amount"><del>850.000</del>&nbsp;525.000</span>
 					</div>
 				</div>
 				<div class="col-lg-3 col-md-6 col-12">
 					<div class="main-product">
 						<div class="category-box product-box">
 							<div class="inner-product">
-								<img src="images/featured/featured-2.jpg" alt="featured-img" />
+								<img src="{{ asset('storage/product_images/tas 6.jpg') }}" alt="featured-img" />
 								<div class="product-box-inner">
 									<ul>
 										<li><a title="Eye" href="images/featured/featured-2.jpg"><i
@@ -556,7 +556,7 @@
 								</div>
 							</div>
 						</div>
-						<a title="Fashionable Pink Top" href="04_single_product.html" class="product-title">Mini Dress</a>
+						<a title="Fashionable Pink Top" href="04_single_product.html" class="product-title">Bag</a>
 						<ul class="star">
 							<li>
 								<i class="fa fa-star"></i>
@@ -566,7 +566,7 @@
 								<i class="fa fa-star-o"></i>
 							</li>
 						</ul>
-						<span class="amount"><del>&dollar;24.99</del> &dollar;19.99</span>
+						<span class="amount"><del>750.000</del>&nbsp;450.000</span>
 					</div>
 				</div>
 				<div class="col-lg-3 col-md-6 col-12">
@@ -574,7 +574,7 @@
 						<div class="category-box product-box">
 							<span class="sale">sales</span>
 							<div class="inner-product">
-								<img src="images/featured/featured-3.jpg" alt="featured-img" />
+								<img src="{{ asset('storage/product_images/productnew/ShoulderBag.png') }}" alt="featured-img" />
 								<div class="product-box-inner">
 									<ul>
 										<li><a title="Eye" href="images/featured/featured-3.jpg"><i
@@ -585,7 +585,7 @@
 								</div>
 							</div>
 						</div>
-						<a href="04_single_product.html" class="product-title">Off Shoulder Dress</a>
+						<a href="04_single_product.html" class="product-title">Bag</a>
 						<ul class="star">
 							<li>
 								<i class="fa fa-star"></i>
@@ -595,14 +595,14 @@
 								<i class="fa fa-star-o"></i>
 							</li>
 						</ul>
-						<span class="amount"><del>&dollar;24.99</del> &dollar;19.99</span>
+						<span class="amount"><del>650.000</del>&nbsp;350.000</span>
 					</div>
 				</div>
 				<div class="col-lg-3 col-md-6 col-12">
 					<div class="main-product">
 						<div class="category-box product-box">
 							<div class="inner-product">
-								<img src="images/featured/featured-4.jpg" alt="featured-img" />
+								<img src="{{ asset('storage/product_images/productnew/ShoulderBag1.png') }}" alt="featured-img" />
 								<div class="product-box-inner">
 									<ul>
 										<li><a title="Eye" href="images/featured/featured-4.jpg"><i
@@ -613,7 +613,7 @@
 								</div>
 							</div>
 						</div>
-						<a href="04_single_product.html" class="product-title">Sweater Dress</a>
+						<a href="04_single_product.html" class="product-title">Bag 2</a>
 						<ul class="star">
 							<li>
 								<i class="fa fa-star"></i>
@@ -623,7 +623,7 @@
 								<i class="fa fa-star-o"></i>
 							</li>
 						</ul>
-						<span class="amount"><del>&dollar;24.99</del> &dollar;19.99</span>
+						<span class="amount"><del>750.000</del>&nbsp;450.000</span>
 					</div>
 				</div>
 			</div>
@@ -633,7 +633,7 @@
 						<div class="category-box product-box">
 							<span class="sale">sales</span>
 							<div class="inner-product">
-								<img src="images/featured/featured-5.jpg" alt="featured-img" />
+								<img src="{{ asset('storage/product_images/productnew/ShoulderBag2.png') }}" alt="featured-img" />
 								<div class="product-box-inner">
 									<ul>
 										<li><a title="Eye" href="images/featured/featured-5.jpg"><i
@@ -644,7 +644,7 @@
 								</div>
 							</div>
 						</div>
-						<a href="04_single_product.html" class="product-title">Tie Detail Dress</a>
+						<a href="04_single_product.html" class="product-title">HandBag</a>
 						<ul class="star">
 							<li>
 								<i class="fa fa-star"></i>
@@ -654,14 +654,14 @@
 								<i class="fa fa-star-o"></i>
 							</li>
 						</ul>
-						<span class="amount"><del>&dollar;24.99</del> &dollar;19.99</span>
+						<span class="amount"><del>650.000</del>&nbsp;475.000</span>
 					</div>
 				</div>
 				<div class="col-lg-3 col-md-6 col-12">
 					<div class="main-product">
 						<div class="category-box product-box">
 							<div class="inner-product">
-								<img src="images/featured/featured-6.jpg" alt="featured-img" />
+								<img src="{{ asset('storage/product_images/tas 6.jpg') }}" alt="featured-img" />
 								<div class="product-box-inner">
 									<ul>
 										<li><a title="Eye" href="images/featured/featured-6.jpg"><i
@@ -672,7 +672,7 @@
 								</div>
 							</div>
 						</div>
-						<a href="04_single_product.html" class="product-title">Peplum Dress</a>
+						<a href="04_single_product.html" class="product-title">Handbag</a>
 						<ul class="star">
 							<li>
 								<i class="fa fa-star"></i>
@@ -682,7 +682,7 @@
 								<i class="fa fa-star-o"></i>
 							</li>
 						</ul>
-						<span class="amount"><del>&dollar;24.99</del> &dollar;19.99</span>
+						<span class="amount"><del>750.000</del>&nbsp;525.000</span>
 					</div>
 				</div>
 				<div class="col-lg-3 col-md-6 col-12">
@@ -690,7 +690,7 @@
 						<div class="category-box product-box">
 							<span class="sale">sales</span>
 							<div class="inner-product">
-								<img src="images/featured/featured-7.jpg" alt="featured-img" />
+								<img src="{{ asset('storage/product_images/handbag2.jpg') }}" alt="featured-img" />
 								<div class="product-box-inner">
 									<ul>
 										<li><a title="Eye" href="images/featured/featured-7.jpg"><i
@@ -701,7 +701,7 @@
 								</div>
 							</div>
 						</div>
-						<a href="04_single_product.html" class="product-title"> Backless Dress</a>
+						<a href="04_single_product.html" class="product-title">Handbag</a>
 						<ul class="star">
 							<li>
 								<i class="fa fa-star"></i>
@@ -711,14 +711,14 @@
 								<i class="fa fa-star-o"></i>
 							</li>
 						</ul>
-						<span class="amount"><del>&dollar;24.99</del> &dollar;19.99</span>
+						<span class="amount"><del>650.000</del>&nbsp;450.000</span>
 					</div>
 				</div>
 				<div class="col-lg-3 col-md-6 col-12">
 					<div class="main-product">
 						<div class="category-box product-box">
 							<div class="inner-product">
-								<img src="images/featured/featured-8.jpg" alt="featured-img" />
+								<img src="{{ asset('storage/product_images/handbag4.jpg') }}" alt="featured-img" />
 								<div class="product-box-inner">
 									<ul>
 										<li><a title="Eye" href="images/featured/featured-8.jpg"><i
@@ -729,7 +729,7 @@
 								</div>
 							</div>
 						</div>
-						<a title="Fashionable Pink Top" href="04_single_product.html" class="product-title">Fringe Detail Dress</a>
+						<a title="Fashionable Pink Top" href="04_single_product.html" class="product-title">Handbag Black</a>
 						<ul class="star">
 							<li>
 								<i class="fa fa-star"></i>
@@ -739,7 +739,7 @@
 								<i class="fa fa-star-o"></i>
 							</li>
 						</ul>
-						<span class="amount"><del>&dollar;24.99</del> &dollar;19.99</span>
+						<span class="amount"><del>550.000</del>&nbsp;350.000</span>
 					</div>
 				</div>
 			</div>
@@ -753,12 +753,12 @@
 	<div id="footer-section" class="footer-section">
 
 		<!-- Add Banner -->
-		<div id="add-banner-section" class="add-banner-section bottom-shadow">
+		<!--<div id="add-banner-section" class="add-banner-section bottom-shadow">
 			<!-- container -->
-			<div class="container">
-				<a title="Add-banner" href="#"><img src="images/add-banner-2.jpg" alt="add-banner" /></a>
-			</div><!-- container /- -->
-		</div><!-- Add Banner /- -->
+		<!--	<div class="container">
+		<!--		<a title="Add-banner" href="#"><img src="images/add-banner-2.jpg" alt="add-banner" /></a>
+		<!--	</div><!-- container /
+		<!--</div><!-- Add Banner /-->
 
 
 		<!-- News Letter -->
@@ -900,33 +900,33 @@
 						</div>
 					</div><!-- col-md-6 /- -->
 
-					<aside class="col-12 col-md-12 col-lg-3 widget widget_facebook">
-						<div class="widget-title">
-							<h4>IRVASCA <span>1.000.000 members </span></h4>
-							<button type="submit" value="like" class="btn btn-default pull-right">Like <i
-									class="fa fa-thumbs-o-up"></i> </button>
-						</div>
-						<ul>
-							<li><a title="Facebook photo" href="#"><img src="images/footer/fb-1.jpg"
-										alt="facebook-photo" /></a></li>
-							<li><a title="Facebook photo" href="#"><img src="images/footer/fb-2.jpg"
-										alt="facebook-photot" /></a></li>
-							<li><a title="Facebook photo" href="#"><img src="images/footer/fb-3.jpg"
-										alt="facebook-photo" /></a></li>
-							<li><a title="Facebook photo" href="#"><img src="images/footer/fb-4.jpg"
-										alt="facebook-photo" /></a></li>
-							<li><a title="Facebook photo" href="#"><img src="images/footer/fb-5.jpg"
-										alt="facebook-photo" /></a></li>
-							<li><a title="Facebook photo" href="#"><img src="images/footer/fb-6.jpg"
-										alt="facebook-photo" /></a></li>
-							<li><a title="Facebook photo" href="#"><img src="images/footer/fb-7.jpg"
-										alt="facebook-photo" /></a></li>
-							<li><a title="Facebook photo" href="#"><img src="images/footer/fb-8.jpg"
-										alt="facebook-photo" /></a></li>
-						</ul>
-						<a href="#"> facebook page </a>
-					</aside>
-				</div>
+				<!--	<aside class="col-12 col-md-12 col-lg-3 widget widget_facebook">-->
+				<!--		<div class="widget-title">-->
+				<!--			<h4>IRVASCA <span>1.000.000 members </span></h4>-->
+				<!--			<button type="submit" value="like" class="btn btn-default pull-right">Like <i-->
+				<!--					class="fa fa-thumbs-o-up"></i> </button>-->
+				<!--		</div>-->
+				<!--		<ul>-->
+				<!--			<li><a title="Facebook photo" href="#"><img src="images/footer/fb-1.jpg"-->
+				<!--						alt="facebook-photo" /></a></li>-->
+				<!--			<li><a title="Facebook photo" href="#"><img src="images/footer/fb-2.jpg"-->
+				<!--						alt="facebook-photot" /></a></li>-->
+				<!--			<li><a title="Facebook photo" href="#"><img src="images/footer/fb-3.jpg"-->
+				<!--						alt="facebook-photo" /></a></li>-->
+				<!--			<li><a title="Facebook photo" href="#"><img src="images/footer/fb-4.jpg"-->
+				<!--						alt="facebook-photo" /></a></li>-->
+				<!--			<li><a title="Facebook photo" href="#"><img src="images/footer/fb-5.jpg"-->
+				<!--						alt="facebook-photo" /></a></li>-->
+				<!--			<li><a title="Facebook photo" href="#"><img src="images/footer/fb-6.jpg"-->
+				<!--						alt="facebook-photo" /></a></li>-->
+				<!--			<li><a title="Facebook photo" href="#"><img src="images/footer/fb-7.jpg"-->
+				<!--						alt="facebook-photo" /></a></li>-->
+				<!--			<li><a title="Facebook photo" href="#"><img src="images/footer/fb-8.jpg"-->
+				<!--						alt="facebook-photo" /></a></li>-->
+				<!--		</ul>-->
+				<!--		<a href="#"> facebook page </a>-->
+				<!--	</aside>-->
+				<!--</div>-->
 			</div><!-- container /- -->
 		</div><!-- widget section /- -->
 		<!-- Footer bottom -->
@@ -951,10 +951,10 @@
 					<div class="col-12 col-md-6 col-lg-6 copy-rights">
 						<p> IRVASCA&copy; 2024 </p>
 					</div>
-					<div class="col-12 col-md-12 col-lg-3">
-						<a title="Payment-getway" href="#"><img src="images/footer/payment-getway-icon.png"
-								alt="payment-getway-icon"></a>
-					</div>
+					<!--<div class="col-12 col-md-12 col-lg-3">-->
+					<!--	<a title="Payment-getway" href="#"><img src="images/footer/payment-getway-icon.png"-->
+					<!--			alt="payment-getway-icon"></a>-->
+					<!--</div>-->
 				</div>
 			</div><!-- container /- -->
 			<a title="Back-to-top" id="back-to-top" href="#back-to-top" class="back-to-top"><i
@@ -966,7 +966,7 @@
 	<script src="{{ asset('libraries/jquery.min.js') }}"></script>
 
 	<!-- Google Maps API -->
-	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+	<script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script>
 
 	<!-- gMap Plugin -->
 	<script src="{{ asset('libraries/gmap/jquery.gmap.min.js') }}"></script>

@@ -461,7 +461,7 @@
 						<h3>If You have Account, Login Directly</h3>
 						<p>Sign in with your IRVASCA Account Credentials</p>
 						<div class="drop-line bottom-shadow"></div>
-						<a title="sign in" href="#" class="btn btn-default">sign in</a>
+						<a title="sign in" href="{{ url('/login-member') }}" class="btn btn-default">sign in</a>
 					</div>
 				</div>
 			</div>
