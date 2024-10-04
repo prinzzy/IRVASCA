@@ -13,9 +13,19 @@ class Product extends Model
         'name',
         'description',
         'price',
+        'original_price',
+        'discount_price',
+        'star_rating',
         'category_id',
         'subcategory_id',
         'image_path',
+        'images', // Add this
+        'thumbnails', // Add this
+    ];
+
+    protected $casts = [
+        'images' => 'array',
+        'thumbnails' => 'array',
     ];
 
     public function category()

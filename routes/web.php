@@ -9,7 +9,7 @@ use App\Http\Controllers\SubcategoryController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\Admin\AdminEmailController;
 use App\Models\Product;
-
+use App\Http\Controllers\IndexController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -53,14 +53,12 @@ Route::delete('subcategories/{subcategory}', [SubcategoryController::class, 'des
 
 
 // HOMEPAGE
-
 Route::get('/login-member', function () {
     return view('home.07_login_register');
 });
 Route::get('/register-member', function () {
     return view('home.05_register');
 });
-
 Route::get('/product', function () {
     return view('home.03_product'); // home/product.blade.php
 });
@@ -76,7 +74,6 @@ Route::get('/shopping-cart', function () {
 Route::get('/ctg', function () {
     return view('home.02_categories');
 });
-
 Route::get('/single-product-2', function () {
     return view('home.04_single_product-2'); // home/single_product_2.blade.php
 });
@@ -114,14 +111,16 @@ Route::get('/finish-member', function () {
 
 
 
+Route::get('/products/{id}', [IndexController::class, 'showProduct'])->name('product.show');
+
+
 Route::get('/', function () {
     $products = Product::all(); // Fetch all products
     return view('countdown', compact('products'));
 })->name('countdown');
 
-Route::get('/index', function () {
-    return view('home.index');
-})->name('index');
+Route::get('/index', [IndexController::class, 'index'])->name('index');
+
 
 
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
