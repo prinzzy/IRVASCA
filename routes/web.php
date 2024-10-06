@@ -59,7 +59,7 @@ Route::get('/login-member', function () {
 Route::get('/register-member', function () {
     return view('home.05_register');
 });
-Route::get('/product', function () {
+Route::get('/catalog', function () {
     return view('home.03_product'); // home/product.blade.php
 });
 Route::get('/single-product', function () {
@@ -149,4 +149,4 @@ Route::get('/emails', [EmailController::class, 'index'])->name('emails.index');
 
 
 
-Route::get('/catalog', [ProductController::class, 'index'])->name('catalog.index');
+// Route::get('/catalog', [ProductController::class, 'index'])->name('catalog.index');
