@@ -288,7 +288,7 @@
                         </div>
                         <div class="form-group">
                             <label for="image_path">Main Image</label>
-                            <input type="file" class="form-control" name="image_path" required>
+                            <input type="file" name="image" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="thumbnails">Thumbnails</label>

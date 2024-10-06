@@ -16,6 +16,7 @@ class Product extends Model
         'original_price',
         'discount_price',
         'star_rating',
+        'stock',
         'category_id',
         'subcategory_id',
         'image_path',
