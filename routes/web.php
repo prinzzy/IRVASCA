@@ -10,6 +10,7 @@ use App\Http\Controllers\EmailController;
 use App\Http\Controllers\Admin\AdminEmailController;
 use App\Models\Product;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\CartController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -59,9 +60,7 @@ Route::get('/login-member', function () {
 Route::get('/register-member', function () {
     return view('home.05_register');
 });
-Route::get('/catalog', function () {
-    return view('home.03_product'); // home/product.blade.php
-});
+Route::get('/catalog', [IndexController::class, 'catalogProduct']);
 Route::get('/single-product', function () {
     return view('home.04_single_product'); // home/single_product.blade.php
 });
@@ -112,6 +111,12 @@ Route::get('/finish-member', function () {
 
 
 Route::get('/products/{id}', [IndexController::class, 'showProduct'])->name('product.show');
+
+
+// CART
+
+Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add');
+Route::post('/cart/remove', [CartController::class, 'removeFromCart'])->name('cart.remove');
 
 
 Route::get('/', function () {

@@ -25,6 +25,15 @@ class IndexController extends Controller
         return view('home.index', compact('bannerProducts', 'featuredProducts'));
     }
 
+    public function catalogProduct()
+    {
+        // Fetch all products from the database
+        $products = Product::all();
+
+        // Pass the products to the view
+        return view('home.03_product', ['products' => $products]);
+    }
+
     public function showProduct($id)
     {
         $product = Product::with('category', 'subcategory')->findOrFail($id);

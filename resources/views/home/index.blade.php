@@ -7,6 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="">
 	<meta name="author" content="">
+	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<title>IRVASCA</title>
 
 	<!-- Favicon -->
@@ -123,7 +124,7 @@
 						class="col-12 col-md-12 col-lg-6 ow-right-padding  ow-right-padding2 d-flex align-content-center justify-content-end">
 						<ul class="top-menu">
 							<!-- <li><a title="My whishlist" href="#">My whishlist</a></li> -->
-							<li><a title="CheckOut" href="#">CheckOut</a></li>
+							<!-- <li><a title="CheckOut" href="#">CheckOut</a></li> -->
 						</ul>
 						<ul class="top-menu">
 							<li><a title="Login" href="{{ url('/login-member') }}">Login</a></li>
@@ -157,40 +158,9 @@
 							<form class="col-12  col-sm-6 col-md-6 col-lg-7">
 							</form>
 							<div class="col-12 col-sm-6 col-md-6 col-lg-5 cart-link ow-right-padding">
-								<svg width="16px" height="15px" viewBox="0 0 533.334 533.335">
-									<g>
-										<path
-											d="M441.26,300.001c18.333,0,37.454-14.423,42.49-32.052l48.353-169.231c5.036-17.627-5.844-32.05-24.177-32.05H166.667   c0-36.819-29.848-66.667-66.667-66.667H0v66.667h100v283.333c0,27.614,22.386,50,50,50h316.667   c18.409,0,33.334-14.924,33.334-33.333s-14.925-33.334-33.334-33.334h-300v-33.333H441.26z M166.667,133.334h301.461l-28.573,100   H166.667V133.334z M200,491.668c0,22.916-18.75,41.666-41.667,41.666h-16.667c-22.917,0-41.667-18.75-41.667-41.666v-16.667   c0-22.917,18.75-41.667,41.667-41.667h16.667c22.917,0,41.667,18.75,41.667,41.667V491.668z M500,491.668   c0,22.916-18.75,41.666-41.667,41.666h-16.667c-22.916,0-41.666-18.75-41.666-41.666v-16.667c0-22.917,18.75-41.667,41.666-41.667   h16.667c22.917,0,41.667,18.75,41.667,41.667V491.668z" />
-									</g>
-								</svg>
-								cart (2)
-								<div class="cart-dropdown">
-									<table>
-										<tr>
-											<td class="product-thumb"><a href="#"><img src="images/cart-hover-1.png"
-														alt="cart-hover" /></a></td>
-											<td><a title="Red Cotton Top" href="#">Red Cotton Top</a></td>
-											<td>x1</td>
-											<td>$92.00</td>
-											<td><a title="close" href="#"><i class="fa fa-close"></i></a></td>
-										</tr>
-										<tr>
-											<td class="product-thumb"><a href="#"><img src="images/cart-hover-2.png"
-														alt="cart-hover" /></a></td>
-											<td><a title="Red Cotton Top" href="#">Red Cotton Top</a></td>
-											<td>x1</td>
-											<td>$92.00</td>
-											<td><a title="close" href="#"><i class="fa fa-close"></i></a></td>
-										</tr>
-									</table>
-									<div class="sub-total">
-										<p><span>Sub Total</span> $160.00</p>
-										<p><span>Total</span> $160.00</p>
-									</div>
-									<div class="cart-button">
-										<a title="Add to cart" href="#">add to cart</a>
-										<a title="Checkout" href="#">Checkout</a>
-									</div>
+								<span>Cart ({{ count($cartItems) }})</span>
+								<div class="cart-dropdown" style="display: none;">
+									@include('layouts.partials.cart', ['cartItems' => $cartItems, 'subtotal' => $subtotal, 'total' => $total])
 								</div>
 							</div>
 						</div>
@@ -218,7 +188,7 @@
 							<li class="nav-item active"><a class="nav-link active" title="Home"
 									href="{{ url('/index') }}">Home</a></li>
 							<li class="nav-item active"><a class="nav-link active" title="Home"
-									href="{{ url('/catalog') }}">Catalog</a></li>
+									href="{{ url('/catalog') }}">Shop</a></li>
 							<!-- <li class="nav-item"><a class="nav-link" title="Look Book" href="{{ url('/lookbook') }}">Look
 									Book</a></li>
 							<li class="nav-item"><a class="nav-link" title="Blog" href="{{ url('/blog') }}">Blog</a></li> -->
@@ -285,70 +255,6 @@
 					<p>We Always Deliver Perfect Quality Products for you</p>
 				</div>
 			</div>
-			<div class="category-box-main categories-slider">
-				<!-- Owl Carousel -->
-				<div class="our-partner">
-					<div id="categories-list" class="owl-carousel owl-theme">
-						<div class="item">
-							<div class="category-box">
-								<span class="sale">+786</span>
-								<a title="Women’s Bag" href="./02_categories.html">
-									<img src="{{ asset('storage/product_images/handbag4.jpg') }}" alt="cat-img" />
-									<span>Women’s Wear</span>
-									<div class="cat-hover"></div>
-								</a>
-							</div>
-						</div>
-						<div class="item">
-							<div class="category-box">
-								<a title="Accessories" href="./02_categories.html">
-									<img src="{{ asset('storage/product_images/baju3.jpg') }}" alt="cat-img" />
-									<span>Women's Top </span>
-									<div class="cat-hover"></div>
-								</a>
-							</div>
-						</div>
-						<div class="item">
-							<div class="category-box">
-								<span class="new">New</span>
-								<a title="Kids Wear" href="./02_categories.html">
-									<img src="{{ asset('storage/product_images/baju cewe.jpg') }}" alt="cat-img" />
-									<span>Women's suit</span>
-									<div class="cat-hover"></div>
-								</a>
-							</div>
-						</div>
-						<div class="item">
-							<div class="category-box">
-								<a title="Women Accessories" href="./02_categories.html">
-									<img src="{{ asset('storage/product_images/tas.jpg') }}" alt="cat-img" />
-									<span>Women Handbag's</span>
-									<div class="cat-hover"></div>
-								</a>
-							</div>
-						</div>
-						<div class="item">
-							<div class="category-box">
-								<span class="new">New</span>
-								<a title="Kids Wear" href="./02_categories.html">
-									<img src="images/category/cat-img-5.jpg" alt="cat-img" />
-									<span>Kids Wear</span>
-									<div class="cat-hover"></div>
-								</a>
-							</div>
-						</div>
-						<div class="item">
-							<div class="category-box">
-								<a title="Women Accessories" href="./02_categories.html">
-									<img src="{{ asset('storage/product_images/tas2.jpg') }}" alt="cat-img" />
-									<span>Women Accessories</span>
-									<div class="cat-hover"></div>
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
 		</div><!-- container /- -->
 	</div><!-- Category Section /- -->
 
@@ -371,7 +277,7 @@
 							<span class="sale">sales</span>
 							@endif
 							<div class="inner-product">
-								<img src="{{ asset('storage/' . $product->image_path) }}" alt="{{ $product->name }}" />
+								<img src="{{ asset('storage/' . $product->image_path) }}" alt="{{ $product->name }}" img class="product-image" />
 								<div class="product-box-inner">
 									<ul>
 										<li><a title="View" href="{{ asset('storage/' . $product->image_path) }}"><i class="fa fa-eye"></i></a></li>
@@ -512,6 +418,20 @@
 							<p>Griya Pamoyanan, Blok G 17, Pamoyanan </p>
 							<p>Bogor, Indonesia, 16136</p>
 						</div>
+						<div class="helpline">
+							<svg viewBox="0 0 51.413 51.413">
+								<path
+									d="M25.989,12.274c8.663,0.085,14.09-0.454,14.823,9.148h10.564c0-14.875-12.973-16.88-25.662-16.88    c-12.69,0-25.662,2.005-25.662,16.88h10.482C11.345,11.637,17.398,12.19,25.989,12.274z" />
+								<path
+									d="M5.291,26.204c2.573,0,4.714,0.154,5.19-2.377c0.064-0.344,0.101-0.734,0.101-1.185H10.46H0    C0,26.407,2.369,26.204,5.291,26.204z" />
+								<path
+									d="M40.88,22.642h-0.099c0,0.454,0.039,0.845,0.112,1.185c0.502,2.334,2.64,2.189,5.204,2.189    c2.936,0,5.316,0.193,5.316-3.374H40.88z" />
+								<path
+									d="M35.719,20.078v-1.496c0-0.669-0.771-0.711-1.723-0.711h-1.555c-0.951,0-1.722,0.042-1.722,0.711    v1.289v1h-11v-1v-1.289c0-0.669-0.771-0.711-1.722-0.711h-1.556c-0.951,0-1.722,0.042-1.722,0.711v1.496v1.306    C12.213,23.988,4.013,35.073,3.715,36.415l0.004,8.955c0,0.827,0.673,1.5,1.5,1.5h40c0.827,0,1.5-0.673,1.5-1.5v-9    c-0.295-1.303-8.493-12.383-11-14.987V20.078z M19.177,37.62c-0.805,0-1.458-0.652-1.458-1.458s0.653-1.458,1.458-1.458    s1.458,0.652,1.458,1.458S19.982,37.62,19.177,37.62z M19.177,32.62c-0.805,0-1.458-0.652-1.458-1.458s0.653-1.458,1.458-1.458    s1.458,0.652,1.458,1.458S19.982,32.62,19.177,32.62z M19.177,27.621c-0.805,0-1.458-0.652-1.458-1.458    c0-0.805,0.653-1.458,1.458-1.458s1.458,0.653,1.458,1.458C20.635,26.969,19.982,27.621,19.177,27.621z M25.177,37.62    c-0.805,0-1.458-0.652-1.458-1.458s0.653-1.458,1.458-1.458c0.806,0,1.458,0.652,1.458,1.458S25.983,37.62,25.177,37.62z     M25.177,32.62c-0.805,0-1.458-0.652-1.458-1.458s0.653-1.458,1.458-1.458c0.806,0,1.458,0.652,1.458,1.458    S25.983,32.62,25.177,32.62z M25.177,27.621c-0.805,0-1.458-0.652-1.458-1.458c0-0.805,0.653-1.458,1.458-1.458    c0.806,0,1.458,0.653,1.458,1.458C26.635,26.969,25.983,27.621,25.177,27.621z M31.177,37.62c-0.806,0-1.458-0.652-1.458-1.458    s0.652-1.458,1.458-1.458s1.458,0.652,1.458,1.458S31.983,37.62,31.177,37.62z M31.177,32.62c-0.806,0-1.458-0.652-1.458-1.458    s0.652-1.458,1.458-1.458s1.458,0.652,1.458,1.458S31.983,32.62,31.177,32.62z M31.177,27.621c-0.806,0-1.458-0.652-1.458-1.458    c0-0.805,0.652-1.458,1.458-1.458s1.458,0.653,1.458,1.458C32.635,26.969,31.983,27.621,31.177,27.621z" />
+							</svg>
+							<h4>Help Lines</h4>
+							<p>+62 812-389-333</p>
+						</div>
 					</aside><!-- widget about /- -->
 
 					<!-- col-md-6 -->
@@ -523,12 +443,12 @@
 									<span>from our store</span>
 								</h3>
 								<ul>
-									<li><a title="Shoes" href="02_categories.html">Shoes</a></li>
-									<li><a title="Perfumes" href="02_categories.html">Perfumes</a></li>
-									<li><a title="Bags" href="02_categories.html">Bags</a></li>
-									<li><a title="Make Up" href="02_categories.html">Make Up</a></li>
-									<li><a title="Jewelry" href="02_categories.html">Jewelry</a></li>
-									<li><a title="Clothing" href="02_categories.html">Clothing</a></li>
+									<li><a title="Tshirts" href="">Tshirts</a></li>
+									<li><a title="Jackets" href="">Jackets</a></li>
+									<li><a title="Dress" href="">Dress</a></li>
+									<!-- <li><a title="Make Up" href="">Make Up</a></li>
+									<li><a title="Jewelry" href="">Jewelry</a></li>
+									<li><a title="Clothing" href="">Clothing</a></li> -->
 								</ul>
 							</aside>
 

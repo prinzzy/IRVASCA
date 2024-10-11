@@ -122,12 +122,12 @@
 					<div
 						class="col-12 col-md-12 col-lg-6 ow-right-padding  ow-right-padding2 d-flex align-content-center justify-content-end">
 						<ul class="top-menu">
-							<li><a title="My whishlist" href="#">My whishlist</a></li>
-							<li><a title="CheckOut" href="#">CheckOut</a></li>
+							<!-- <li><a title="My whishlist" href="#">My whishlist</a></li> -->
+							<!-- <li><a title="CheckOut" href="#">CheckOut</a></li> -->
 						</ul>
 						<ul class="top-menu">
-							<li><a title="Login" href="07_login_register.html">Login</a></li>
-							<li><a title="Register" href="05_register.html">Register</a></li>
+							<li><a title="Login" href="{{ url('/login-member') }}">Login</a></li>
+							<li><a title="Register" href="{{ url('/register-member') }}">Register</a></li>
 						</ul>
 					</div>
 				</div>
@@ -154,17 +154,8 @@
 					</div>
 					<div class="col-12 col-md-12 col-lg-3 ow-right-padding ">
 						<div class="row">
-							<!-- <form class="col-12  col-sm-6 col-md-6 col-lg-7">
-								<div class="select-styled">
-									<select class="minimal">
-										<option>Dollar (&#36;)</option>
-										<option>Lira (&#8356;)</option>
-										<option>Cent (&cent;)</option>
-										<option>Pound (&pound;)</option>
-										<option>Yen (&yen;)</option>
-									</select>
-								</div>
-							</form> -->
+							<form class="col-12  col-sm-6 col-md-6 col-lg-7">
+							</form>
 							<div class="col-12 col-sm-6 col-md-6 col-lg-5 cart-link ow-right-padding">
 								<svg width="16px" height="15px" viewBox="0 0 533.334 533.335">
 									<g>
@@ -215,8 +206,8 @@
 			<div class="container">
 				<nav class="navbar navbar-expand-lg bg-body-tertiary navbar-static-top">
 					<div class="navbar-header">
-						<a href="index.html" class="logo"><img src="images/logo.png" alt="logo"></a>
-						<button class="navbar-toggler collapsed" aria-controls="navbar" aria-expanded="false"
+						<a href="{{ url('/index') }}" class="logo"><img src=" {{ asset('images/logo/logo_putihNOBG.png') }}" alt="logo" style="max-width: 35%; height: auto;"></a>
+						<button class=" navbar-toggler collapsed" aria-controls="navbar" aria-expanded="false"
 							data-bs-target="#navbar" data-bs-toggle="collapse" type="button"
 							aria-label="Toggle navigation">
 							<span class="navbar-toggler-icon"></span>
@@ -226,151 +217,13 @@
 						<ul class="nav navbar-nav">
 							<li class="nav-item active"><a class="nav-link active" title="Home"
 									href="{{ url('/index') }}">Home</a></li>
-
-							<li class="nav-item dropdown">
-								<a title="Shop" href="#" class="nav-link dropdown-toggle"
-									data-bs-toggle="dropdown">Shop</a>
-								<ul class="dropdown-menu">
-									<li><a title="product" class="dropdown-item" href="03_product.html">product</a></li>
-									<!--<li><a title="Single product" class="dropdown-item"-->
-									<!--		href="{{ url('/single-product') }}">single product</a></li>-->
-									<!--<li><a title="Single product" class="dropdown-item"-->
-									<!--		href="{{ url('/single-product-2') }}">single product 2</a></li>-->
-									<!--<li><a title="Shopping cart" class="dropdown-item"-->
-									<!--		href="{{ url('/shopping_cart') }}">shopping cart</a></li>-->
-								</ul>
-							</li>
-							<li class="nav-item dropdown mega-dropdown">
-								<a title="categories" href="{{ url('/ctg') }}" class="nav-link dropdown-toggle"
-									data-bs-toggle="dropdown">categories
-									<div role="tooltip" class="tooltip top">
-										<div class="tooltip-arrow"></div>
-										<div class="tooltip-inner">New</div>
-									</div>
-								</a>
-								<ul class="dropdown-menu mega-dropdown-menu row">
-									<div class="row">
-										<li class="col-lg-3 col-md-6 col-12">
-											<ul>
-												<li class="dropdown-header">New in Stores</li>
-												<li id="carouselExampleSlidesOnly"
-													class="carousel slide mega-dropdown-slider" data-bs-ride="carousel">
-													<ul class="carousel-inner">
-														<li class="carousel-item active">
-															<a title="Product 1" href="#"><img
-																	src="images/mega-menu/new-collection.png"
-																	class="img-responsive" alt="product 1"></a>
-															<p><small>Summer dress floral prints</small></p>
-															<button class="btn btn-primary" type="button">49,99
-																€</button> <button class="btn btn-default"
-																type="button"><span
-																	class="glyphicon glyphicon-heart"></span> Add to
-																Wishlist</button>
-														</li><!-- End Item -->
-														<li class="carousel-item">
-															<a title="Product 2" href="#"><img
-																	src="images/mega-menu/new-collection-2.png"
-																	class="img-responsive" alt="product 2"></a>
-															<p><small>Gold sandals with shiny touch</small></p>
-															<button class="btn btn-primary" type="button">9,99
-																€</button> <button class="btn btn-default"
-																type="button"><span
-																	class="glyphicon glyphicon-heart"></span> Add to
-																Wishlist</button>
-														</li><!-- End Item -->
-														<li class="carousel-item">
-															<a title="Product 3" href="#"><img
-																	src="images/mega-menu/new-collection-3.png"
-																	class="img-responsive" alt="product 3"></a>
-															<p><small>Denin jacket stamped</small></p>
-															<button class="btn btn-primary" type="button">49,99
-																€</button> <button class="btn btn-default"
-																type="button"><span
-																	class="glyphicon glyphicon-heart"></span> Add to
-																Wishlist</button>
-														</li><!-- End Item -->
-													</ul><!-- End Carousel Inner -->
-												</li><!-- /.carousel -->
-												<li class="divider"></li>
-												<li><a title="View all Collection" class="nav-link" href="#">View all
-														Collection <span
-															class="glyphicon glyphicon-chevron-right pull-right"></span></a>
-												</li>
-											</ul>
-										</li>
-										<li class="col-lg-3 col-md-6 col-12">
-											<ul>
-												<li class="dropdown-header">Dresses</li>
-												<li><a class="nav-link" title="Unique Features" href="#">Unique
-														Features</a></li>
-												<li><a class="nav-link" title="Image Responsive" href="#">Image
-														Responsive</a></li>
-												<li><a class="nav-link" title="Auto Carousel" href="#">Auto Carousel</a>
-												</li>
-												<li><a class="nav-link" title="Newsletter Form" href="#">Newsletter
-														Form</a></li>
-												<li><a class="nav-link" title="Four columns" href="#">Four columns</a>
-												</li>
-												<li class="divider"></li>
-												<li class="dropdown-header">Tops</li>
-												<li><a class="nav-link" title="Good Typography" href="#">Good
-														Typography</a></li>
-											</ul>
-										</li>
-										<li class=" col-lg-3 col-md-6 col-12">
-											<ul>
-												<li class="dropdown-header">Jackets</li>
-												<li><a class="nav-link" title="Easy to customize" href="#">Easy to
-														customize</a></li>
-												<li><a class="nav-link" title="Glyphicons" href="#">Glyphicons</a></li>
-												<li><a class="nav-link" title="Pull Right Elements" href="#">Pull Right
-														Elements</a></li>
-												<li class="divider"></li>
-												<li class="dropdown-header">Pants</li>
-												<li><a class="nav-link" title="Coloured Headers" href="#">Coloured
-														Headers</a></li>
-												<li><a class="nav-link" title="Primary Buttons & Default"
-														href="#">Primary Buttons & Default</a></li>
-												<li><a class="nav-link" title="Calls to action" href="#">Calls to
-														action</a></li>
-											</ul>
-										</li>
-										<li class="col-lg-3 col-md-6 col-12">
-											<ul>
-												<li class="dropdown-header">Accessories</li>
-												<li><a class="nav-link" title="Default Navbar" href="#">Default
-														Navbar</a></li>
-												<li><a class="nav-link" title="Lovely Fonts" href="#">Lovely Fonts</a>
-												</li>
-												<li><a class="nav-link" title="Responsive Dropdown" href="#">Responsive
-														Dropdown </a></li>
-												<li class="divider"></li>
-												<li class="dropdown-header">Pants</li>
-												<li><a class="nav-link" title="Coloured Headers" href="#">Coloured
-														Headers</a></li>
-												<li><a class="nav-link" title="Primary Buttons & Default"
-														href="#">Primary Buttons & Default</a></li>
-												<li><a class="nav-link" title="Calls to action" href="#">Calls to
-														action</a></li>
-											</ul>
-										</li>
-									</div>
-								</ul>
-							</li>
-							<!-- <li class="nav-item"><a class="nav-link" title="Look Book" href="look-book.html">Look
+							<li class="nav-item active"><a class="nav-link active" title="Home"
+									href="{{ url('/catalog') }}">Shop</a></li>
+							<!-- <li class="nav-item"><a class="nav-link" title="Look Book" href="{{ url('/lookbook') }}">Look
 									Book</a></li>
-							<li class="nav-item"><a class="nav-link" title="Blog" href="12_blog.html">Blog</a></li> -->
+							<li class="nav-item"><a class="nav-link" title="Blog" href="{{ url('/blog') }}">Blog</a></li> -->
 							<li class="nav-item"><a class="nav-link" title="About Us" href="{{ url('/about') }}">About Us</a>
 							</li>
-							<!-- <li class="nav-item dropdown">
-								<a title="pages" href="about.html" class="nav-link dropdown-toggle"
-									data-bs-toggle="dropdown">pages</a>
-								<ul class="dropdown-menu">
-									<li><a class="dropdown-item" title="Shortcodes"
-											href="shortcodes.html">Shortcodes</a></li>
-									<li><a class="dropdown-item" title="404" href="404.html">404</a></li>
-						</ul>
-						</li> -->
 							<li class="nav-item"><a class="nav-link" title="Contact us" href="{{ url('/contact') }}">Contact
 									us</a></li>
 						</ul>
@@ -386,23 +239,21 @@
 	<div class="container">
 		<div class="page-breadcrumb">
 			<ol class="breadcrumb">
-				<li><a title="Home" href="index.html">Home</a></li>
-				<li><a title="Clothing" href="#">Clothing</a></li>
-				<li class="active"> IRVASCA Catalog</li>
+				<li><a title="Home" href="/index">Home</a></li>
+				<li class="active">Catalog</li>
 			</ol>
 			<div class="return-home-link pull-right">
-				<a title="Return to home page" href="{{ url('/index') }}">return to home page</a>
+				<!-- <a title="Return to home page" href="{{ url('/index') }}">return to home page</a> -->
 			</div>
 		</div>
 		<div class="page-header ow-bottom-padding categories">
-			<h3>IRVASCA Catalog</h3>
-			<p>700+ Products</p>
+			<!-- <h3>IRVASCA Catalog</h3> -->
+			<!-- <p>700+ Products</p> -->
 		</div><!-- Section Header /- -->
 	</div><!-- container /- -->
 	<!-- Page Breadcrumb /- -->
-
 	<!-- Product Filter -->
-	<div class="product-filter">
+	<!-- <div class="product-filter">
 		<div class="container">
 			<div class="product-filter-box bottom-shadow">
 				<div class="row">
@@ -414,12 +265,6 @@
 							<label>to </label>
 							<input type="text" id="amount2">
 
-							<!--select class="form-control minimal">
-								<option value="selected">Dollar</option>
-								<option value="">1</option>
-								<option value="">2</option>
-								<option value="">3</option>
-							</select-->
 						</div>
 					</div>
 
@@ -491,371 +336,81 @@
 					</div>
 				</div>
 			</div>
-			<!--<div class="pillbox">-->
-			<!--	<a title="Close Icon" href="#">Ethenic Wear <i class="fa fa-close"></i></a>-->
-			<!--	<a title="Close Icon" href="#">Gucchi <i class="fa fa-close"></i></a>-->
-			<!--	<a title="Close Icon" href="#">White <i class="fa fa-close"></i></a>-->
-			<!--	<a title="Close Icon" href="#">34-54 Size <i class="fa fa-close"></i></a>-->
-			<!--	<a title="Close Icon" href="#">clear All search tags</a>-->
-			<!--</div>-->
 		</div>
-	</div>
+	</div> -->
 	<!-- Product Filter /- -->
-
 	<!-- Feature Product -->
-	<div id="featured-products" class="featured-products bottom-shadow">
+	<section id="featured-products" class="featured-products bottom-shadow">
 		<!-- container -->
 		<div class="container">
-			<div class="category-box-main product-box-main">
-				<div class="row">
-					<div class="col-12 col-sm-6 col-md-6 col-lg-3 main-product">
+			<!-- Section Header -->
+			<div class="section-header">
+				<h3>Our Catalog</h3>
+				<p>Explore our products, carefully curated to meet diverse needs and preferences. Each item stands out for its quality, functionality, and design, ensuring they enhance your everyday life.</p>
+			</div><!-- Section Header /- -->
+			<div class="category-box-main product-box-main row">
+				@foreach($products as $product)
+				<div class="col-lg-3 col-md-6 col-12">
+					<div class="main-product">
 						<div class="category-box product-box">
+							@if($product->is_on_sale)
 							<span class="sale">sales</span>
+							@endif
 							<div class="inner-product">
-								<img src="{{ asset('storage/product_images/clutchnew.jpg') }}" alt="featured-img" />
+								<img class="product-image" src="{{ asset('storage/' . $product->image_path) }}" alt="{{ $product->name }}" />
 								<div class="product-box-inner">
 									<ul>
-										<li><a title="Eye Icon" href="images/featured/featured-1.jpg"><i
-													class="fa fa-eye"></i></a></li>
-										<li><a title="Heart Icon" href="#"><i class="fa fa-heart"></i></a></li>
+										<li><a title="View" href="{{ asset('storage/' . $product->image_path) }}"><i class="fa fa-eye"></i></a></li>
+										<li><a title="Wishlist" href="#"><i class="fa fa-heart"></i></a></li>
 									</ul>
-									<a title="Add to cart" href="#" class="btn">add to cart</a>
+									<a title="Add to cart" href="{{ route('product.show', $product->id) }}" class="btn">Add to cart</a>
 								</div>
 							</div>
 						</div>
-						<a title="Fashionable Pink Top" href="#" class="product-title">Clutch</a>
-						<ul class="star">
-							<li>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star-o"></i>
-								<i class="fa fa-star-o"></i>
-							</li>
-						</ul>
-					<span class="amount"><del>850.000</del>&nbsp;525.000</span>
-					</div>
-					<div class="col-12 col-sm-6 col-md-6 col-lg-3  main-product">
-						<div class="category-box product-box">
-							<div class="inner-product">
-								<img src="{{ asset('storage/product_images/baju.jpg') }}" alt="featured-img" />
-								<div class="product-box-inner">
-									<ul>
-										<li><a title="Eye Icon" href="images/featured/featured-2.jpg"><i
-													class="fa fa-eye"></i></a></li>
-										<li><a title="Heart Icon" href="#"><i class="fa fa-heart"></i></a></li>
-									</ul>
-									<a title="Add to cart" href="#" class="btn">add to cart</a>
-								</div>
-							</div>
-						</div>
-						<a title="Fashionable Pink Top" href="#" class="product-title">T-Shirt</a>
-						<ul class="star">
-							<li>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star-o"></i>
-								<i class="fa fa-star-o"></i>
-							</li>
-						</ul>
-						<span class="amount"><del>750.000</del>&nbsp;450.000</span>
-					</div>
-					<div class="col-12 col-sm-6 col-md-6 col-lg-3 main-product">
-						<div class="category-box product-box">
-							<span class="sale">sales</span>
-							<div class="inner-product">
-								<img src="{{ asset('storage/product_images/baju2.jpg') }}" alt="featured-img" />
-								<div class="product-box-inner">
-									<ul>
-										<li><a title="Eye Icon" href="images/featured/featured-3.jpg"><i
-													class="fa fa-eye"></i></a></li>
-										<li><a title="Heart Icon" href="#"><i class="fa fa-heart"></i></a></li>
-									</ul>
-									<a title="Add to cart" href="#" class="btn">add to cart</a>
-								</div>
-							</div>
-						</div>
-						<a title="Fashionable Pink Top" href="#" class="product-title">T-Shirt</a>
-						<ul class="star">
-							<li>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star-o"></i>
-								<i class="fa fa-star-o"></i>
-							</li>
-						</ul>
-						<span class="amount"><del>650.000</del>&nbsp;525.000</span>
-					</div>
-					<div class="col-12 col-sm-6 col-md-6 col-lg-3 main-product">
-						<div class="category-box product-box">
-							<div class="inner-product">
-								<img src="{{ asset('storage/product_images/tas 1.jpg') }}" alt="featured-img" />
-								<div class="product-box-inner">
-									<ul>
-										<li><a title="" href="images/featured/featured-4.jpg"><i
-													class="fa fa-eye"></i></a>
-										</li>
-										<li><a title="" href="#"><i class="fa fa-heart"></i></a></li>
-									</ul>
-									<a title="Add to cart" href="#" class="btn">add to cart</a>
-								</div>
-							</div>
-						</div>
-						<a title="Fashionable Pink Top" href="#" class="product-title">Strapless Dress</a>
-						<ul class="star">
-							<li>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star-o"></i>
-								<i class="fa fa-star-o"></i>
-							</li>
-						</ul>
-						<span class="amount"><del>550.000</del>&nbsp;425.000</span>
-					</div>
-				</div>
-			</div>
+						<a href="{{ route('product.show', $product->id) }}" class="product-title">{{ $product->name }}</a>
 
-			<div class="category-box-main product-box-main">
-				<div class="row">
-					<div class="col-12 col-sm-6 col-md-6 col-lg-3 main-product">
-						<div class="category-box product-box">
-							<span class="sale">sales</span>
-							<div class="inner-product">
-								<img src="{{ asset('storage/product_images/baju3.jpg') }}" alt="featured-img" />
-								<div class="product-box-inner">
-									<ul>
-										<li><a title="Eye Icon" href="images/featured/featured-5.jpg"><i
-													class="fa fa-eye"></i></a></li>
-										<li><a title="Heart Icon" href="#"><i class="fa fa-heart"></i></a></li>
-									</ul>
-									<a title="Add to cart" href="#" class="btn">add to cart</a>
-								</div>
-							</div>
-						</div>
-						<a title="Fashionable Pink Top" href="#" class="product-title">T-Shirt</a>
+						<!-- Star rating display -->
 						<ul class="star">
-							<li>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star-o"></i>
-								<i class="fa fa-star-o"></i>
-							</li>
+							@for ($i = 1; $i <= 5; $i++)
+								@if ($i <=$product->star_rating)
+								<i class="fa fa-star"></i> <!-- Filled star -->
+								@else
+								<i class="fa fa-star-o"></i> <!-- Empty star -->
+								@endif
+								@endfor
 						</ul>
-						<span class="amount"><del>950.000</del>&nbsp;675.000</span>
-					</div>
-					<div class="col-12 col-sm-6 col-md-6 col-lg-3 main-product">
-						<div class="category-box product-box">
-							<div class="inner-product">
-								<img src="{{ asset('storage/product_images/baju4.jpg') }}" alt="featured-img" />
-								<div class="product-box-inner">
-									<ul>
-										<li><a title="Eye Icon" href="images/featured/featured-6.jpg"><i
-													class="fa fa-eye"></i></a></li>
-										<li><a title="Heart Icon" href="#"><i class="fa fa-heart"></i></a></li>
-									</ul>
-									<a title="Add to cart" href="#" class="btn">add to cart</a>
-								</div>
-							</div>
-						</div>
-						<a title="Fashionable Pink Top" href="#" class="product-title">T-Shirt</a>
-						<ul class="star">
-							<li>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star-o"></i>
-								<i class="fa fa-star-o"></i>
-							</li>
-						</ul>
-						<span class="amount"><del>675.000</del>&nbsp;535.000</span>
-					</div>
-					<div class="col-12 col-sm-6 col-md-6 col-lg-3 main-product">
-						<div class="category-box product-box">
-							<span class="sale">sales</span>
-							<div class="inner-product">
-								<img src="{{ asset('storage/product_images/tascream.jpg') }}" alt="featured-img" />
-								<div class="product-box-inner">
-									<ul>
-										<li><a title="Eye Icon" href="images/featured/featured-7.jpg"><i
-													class="fa fa-eye"></i></a></li>
-										<li><a title="Heart Icon" href="#"><i class="fa fa-heart"></i></a></li>
-									</ul>
-									<a title="Add to cart" href="#" class="btn">add to cart</a>
-								</div>
-							</div>
-						</div>
-						<a title="Fashionable Pink Top" href="#" class="product-title">Bag</a>
-						<ul class="star">
-							<li>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star-o"></i>
-								<i class="fa fa-star-o"></i>
-							</li>
-						</ul>
-						<span class="amount"><del>750.000</del>&nbsp;575.000</span>
-					</div>
-					<div class="col-12 col-sm-6 col-md-6 col-lg-3 main-product">
-						<div class="category-box product-box">
-							<div class="inner-product">
-								<img src="{{ asset('storage/product_images/cluch.jpg') }}" alt="featured-img" />
-								<div class="product-box-inner">
-									<ul>
-										<li><a title="Eye Icon" href="images/featured/featured-8.jpg"><i
-													class="fa fa-eye"></i></a></li>
-										<li><a title="Heart ICon" href="#"><i class="fa fa-heart"></i></a></li>
-									</ul>
-									<a title="Add to cart" href="#" class="btn">add to cart</a>
-								</div>
-							</div>
-						</div>
-						<a title="Fashionable Pink Top" href="#" class="product-title">Clutch Bag</a>
-						<ul class="star">
-							<li>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star-o"></i>
-								<i class="fa fa-star-o"></i>
-							</li>
-						</ul>
-						<span class="amount"><del>775.000</del>&nbsp;600.000</span>
-					</div>
-				</div>
-			</div>
 
-			<div class="category-box-main product-box-main new-categories">
-				<div class="row">
-					<div class="col-12 col-sm-6 col-md-6 col-lg-3 main-product">
-						<div class="category-box product-box">
-							<span class="sale">sales</span>
-							<div class="inner-product">
-								<img src="{{ asset('storage/product_images/handbag.jpg') }}" alt="featured-img" />
-								<div class="product-box-inner">
-									<ul>
-										<li><a title="Eye Icon" href="images/featured/featured-1.jpg"><i
-													class="fa fa-eye"></i></a></li>
-										<li><a title="Heart Icon" href="#"><i class="fa fa-heart"></i></a></li>
-									</ul>
-									<a title="Add to cart" href="#" class="btn">add to cart</a>
-								</div>
-							</div>
-						</div>
-						<a title="Fashionable Pink Top" href="#" class="product-title">Hand Bag</a>
-						<ul class="star">
-							<li>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star-o"></i>
-								<i class="fa fa-star-o"></i>
-							</li>
-						</ul>
-						<span class="amount"><del>950.000</del>&nbsp;825.000</span>
-					</div>
-					<div class="col-12 col-sm-6 col-md-6 col-lg-3 main-product">
-						<div class="category-box product-box">
-							<div class="inner-product">
-								<img src="{{ asset('storage/product_images/handbag2.jpg') }}" alt="featured-img" />
-								<div class="product-box-inner">
-									<ul>
-										<li><a title="Eye Icon" href="images/featured/featured-2.jpg"><i
-													class="fa fa-eye"></i></a></li>
-										<li><a title="Heart Icon" href="#"><i class="fa fa-heart"></i></a></li>
-									</ul>
-									<a title="Add to cart" href="#" class="btn">add to cart</a>
-								</div>
-							</div>
-						</div>
-						<a title="Fashionable Pink Top" href="#" class="product-title">Hand Bag</a>
-						<ul class="star">
-							<li>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star-o"></i>
-								<i class="fa fa-star-o"></i>
-							</li>
-						</ul>
-						<span class="amount"><del>675.000</del>&nbsp;550.000</span>
-					</div>
-					<div class="col-12 col-sm-6 col-md-6 col-lg-3 main-product">
-						<div class="category-box product-box">
-							<span class="sale">sales</span>
-							<div class="inner-product">
-								<img src="{{ asset('storage/product_images/handbag3.jpg') }}" alt="featured-img" />
-								<div class="product-box-inner">
-									<ul>
-										<li><a title="Eye" href="images/featured/featured-3.jpg"><i
-													class="fa fa-eye"></i></a></li>
-										<li><a title="Heart" href="#"><i class="fa fa-heart"></i></a></li>
-									</ul>
-									<a title="Add to cart" href="#" class="btn">add to cart</a>
-								</div>
-							</div>
-						</div>
-						<a title="Fashionable Pink Top" href="#" class="product-title">Hand Bag</a>
-						<ul class="star">
-							<li>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star-o"></i>
-								<i class="fa fa-star-o"></i>
-							</li>
-						</ul>
-						<span class="amount"><del>450.000</del>&nbsp;350.000</span>
-					</div>
-					<div class="col-12 col-sm-6 col-md-6 col-lg-3 main-product">
-						<div class="category-box product-box">
-							<div class="inner-product">
-								<img src="{{ asset('storage/product_images/handbag4.jpg') }}" alt="featured-img" />
-								<div class="product-box-inner">
-									<ul>
-										<li><a title="Eye" href="images/featured/featured-4.jpg"><i
-													class="fa fa-eye"></i></a></li>
-										<li><a title="Heart" href="#"><i class="fa fa-heart"></i></a></li>
-									</ul>
-									<a title="Add to cart" href="#" class="btn">add to cart</a>
-								</div>
-							</div>
-						</div>
-						<a title="Fashionable Pink Top" href="#" class="product-title">Hand Bag</a>
-						<ul class="star">
-							<li>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star-o"></i>
-								<i class="fa fa-star-o"></i>
-							</li>
-						</ul>
-						<span class="amount"><del>450.000</del>&nbsp;300.000</span>
+						<!-- Price display -->
+						<span class="amount">
+							@if($product->discount_price)
+							<del>{{ number_format($product->original_price, 0, ',', '.') }}</del>&nbsp;{{ number_format($product->discount_price, 0, ',', '.') }}
+							@else
+							{{ number_format($product->original_price, 0, ',', '.') }}
+							@endif
+						</span>
 					</div>
 				</div>
+				@endforeach
 			</div>
 		</div><!-- container /- -->
-	</div>
+	</section>
+
+
 	<!-- Feature Product /- -->
 
-	<div class="loading">
+	<!-- <div class="loading">
 		<a title="Click here for more products" href="#">
 			<img alt="loading icon" src="images/load.gif">
 			<p>click here for more products</p>
 		</a>
-	</div>
+	</div> -->
 
 	<!-- Footer Section -->
 	<div id="footer-section" class="footer-section">
 
 		<!-- Add Banner -->
 		<!--<div id="add-banner-section" class="add-banner-section bottom-shadow">-->
-			<!-- container -->
+		<!-- container -->
 		<!--	<div class="container">-->
 		<!--		<a title="Add-banner" href="#"><img src="images/add-banner-2.jpg" alt="add-banner" /></a>-->
 		<!--	</div><!--

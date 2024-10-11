@@ -1,44 +1,3 @@
-/*
-**********************************************************************************************************
-    Copyright (c) 2024  
-**********************************************************************************************************
-	Project:		-- Luxury Shop Ecommerce HTML Template
-	Version:	    -- 1.0.0
-	Create Date:	-- 10/May/2024 
-	Last change:	-- 10/May/2024
-	Primary use:	-- Multi purpose HTML5 Template 
-
-
-[Table of contents]
-
-	## Header Section
-		- Top Header
-		- Logo Seach Block
-		- Menu Block
-	## Slider Section
-	## Category Section
-	## Featured Products
-	## Blog Section
-	## Footer Section
-		-- ## Add Banner Section
-		-- ## Our Partner Section
-		-- ## News Letter
-		-- ## Footer Bottom
-	
-	## Contact Page
-	## Register User
-	## Wizard
-	## Shipping Address
-	## Payment
-	## Finish Page
-	## Summary
-	## Blog Page
-	## Categories Page
-	## Shopping Cart
-	## Single Product
-	## product
-
--------------------------------------------------------------------*/
 body,
 .page-header > h3 > span {
     font-family: "Roboto", sans-serif;
@@ -3854,6 +3813,7 @@ select:focus {
 }
 
 .cart-dropdown {
+    display: none; /* Hide by default */
     width: 394px;
     display: none;
     position: absolute;
@@ -4008,4 +3968,11 @@ select:focus {
 
 .mega-dropdown-slider ul .btn {
     border-radius: 0;
+}
+
+.product-image {
+    width: 100%; /* Make the image responsive */
+    height: 300px; /* Set a fixed height */
+    object-fit: cover; /* Scale the image to cover the container without stretching */
+    border-radius: 5px; /* Optional: add some border radius for styling */
 }

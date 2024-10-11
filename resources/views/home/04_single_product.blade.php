@@ -7,6 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="">
 	<meta name="author" content="">
+	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<title>IRVASCA</title>
 
 	<!-- Favicon -->
@@ -122,8 +123,8 @@
 					<div
 						class="col-12 col-md-12 col-lg-6 ow-right-padding  ow-right-padding2 d-flex align-content-center justify-content-end">
 						<ul class="top-menu">
-							<li><a title="My whishlist" href="#">My whishlist</a></li>
-							<li><a title="CheckOut" href="#">CheckOut</a></li>
+							<!-- <li><a title="My whishlist" href="#">My whishlist</a></li> -->
+							<!-- <li><a title="CheckOut" href="#">CheckOut</a></li> -->
 						</ul>
 						<ul class="top-menu">
 							<li><a title="Login" href="{{ url('/login-member') }}">Login</a></li>
@@ -155,55 +156,14 @@
 					<div class="col-12 col-md-12 col-lg-3 ow-right-padding ">
 						<div class="row">
 							<form class="col-12  col-sm-6 col-md-6 col-lg-7">
-								<div class="select-styled">
-									<!-- <select class="minimal">
-										<option>Dollar (&#36;)</option>
-										<option>Lira (&#8356;)</option>
-										<option>Cent (&cent;)</option>
-										<option>Pound (&pound;)</option>
-										<option>Yen (&yen;)</option>
-									</select> -->
-								</div>
 							</form>
 							<div class="col-12 col-sm-6 col-md-6 col-lg-5 cart-link ow-right-padding">
-								<svg width="16px" height="15px" viewBox="0 0 533.334 533.335">
-									<g>
-										<path
-											d="M441.26,300.001c18.333,0,37.454-14.423,42.49-32.052l48.353-169.231c5.036-17.627-5.844-32.05-24.177-32.05H166.667   c0-36.819-29.848-66.667-66.667-66.667H0v66.667h100v283.333c0,27.614,22.386,50,50,50h316.667   c18.409,0,33.334-14.924,33.334-33.333s-14.925-33.334-33.334-33.334h-300v-33.333H441.26z M166.667,133.334h301.461l-28.573,100   H166.667V133.334z M200,491.668c0,22.916-18.75,41.666-41.667,41.666h-16.667c-22.917,0-41.667-18.75-41.667-41.666v-16.667   c0-22.917,18.75-41.667,41.667-41.667h16.667c22.917,0,41.667,18.75,41.667,41.667V491.668z M500,491.668   c0,22.916-18.75,41.666-41.667,41.666h-16.667c-22.916,0-41.666-18.75-41.666-41.666v-16.667c0-22.917,18.75-41.667,41.666-41.667   h16.667c22.917,0,41.667,18.75,41.667,41.667V491.668z" />
-									</g>
-								</svg>
-								cart (2)
-								<div class="cart-dropdown">
-									<table>
-										<tr>
-											<td class="product-thumb"><a href="#"><img src="images/cart-hover-1.png"
-														alt="cart-hover" /></a></td>
-											<td><a title="Red Cotton Top" href="#">Red Cotton Top</a></td>
-											<td>x1</td>
-											<td>$92.00</td>
-											<td><a title="close" href="#"><i class="fa fa-close"></i></a></td>
-										</tr>
-										<tr>
-											<td class="product-thumb"><a href="#"><img src="images/cart-hover-2.png"
-														alt="cart-hover" /></a></td>
-											<td><a title="Red Cotton Top" href="#">Red Cotton Top</a></td>
-											<td>x1</td>
-											<td>$92.00</td>
-											<td><a title="close" href="#"><i class="fa fa-close"></i></a></td>
-										</tr>
-									</table>
-									<div class="sub-total">
-										<p><span>Sub Total</span> $160.00</p>
-										<p><span>Total</span> $160.00</p>
-									</div>
-									<div class="cart-button">
-										<a title="Add to cart" href="#">add to cart</a>
-										<a title="Checkout" href="#">Checkout</a>
-									</div>
+								<span>Cart ({{ count($cartItems) }})</span>
+								<div class="cart-dropdown" style="display: none;">
+									@include('layouts.partials.cart', ['cartItems' => $cartItems, 'subtotal' => $subtotal, 'total' => $total])
 								</div>
 							</div>
 						</div>
-
 					</div>
 				</div>
 			</div><!-- container /- -->
@@ -215,8 +175,8 @@
 			<div class="container">
 				<nav class="navbar navbar-expand-lg bg-body-tertiary navbar-static-top">
 					<div class="navbar-header">
-						<a href="index.html" class="logo"><img src="images/logo.png" alt="logo"></a>
-						<button class="navbar-toggler collapsed" aria-controls="navbar" aria-expanded="false"
+						<a href="{{ url('/index') }}" class="logo"><img src=" {{ asset('images/logo/logo_putihNOBG.png') }}" alt="logo" style="max-width: 35%; height: auto;"></a>
+						<button class=" navbar-toggler collapsed" aria-controls="navbar" aria-expanded="false"
 							data-bs-target="#navbar" data-bs-toggle="collapse" type="button"
 							aria-label="Toggle navigation">
 							<span class="navbar-toggler-icon"></span>
@@ -226,137 +186,8 @@
 						<ul class="nav navbar-nav">
 							<li class="nav-item active"><a class="nav-link active" title="Home"
 									href="{{ url('/index') }}">Home</a></li>
-
-							<li class="nav-item dropdown">
-								<a title="Shop" href="#" class="nav-link dropdown-toggle"
-									data-bs-toggle="dropdown">Shop</a>
-								<ul class="dropdown-menu">
-									<li><a title="product" class="dropdown-item" href="{{ url('/product') }}">product</a></li>
-									<!--<li><a title="Single product" class="dropdown-item"-->
-									<!--		href="{{ url('/single-product') }}">single product</a></li>-->
-									<!--<li><a title="Single product" class="dropdown-item"-->
-									<!--		href="{{ url('/single-product-2') }}">single product 2</a></li>-->
-									<!--<li><a title="Shopping cart" class="dropdown-item"-->
-									<!--		href="{{ url('/shopping-cart') }}">shopping cart</a></li>-->
-								</ul>
-							</li>
-							<li class="nav-item dropdown mega-dropdown">
-								<a title="categories" href="{{ url('/ctg') }}" class="nav-link dropdown-toggle"
-									data-bs-toggle="dropdown">categories
-									<div role="tooltip" class="tooltip top">
-										<div class="tooltip-arrow"></div>
-										<div class="tooltip-inner">New</div>
-									</div>
-								</a>
-								<ul class="dropdown-menu mega-dropdown-menu row">
-									<div class="row">
-										<li class="col-lg-3 col-md-6 col-12">
-											<ul>
-												<li class="dropdown-header">New in Stores</li>
-												<li id="carouselExampleSlidesOnly"
-													class="carousel slide mega-dropdown-slider" data-bs-ride="carousel">
-													<ul class="carousel-inner">
-														<li class="carousel-item active">
-															<a title="Product 1" href="#"><img
-																	src="images/mega-menu/new-collection.png"
-																	class="img-responsive" alt="product 1"></a>
-															<p><small>Summer dress floral prints</small></p>
-															<button class="btn btn-primary" type="button">49,99
-																€</button> <button class="btn btn-default"
-																type="button"><span
-																	class="glyphicon glyphicon-heart"></span> Add to
-																Wishlist</button>
-														</li><!-- End Item -->
-														<li class="carousel-item">
-															<a title="Product 2" href="#"><img
-																	src="images/mega-menu/new-collection-2.png"
-																	class="img-responsive" alt="product 2"></a>
-															<p><small>Gold sandals with shiny touch</small></p>
-															<button class="btn btn-primary" type="button">9,99
-																€</button> <button class="btn btn-default"
-																type="button"><span
-																	class="glyphicon glyphicon-heart"></span> Add to
-																Wishlist</button>
-														</li><!-- End Item -->
-														<li class="carousel-item">
-															<a title="Product 3" href="#"><img
-																	src="images/mega-menu/new-collection-3.png"
-																	class="img-responsive" alt="product 3"></a>
-															<p><small>Denin jacket stamped</small></p>
-															<button class="btn btn-primary" type="button">49,99
-																€</button> <button class="btn btn-default"
-																type="button"><span
-																	class="glyphicon glyphicon-heart"></span> Add to
-																Wishlist</button>
-														</li><!-- End Item -->
-													</ul><!-- End Carousel Inner -->
-												</li><!-- /.carousel -->
-												<li class="divider"></li>
-												<li><a title="View all Collection" class="nav-link" href="#">View all
-														Collection <span
-															class="glyphicon glyphicon-chevron-right pull-right"></span></a>
-												</li>
-											</ul>
-										</li>
-										<li class="col-lg-3 col-md-6 col-12">
-											<ul>
-												<li class="dropdown-header">Dresses</li>
-												<li><a class="nav-link" title="Unique Features" href="#">Unique
-														Features</a></li>
-												<li><a class="nav-link" title="Image Responsive" href="#">Image
-														Responsive</a></li>
-												<li><a class="nav-link" title="Auto Carousel" href="#">Auto Carousel</a>
-												</li>
-												<li><a class="nav-link" title="Newsletter Form" href="#">Newsletter
-														Form</a></li>
-												<li><a class="nav-link" title="Four columns" href="#">Four columns</a>
-												</li>
-												<li class="divider"></li>
-												<li class="dropdown-header">Tops</li>
-												<li><a class="nav-link" title="Good Typography" href="#">Good
-														Typography</a></li>
-											</ul>
-										</li>
-										<li class=" col-lg-3 col-md-6 col-12">
-											<ul>
-												<li class="dropdown-header">Jackets</li>
-												<li><a class="nav-link" title="Easy to customize" href="#">Easy to
-														customize</a></li>
-												<li><a class="nav-link" title="Glyphicons" href="#">Glyphicons</a></li>
-												<li><a class="nav-link" title="Pull Right Elements" href="#">Pull Right
-														Elements</a></li>
-												<li class="divider"></li>
-												<li class="dropdown-header">Pants</li>
-												<li><a class="nav-link" title="Coloured Headers" href="#">Coloured
-														Headers</a></li>
-												<li><a class="nav-link" title="Primary Buttons & Default"
-														href="#">Primary Buttons & Default</a></li>
-												<li><a class="nav-link" title="Calls to action" href="#">Calls to
-														action</a></li>
-											</ul>
-										</li>
-										<li class="col-lg-3 col-md-6 col-12">
-											<ul>
-												<li class="dropdown-header">Accessories</li>
-												<li><a class="nav-link" title="Default Navbar" href="#">Default
-														Navbar</a></li>
-												<li><a class="nav-link" title="Lovely Fonts" href="#">Lovely Fonts</a>
-												</li>
-												<li><a class="nav-link" title="Responsive Dropdown" href="#">Responsive
-														Dropdown </a></li>
-												<li class="divider"></li>
-												<li class="dropdown-header">Pants</li>
-												<li><a class="nav-link" title="Coloured Headers" href="#">Coloured
-														Headers</a></li>
-												<li><a class="nav-link" title="Primary Buttons & Default"
-														href="#">Primary Buttons & Default</a></li>
-												<li><a class="nav-link" title="Calls to action" href="#">Calls to
-														action</a></li>
-											</ul>
-										</li>
-									</div>
-								</ul>
-							</li>
+							<li class="nav-item active"><a class="nav-link active" title="Home"
+									href="{{ url('/catalog') }}">Shop</a></li>
 							<!-- <li class="nav-item"><a class="nav-link" title="Look Book" href="{{ url('/lookbook') }}">Look
 									Book</a></li>
 							<li class="nav-item"><a class="nav-link" title="Blog" href="{{ url('/blog') }}">Blog</a></li> -->
@@ -377,13 +208,12 @@
 	<div class="container">
 		<div class="page-breadcrumb">
 			<ol class="breadcrumb">
-				<li><a title="Home" href="index.html">Home</a></li>
-				<li><a title="Clothing" href="#">Clothing</a></li>
-				<li><a title="Women's Clothing" href="#">Women's Clothing</a></li>
-				<li class="active">ALL Categories</li>
+				<li><a title="Home" href="/index">Home</a></li>
+				<li><a title="Catalog" href="/catalog">Catalog</a></li>
+				<li class="active">Product</li>
 			</ol>
 			<div class="return-home-link pull-right">
-				<a title="Return to home page" href="index.html">return to home page</a>
+				<a title="Return to home page" href="/index">return to home page</a>
 			</div>
 		</div>
 	</div><!-- container /- -->
@@ -435,11 +265,11 @@
 						</div>
 					</div>
 					<!-- Section Header /- -->
-					<div class="page-header ow-bottom-padding categories">
+					<!-- <div class="page-header ow-bottom-padding categories">
 						<h3><span>Beauty & Brain</span> Related Products</h3>
-					</div><!-- Section Header /- -->
+					</div>Section Header /- -->
 					<div class="category-box-main product-box-main">
-						<div class="row">
+						<!-- <div class="row">
 							<div class="col-12 col-md-6 col-lg-6 main-product">
 								<div class="category-box product-box">
 									<div class="inner-product">
@@ -493,7 +323,7 @@
 								</ul>
 								<span class="amount"><del>&dollar;24.99</del> &dollar;19.99</span>
 							</div>
-						</div>
+						</div> -->
 					</div>
 				</div><!-- col-md-7 /- -->
 
@@ -595,7 +425,7 @@
 													<th>Product Price</th>
 													<td><span class="amount">${{ number_format($product->price, 2) }}</span></td> <!-- Dynamic product price -->
 												</tr>
-												<tr class="cart-subtotal">
+												<!-- <tr class="cart-subtotal">
 													<th>Product Quantity</th>
 													<td>
 														<select class="minimal">
@@ -603,20 +433,28 @@
 															<option>03</option>
 														</select>
 													</td>
-												</tr>
-												<tr class="order-total">
-													<th>Sub Total Price</th>
+												</tr> -->
+												<!-- <tr class="order-total">
+													<th>Total Price</th>
 													<td><strong><span class="total-amount">59.98</span></strong> </td>
-												</tr>
+												</tr> -->
 											</tbody>
 										</table>
 										<ul>
 											<li><a title="But Now" href="#">But Now</a></li>
-											<li><a title="Favorites" href="#">favorites</a></li>
+											<li>
+												<a title="Add To Cart" href="#"
+													class="add-to-cart-btn"
+													data-id="{{ $product->id }}"
+													data-name="{{ $product->name }}"
+													data-price="{{ $product->price }}">
+													Add To Cart
+												</a>
+											</li>
 										</ul>
 									</div>
-									<a title="Add Banner" href="#"><img src="images/single-product/add-banner.png"
-											alt="add-banner" /></a>
+									<!-- <a title="Add Banner" href="#"><img src="images/single-product/add-banner.png"
+											alt="add-banner" /></a> -->
 								</div>
 								<div class="tab-pane fade" id="sizechart" role="tabpanel" aria-labelledby="charttab">
 									<div class="shopping-cart-table size-chart">
@@ -1035,6 +873,12 @@
 
 		<!-- Customized Scripts -->
 		<script src="{{ asset('js/functions.js') }}"></script>
+
+
+
+
+
+
 
 </body>
 
