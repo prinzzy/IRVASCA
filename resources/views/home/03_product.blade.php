@@ -78,6 +78,7 @@
 	</div>
 	<!-- Loader /- -->
 
+
 	<!-- Style Switcher -->
 	<div class="color-switcher" id="choose_color">
 		<a href="#." class="picker_close">
@@ -156,41 +157,11 @@
 						<div class="row">
 							<form class="col-12  col-sm-6 col-md-6 col-lg-7">
 							</form>
+
 							<div class="col-12 col-sm-6 col-md-6 col-lg-5 cart-link ow-right-padding">
-								<svg width="16px" height="15px" viewBox="0 0 533.334 533.335">
-									<g>
-										<path
-											d="M441.26,300.001c18.333,0,37.454-14.423,42.49-32.052l48.353-169.231c5.036-17.627-5.844-32.05-24.177-32.05H166.667   c0-36.819-29.848-66.667-66.667-66.667H0v66.667h100v283.333c0,27.614,22.386,50,50,50h316.667   c18.409,0,33.334-14.924,33.334-33.333s-14.925-33.334-33.334-33.334h-300v-33.333H441.26z M166.667,133.334h301.461l-28.573,100   H166.667V133.334z M200,491.668c0,22.916-18.75,41.666-41.667,41.666h-16.667c-22.917,0-41.667-18.75-41.667-41.666v-16.667   c0-22.917,18.75-41.667,41.667-41.667h16.667c22.917,0,41.667,18.75,41.667,41.667V491.668z M500,491.668   c0,22.916-18.75,41.666-41.667,41.666h-16.667c-22.916,0-41.666-18.75-41.666-41.666v-16.667c0-22.917,18.75-41.667,41.666-41.667   h16.667c22.917,0,41.667,18.75,41.667,41.667V491.668z" />
-									</g>
-								</svg>
-								cart (2)
-								<div class="cart-dropdown">
-									<table>
-										<tr>
-											<td class="product-thumb"><a href="#"><img src="images/cart-hover-1.png"
-														alt="cart-hover" /></a></td>
-											<td><a title="Red Cotton Top" href="#">Red Cotton Top</a></td>
-											<td>x1</td>
-											<td>$92.00</td>
-											<td><a title="close" href="#"><i class="fa fa-close"></i></a></td>
-										</tr>
-										<tr>
-											<td class="product-thumb"><a href="#"><img src="images/cart-hover-2.png"
-														alt="cart-hover" /></a></td>
-											<td><a title="Red Cotton Top" href="#">Red Cotton Top</a></td>
-											<td>x1</td>
-											<td>$92.00</td>
-											<td><a title="close" href="#"><i class="fa fa-close"></i></a></td>
-										</tr>
-									</table>
-									<div class="sub-total">
-										<p><span>Sub Total</span> $160.00</p>
-										<p><span>Total</span> $160.00</p>
-									</div>
-									<div class="cart-button">
-										<a title="Add to cart" href="#">add to cart</a>
-										<a title="Checkout" href="#">Checkout</a>
-									</div>
+								<span>Cart ({{ count($cartItems) }})</span>
+								<div class="cart-dropdown" style="display: none;">
+									@include('layouts.partials.cart', ['cartItems' => $cartItems, 'subtotal' => $subtotal, 'total' => $total])
 								</div>
 							</div>
 						</div>

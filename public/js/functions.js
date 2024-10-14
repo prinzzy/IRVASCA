@@ -815,57 +815,75 @@ $(document).ready(function () {
     );
 
     // Add to Cart functionality
-    $(".add-to-cart-btn").on("click", function (e) {
-        e.preventDefault();
-        let productId = $(this).data("id");
+    $(document).ready(function () {
+        // Handle Add to Cart button click
+        $(".add-to-cart-btn").on("click", function (e) {
+            e.preventDefault();
+            let productId = $(this).data("id");
 
-        $.ajax({
-            url: "/cart/add",
-            method: "POST",
-            data: {
-                product_id: productId,
-                _token: $('meta[name="csrf-token"]').attr("content"),
-            },
-            success: function (response) {
-                // Update cart count
-                $(".cart-link span").html("Cart (" + response.count + ")");
-                // Update cart dropdown with the new content
-                $(".cart-dropdown").html(response.cartView).show(); // Show updated dropdown
-                // Update subtotal and total
-                $(".sub-total").html(`
+            $.ajax({
+                url: "/cart/add",
+                method: "POST",
+                data: {
+                    product_id: productId,
+                    _token: $('meta[name="csrf-token"]').attr("content"),
+                },
+                success: function (response) {
+                    // Update cart count
+                    $(".cart-link span").html("Cart (" + response.count + ")");
+
+                    // Update cart dropdown with the new content
+                    $(".cart-dropdown").html(response.cartView).show(); // Show updated dropdown
+
+                    // Update subtotal and total
+                    $(".sub-total").html(`
                     <p><span>Sub Total</span> $${response.subtotal}</p>
                     <p><span>Total</span> $${response.total}</p>
                 `);
-                alert(response.message); // Optional success message
-            },
-            error: function (xhr, status, error) {
-                console.error("Add to cart error:", error);
-            },
+
+                    // Show success message in modal
+                    $("#successMessage").text(
+                        response.message ||
+                            "Product added to cart successfully!"
+                    );
+                    $("#successModal").modal("show");
+
+                    // Automatically hide the modal after 3 seconds
+                    setTimeout(function () {
+                        $("#successModal").modal("hide");
+                    }, 2000);
+                },
+                error: function (xhr, status, error) {
+                    console.error("Add to cart error:", error);
+                },
+            });
         });
-    });
 
-    // Remove from Cart functionality
-    $(document).on("click", ".remove-from-cart-button", function (e) {
-        e.preventDefault();
-        let productId = $(this).data("product-id");
+        // Remove from Cart functionality
+        $(document).on("click", ".remove-from-cart-button", function (e) {
+            e.preventDefault();
+            let productId = $(this).data("product-id");
 
-        $.ajax({
-            url: "/cart/remove",
-            method: "POST",
-            data: {
-                product_id: productId,
-                _token: $('meta[name="csrf-token"]').attr("content"),
-            },
-            success: function (response) {
-                $(".cart-link span").html("Cart (" + response.count + ")");
-                $(".cart-dropdown").html(response.cartView); // Update dropdown content
-                if (response.count === 0) {
-                    $(".cart-dropdown").hide(); // Hide if empty
-                }
-            },
-            error: function (xhr, status, error) {
-                console.error("Remove from cart error:", error);
-            },
+            $.ajax({
+                url: "/cart/remove",
+                method: "POST",
+                data: {
+                    product_id: productId,
+                    _token: $('meta[name="csrf-token"]').attr("content"),
+                },
+                success: function (response) {
+                    $(".cart-link span").html("Cart (" + response.count + ")");
+                    $(".cart-dropdown").html(response.cartView); // Update dropdown content
+
+                    // Hide dropdown if cart is empty
+                    if (response.count === 0) {
+                        $(".cart-dropdown").hide();
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error("Remove from cart error:", error);
+                },
+            });
         });
     });
 });
