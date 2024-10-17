@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\AdminEmailController;
 use App\Models\Product;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\Auth\CustomCreateNewUser;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,6 +38,7 @@ Route::prefix('admin')->middleware(['auth:sanctum', 'admin'])->group(function ()
     Route::post('admin/emails/import', [AdminEmailController::class, 'importEmails'])->name('admin.emails.import');
 });
 
+
 Route::get('categories', [CategoryController::class, 'index'])->name('categories.index');
 Route::get('categories/create', [CategoryController::class, 'create'])->name('categories.create');
 Route::post('categories', [CategoryController::class, 'store'])->name('categories.store');
@@ -60,6 +62,21 @@ Route::get('/login-member', function () {
 Route::get('/register-member', function () {
     return view('home.05_register');
 });
+
+
+
+
+
+Route::middleware(['guest'])->group(function () {
+    Route::post('/request-otp', [CustomCreateNewUser::class, 'requestOtp']);
+    Route::post('/verify-otp', [CustomCreateNewUser::class, 'verifyOtp']);
+    Route::post('/register', [CustomCreateNewUser::class, 'create']);
+});
+
+
+
+
+
 Route::get('/catalog', [IndexController::class, 'catalogProduct']);
 Route::get('/single-product', function () {
     return view('home.04_single_product'); // home/single_product.blade.php
@@ -114,7 +131,6 @@ Route::get('/products/{id}', [IndexController::class, 'showProduct'])->name('pro
 
 
 // CART
-
 Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add');
 Route::post('/cart/remove', [CartController::class, 'removeFromCart'])->name('cart.remove');
 

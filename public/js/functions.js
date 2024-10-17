@@ -887,3 +887,245 @@ $(document).ready(function () {
         });
     });
 });
+
+$(document).ready(function () {
+    let otpRequestTime = null; // Variable to track the last OTP request time
+    const OTP_COOLDOWN_SECONDS = 60; // Cooldown period in seconds
+
+    // Handle Request OTP
+    $("#requestOtpBtn").on("click", function () {
+        const name = $("#name").val();
+        const email = $("#email").val();
+        const password = $("#password").val();
+        const passwordConfirmation = $("#password_confirmation").val();
+
+        // Validate fields before sending request
+        if (!name || !email || !password || !passwordConfirmation) {
+            Swal.fire({
+                icon: "error",
+                title: "Validation Error",
+                text: "Please fill in all fields before requesting OTP.",
+                confirmButtonText: "Okay",
+            });
+            return;
+        }
+
+        // Show loading message
+        Swal.fire({
+            title: "Sending OTP...",
+            text: "Please wait a moment.",
+            allowOutsideClick: false,
+            onOpen: () => {
+                Swal.showLoading();
+            },
+        });
+
+        $.ajax({
+            url: "/request-otp",
+            method: "POST",
+            data: {
+                name: name,
+                email: email,
+                password: password,
+                password_confirmation: passwordConfirmation,
+                _token: $('input[name="_token"]').val(),
+            },
+            success: function (response) {
+                Swal.fire({
+                    icon: "success",
+                    title: "OTP Sent!",
+                    text: response.message,
+                    confirmButtonText: "Okay",
+                });
+                $("#resendOtpBtn").show(); // Show resend OTP button
+                otpRequestTime = Date.now(); // Store the current time
+                updateResendOtpButton(); // Update the button state
+            },
+            error: function (xhr) {
+                let errorMessage =
+                    xhr.responseJSON?.message ||
+                    "Email Already Exists/Please wait for another OTP";
+                $("#error-message").text(errorMessage).removeClass("d-none");
+                Swal.fire({
+                    icon: "error",
+                    title: "Error",
+                    text: errorMessage,
+                    confirmButtonText: "Okay",
+                });
+            },
+        });
+    });
+
+    // Handle OTP Verification
+    $("#registerForm").on("submit", function (event) {
+        event.preventDefault(); // Prevent default form submission
+
+        const email = $("#email").val();
+        const otp = $("#otp").val();
+
+        // Validate that the OTP is a number
+        if (!/^\d+$/.test(otp)) {
+            Swal.fire({
+                icon: "error",
+                title: "Invalid OTP",
+                text: "Please enter a valid numeric OTP.",
+                confirmButtonText: "Okay",
+            });
+            return;
+        }
+
+        $.ajax({
+            url: "/verify-otp",
+            method: "POST",
+            data: {
+                email: email,
+                otp: otp,
+                _token: $('input[name="_token"]').val(),
+            },
+            success: function (response) {
+                Swal.fire({
+                    icon: "success",
+                    title: "OTP Verified!",
+                    text: response.message,
+                    confirmButtonText: "Okay",
+                });
+                completeRegistration(); // Call to complete the registration process
+            },
+            error: function (xhr) {
+                let errorMessage = xhr.responseJSON?.message || "Invalid OTP.";
+                $("#error-message").text(errorMessage).removeClass("d-none");
+                Swal.fire({
+                    icon: "error",
+                    title: "Error",
+                    text: errorMessage,
+                    confirmButtonText: "Okay",
+                });
+            },
+        });
+    });
+
+    // Function to complete registration after OTP verification
+    function completeRegistration() {
+        const name = $("#name").val();
+        const email = $("#email").val();
+        const password = $("#password").val();
+        const passwordConfirmation = $("#password_confirmation").val();
+
+        // Validate again before submitting
+        if (!name || !email || !password || !passwordConfirmation) {
+            Swal.fire({
+                icon: "error",
+                title: "Validation Error",
+                text: "Please fill in all fields before completing registration.",
+                confirmButtonText: "Okay",
+            });
+            return;
+        }
+
+        $.ajax({
+            url: "/register",
+            method: "POST",
+            data: {
+                name: name,
+                email: email,
+                password: password,
+                password_confirmation: passwordConfirmation,
+                _token: $('input[name="_token"]').val(),
+            },
+            success: function (response) {
+                Swal.fire({
+                    icon: "success",
+                    title: "Registration Successful!",
+                    text: "You have been registered successfully.",
+                    confirmButtonText: "Okay",
+                });
+                $("#registerModal").modal("hide"); // Close modal
+            },
+            error: function (xhr) {
+                let errorMessage =
+                    xhr.responseJSON?.message || "Something went wrong.";
+                $("#error-message").text(errorMessage).removeClass("d-none");
+                Swal.fire({
+                    icon: "error",
+                    title: "Error",
+                    text: errorMessage,
+                    confirmButtonText: "Okay",
+                });
+            },
+        });
+    }
+
+    // Handle Resend OTP
+    $("#resendOtpBtn").on("click", function () {
+        const email = $("#email").val();
+
+        if (canRequestOtp()) {
+            // Show loading message for resend OTP
+            Swal.fire({
+                title: "Resending OTP...",
+                text: "Please wait a moment.",
+                allowOutsideClick: false,
+                onOpen: () => {
+                    Swal.showLoading();
+                },
+            });
+
+            $.ajax({
+                url: "/request-otp",
+                method: "POST",
+                data: {
+                    email: email,
+                    _token: $('input[name="_token"]').val(),
+                },
+                success: function (response) {
+                    Swal.fire({
+                        icon: "success",
+                        title: "OTP Resent!",
+                        text: response.message,
+                        confirmButtonText: "Okay",
+                    });
+                    otpRequestTime = Date.now(); // Update request time
+                    updateResendOtpButton(); // Update button state
+                },
+                error: function (xhr) {
+                    let errorMessage =
+                        xhr.responseJSON?.message || "Something went wrong.";
+                    $("#error-message")
+                        .text(errorMessage)
+                        .removeClass("d-none");
+                    Swal.fire({
+                        icon: "error",
+                        title: "Error",
+                        text: errorMessage,
+                        confirmButtonText: "Okay",
+                    });
+                },
+            });
+        } else {
+            // Show cooldown message if the OTP request is still on cooldown
+            Swal.fire({
+                icon: "warning",
+                title: "Cooldown",
+                text: "Please wait before requesting another OTP.",
+                confirmButtonText: "Okay",
+            });
+        }
+    });
+
+    // Function to check if the OTP can be requested again
+    function canRequestOtp() {
+        if (!otpRequestTime) return true; // If no previous request, allow
+
+        const secondsSinceLastRequest = (Date.now() - otpRequestTime) / 1000;
+        return secondsSinceLastRequest >= OTP_COOLDOWN_SECONDS; // Check cooldown
+    }
+
+    // Function to update the resend OTP button state
+    function updateResendOtpButton() {
+        if (canRequestOtp()) {
+            $("#resendOtpBtn").show(); // Show button if cooldown expired
+        } else {
+            $("#resendOtpBtn").hide(); // Hide button if still in cooldown
+        }
+    }
+});

@@ -128,8 +128,9 @@
 						</ul>
 						<ul class="top-menu">
 							<li><a title="Login" href="{{ url('/login-member') }}">Login</a></li>
-							<li><a title="Register" href="{{ url('/register-member') }}">Register</a></li>
+							<li><a title="Register" href="#" data-bs-toggle="modal" data-bs-target="#registerModal">Register</a></li>
 						</ul>
+						@include('layouts.partials.register-modal')
 					</div>
 				</div>
 			</div><!-- container /- -->
@@ -205,6 +206,7 @@
 	<!-- Header Section /- -->
 
 	<!-- Slider Section -->
+
 	<div id="slider-section" class="slider-section">
 		<div id="carouselexamplegeneric" class="carousel slide slider-indexone" data-bs-ride="carousel">
 			<div class="carousel-indicators">
@@ -587,9 +589,11 @@
 
 		<!-- Magnific Popup (Light Box) -->
 		<script src="{{ asset('libraries/jquery.magnific-popup.min.js') }}"></script>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 		<!-- Customized Scripts -->
 		<script src="{{ asset('js/functions.js') }}"></script>
+
 
 </body>
 
