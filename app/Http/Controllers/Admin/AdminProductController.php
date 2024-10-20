@@ -30,7 +30,9 @@ class AdminProductController extends Controller
             'original_price' => 'nullable|numeric',
             'discount_price' => 'nullable|numeric',
             'star_rating' => 'nullable|numeric|min:0|max:5',
-            'stock' => 'required|integer|min:0',
+            'sizes' => 'required|array', // Ensure sizes are provided
+            'sizes.*.size' => 'required|string', // Validate each size
+            'sizes.*.stock' => 'required|integer|min:0', // Validate stock for each size
             'category_id' => 'required|exists:categories,id',
             'subcategory_id' => 'nullable|exists:subcategories,id',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Primary image
@@ -39,7 +41,7 @@ class AdminProductController extends Controller
             'thumbnails' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:1024', // Thumbnail
         ]);
 
-        $data = $request->except(['image', 'images', 'thumbnails']); // Exclude images & thumbnail from $data initially
+        $data = $request->except(['image', 'images', 'thumbnails', 'sizes']); // Exclude images & thumbnail from $data initially
 
         // Handle primary image (image_path)
         if ($request->hasFile('image')) {
@@ -81,7 +83,15 @@ class AdminProductController extends Controller
         Log::info('Product Data before Save:', $data);
 
         // Create product record
-        Product::create($data);
+        $product = Product::create($data);
+
+        // Handle sizes and stock
+        foreach ($request->input('sizes') as $sizeData) {
+            $product->sizes()->create([
+                'size' => $sizeData['size'],
+                'stock' => $sizeData['stock']
+            ]);
+        }
 
         return redirect()->route('products.index')->with('success', 'Product created successfully.');
     }
@@ -99,7 +109,10 @@ class AdminProductController extends Controller
             'original_price' => 'nullable|numeric',
             'discount_price' => 'nullable|numeric',
             'star_rating' => 'nullable|numeric|min:0|max:5',
-            'stock' => 'required|integer|min:0',
+            'sizes' => 'required|array',
+            'sizes.*' => 'required|string', // Adjusted to match the structure of your input
+            'stocks' => 'required|array', // Added validation for stocks
+            'stocks.*' => 'required|integer|min:0', // Validation for each stock input
             'description' => 'nullable|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Primary image
             'additional_images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Additional images
@@ -141,8 +154,8 @@ class AdminProductController extends Controller
         // Handle thumbnail
         if ($request->hasFile('thumbnails')) {
             // Delete old thumbnail if it exists
-            if ($product->thumbnail && Storage::exists('public/' . $product->thumbnail)) {
-                Storage::delete('public/' . $product->thumbnail);
+            if ($product->thumbnails && Storage::exists('public/' . $product->thumbnails)) {
+                Storage::delete('public/' . $product->thumbnails);
             }
             $thumbnailName = strtolower(trim($request->input('name'))) . '-thumb.' . $request->file('thumbnails')->getClientOriginalExtension();
             $thumbnailPath = $request->file('thumbnails')->storeAs('product_images/thumbnails', $thumbnailName, 'public');
@@ -152,8 +165,18 @@ class AdminProductController extends Controller
         // Update the product with the validated data
         $product->update($validatedData);
 
+        // Handle sizes
+        $product->sizes()->delete(); // Remove old sizes
+        foreach ($request->input('sizes') as $index => $size) {
+            $product->sizes()->create([
+                'size' => $size,
+                'stock' => $request->input('stocks')[$index] // Get stock from the stocks array
+            ]);
+        }
+
         return redirect()->route('products.index')->with('success', 'Product updated successfully!');
     }
+
 
 
 

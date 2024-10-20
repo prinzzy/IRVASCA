@@ -37,7 +37,6 @@
                     <th>Original Price</th>
                     <th>Discount Price</th>
                     <th>Star Rating</th>
-                    <th>Stock</th> <!-- Added Stock Column -->
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -63,7 +62,6 @@
                         @endif
                     </td>
                     <td>{{ number_format($product->star_rating, 1) }} / 5</td>
-                    <td>{{ $product->stock }} <!-- Display Stock --></td>
                     <td>
                         <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#viewProductModal{{ $product->id }}">View</button>
                         <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editProductModal{{ $product->id }}">Edit</button>
@@ -103,7 +101,12 @@
                                     @endif
                                 </p>
                                 <p><strong>Star Rating:</strong> {{ number_format($product->star_rating, 1) }} / 5</p>
-                                <p><strong>Stock:</strong> {{ $product->stock }} <!-- Display Stock in View Modal --></p>
+                                <p><strong>Stock by Size:</strong></p>
+                                <ul>
+                                    @foreach ($product->sizes as $size)
+                                    <li>{{ $size->size }}: {{ $size->stock }} in stock</li>
+                                    @endforeach
+                                </ul>
                                 <p><strong>Description:</strong> {{ $product->description }}</p>
 
                                 @if ($product->image_path)
@@ -180,8 +183,16 @@
                                         <input type="number" class="form-control" id="star_rating" name="star_rating" value="{{ old('star_rating', $product->star_rating) }}" step="0.1" min="0" max="5" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="stock">Stock</label>
-                                        <input type="number" class="form-control" id="stock" name="stock" value="{{ old('stock', $product->stock) }}" required> <!-- Added Stock Input -->
+                                        <label for="sizes[]">Sizes and Stock</label>
+                                        <div id="sizeStockInputs{{ $product->id }}">
+                                            @foreach ($product->sizes as $size)
+                                            <div class="d-flex mb-2">
+                                                <input type="text" name="sizes[]" class="form-control me-2" value="{{ $size->size }}" required>
+                                                <input type="number" name="stocks[]" class="form-control" value="{{ $size->stock }}" required>
+                                            </div>
+                                            @endforeach
+                                        </div>
+                                        <button type="button" class="btn btn-secondary btn-sm" id="addSizeStock{{ $product->id }}">Add More Sizes</button>
                                     </div>
                                     <div class="form-group">
                                         <label for="description">Description</label>
@@ -279,8 +290,14 @@
                             <input type="number" class="form-control" id="star_rating" name="star_rating" step="0.1" min="0" max="5" required>
                         </div>
                         <div class="form-group">
-                            <label for="stock">Stock</label>
-                            <input type="number" class="form-control" id="stock" name="stock" required> <!-- Added Stock Input -->
+                            <label for="sizes[]">Sizes and Stock</label>
+                            <div id="sizeStockInputs">
+                                <div class="d-flex mb-2">
+                                    <input type="text" name="sizes[0][size]" class="form-control me-2" placeholder="Size (e.g., S, M, L)" required>
+                                    <input type="number" name="sizes[0][stock]" class="form-control" placeholder="Stock" required>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-secondary btn-sm" id="addSizeStock">Add More Sizes</button>
                         </div>
                         <div class="form-group">
                             <label for="description">Description</label>

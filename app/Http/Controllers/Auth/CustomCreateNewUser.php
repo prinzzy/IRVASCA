@@ -103,12 +103,13 @@ class CustomCreateNewUser
             return response()->json(['error' => 'Email mismatch.'], 400);
         }
 
-        // Create the user
+        // Create the user with the 'member' role
         try {
             $user = User::create([
                 'name' => $userData['name'],
                 'email' => $userData['email'],
                 'password' => Hash::make($request->password), // Hash the password
+                'role' => 'customer', // Assign 'member' role
             ]);
 
             // Log in the user automatically
