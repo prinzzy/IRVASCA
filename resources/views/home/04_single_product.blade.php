@@ -127,12 +127,17 @@
 							<!-- <li><a title="CheckOut" href="#">CheckOut</a></li> -->
 						</ul>
 						<ul class="top-menu">
-							<li><a title="Login" href="{{ url('/login-member') }}">Login</a></li>
-							<li><a title="Register" href="{{ url('/register-member') }}">Register</a></li>
+							<li>
+								<a href="#" title="User Account" data-bs-toggle="modal" data-bs-target="#userAccountModal">
+									<i class="fa fa-user" aria-hidden="true"></i>
+								</a>
+							</li>
 						</ul>
+						@include('layouts.partials.user-modal')
 					</div>
 				</div>
-			</div><!-- container /- -->
+			</div>
+		</div><!-- container /- -->
 		</div><!-- top-header /- -->
 
 		<!-- logo-search-block -->
@@ -347,11 +352,11 @@
 
 				<!-- col-md-5 -->
 				<div class="col-12 col-md-12 col-lg-5 single-product-sidebar">
-					<ul class="categories-list">
+					<!-- <ul class="categories-list">
 						<li><a title="Women" href="#">Women</a></li>
 						<li><a title="Wear" href="#">Wear</a></li>
 						<li><a title="Top" href="#">Top</a></li>
-					</ul>
+					</ul> -->
 					<div class="page-header">
 						<h3>{{ $product->name }}</h3> <!-- Display the dynamic product name -->
 					</div>
@@ -407,12 +412,18 @@
 					</ul> -->
 					<h4>Sizes</h4>
 					<ul id="size-widget" class="single-side-widget size-widget top-social ow-left-padding">
-						<li><a title="XS" href="#" class="">XS</a></li>
-						<li><a title="S" href="#" class="">S</a></li>
-						<li><a title="M" href="#" class="active">M</a></li>
-						<li><a title="L" href="#" class="">L</a></li>
-						<li><a title="XL" href="#" class="">XL</a></li>
+						@foreach($product->sizes as $size)
+						@if($size->stock > 0) <!-- Only show sizes with stock available -->
+						<li>
+							<a title="{{ $size->size }}" href="#" class="size-option {{ $loop->first ? 'active' : '' }}" data-size="{{ $size->size }}">
+								{{ $size->size }}
+							</a>
+						</li>
+						@endif
+						@endforeach
 					</ul>
+
+
 					<!-- <h4>Brand or Sponsored</h4>
 					<ul class="single-side-widget top-social ow-left-padding">
 						<li><img src="images/summary/gucci-icon.png" alt="gucci" /></li>

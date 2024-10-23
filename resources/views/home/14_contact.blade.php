@@ -125,12 +125,17 @@
 							<li><a title="CheckOut" href="#">CheckOut</a></li>
 						</ul>
 						<ul class="top-menu">
-							<li><a title="Login" href="{{ url('/login-member') }}">Login</a></li>
-							<li><a title="Register" href="{{ url('/register-member') }}">Register</a></li>
+							<li>
+								<a href="#" title="User Account" data-bs-toggle="modal" data-bs-target="#userAccountModal">
+									<i class="fa fa-user" aria-hidden="true"></i>
+								</a>
+							</li>
 						</ul>
+						@include('layouts.partials.user-modal')
 					</div>
 				</div>
-			</div><!-- container /- -->
+			</div>
+		</div><!-- container /- -->
 		</div><!-- top-header /- -->
 
 		<!-- logo-search-block -->
@@ -216,137 +221,8 @@
 						<ul class="nav navbar-nav">
 							<li class="nav-item active"><a class="nav-link active" title="Home"
 									href="{{ url('/index') }}">Home</a></li>
-
-							<li class="nav-item dropdown">
-								<a title="Shop" href="#" class="nav-link dropdown-toggle"
-									data-bs-toggle="dropdown">Shop</a>
-								<ul class="dropdown-menu">
-									<li><a title="product" class="dropdown-item" href="{{ url('/product') }}">product</a></li>
-									<li><a title="Single product" class="dropdown-item"
-											href="{{ url('/single-product') }}">single product</a></li>
-									<li><a title="Single product" class="dropdown-item"
-											href="{{ url('/single-product-2') }}">single product 2</a></li>
-									<li><a title="Shopping cart" class="dropdown-item"
-											href="{{ url('/shopping-cart') }}">shopping cart</a></li>
-								</ul>
-							</li>
-							<li class="nav-item dropdown mega-dropdown">
-								<a title="categories" href="{{ url('/ctg') }}" class="nav-link dropdown-toggle"
-									data-bs-toggle="dropdown">categories
-									<div role="tooltip" class="tooltip top">
-										<div class="tooltip-arrow"></div>
-										<div class="tooltip-inner">New</div>
-									</div>
-								</a>
-								<ul class="dropdown-menu mega-dropdown-menu row">
-									<div class="row">
-										<li class="col-lg-3 col-md-6 col-12">
-											<ul>
-												<li class="dropdown-header">New in Stores</li>
-												<li id="carouselExampleSlidesOnly"
-													class="carousel slide mega-dropdown-slider" data-bs-ride="carousel">
-													<ul class="carousel-inner">
-														<li class="carousel-item active">
-															<a title="Product 1" href="#"><img
-																	src="{{ asset('images/mega-menu/new-collection.png') }}"
-																	class="img-responsive" alt="product 1"></a>
-															<p><small>Summer dress floral prints</small></p>
-															<button class="btn btn-primary" type="button">49,99
-																€</button> <button class="btn btn-default"
-																type="button"><span
-																	class="glyphicon glyphicon-heart"></span> Add to
-																Wishlist</button>
-														</li><!-- End Item -->
-														<li class="carousel-item">
-															<a title="Product 2" href="#"><img
-																	src="{{ asset('images/mega-menu/new-collection-2.png') }}"
-																	class="img-responsive" alt="product 2"></a>
-															<p><small>Gold sandals with shiny touch</small></p>
-															<button class="btn btn-primary" type="button">9,99
-																€</button> <button class="btn btn-default"
-																type="button"><span
-																	class="glyphicon glyphicon-heart"></span> Add to
-																Wishlist</button>
-														</li><!-- End Item -->
-														<li class="carousel-item">
-															<a title="Product 3" href="#"><img
-																	src="images/mega-menu/new-collection-3.png"
-																	class="img-responsive" alt="product 3"></a>
-															<p><small>Denin jacket stamped</small></p>
-															<button class="btn btn-primary" type="button">49,99
-																€</button> <button class="btn btn-default"
-																type="button"><span
-																	class="glyphicon glyphicon-heart"></span> Add to
-																Wishlist</button>
-														</li><!-- End Item -->
-													</ul><!-- End Carousel Inner -->
-												</li><!-- /.carousel -->
-												<li class="divider"></li>
-												<li><a title="View all Collection" class="nav-link" href="#">View all
-														Collection <span
-															class="glyphicon glyphicon-chevron-right pull-right"></span></a>
-												</li>
-											</ul>
-										</li>
-										<li class="col-lg-3 col-md-6 col-12">
-											<ul>
-												<li class="dropdown-header">Dresses</li>
-												<li><a class="nav-link" title="Unique Features" href="#">Unique
-														Features</a></li>
-												<li><a class="nav-link" title="Image Responsive" href="#">Image
-														Responsive</a></li>
-												<li><a class="nav-link" title="Auto Carousel" href="#">Auto Carousel</a>
-												</li>
-												<li><a class="nav-link" title="Newsletter Form" href="#">Newsletter
-														Form</a></li>
-												<li><a class="nav-link" title="Four columns" href="#">Four columns</a>
-												</li>
-												<li class="divider"></li>
-												<li class="dropdown-header">Tops</li>
-												<li><a class="nav-link" title="Good Typography" href="#">Good
-														Typography</a></li>
-											</ul>
-										</li>
-										<li class=" col-lg-3 col-md-6 col-12">
-											<ul>
-												<li class="dropdown-header">Jackets</li>
-												<li><a class="nav-link" title="Easy to customize" href="#">Easy to
-														customize</a></li>
-												<li><a class="nav-link" title="Glyphicons" href="#">Glyphicons</a></li>
-												<li><a class="nav-link" title="Pull Right Elements" href="#">Pull Right
-														Elements</a></li>
-												<li class="divider"></li>
-												<li class="dropdown-header">Pants</li>
-												<li><a class="nav-link" title="Coloured Headers" href="#">Coloured
-														Headers</a></li>
-												<li><a class="nav-link" title="Primary Buttons & Default"
-														href="#">Primary Buttons & Default</a></li>
-												<li><a class="nav-link" title="Calls to action" href="#">Calls to
-														action</a></li>
-											</ul>
-										</li>
-										<li class="col-lg-3 col-md-6 col-12">
-											<ul>
-												<li class="dropdown-header">Accessories</li>
-												<li><a class="nav-link" title="Default Navbar" href="#">Default
-														Navbar</a></li>
-												<li><a class="nav-link" title="Lovely Fonts" href="#">Lovely Fonts</a>
-												</li>
-												<li><a class="nav-link" title="Responsive Dropdown" href="#">Responsive
-														Dropdown </a></li>
-												<li class="divider"></li>
-												<li class="dropdown-header">Pants</li>
-												<li><a class="nav-link" title="Coloured Headers" href="#">Coloured
-														Headers</a></li>
-												<li><a class="nav-link" title="Primary Buttons & Default"
-														href="#">Primary Buttons & Default</a></li>
-												<li><a class="nav-link" title="Calls to action" href="#">Calls to
-														action</a></li>
-											</ul>
-										</li>
-									</div>
-								</ul>
-							</li>
+							<li class="nav-item active"><a class="nav-link active" title="Home"
+									href="{{ url('/catalog') }}">Shop</a></li>
 							<!-- <li class="nav-item"><a class="nav-link" title="Look Book" href="{{ url('/lookbook') }}">Look
 									Book</a></li>
 							<li class="nav-item"><a class="nav-link" title="Blog" href="{{ url('/blog') }}">Blog</a></li> -->
@@ -649,10 +525,10 @@
 									d="M192,307.188V160l128-96v227.5c-6.281,0.656-12.938,1.344-20.094,2.062c-27.969,2.813-62.781,6.313-107.281,13.531   L192,307.188z M488.344,145.813L352,64v223.125C406.281,277.188,426.531,253.375,488.344,145.813z M352,319.312V416l160,96V168.719   C445.719,282.938,421,307.906,352,319.312z M21.594,428.938L160,512V344.719C112.031,353.188,66.031,368,21.594,428.938z    M303.094,325.406c-27.531,2.781-61.813,6.219-105.344,13.25l-5.75,0.906V512l128-96v-92.375   C314.531,324.219,309.062,324.812,303.094,325.406z M80,144c-5.469,0-10.813-0.563-16-1.625V256l32-16v-97.625   C90.813,143.438,85.469,144,80,144z M80,0C44.656,0,16,28.625,16,64s28.656,64,64,64c35.375,0,64-28.625,64-64S115.375,0,80,0z    M64,80c-17.688,0-32-14.313-32-32s14.313-32,32-32s32,14.313,32,32S81.688,80,64,80z M128,146.656v113.125l-96,48V146.656   c-12.875-7.531-23.781-18-32-30.344v288.156C52.25,336.25,108.219,321,160,312.25V160l-27.375-16.438   C131.063,144.594,129.625,145.719,128,146.656z" />
 							</svg>
 							<h4>IRVASCA Headquarters </h4>
-							<p>Griya Pamoyanan, Pamoyanan </p>
+							<p>Griya Pamoyanan, Blok G 17, Pamoyanan </p>
 							<p>Bogor, Indonesia, 16136</p>
 						</div>
-						<!-- <div class="helpline">
+						<div class="helpline">
 							<svg viewBox="0 0 51.413 51.413">
 								<path
 									d="M25.989,12.274c8.663,0.085,14.09-0.454,14.823,9.148h10.564c0-14.875-12.973-16.88-25.662-16.88    c-12.69,0-25.662,2.005-25.662,16.88h10.482C11.345,11.637,17.398,12.19,25.989,12.274z" />
@@ -664,9 +540,8 @@
 									d="M35.719,20.078v-1.496c0-0.669-0.771-0.711-1.723-0.711h-1.555c-0.951,0-1.722,0.042-1.722,0.711    v1.289v1h-11v-1v-1.289c0-0.669-0.771-0.711-1.722-0.711h-1.556c-0.951,0-1.722,0.042-1.722,0.711v1.496v1.306    C12.213,23.988,4.013,35.073,3.715,36.415l0.004,8.955c0,0.827,0.673,1.5,1.5,1.5h40c0.827,0,1.5-0.673,1.5-1.5v-9    c-0.295-1.303-8.493-12.383-11-14.987V20.078z M19.177,37.62c-0.805,0-1.458-0.652-1.458-1.458s0.653-1.458,1.458-1.458    s1.458,0.652,1.458,1.458S19.982,37.62,19.177,37.62z M19.177,32.62c-0.805,0-1.458-0.652-1.458-1.458s0.653-1.458,1.458-1.458    s1.458,0.652,1.458,1.458S19.982,32.62,19.177,32.62z M19.177,27.621c-0.805,0-1.458-0.652-1.458-1.458    c0-0.805,0.653-1.458,1.458-1.458s1.458,0.653,1.458,1.458C20.635,26.969,19.982,27.621,19.177,27.621z M25.177,37.62    c-0.805,0-1.458-0.652-1.458-1.458s0.653-1.458,1.458-1.458c0.806,0,1.458,0.652,1.458,1.458S25.983,37.62,25.177,37.62z     M25.177,32.62c-0.805,0-1.458-0.652-1.458-1.458s0.653-1.458,1.458-1.458c0.806,0,1.458,0.652,1.458,1.458    S25.983,32.62,25.177,32.62z M25.177,27.621c-0.805,0-1.458-0.652-1.458-1.458c0-0.805,0.653-1.458,1.458-1.458    c0.806,0,1.458,0.653,1.458,1.458C26.635,26.969,25.983,27.621,25.177,27.621z M31.177,37.62c-0.806,0-1.458-0.652-1.458-1.458    s0.652-1.458,1.458-1.458s1.458,0.652,1.458,1.458S31.983,37.62,31.177,37.62z M31.177,32.62c-0.806,0-1.458-0.652-1.458-1.458    s0.652-1.458,1.458-1.458s1.458,0.652,1.458,1.458S31.983,32.62,31.177,32.62z M31.177,27.621c-0.806,0-1.458-0.652-1.458-1.458    c0-0.805,0.652-1.458,1.458-1.458s1.458,0.653,1.458,1.458C32.635,26.969,31.983,27.621,31.177,27.621z" />
 							</svg>
 							<h4>Help Lines</h4>
-							<p>+61 3 8376 6284</p>
-							<p>+61 3 8376 6285</p>
-						</div> -->
+							<p>+62 812-389-333</p>
+						</div>
 					</aside><!-- widget about /- -->
 
 					<!-- col-md-6 -->
@@ -678,12 +553,12 @@
 									<span>from our store</span>
 								</h3>
 								<ul>
-									<li><a title="Shoes" href="{{ url('/ctg') }}">Shoes</a></li>
-									<li><a title="Perfumes" href="{{ url('/ctg') }}">Perfumes</a></li>
-									<li><a title="Bags" href="{{ url('/ctg') }}">Bags</a></li>
-									<li><a title="Make Up" href="{{ url('/ctg') }}">Make Up</a></li>
-									<li><a title="Jewelry" href="{{ url('/ctg') }}">Jewelry</a></li>
-									<li><a title="Clothing" href="{{ url('/ctg') }}">Clothing</a></li>
+									<li><a title="Tshirts" href="">Tshirts</a></li>
+									<li><a title="Jackets" href="">Jackets</a></li>
+									<li><a title="Dress" href="">Dress</a></li>
+									<!-- <li><a title="Make Up" href="">Make Up</a></li>
+									<li><a title="Jewelry" href="">Jewelry</a></li>
+									<li><a title="Clothing" href="">Clothing</a></li> -->
 								</ul>
 							</aside>
 
@@ -719,88 +594,88 @@
 						</div>
 					</div><!-- col-md-6 /- -->
 
-					<aside class="col-12 col-md-12 col-lg-3 widget widget_facebook">
-						<div class="widget-title">
-							<h4>irvasca.com <span>1.000.000 members </span></h4>
-							<button type="submit" value="like" class="btn btn-default pull-right">Like <i
-									class="fa fa-thumbs-o-up"></i> </button>
+					<!--	<aside class="col-12 col-md-12 col-lg-3 widget widget_facebook">-->
+					<!--		<div class="widget-title">-->
+					<!--			<h4>IRVASCA <span>1.000.000 members </span></h4>-->
+					<!--			<button type="submit" value="like" class="btn btn-default pull-right">Like <i-->
+					<!--					class="fa fa-thumbs-o-up"></i> </button>-->
+					<!--		</div>-->
+					<!--		<ul>-->
+					<!--			<li><a title="Facebook photo" href="#"><img src="images/footer/fb-1.jpg"-->
+					<!--						alt="facebook-photo" /></a></li>-->
+					<!--			<li><a title="Facebook photo" href="#"><img src="images/footer/fb-2.jpg"-->
+					<!--						alt="facebook-photot" /></a></li>-->
+					<!--			<li><a title="Facebook photo" href="#"><img src="images/footer/fb-3.jpg"-->
+					<!--						alt="facebook-photo" /></a></li>-->
+					<!--			<li><a title="Facebook photo" href="#"><img src="images/footer/fb-4.jpg"-->
+					<!--						alt="facebook-photo" /></a></li>-->
+					<!--			<li><a title="Facebook photo" href="#"><img src="images/footer/fb-5.jpg"-->
+					<!--						alt="facebook-photo" /></a></li>-->
+					<!--			<li><a title="Facebook photo" href="#"><img src="images/footer/fb-6.jpg"-->
+					<!--						alt="facebook-photo" /></a></li>-->
+					<!--			<li><a title="Facebook photo" href="#"><img src="images/footer/fb-7.jpg"-->
+					<!--						alt="facebook-photo" /></a></li>-->
+					<!--			<li><a title="Facebook photo" href="#"><img src="images/footer/fb-8.jpg"-->
+					<!--						alt="facebook-photo" /></a></li>-->
+					<!--		</ul>-->
+					<!--		<a href="#"> facebook page </a>-->
+					<!--	</aside>-->
+					<!--</div>-->
+				</div><!-- container /- -->
+			</div><!-- widget section /- -->
+			<!-- Footer bottom -->
+			<div class="footer-bottom">
+				<!-- container -->
+				<div class="container">
+					<div class="row">
+						<div class="col-12 col-md-6 col-lg-3 top-header">
+							<ul class="top-social ">
+								<li><a title="Facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a title="Twitter" href="#"><svg viewBox="0 0 512 512">
+											<path
+												d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" />
+										</svg></a></li>
+								<li><a title="Google plus" href="#"><svg viewBox="0 0 448 512">
+											<path
+												d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
+										</svg></a></li>
+								<li><a title="Pinterest" href="#"><i class="fa fa-pinterest-p"></i></a></li>
+							</ul>
 						</div>
-						<ul>
-							<li><a title="Facebook photo" href="#"><img src="images/footer/fb-1.jpg"
-										alt="facebook-photo" /></a></li>
-							<li><a title="Facebook photo" href="#"><img src="images/footer/fb-2.jpg"
-										alt="facebook-photot" /></a></li>
-							<li><a title="Facebook photo" href="#"><img src="images/footer/fb-3.jpg"
-										alt="facebook-photo" /></a></li>
-							<li><a title="Facebook photo" href="#"><img src="images/footer/fb-4.jpg"
-										alt="facebook-photo" /></a></li>
-							<li><a title="Facebook photo" href="#"><img src="images/footer/fb-5.jpg"
-										alt="facebook-photo" /></a></li>
-							<li><a title="Facebook photo" href="#"><img src="images/footer/fb-6.jpg"
-										alt="facebook-photo" /></a></li>
-							<li><a title="Facebook photo" href="#"><img src="images/footer/fb-7.jpg"
-										alt="facebook-photo" /></a></li>
-							<li><a title="Facebook photo" href="#"><img src="images/footer/fb-8.jpg"
-										alt="facebook-photo" /></a></li>
-						</ul>
-						<a href="#"> facebook page </a>
-					</aside>
-				</div>
-			</div><!-- container /- -->
-		</div><!-- widget section /- -->
-		<!-- Footer bottom -->
-		<div class="footer-bottom">
-			<!-- container -->
-			<div class="container">
-				<div class="row">
-					<div class="col-12 col-md-6 col-lg-3 top-header">
-						<ul class="top-social ">
-							<li><a title="Facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-							<li><a title="Twitter" href="#"><svg viewBox="0 0 512 512">
-										<path
-											d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" />
-									</svg></a></li>
-							<li><a title="Google plus" href="#"><svg viewBox="0 0 448 512">
-										<path
-											d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
-									</svg></a></li>
-							<li><a title="Pinterest" href="#"><i class="fa fa-pinterest-p"></i></a></li>
-						</ul>
+						<div class="col-12 col-md-6 col-lg-6 copy-rights">
+							<p> IRVASCA&copy; 2024 </p>
+						</div>
+						<!--<div class="col-12 col-md-12 col-lg-3">-->
+						<!--	<a title="Payment-getway" href="#"><img src="images/footer/payment-getway-icon.png"-->
+						<!--			alt="payment-getway-icon"></a>-->
+						<!--</div>-->
 					</div>
-					<div class="col-12 col-md-6 col-lg-6 copy-rights">
-						<p> IRVASCA&copy; 2024 </p>
-					</div>
-					<div class="col-12 col-md-12 col-lg-3">
-						<a title="Payment-getway" href="#"><img src="images/footer/payment-getway-icon.png"
-								alt="payment-getway-icon"></a>
-					</div>
-				</div>
-			</div><!-- container /- -->
-			<a title="Back-to-top" id="back-to-top" href="#back-to-top" class="back-to-top"><i
-					class="fa fa-caret-up"></i></a>
-		</div><!-- Footer Bottom -->
-	</div><!-- Footer Section /- -->
+				</div><!-- container /- -->
+				<a title="Back-to-top" id="back-to-top" href="#back-to-top" class="back-to-top"><i
+						class="fa fa-caret-up"></i></a>
+			</div><!-- Footer Bottom -->
+		</div><!-- Footer Section /- -->
 
 
-	<!-- jQuery Include -->
-	<script src="libraries/jquery.min.js"></script>
-	<script type="text/javascript" src='http://maps.google.com/maps/api/js?sensor=false'></script>
-	<script src="libraries/gmap/jquery.gmap.min.js"></script> <!-- Light Box -->
-	<script src="libraries/jquery.easing.min.js"></script><!-- Easing Animation Effect -->
-	<script src="libraries/bootstrap/bootstrap.bundle.min.js"></script> <!-- Core Bootstrap v3.3.4 -->
-	<script src="libraries/fuelux/jquery-ui.min.js"></script>
-	<script src="libraries/jquery.animateNumber.min.js"></script> <!-- Used for Animated Numbers -->
-	<script src="libraries/jquery.appear.js"></script> <!-- It Loads jQuery when element is appears -->
-	<script src="libraries/jquery.knob.js"></script> <!-- Used for Loading Circle -->
-	<script src="libraries/wow.min.js"></script> <!-- Use For Animation -->
-	<script src="libraries/owl-carousel/owl.carousel.min.js"></script> <!-- Core Owl Carousel CSS File  *	v1.3.3 -->
-	<script src="libraries/expanding-search/modernizr.custom.js"></script> <!-- Core Owl Carousel CSS File  *	v1.3.3 -->
-	<script src="libraries/flexslider/jquery.flexslider-min.js"></script> <!-- flexslider   -->
-	<script src="libraries/jquery.magnific-popup.min.js"></script> <!-- Light Box -->
+		<!-- jQuery Include -->
+		<script src="libraries/jquery.min.js"></script>
+		<script type="text/javascript" src='http://maps.google.com/maps/api/js?sensor=false'></script>
+		<script src="libraries/gmap/jquery.gmap.min.js"></script> <!-- Light Box -->
+		<script src="libraries/jquery.easing.min.js"></script><!-- Easing Animation Effect -->
+		<script src="libraries/bootstrap/bootstrap.bundle.min.js"></script> <!-- Core Bootstrap v3.3.4 -->
+		<script src="libraries/fuelux/jquery-ui.min.js"></script>
+		<script src="libraries/jquery.animateNumber.min.js"></script> <!-- Used for Animated Numbers -->
+		<script src="libraries/jquery.appear.js"></script> <!-- It Loads jQuery when element is appears -->
+		<script src="libraries/jquery.knob.js"></script> <!-- Used for Loading Circle -->
+		<script src="libraries/wow.min.js"></script> <!-- Use For Animation -->
+		<script src="libraries/owl-carousel/owl.carousel.min.js"></script> <!-- Core Owl Carousel CSS File  *	v1.3.3 -->
+		<script src="libraries/expanding-search/modernizr.custom.js"></script> <!-- Core Owl Carousel CSS File  *	v1.3.3 -->
+		<script src="libraries/flexslider/jquery.flexslider-min.js"></script> <!-- flexslider   -->
+		<script src="libraries/jquery.magnific-popup.min.js"></script> <!-- Light Box -->
 
-	<!-- Customized Scripts -->
-	<script src="js/functions.js"></script>
-	<script src="libraries/contact_form.js"></script>
+		<!-- Customized Scripts -->
+		<script src="js/functions.js"></script>
+		<script src="libraries/contact_form.js"></script>
 
 </body>
 

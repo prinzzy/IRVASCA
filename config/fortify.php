@@ -140,10 +140,6 @@ return [
         Features::twoFactorAuthentication([
             'confirmPassword' => true,
         ]),
-        'features' => [
-            Features::registration(),  // Ensure this is present for enabling registration
-        ],
-
     ],
 
 ];

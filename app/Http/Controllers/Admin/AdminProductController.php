@@ -98,6 +98,8 @@ class AdminProductController extends Controller
 
     public function update(Request $request, $id)
     {
+
+        Log::info('Request Data:', $request->all());
         $product = Product::findOrFail($id);
 
         // Validate the incoming request data
@@ -110,14 +112,14 @@ class AdminProductController extends Controller
             'discount_price' => 'nullable|numeric',
             'star_rating' => 'nullable|numeric|min:0|max:5',
             'sizes' => 'required|array',
-            'sizes.*' => 'required|string', // Adjusted to match the structure of your input
-            'stocks' => 'required|array', // Added validation for stocks
-            'stocks.*' => 'required|integer|min:0', // Validation for each stock input
+            'sizes.*.size' => 'required|string', // Validation for each size
+            'sizes.*.stock' => 'required|integer|min:0', // Validation for each stock
             'description' => 'nullable|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Primary image
             'additional_images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Additional images
             'thumbnails' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:1024', // Thumbnail
         ]);
+
 
         // Handle primary image (image_path)
         if ($request->hasFile('image')) {
@@ -167,10 +169,10 @@ class AdminProductController extends Controller
 
         // Handle sizes
         $product->sizes()->delete(); // Remove old sizes
-        foreach ($request->input('sizes') as $index => $size) {
+        foreach ($request->input('sizes') as $sizeData) {
             $product->sizes()->create([
-                'size' => $size,
-                'stock' => $request->input('stocks')[$index] // Get stock from the stocks array
+                'size' => $sizeData['size'], // Access the size from the nested array
+                'stock' => $sizeData['stock'], // Access the corresponding stock
             ]);
         }
 

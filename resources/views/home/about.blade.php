@@ -121,16 +121,21 @@
 					<div
 						class="col-12 col-md-12 col-lg-6 ow-right-padding  ow-right-padding2 d-flex align-content-center justify-content-end">
 						<ul class="top-menu">
-							<li><a title="My whishlist" href="#">My whishlist</a></li>
-							<li><a title="CheckOut" href="#">CheckOut</a></li>
+							<!-- <li><a title="My whishlist" href="#">My whishlist</a></li> -->
+							<!-- <li><a title="CheckOut" href="#">CheckOut</a></li> -->
 						</ul>
 						<ul class="top-menu">
-							<li><a title="Login" href="{{ url('/login-member') }}">Login</a></li>
-							<li><a title="Register" href="{{ url('/register-member') }}">Register</a></li>
+							<li>
+								<a href="#" title="User Account" data-bs-toggle="modal" data-bs-target="#userAccountModal">
+									<i class="fa fa-user" aria-hidden="true"></i>
+								</a>
+							</li>
 						</ul>
+						@include('layouts.partials.user-modal')
 					</div>
 				</div>
-			</div><!-- container /- -->
+			</div>
+		</div><!-- container /- -->
 		</div><!-- top-header /- -->
 
 		<!-- logo-search-block -->
@@ -165,40 +170,9 @@
 								</div> -->
 							</form>
 							<div class="col-12 col-sm-6 col-md-6 col-lg-5 cart-link ow-right-padding">
-								<svg width="16px" height="15px" viewBox="0 0 533.334 533.335">
-									<g>
-										<path
-											d="M441.26,300.001c18.333,0,37.454-14.423,42.49-32.052l48.353-169.231c5.036-17.627-5.844-32.05-24.177-32.05H166.667   c0-36.819-29.848-66.667-66.667-66.667H0v66.667h100v283.333c0,27.614,22.386,50,50,50h316.667   c18.409,0,33.334-14.924,33.334-33.333s-14.925-33.334-33.334-33.334h-300v-33.333H441.26z M166.667,133.334h301.461l-28.573,100   H166.667V133.334z M200,491.668c0,22.916-18.75,41.666-41.667,41.666h-16.667c-22.917,0-41.667-18.75-41.667-41.666v-16.667   c0-22.917,18.75-41.667,41.667-41.667h16.667c22.917,0,41.667,18.75,41.667,41.667V491.668z M500,491.668   c0,22.916-18.75,41.666-41.667,41.666h-16.667c-22.916,0-41.666-18.75-41.666-41.666v-16.667c0-22.917,18.75-41.667,41.666-41.667   h16.667c22.917,0,41.667,18.75,41.667,41.667V491.668z" />
-									</g>
-								</svg>
-								cart (2)
-								<div class="cart-dropdown">
-									<table>
-										<tr>
-											<td class="product-thumb"><a href="#"><img src="images/cart-hover-1.png"
-														alt="cart-hover" /></a></td>
-											<td><a title="Red Cotton Top" href="#">Red Cotton Top</a></td>
-											<td>x1</td>
-											<td>$92.00</td>
-											<td><a title="close" href="#"><i class="fa fa-close"></i></a></td>
-										</tr>
-										<tr>
-											<td class="product-thumb"><a href="#"><img src="images/cart-hover-2.png"
-														alt="cart-hover" /></a></td>
-											<td><a title="Red Cotton Top" href="#">Red Cotton Top</a></td>
-											<td>x1</td>
-											<td>$92.00</td>
-											<td><a title="close" href="#"><i class="fa fa-close"></i></a></td>
-										</tr>
-									</table>
-									<div class="sub-total">
-										<p><span>Sub Total</span> $160.00</p>
-										<p><span>Total</span> $160.00</p>
-									</div>
-									<div class="cart-button">
-										<a title="Add to cart" href="#">add to cart</a>
-										<a title="Checkout" href="#">Checkout</a>
-									</div>
+								<span>Cart ({{ count($cartItems) }})</span>
+								<div class="cart-dropdown" style="display: none;">
+									@include('layouts.partials.cart', ['cartItems' => $cartItems, 'subtotal' => $subtotal, 'total' => $total])
 								</div>
 							</div>
 						</div>
@@ -225,151 +199,13 @@
 						<ul class="nav navbar-nav">
 							<li class="nav-item active"><a class="nav-link active" title="Home"
 									href="{{ url('/index') }}">Home</a></li>
-
-							<li class="nav-item dropdown">
-								<a title="Shop" href="#" class="nav-link dropdown-toggle"
-									data-bs-toggle="dropdown">Shop</a>
-								<ul class="dropdown-menu">
-									<li><a title="product" class="dropdown-item" href="03_product.html">product</a></li>
-									<li><a title="Single product" class="dropdown-item"
-											href="{{ url('/single-product') }}">single product</a></li>
-									<li><a title="Single product" class="dropdown-item"
-											href="{{ url('/single-product-2') }}">single product 2</a></li>
-									<li><a title="Shopping cart" class="dropdown-item"
-											href="{{ url('/shopping-cart') }}">shopping cart</a></li>
-								</ul>
-							</li>
-							<li class="nav-item dropdown mega-dropdown">
-								<a title="categories" href="{{ url('/ctg') }}" class="nav-link dropdown-toggle"
-									data-bs-toggle="dropdown">categories
-									<div role="tooltip" class="tooltip top">
-										<div class="tooltip-arrow"></div>
-										<div class="tooltip-inner">New</div>
-									</div>
-								</a>
-								<ul class="dropdown-menu mega-dropdown-menu row">
-									<div class="row">
-										<li class="col-lg-3 col-md-6 col-12">
-											<ul>
-												<li class="dropdown-header">New in Stores</li>
-												<li id="carouselExampleSlidesOnly"
-													class="carousel slide mega-dropdown-slider" data-bs-ride="carousel">
-													<ul class="carousel-inner">
-														<li class="carousel-item active">
-															<a title="Product 1" href="#"><img
-																	src="images/mega-menu/new-collection.png"
-																	class="img-responsive" alt="product 1"></a>
-															<p><small>Summer dress floral prints</small></p>
-															<button class="btn btn-primary" type="button">49,99
-																€</button> <button class="btn btn-default"
-																type="button"><span
-																	class="glyphicon glyphicon-heart"></span> Add to
-																Wishlist</button>
-														</li><!-- End Item -->
-														<li class="carousel-item">
-															<a title="Product 2" href="#"><img
-																	src="images/mega-menu/new-collection-2.png"
-																	class="img-responsive" alt="product 2"></a>
-															<p><small>Gold sandals with shiny touch</small></p>
-															<button class="btn btn-primary" type="button">9,99
-																€</button> <button class="btn btn-default"
-																type="button"><span
-																	class="glyphicon glyphicon-heart"></span> Add to
-																Wishlist</button>
-														</li><!-- End Item -->
-														<li class="carousel-item">
-															<a title="Product 3" href="#"><img
-																	src="images/mega-menu/new-collection-3.png"
-																	class="img-responsive" alt="product 3"></a>
-															<p><small>Denin jacket stamped</small></p>
-															<button class="btn btn-primary" type="button">49,99
-																€</button> <button class="btn btn-default"
-																type="button"><span
-																	class="glyphicon glyphicon-heart"></span> Add to
-																Wishlist</button>
-														</li><!-- End Item -->
-													</ul><!-- End Carousel Inner -->
-												</li><!-- /.carousel -->
-												<li class="divider"></li>
-												<li><a title="View all Collection" class="nav-link" href="#">View all
-														Collection <span
-															class="glyphicon glyphicon-chevron-right pull-right"></span></a>
-												</li>
-											</ul>
-										</li>
-										<li class="col-lg-3 col-md-6 col-12">
-											<ul>
-												<li class="dropdown-header">Dresses</li>
-												<li><a class="nav-link" title="Unique Features" href="#">Unique
-														Features</a></li>
-												<li><a class="nav-link" title="Image Responsive" href="#">Image
-														Responsive</a></li>
-												<li><a class="nav-link" title="Auto Carousel" href="#">Auto Carousel</a>
-												</li>
-												<li><a class="nav-link" title="Newsletter Form" href="#">Newsletter
-														Form</a></li>
-												<li><a class="nav-link" title="Four columns" href="#">Four columns</a>
-												</li>
-												<li class="divider"></li>
-												<li class="dropdown-header">Tops</li>
-												<li><a class="nav-link" title="Good Typography" href="#">Good
-														Typography</a></li>
-											</ul>
-										</li>
-										<li class=" col-lg-3 col-md-6 col-12">
-											<ul>
-												<li class="dropdown-header">Jackets</li>
-												<li><a class="nav-link" title="Easy to customize" href="#">Easy to
-														customize</a></li>
-												<li><a class="nav-link" title="Glyphicons" href="#">Glyphicons</a></li>
-												<li><a class="nav-link" title="Pull Right Elements" href="#">Pull Right
-														Elements</a></li>
-												<li class="divider"></li>
-												<li class="dropdown-header">Pants</li>
-												<li><a class="nav-link" title="Coloured Headers" href="#">Coloured
-														Headers</a></li>
-												<li><a class="nav-link" title="Primary Buttons & Default"
-														href="#">Primary Buttons & Default</a></li>
-												<li><a class="nav-link" title="Calls to action" href="#">Calls to
-														action</a></li>
-											</ul>
-										</li>
-										<li class="col-lg-3 col-md-6 col-12">
-											<ul>
-												<li class="dropdown-header">Accessories</li>
-												<li><a class="nav-link" title="Default Navbar" href="#">Default
-														Navbar</a></li>
-												<li><a class="nav-link" title="Lovely Fonts" href="#">Lovely Fonts</a>
-												</li>
-												<li><a class="nav-link" title="Responsive Dropdown" href="#">Responsive
-														Dropdown </a></li>
-												<li class="divider"></li>
-												<li class="dropdown-header">Pants</li>
-												<li><a class="nav-link" title="Coloured Headers" href="#">Coloured
-														Headers</a></li>
-												<li><a class="nav-link" title="Primary Buttons & Default"
-														href="#">Primary Buttons & Default</a></li>
-												<li><a class="nav-link" title="Calls to action" href="#">Calls to
-														action</a></li>
-											</ul>
-										</li>
-									</div>
-								</ul>
-							</li>
-							<!-- <li class="nav-item"><a class="nav-link" title="Look Book" href="look-book.html">Look
+							<li class="nav-item active"><a class="nav-link active" title="Home"
+									href="{{ url('/catalog') }}">Shop</a></li>
+							<!-- <li class="nav-item"><a class="nav-link" title="Look Book" href="{{ url('/lookbook') }}">Look
 									Book</a></li>
-							<li class="nav-item"><a class="nav-link" title="Blog" href="12_blog.html">Blog</a></li> -->
+							<li class="nav-item"><a class="nav-link" title="Blog" href="{{ url('/blog') }}">Blog</a></li> -->
 							<li class="nav-item"><a class="nav-link" title="About Us" href="{{ url('/about') }}">About Us</a>
 							</li>
-							<!-- <li class="nav-item dropdown">
-								<a title="pages" href="about.html" class="nav-link dropdown-toggle"
-									data-bs-toggle="dropdown">pages</a>
-								<ul class="dropdown-menu">
-									<li><a class="dropdown-item" title="Shortcodes"
-											href="shortcodes.html">Shortcodes</a></li>
-									<li><a class="dropdown-item" title="404" href="404.html">404</a></li>
-						</ul>
-						</li> -->
 							<li class="nav-item"><a class="nav-link" title="Contact us" href="{{ url('/contact') }}">Contact
 									us</a></li>
 						</ul>
@@ -403,7 +239,7 @@
 						<!-- col-md-6 -->
 						<div class="col-12 col-md-6 col-lg-6 content-box">
 							<h3>Ivan Rachma Vinasti</h3>
-							<p>Owner</p>
+							<p>Founder</p>
 							<p>From the very beginning, I’ve always believed that building a successful business goes beyond just numbers—it’s about people, passion, and purpose. Every decision I’ve made has been with the goal of creating a lasting impact, both within the company and for our customers.</p>
 							<p>The journey has been filled with challenges, but those challenges have shaped our success. By staying adaptable, embracing innovation, and nurturing a talented team, we’ve built a business that not only meets market demands but also sets new standards in our industry.</p>
 							<p>It’s incredibly rewarding to see how far we’ve come, and I’m excited for the limitless potential that lies ahead.</p>
@@ -446,11 +282,28 @@
 					<div class="row">
 						<!-- col-md-6 -->
 						<div class="col-12 col-md-6 col-lg-6 content-box">
+							<h3>Murfid Dzakwan Kamil</h3>
+							<p>TI Director </p>
+							<p>My journey as TI Director has been nothing short of transformative. From the early days of building the company’s technical infrastructure to leading us into the digital age, the challenges we’ve faced have only made us more resilient. Innovation is at the heart of what we do, and seeing our technological solutions not only improve internal processes but also deliver superior experiences to our customers is immensely rewarding.</p>
+							<p>One of the most memorable experiences has been assembling a team of forward-thinking engineers who share the same passion for pushing technological boundaries. Together, we’ve created systems that have scaled alongside the company’s growth.</p>
+							<p>Each new project brings an opportunity to disrupt the status quo, and I’m proud of how we’ve positioned the company as a tech-driven leader in our field.</p>
+						</div><!-- col-md-6 -->
+						<!-- col-md-6 -->
+						<div class="col-12 col-md-6 col-lg-6">
+							<img src=" {{ asset('images/foto/MURFID.png') }}" alt="about post" />
+						</div><!-- col-md-6 -->
+					</div>
+				</div>
+				<div class="about-content-box">
+					<div class="row">
+						<!-- col-md-6 -->
+						<div class="col-12 col-md-6 col-lg-6 content-box">
 							<h3>Gien Halga</h3>
-							<p>Marketing Director</p>
+							<p>Operational Director</p>
 							</p>
-							<p>Looking back at the many campaigns and strategies we've developed, it’s amazing to see how far we’ve come. The brand we’ve built today is a reflection of countless hours of creative brainstorming, market research, and understanding the pulse of our audience. Every successful marketing campaign tells a story—not just of the product but of the people behind it and the vision we aim to share with the world.</p>
-							<p>It’s incredibly fulfilling to know that our efforts have not only elevated the company but also forged strong connections with our customers. What excites me the most is the challenge of staying ahead of the curve, consistently pushing boundaries, and exploring new ways to communicate our brand’s values in an ever-evolving market.</p>
+							<p>Looking back at the many operational strategies and systems we've implemented, it’s incredible to see the efficiency and growth we’ve achieved. The company we’ve built today is a testament to the hard work, careful planning, and continuous improvement across all levels of operations.</p>
+							<p>Every successful process or system doesn’t just optimize our workflow—it reflects the dedication of the entire team working in unison to ensure everything runs smoothly.</p>
+							<p>It’s deeply rewarding to see how our efforts have not only streamlined the company’s operations but also created a more dynamic and agile organization. What excites me the most is the constant challenge of improving efficiency, embracing innovation, and staying adaptable in an industry where change is the only constant. Every day brings new opportunities to push our operational boundaries further, and that’s what keeps me motivated.</p>
 						</div><!-- col-md-6 -->
 						<!-- col-md-6 -->
 						<div class="col-12 col-md-6 col-lg-6">
@@ -462,24 +315,8 @@
 					<div class="row">
 						<!-- col-md-6 -->
 						<div class="col-12 col-md-6 col-lg-6 content-box">
-							<h3>Attoek Faturachman</h3>
-							<p>Commissioner </p>
-							<p>My experience as a Commissioner has been a continuous journey of guiding the company through various phases of growth, always with a focus on integrity, governance, and long-term success. It’s been fulfilling to witness the transformation of our company, from early foundations to becoming a leader in the industry.</p>
-							<p>Being part of this growth has reinforced my belief in strong corporate governance and the importance of balancing ambition with responsibility. Each strategic decision we make has the power to shape the future, and being entrusted with that responsibility is a privilege I don’t take lightly.</p>
-							<p>The opportunity to work alongside visionary leaders and contribute to the company's ethical and sustainable progress has been one of the most rewarding experiences of my career.</p>
-						</div><!-- col-md-6 -->
-						<!-- col-md-6 -->
-						<div class="col-12 col-md-6 col-lg-6">
-							<img src=" {{ asset('images/foto/ATOEK.png') }}" alt="about post" />
-						</div><!-- col-md-6 -->
-					</div>
-				</div>
-				<div class="about-content-box">
-					<div class="row">
-						<!-- col-md-6 -->
-						<div class="col-12 col-md-6 col-lg-6 content-box">
 							<h3>Wardatulaini</h3>
-							<p>CFO </p>
+							<p>Marketing Director </p>
 							<p>Guiding the financial journey of this company has been an extraordinary experience. From navigating periods of economic uncertainty to capitalizing on growth opportunities, every step has been a learning moment. The ability to structure financial strategies that support our ambitions, while ensuring long-term stability, has been both a challenge and a rewarding experience.</p>
 							<p>Over the years, I’ve witnessed how sound financial planning can turn risks into opportunities, and how the company has grown stronger with each calculated decision. It’s not just about numbers;</p>
 							<p>it’s about laying the financial groundwork that empowers the entire company to achieve greatness. Watching the company thrive and knowing that the financial health plays a pivotal role in that success is what drives me every day.</p>
@@ -487,22 +324,6 @@
 						<!-- col-md-6 -->
 						<div class="col-12 col-md-6 col-lg-6">
 							<img src=" {{ asset('images/foto/WARDA.png') }}" alt="about post" />
-						</div><!-- col-md-6 -->
-					</div>
-				</div>
-				<div class="about-content-box">
-					<div class="row">
-						<!-- col-md-6 -->
-						<div class="col-12 col-md-6 col-lg-6 content-box">
-							<h3>Murfid Dzakwan Kamil</h3>
-							<p>CTO </p>
-							<p>My journey as CTO has been nothing short of transformative. From the early days of building the company’s technical infrastructure to leading us into the digital age, the challenges we’ve faced have only made us more resilient. Innovation is at the heart of what we do, and seeing our technological solutions not only improve internal processes but also deliver superior experiences to our customers is immensely rewarding.</p>
-							<p>One of the most memorable experiences has been assembling a team of forward-thinking engineers who share the same passion for pushing technological boundaries. Together, we’ve created systems that have scaled alongside the company’s growth.</p>
-							<p>Each new project brings an opportunity to disrupt the status quo, and I’m proud of how we’ve positioned the company as a tech-driven leader in our field.</p>
-						</div><!-- col-md-6 -->
-						<!-- col-md-6 -->
-						<div class="col-12 col-md-6 col-lg-6">
-							<img src=" {{ asset('images/foto/MURFID.png') }}" alt="about post" />
 						</div><!-- col-md-6 -->
 					</div>
 				</div>
@@ -615,6 +436,20 @@
 							<p>Griya Pamoyanan, Blok G 17, Pamoyanan </p>
 							<p>Bogor, Indonesia, 16136</p>
 						</div>
+						<div class="helpline">
+							<svg viewBox="0 0 51.413 51.413">
+								<path
+									d="M25.989,12.274c8.663,0.085,14.09-0.454,14.823,9.148h10.564c0-14.875-12.973-16.88-25.662-16.88    c-12.69,0-25.662,2.005-25.662,16.88h10.482C11.345,11.637,17.398,12.19,25.989,12.274z" />
+								<path
+									d="M5.291,26.204c2.573,0,4.714,0.154,5.19-2.377c0.064-0.344,0.101-0.734,0.101-1.185H10.46H0    C0,26.407,2.369,26.204,5.291,26.204z" />
+								<path
+									d="M40.88,22.642h-0.099c0,0.454,0.039,0.845,0.112,1.185c0.502,2.334,2.64,2.189,5.204,2.189    c2.936,0,5.316,0.193,5.316-3.374H40.88z" />
+								<path
+									d="M35.719,20.078v-1.496c0-0.669-0.771-0.711-1.723-0.711h-1.555c-0.951,0-1.722,0.042-1.722,0.711    v1.289v1h-11v-1v-1.289c0-0.669-0.771-0.711-1.722-0.711h-1.556c-0.951,0-1.722,0.042-1.722,0.711v1.496v1.306    C12.213,23.988,4.013,35.073,3.715,36.415l0.004,8.955c0,0.827,0.673,1.5,1.5,1.5h40c0.827,0,1.5-0.673,1.5-1.5v-9    c-0.295-1.303-8.493-12.383-11-14.987V20.078z M19.177,37.62c-0.805,0-1.458-0.652-1.458-1.458s0.653-1.458,1.458-1.458    s1.458,0.652,1.458,1.458S19.982,37.62,19.177,37.62z M19.177,32.62c-0.805,0-1.458-0.652-1.458-1.458s0.653-1.458,1.458-1.458    s1.458,0.652,1.458,1.458S19.982,32.62,19.177,32.62z M19.177,27.621c-0.805,0-1.458-0.652-1.458-1.458    c0-0.805,0.653-1.458,1.458-1.458s1.458,0.653,1.458,1.458C20.635,26.969,19.982,27.621,19.177,27.621z M25.177,37.62    c-0.805,0-1.458-0.652-1.458-1.458s0.653-1.458,1.458-1.458c0.806,0,1.458,0.652,1.458,1.458S25.983,37.62,25.177,37.62z     M25.177,32.62c-0.805,0-1.458-0.652-1.458-1.458s0.653-1.458,1.458-1.458c0.806,0,1.458,0.652,1.458,1.458    S25.983,32.62,25.177,32.62z M25.177,27.621c-0.805,0-1.458-0.652-1.458-1.458c0-0.805,0.653-1.458,1.458-1.458    c0.806,0,1.458,0.653,1.458,1.458C26.635,26.969,25.983,27.621,25.177,27.621z M31.177,37.62c-0.806,0-1.458-0.652-1.458-1.458    s0.652-1.458,1.458-1.458s1.458,0.652,1.458,1.458S31.983,37.62,31.177,37.62z M31.177,32.62c-0.806,0-1.458-0.652-1.458-1.458    s0.652-1.458,1.458-1.458s1.458,0.652,1.458,1.458S31.983,32.62,31.177,32.62z M31.177,27.621c-0.806,0-1.458-0.652-1.458-1.458    c0-0.805,0.652-1.458,1.458-1.458s1.458,0.653,1.458,1.458C32.635,26.969,31.983,27.621,31.177,27.621z" />
+							</svg>
+							<h4>Help Lines</h4>
+							<p>+62 812-389-333</p>
+						</div>
 					</aside><!-- widget about /- -->
 
 					<!-- col-md-6 -->
@@ -626,12 +461,12 @@
 									<span>from our store</span>
 								</h3>
 								<ul>
-									<li><a title="Shoes" href="02_categories.html">Shoes</a></li>
-									<li><a title="Perfumes" href="02_categories.html">Perfumes</a></li>
-									<li><a title="Bags" href="02_categories.html">Bags</a></li>
-									<li><a title="Make Up" href="02_categories.html">Make Up</a></li>
-									<li><a title="Jewelry" href="02_categories.html">Jewelry</a></li>
-									<li><a title="Clothing" href="02_categories.html">Clothing</a></li>
+									<li><a title="Tshirts" href="">Tshirts</a></li>
+									<li><a title="Jackets" href="">Jackets</a></li>
+									<li><a title="Dress" href="">Dress</a></li>
+									<!-- <li><a title="Make Up" href="">Make Up</a></li>
+									<li><a title="Jewelry" href="">Jewelry</a></li>
+									<li><a title="Clothing" href="">Clothing</a></li> -->
 								</ul>
 							</aside>
 
@@ -667,85 +502,85 @@
 						</div>
 					</div><!-- col-md-6 /- -->
 
-					<aside class="col-12 col-md-12 col-lg-3 widget widget_facebook">
-						<div class="widget-title">
-							<h4>IRVASCA <span>1.000.000 members </span></h4>
-							<button type="submit" value="like" class="btn btn-default pull-right">Like <i
-									class="fa fa-thumbs-o-up"></i> </button>
+					<!--	<aside class="col-12 col-md-12 col-lg-3 widget widget_facebook">-->
+					<!--		<div class="widget-title">-->
+					<!--			<h4>IRVASCA <span>1.000.000 members </span></h4>-->
+					<!--			<button type="submit" value="like" class="btn btn-default pull-right">Like <i-->
+					<!--					class="fa fa-thumbs-o-up"></i> </button>-->
+					<!--		</div>-->
+					<!--		<ul>-->
+					<!--			<li><a title="Facebook photo" href="#"><img src="images/footer/fb-1.jpg"-->
+					<!--						alt="facebook-photo" /></a></li>-->
+					<!--			<li><a title="Facebook photo" href="#"><img src="images/footer/fb-2.jpg"-->
+					<!--						alt="facebook-photot" /></a></li>-->
+					<!--			<li><a title="Facebook photo" href="#"><img src="images/footer/fb-3.jpg"-->
+					<!--						alt="facebook-photo" /></a></li>-->
+					<!--			<li><a title="Facebook photo" href="#"><img src="images/footer/fb-4.jpg"-->
+					<!--						alt="facebook-photo" /></a></li>-->
+					<!--			<li><a title="Facebook photo" href="#"><img src="images/footer/fb-5.jpg"-->
+					<!--						alt="facebook-photo" /></a></li>-->
+					<!--			<li><a title="Facebook photo" href="#"><img src="images/footer/fb-6.jpg"-->
+					<!--						alt="facebook-photo" /></a></li>-->
+					<!--			<li><a title="Facebook photo" href="#"><img src="images/footer/fb-7.jpg"-->
+					<!--						alt="facebook-photo" /></a></li>-->
+					<!--			<li><a title="Facebook photo" href="#"><img src="images/footer/fb-8.jpg"-->
+					<!--						alt="facebook-photo" /></a></li>-->
+					<!--		</ul>-->
+					<!--		<a href="#"> facebook page </a>-->
+					<!--	</aside>-->
+					<!--</div>-->
+				</div><!-- container /- -->
+			</div><!-- widget section /- -->
+			<!-- Footer bottom -->
+			<div class="footer-bottom">
+				<!-- container -->
+				<div class="container">
+					<div class="row">
+						<div class="col-12 col-md-6 col-lg-3 top-header">
+							<ul class="top-social ">
+								<li><a title="Facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a title="Twitter" href="#"><svg viewBox="0 0 512 512">
+											<path
+												d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" />
+										</svg></a></li>
+								<li><a title="Google plus" href="#"><svg viewBox="0 0 448 512">
+											<path
+												d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
+										</svg></a></li>
+								<li><a title="Pinterest" href="#"><i class="fa fa-pinterest-p"></i></a></li>
+							</ul>
 						</div>
-						<ul>
-							<li><a title="Facebook photo" href="#"><img src="images/footer/fb-1.jpg"
-										alt="facebook-photo" /></a></li>
-							<li><a title="Facebook photo" href="#"><img src="images/footer/fb-2.jpg"
-										alt="facebook-photot" /></a></li>
-							<li><a title="Facebook photo" href="#"><img src="images/footer/fb-3.jpg"
-										alt="facebook-photo" /></a></li>
-							<li><a title="Facebook photo" href="#"><img src="images/footer/fb-4.jpg"
-										alt="facebook-photo" /></a></li>
-							<li><a title="Facebook photo" href="#"><img src="images/footer/fb-5.jpg"
-										alt="facebook-photo" /></a></li>
-							<li><a title="Facebook photo" href="#"><img src="images/footer/fb-6.jpg"
-										alt="facebook-photo" /></a></li>
-							<li><a title="Facebook photo" href="#"><img src="images/footer/fb-7.jpg"
-										alt="facebook-photo" /></a></li>
-							<li><a title="Facebook photo" href="#"><img src="images/footer/fb-8.jpg"
-										alt="facebook-photo" /></a></li>
-						</ul>
-						<a href="#"> facebook page </a>
-					</aside>
-				</div>
-			</div><!-- container /- -->
-		</div><!-- widget section /- -->
-		<!-- Footer bottom -->
-		<div class="footer-bottom">
-			<!-- container -->
-			<div class="container">
-				<div class="row">
-					<div class="col-12 col-md-6 col-lg-3 top-header">
-						<ul class="top-social ">
-							<li><a title="Facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-							<li><a title="Twitter" href="#"><svg viewBox="0 0 512 512">
-										<path
-											d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" />
-									</svg></a></li>
-							<li><a title="Google plus" href="#"><svg viewBox="0 0 448 512">
-										<path
-											d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
-									</svg></a></li>
-							<li><a title="Pinterest" href="#"><i class="fa fa-pinterest-p"></i></a></li>
-						</ul>
+						<div class="col-12 col-md-6 col-lg-6 copy-rights">
+							<p> IRVASCA&copy; 2024 </p>
+						</div>
+						<!--<div class="col-12 col-md-12 col-lg-3">-->
+						<!--	<a title="Payment-getway" href="#"><img src="images/footer/payment-getway-icon.png"-->
+						<!--			alt="payment-getway-icon"></a>-->
+						<!--</div>-->
 					</div>
-					<div class="col-12 col-md-6 col-lg-6 copy-rights">
-						<p> IRVASCA&copy; 2024 </p>
-					</div>
-					<div class="col-12 col-md-12 col-lg-3">
-						<a title="Payment-getway" href="#"><img src="images/footer/payment-getway-icon.png"
-								alt="payment-getway-icon"></a>
-					</div>
-				</div>
-			</div><!-- container /- -->
-			<a title="Back-to-top" id="back-to-top" href="#back-to-top" class="back-to-top"><i
-					class="fa fa-caret-up"></i></a>
-		</div><!-- Footer Bottom -->
-	</div><!-- Footer Section /- -->
+				</div><!-- container /- -->
+				<a title="Back-to-top" id="back-to-top" href="#back-to-top" class="back-to-top"><i
+						class="fa fa-caret-up"></i></a>
+			</div><!-- Footer Bottom -->
+		</div><!-- Footer Section /- -->
 
-	<!-- jQuery Include -->
-	<script src="libraries/jquery.min.js"></script>
-	<script type="text/javascript" src='http://maps.google.com/maps/api/js?sensor=false'></script>
-	<script src="libraries/gmap/jquery.gmap.min.js"></script> <!-- Light Box -->
-	<script src="libraries/jquery.easing.min.js"></script><!-- Easing Animation Effect -->
-	<script src="libraries/bootstrap/bootstrap.bundle.min.js"></script> <!-- Core Bootstrap v3.3.4 -->
-	<script src="libraries/fuelux/jquery-ui.min.js"></script>
-	<script src="libraries/jquery.animateNumber.min.js"></script> <!-- Used for Animated Numbers -->
-	<script src="libraries/jquery.appear.js"></script> <!-- It Loads jQuery when element is appears -->
-	<script src="libraries/jquery.knob.js"></script> <!-- Used for Loading Circle -->
-	<script src="libraries/wow.min.js"></script> <!-- Use For Animation -->
-	<script src="libraries/owl-carousel/owl.carousel.min.js"></script> <!-- Core Owl Carousel CSS File  *	v1.3.3 -->
-	<script src="libraries/expanding-search/modernizr.custom.js"></script> <!-- Core Owl Carousel CSS File  *	v1.3.3 -->
-	<script src="libraries/flexslider/jquery.flexslider-min.js"></script> <!-- flexslider   -->
-	<script src="libraries/jquery.magnific-popup.min.js"></script> <!-- Light Box -->
-	<!-- Customized Scripts -->
-	<script src="js/functions.js"></script>
+		<!-- jQuery Include -->
+		<script src="libraries/jquery.min.js"></script>
+		<script type="text/javascript" src='http://maps.google.com/maps/api/js?sensor=false'></script>
+		<script src="libraries/gmap/jquery.gmap.min.js"></script> <!-- Light Box -->
+		<script src="libraries/jquery.easing.min.js"></script><!-- Easing Animation Effect -->
+		<script src="libraries/bootstrap/bootstrap.bundle.min.js"></script> <!-- Core Bootstrap v3.3.4 -->
+		<script src="libraries/fuelux/jquery-ui.min.js"></script>
+		<script src="libraries/jquery.animateNumber.min.js"></script> <!-- Used for Animated Numbers -->
+		<script src="libraries/jquery.appear.js"></script> <!-- It Loads jQuery when element is appears -->
+		<script src="libraries/jquery.knob.js"></script> <!-- Used for Loading Circle -->
+		<script src="libraries/wow.min.js"></script> <!-- Use For Animation -->
+		<script src="libraries/owl-carousel/owl.carousel.min.js"></script> <!-- Core Owl Carousel CSS File  *	v1.3.3 -->
+		<script src="libraries/expanding-search/modernizr.custom.js"></script> <!-- Core Owl Carousel CSS File  *	v1.3.3 -->
+		<script src="libraries/flexslider/jquery.flexslider-min.js"></script> <!-- flexslider   -->
+		<script src="libraries/jquery.magnific-popup.min.js"></script> <!-- Light Box -->
+		<!-- Customized Scripts -->
+		<script src="js/functions.js"></script>
 
 </body>
 

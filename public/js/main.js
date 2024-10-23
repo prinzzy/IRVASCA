@@ -111,3 +111,30 @@ document.getElementById("addSizeStock").addEventListener("click", function () {
         `;
     sizeStockInputs.insertAdjacentHTML("beforeend", newSizeStock);
 });
+
+// document.querySelectorAll("[id^='addSizeStock']").forEach(function (button) {
+//     button.addEventListener("click", function () {
+//         const productId = this.id.replace("addSizeStock", ""); // Extract the product ID from the button ID
+//         const sizeStockInputs = document.getElementById(
+//             `sizeStockInputs${productId}`
+//         ); // Target the specific product's input container
+
+//         const count =
+//             sizeStockInputs.querySelectorAll(".size-stock-input").length; // Count only relevant inputs
+
+//         const newSizeStock = `
+//             <div class="d-flex mb-2 size-stock-input">
+//                 <select name="sizes[${count}][size]" class="form-control me-2" required>
+//                     <option value="">Select Size</option>
+//                     <option value="S">S</option>
+//                     <option value="M">M</option>
+//                     <option value="L">L</option>
+//                     <option value="XL">XL</option>
+//                 </select>
+//                 <input type="number" name="sizes[${count}][stock]" class="form-control" placeholder="Stock" required>
+//             </div>
+//         `;
+
+//         sizeStockInputs.insertAdjacentHTML("beforeend", newSizeStock); // Add the new input row to the container
+//     });
+// });

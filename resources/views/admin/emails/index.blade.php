@@ -5,24 +5,23 @@
         </h2>
     </x-slot>
 
-    <div class="container my-4">
-        <!-- File Upload Form -->
-        <form action="{{ route('admin.emails.import') }}" method="POST" enctype="multipart/form-data">
-            @csrf
-            <div class="form-group">
-                <label for="file">Upload Email List (Excel):</label>
-                <input type="file" name="email_file" class="form-control" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Import Emails</button>
-        </form>
+    <!--<div class="container my-4">-->
+    <!--    <form action="{{ route('admin.emails.import') }}" method="POST" enctype="multipart/form-data">-->
+    <!--        @csrf-->
+    <!--        <div class="form-group">-->
+    <!--            <label for="file">Upload Email List (Excel):</label>-->
+    <!--            <input type="file" name="email_file" class="form-control" required>-->
+    <!--        </div>-->
+    <!--        <button type="submit" class="btn btn-primary">Import Emails</button>-->
+    <!--    </form>-->
 
-        <div class="progress mt-4">
-            <div id="progress-bar" class="progress-bar" role="progressbar"
-                style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-                0% emails processed
-            </div>
-        </div>
-    </div>
+    <!--     <div class="progress mt-4">-->
+    <!--        <div id="progress-bar" class="progress-bar" role="progressbar" -->
+    <!--             style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">-->
+    <!--            0% emails processed-->
+    <!--        </div>-->
+    <!--    </div>-->
+    <!--</div>-->
 
     <!-- Email Table -->
     <div class="mb-4">
@@ -60,6 +59,7 @@
     </div>
 
     <!-- DataTables and Chart.js -->
+
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
@@ -72,7 +72,7 @@
             $('#emailTable').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: '{{ route("admin.emails.data") }}',
+                ajax: '{{ route("admin.emails.data") }}', // Correct usage of double quotes inside the Blade directive
                 columns: [{
                         data: 'id',
                         name: 'id'
@@ -89,21 +89,15 @@
                         data: 'updated_at',
                         name: 'updated_at'
                     }
-                ]
+                ],
+                pageLength: 50, // Adjust based on your needs
             });
+
 
             // Fetch email statistics asynchronously
             fetch(`{{ route('admin.emails.statsByMonth') }}`)
                 .then(response => response.json())
                 .then(data => {
-                    const totalsList = document.getElementById('emailTotalsList');
-                    data.forEach(item => {
-                        const li = document.createElement('li');
-                        li.className = 'list-group-item';
-                        li.textContent = `${item.month}: ${item.count} emails`;
-                        totalsList.appendChild(li);
-                    });
-
                     const ctx = document.getElementById('emailStatsChart').getContext('2d');
                     new Chart(ctx, {
                         type: 'bar',

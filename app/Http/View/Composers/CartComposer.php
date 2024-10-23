@@ -21,6 +21,7 @@ class CartComposer
                         'name' => $item->product->name ?? 'Unnamed Product',
                         'price' => $item->product->price ?? 0,
                         'quantity' => $item->quantity ?? 1,
+                    'size' => $item->size ?? 'N/A',  // Include size
                         'image' => $item->product->image_path ?? 'default_image.jpg',
                     ];
                 });
@@ -33,6 +34,7 @@ class CartComposer
                 if (!isset($item['product_id'])) {
                     $cartItems[$key]['product_id'] = $key;  // Use the key as the product_id
                 }
+                $cartItems[$key]['size'] = $item['size'] ?? 'N/A'; 
             }
         }
 

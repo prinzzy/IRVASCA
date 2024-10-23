@@ -816,16 +816,37 @@ $(document).ready(function () {
 
     // Add to Cart functionality
     $(document).ready(function () {
+        let selectedSize = $(".size-option.active").data("size"); // Get the initially selected size if available
+
+        // Handle size selection
+        $(".size-option").on("click", function (e) {
+            e.preventDefault();
+
+            // Remove 'active' class from all size options and add it to the clicked one
+            $(".size-option").removeClass("active");
+            $(this).addClass("active");
+
+            // Update the selected size
+            selectedSize = $(this).data("size");
+        });
+
         // Handle Add to Cart button click
         $(".add-to-cart-btn").on("click", function (e) {
             e.preventDefault();
             let productId = $(this).data("id");
+
+            // Validate that a size is selected
+            if (!selectedSize) {
+                alert("Please select a size.");
+                return;
+            }
 
             $.ajax({
                 url: "/cart/add",
                 method: "POST",
                 data: {
                     product_id: productId,
+                    size: selectedSize, // Send selected size to backend
                     _token: $('meta[name="csrf-token"]').attr("content"),
                 },
                 success: function (response) {
@@ -894,10 +915,10 @@ $(document).ready(function () {
 
     // Handle Request OTP
     $("#requestOtpBtn").on("click", function () {
-        const name = $("#name").val();
-        const email = $("#email").val();
-        const password = $("#password").val();
-        const passwordConfirmation = $("#password_confirmation").val();
+        const name = $("#register-name").val();
+        const email = $("#register-email").val();
+        const password = $("#register-password").val();
+        const passwordConfirmation = $("#register-password-confirmation").val();
 
         // Validate fields before sending request
         if (!name || !email || !password || !passwordConfirmation) {
@@ -960,8 +981,8 @@ $(document).ready(function () {
     $("#registerForm").on("submit", function (event) {
         event.preventDefault(); // Prevent default form submission
 
-        const email = $("#email").val();
-        const otp = $("#otp").val();
+        const email = $("#register-email").val();
+        const otp = $("#register-otp").val();
 
         // Validate that the OTP is a number
         if (!/^\d+$/.test(otp)) {
@@ -1006,10 +1027,10 @@ $(document).ready(function () {
 
     // Function to complete registration after OTP verification
     function completeRegistration() {
-        const name = $("#name").val();
-        const email = $("#email").val();
-        const password = $("#password").val();
-        const passwordConfirmation = $("#password_confirmation").val();
+        const name = $("#register-name").val();
+        const email = $("#register-email").val();
+        const password = $("#register-password").val();
+        const passwordConfirmation = $("#register-password-confirmation").val();
 
         // Validate again before submitting
         if (!name || !email || !password || !passwordConfirmation) {
@@ -1038,8 +1059,10 @@ $(document).ready(function () {
                     title: "Registration Successful!",
                     text: "You have been registered successfully.",
                     confirmButtonText: "Okay",
+                }).then(() => {
+                    $("#registerModal").modal("hide"); // Close modal
+                    location.reload(); // Refresh the page
                 });
-                $("#registerModal").modal("hide"); // Close modal
             },
             error: function (xhr) {
                 let errorMessage =
@@ -1057,7 +1080,7 @@ $(document).ready(function () {
 
     // Handle Resend OTP
     $("#resendOtpBtn").on("click", function () {
-        const email = $("#email").val();
+        const email = $("#register-email").val();
 
         if (canRequestOtp()) {
             // Show loading message for resend OTP

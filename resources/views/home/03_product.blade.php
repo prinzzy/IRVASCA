@@ -127,12 +127,17 @@
 							<!-- <li><a title="CheckOut" href="#">CheckOut</a></li> -->
 						</ul>
 						<ul class="top-menu">
-							<li><a title="Login" href="{{ url('/login-member') }}">Login</a></li>
-							<li><a title="Register" href="{{ url('/register-member') }}">Register</a></li>
+							<li>
+								<a href="#" title="User Account" data-bs-toggle="modal" data-bs-target="#userAccountModal">
+									<i class="fa fa-user" aria-hidden="true"></i>
+								</a>
+							</li>
 						</ul>
+						@include('layouts.partials.user-modal')
 					</div>
 				</div>
-			</div><!-- container /- -->
+			</div>
+		</div><!-- container /- -->
 		</div><!-- top-header /- -->
 
 		<!-- logo-search-block -->

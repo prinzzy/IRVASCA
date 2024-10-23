@@ -185,15 +185,43 @@
                                     <div class="form-group">
                                         <label for="sizes[]">Sizes and Stock</label>
                                         <div id="sizeStockInputs{{ $product->id }}">
-                                            @foreach ($product->sizes as $size)
-                                            <div class="d-flex mb-2">
-                                                <input type="text" name="sizes[]" class="form-control me-2" value="{{ $size->size }}" required>
-                                                <input type="number" name="stocks[]" class="form-control" value="{{ $size->stock }}" required>
+                                            <div id="sizeStockInputs">
+                                                <!-- Size S -->
+                                                <div class="d-flex mb-2">
+                                                    <input type="text" name="sizes[0][size]" class="form-control me-2" value="S" readonly>
+                                                    <input type="number" name="sizes[0][stock]" class="form-control" placeholder="Stock for Size S"
+                                                        @if($product->sizes->where('size', 'S')->first())
+                                                    value="{{ $product->sizes->where('size', 'S')->first()->stock }}"
+                                                    @endif>
+                                                </div>
+                                                <!-- Size M -->
+                                                <div class="d-flex mb-2">
+                                                    <input type="text" name="sizes[1][size]" class="form-control me-2" value="M" readonly>
+                                                    <input type="number" name="sizes[1][stock]" class="form-control" placeholder="Stock for Size M"
+                                                        @if($product->sizes->where('size', 'M')->first())
+                                                    value="{{ $product->sizes->where('size', 'M')->first()->stock }}"
+                                                    @endif>
+                                                </div>
+                                                <!-- Size L -->
+                                                <div class="d-flex mb-2">
+                                                    <input type="text" name="sizes[2][size]" class="form-control me-2" value="L" readonly>
+                                                    <input type="number" name="sizes[2][stock]" class="form-control" placeholder="Stock for Size L"
+                                                        @if($product->sizes->where('size', 'L')->first())
+                                                    value="{{ $product->sizes->where('size', 'L')->first()->stock }}"
+                                                    @endif>
+                                                </div>
+                                                <!-- Size XL -->
+                                                <div class="d-flex mb-2">
+                                                    <input type="text" name="sizes[3][size]" class="form-control me-2" value="XL" readonly>
+                                                    <input type="number" name="sizes[3][stock]" class="form-control" placeholder="Stock for Size XL"
+                                                        @if($product->sizes->where('size', 'XL')->first())
+                                                    value="{{ $product->sizes->where('size', 'XL')->first()->stock }}"
+                                                    @endif>
+                                                </div>
                                             </div>
-                                            @endforeach
                                         </div>
-                                        <button type="button" class="btn btn-secondary btn-sm" id="addSizeStock{{ $product->id }}">Add More Sizes</button>
                                     </div>
+
                                     <div class="form-group">
                                         <label for="description">Description</label>
                                         <textarea name="description" class="form-control" required>{{ old('description', $product->description) }}</textarea>
