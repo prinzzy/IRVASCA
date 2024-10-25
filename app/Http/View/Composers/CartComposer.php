@@ -21,7 +21,7 @@ class CartComposer
                         'name' => $item->product->name ?? 'Unnamed Product',
                         'price' => $item->product->price ?? 0,
                         'quantity' => $item->quantity ?? 1,
-                    'size' => $item->size ?? 'N/A',  // Include size
+                        'size' => $item->size ?? 'N/A',  // Include size
                         'image' => $item->product->image_path ?? 'default_image.jpg',
                     ];
                 });
@@ -34,7 +34,7 @@ class CartComposer
                 if (!isset($item['product_id'])) {
                     $cartItems[$key]['product_id'] = $key;  // Use the key as the product_id
                 }
-                $cartItems[$key]['size'] = $item['size'] ?? 'N/A'; 
+                $cartItems[$key]['size'] = $item['size'] ?? 'N/A';
             }
         }
 
@@ -44,7 +44,17 @@ class CartComposer
         });
         $total = $subtotal; // You can add additional fees or taxes here if needed
 
+        // Format subtotal and total in IDR
+        $formattedSubtotal = $this->formatToRupiah($subtotal);
+        $formattedTotal = $this->formatToRupiah($total);
+
         // Share the cart data with the view
-        $view->with(compact('cartItems', 'subtotal', 'total'));
+        $view->with(compact('cartItems', 'subtotal', 'total', 'formattedSubtotal', 'formattedTotal'));
+    }
+
+    // Helper function to format prices in Indonesian Rupiah
+    private function formatToRupiah($amount)
+    {
+        return 'Rp ' . number_format($amount, 0, ',', '.');
     }
 }

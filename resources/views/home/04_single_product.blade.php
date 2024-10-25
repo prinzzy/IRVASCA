@@ -899,6 +899,7 @@
 
 		<!-- Magnific Popup (Light Box) -->
 		<script src="{{ asset('libraries/jquery.magnific-popup.min.js') }}"></script>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 		<!-- Customized Scripts -->
 		<script src="{{ asset('js/functions.js') }}"></script>

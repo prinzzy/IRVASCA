@@ -9,7 +9,7 @@
             <p>Size: {{ $item['size'] ?? 'N/A' }}</p> <!-- Display selected size -->
         </td>
         <td>x{{ $item['quantity'] }}</td>
-        <td>${{ number_format($item['price'] * $item['quantity'], 2) }}</td>
+        <td>Rp{{ number_format($item['price'] * $item['quantity'], 0, ',', '.') }}</td> <!-- Format price in Rupiah -->
         <td>
             <a class="remove-from-cart-button" data-product-id="{{ $item['product_id'] }}" href="#"><i class="fa fa-close"></i></a>
         </td>
@@ -22,8 +22,8 @@
 </table>
 
 <div class="sub-total">
-    <p><span>Sub Total</span> ${{ number_format($subtotal, 2) }}</p>
-    <p><span>Total</span> ${{ number_format($total, 2) }}</p>
+    <p><span>Sub Total</span> Rp{{ number_format($subtotal, 0, ',', '.') }}</p> <!-- Format subtotal in Rupiah -->
+    <p><span>Total</span> Rp{{ number_format($total, 0, ',', '.') }}</p> <!-- Format total in Rupiah -->
 </div>
 
 <div class="cart-button">

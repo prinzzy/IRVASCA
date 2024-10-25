@@ -1,4 +1,4 @@
-<x-maz-sidebar :href="route('dashboard')" :logo="asset('images/logo/logo.png')">
+<x-maz-sidebar :href="route('dashboard')" :logo="asset('images/logo/logoputihNOBG.png')">
 
     <!-- Add Sidebar Menu Items Here -->
 

@@ -566,7 +566,7 @@
 
 		<!-- jQuery Include -->
 		<script src="libraries/jquery.min.js"></script>
-		<script type="text/javascript" src='http://maps.google.com/maps/api/js?sensor=false'></script>
+		<script type="text/javascript" src='https://maps.google.com/maps/api/js?sensor=false'></script>
 		<script src="libraries/gmap/jquery.gmap.min.js"></script> <!-- Light Box -->
 		<script src="libraries/jquery.easing.min.js"></script><!-- Easing Animation Effect -->
 		<script src="libraries/bootstrap/bootstrap.bundle.min.js"></script> <!-- Core Bootstrap v3.3.4 -->

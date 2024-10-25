@@ -30,15 +30,15 @@ class AdminProductController extends Controller
             'original_price' => 'nullable|numeric',
             'discount_price' => 'nullable|numeric',
             'star_rating' => 'nullable|numeric|min:0|max:5',
-            'sizes' => 'required|array', // Ensure sizes are provided
-            'sizes.*.size' => 'required|string', // Validate each size
-            'sizes.*.stock' => 'required|integer|min:0', // Validate stock for each size
+            'sizes' => 'array', // Ensure sizes are provided
+            'sizes.*.size' => 'string', // Validate each size
+            'sizes.*.stock' => 'integer|min:0', // Validate stock for each size
             'category_id' => 'required|exists:categories,id',
             'subcategory_id' => 'nullable|exists:subcategories,id',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Primary image
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:100000', // Primary image
             'images' => 'nullable|array', // Multiple images
-            'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-            'thumbnails' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:1024', // Thumbnail
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:100000',
+            'thumbnails' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:100000', // Thumbnail
         ]);
 
         $data = $request->except(['image', 'images', 'thumbnails', 'sizes']); // Exclude images & thumbnail from $data initially
@@ -111,13 +111,13 @@ class AdminProductController extends Controller
             'original_price' => 'nullable|numeric',
             'discount_price' => 'nullable|numeric',
             'star_rating' => 'nullable|numeric|min:0|max:5',
-            'sizes' => 'required|array',
-            'sizes.*.size' => 'required|string', // Validation for each size
-            'sizes.*.stock' => 'required|integer|min:0', // Validation for each stock
+            'sizes' => 'array',
+            'sizes.*.size' => 'string', // Validation for each size
+            'sizes.*.stock' => 'integer|min:0', // Validation for each stock
             'description' => 'nullable|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Primary image
-            'additional_images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Additional images
-            'thumbnails' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:1024', // Thumbnail
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:100000', // Primary image
+            'additional_images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:100000', // Additional images
+            'thumbnails' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:100000', // Thumbnail
         ]);
 
 
