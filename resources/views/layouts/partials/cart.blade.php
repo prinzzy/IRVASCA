@@ -22,7 +22,7 @@
 </table>
 
 <div class="sub-total">
-    <p><span>Sub Total</span> Rp{{ number_format($subtotal, 0, ',', '.') }}</p> <!-- Format subtotal in Rupiah -->
+<p><span>Sub Total</span> Rp{{ number_format($subtotal, 0, ',', '.') }}</p> <!-- Format subtotal in Rupiah -->
     <p><span>Total</span> Rp{{ number_format($total, 0, ',', '.') }}</p> <!-- Format total in Rupiah -->
 </div>
 

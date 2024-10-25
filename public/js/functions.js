@@ -858,8 +858,8 @@ $(document).ready(function () {
 
                     // Update subtotal and total
                     $(".sub-total").html(`
-                    <p><span>Sub Total</span> $${response.subtotal}</p>
-                    <p><span>Total</span> $${response.total}</p>
+                    <p><span>Sub Total</span> ${response.subtotal}</p>
+                    <p><span>Total</span> ${response.total}</p>
                 `);
 
                     // Show success message in modal

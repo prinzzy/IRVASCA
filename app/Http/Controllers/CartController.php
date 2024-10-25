@@ -110,8 +110,8 @@ class CartController extends Controller
         return response()->json([
             'message' => 'Product added to cart!',
             'cartView' => $cartView,
-            'subtotal' => number_format($subtotal, 2),
-            'total' => number_format($total, 2),
+'subtotal' => 'Rp' . number_format($subtotal, 0, ',', '.'),
+    'total' => 'Rp' . number_format($total, 0, ',', '.'),
             'count' => auth()->check() ? $cartItems->count() : count($cartItems)
         ]);
     }
