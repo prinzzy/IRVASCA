@@ -62,6 +62,7 @@
     <link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,400italic,700,700italic,900,900italic'
         rel='stylesheet' type='text/css'>
 
+
 </head>
 
 <body data-offset="200" data-spy="scroll" data-target=".primary-navigation">
@@ -181,16 +182,16 @@
     <!-- Page Breadcrumb -->
     <!-- container -->
     <div class="container">
-        <div class="page-breadcrumb">
+        <!-- <div class="page-breadcrumb">
             <ol class="breadcrumb">
                 <li><a title="Home" href="/shop">Home</a></li>
                 <li><a title="Catalog" href="/catalog">Catalog</a></li>
                 <li class="active">Product</li>
-            </ol>
-            <div class="return-home-link pull-right">
-                <a title="Return to home page" href="/shop">return to home page</a>
-            </div>
+            </ol> -->
+        <div class="return-home-link pull-right">
+            <a title="Return to home page" href="/shop">return to home page</a>
         </div>
+    </div>
     </div><!-- container /- -->
     <!-- Page Breadcrumb /- -->
 
@@ -199,94 +200,84 @@
         <!-- Container -->
         <div class="container">
             <div class="row">
-                <!-- col-md-7 -->
+                <!-- Left Column: Checkout Form -->
                 <div class="col-12 col-md-12 col-lg-7">
-                    <div class="large-product">
-                        <div class="row">
+                    <div class="checkout-container">
+                        <div class="checkout-header">
+                            <h2>Checkout</h2>
+                        </div>
 
-                            <div class="container">
-                                <h2>Checkout</h2>
+                        <!-- Delivery Address Section -->
+                        <div class="checkout-section address-section">
+                            <h3>Delivery Address</h3>
+                            <p><strong>Name:</strong> {{ $address->name }}</p>
+                            <p><strong>Address:</strong> {{ $address->street }}, {{ $address->city }}, {{ $address->state }} {{ $address->postal_code }}</p>
+                            <p><strong>Country:</strong> {{ $address->country }}</p>
+                            <p><strong>Phone:</strong> {{ $address->phone }}</p>
+                        </div>
 
-                                <!-- Display selected address -->
-                                <div class="selected-address">
-                                    <h3>Delivery Address</h3>
-                                    <p><strong>Name:</strong>{{ $address->name }}</p>
-                                    <p><strong>Address:</strong>{{ $address->street }}, {{ $address->city }}, {{ $address->state }} {{ $address->postal_code }}</p>
-                                    <p><strong>Country:</strong>{{ $address->country }}</p>
-                                    <p><strong>Phone:</strong>Phone: {{ $address->phone }}</p>
-                                </div>
-
-                                <!-- Display cart items -->
-                                <h3>Your Products</h3>
-                                @foreach($cartItems as $cartItem)
-                                <div class="cart-item">
-                                    <p><strong>Product:</strong> {{ $cartItem['name'] ?? 'N/A' }}</p>
-                                    <p><strong>Price:</strong> ${{ number_format($cartItem['price'] ?? 0, 2) }}</p>
-                                    <p><strong>Quantity:</strong> {{ $cartItem['quantity'] }}</p>
-                                    <p><strong>Size:</strong> {{ $cartItem['size'] }}</p>
-                                    <p><strong>Total for this item:</strong> ${{ number_format(($cartItem['price'] ?? 0) * $cartItem['quantity'], 2) }}</p>
-                                </div>
-                                <hr>
-                                @endforeach
-
-
-
-
-
-
-
-
+                        <!-- Cart Items Section -->
+                        <div class="checkout-section cart-section">
+                            <h3>Order Details</h3>
+                            @foreach ($cartItems as $cartItem)
+                            <div class="cart-item">
+                                <p><strong>Product:</strong> {{ $cartItem['name'] ?? 'N/A' }}</p>
+                                <p><strong>Price:</strong> Rp {{ number_format($cartItem['price'] ?? 0, 0, ',', '.') }},00</p>
+                                <p><strong>Quantity:</strong> {{ $cartItem['quantity'] }}</p>
+                                <p><strong>Size:</strong> {{ $cartItem['size'] }}</p>
                             </div>
-                            <!-- Continue to Payment Button -->
+                            <hr>
+                            @endforeach
 
+                            <!-- Discount Section -->
+                            <div class="discount-info">
+                                <p id="discountAmount" style="display: none;"><strong>Discount:</strong> Rp <span id="discountValue">0</span>,00</p>
+                            </div>
+
+                            <!-- Grand total -->
+                            <div class="grand-total">
+                                <h3 id="grandTotal">Grand Total: Rp {{ number_format($totalPrice, 0, ',', '.') }},00</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Continue to Payment Button -->
+                    <div class="checkout-footer">
+                        <button class="continue-btn">Continue to Payment</button>
+                    </div>
+                </div>
+
+                <!-- Right Column: Discount Section -->
+                <div class="col-12 col-md-12 col-lg-5">
+                    <div class="discount-container">
+                        <div class="discount-header">
+                            <h3>Have a Discount Code?</h3>
+                        </div>
+
+                        <div class="discount-section">
+                            <p>Enter your discount code below to apply it to your order.</p>
+                            <input type="text" class="discount-input" placeholder="Enter discount code">
+                            <button class="apply-discount-btn">Apply Discount</button>
                         </div>
                     </div>
                 </div>
-                <!-- Section Header /- -->
-                <div class="page-header ow-bottom-padding categories">
-                    <div class="product-description">
-                        <a href="#">
-                            <pre style="white-space: pre-wrap; text-align: left; font-family: 'PT Serif', serif !important;">
+            </div>
+        </div>
 
-            </pre>
-                        </a>
-                    </div>
-                </div>
+    </div>
 
 
-                <!-- <div class="category-box-main product-box-main">
-						<div class="row">
-							<div class="col-12 col-md-6 col-lg-6 main-product">
-								<div class="category-box product-box">
-									<div class="inner-product">
-										<img src="images/featured/featured-2.jpg" alt="featured-img" />
-										<div class="product-box-inner">
-											<ul>
-												<li><a title="Eye Icon" href="images/featured/featured-2.jpg"><i
-															class="fa fa-eye"></i></a></li>
-												<li><a title="Heart Icon" href="#"><i class="fa fa-heart"></i></a></li>
-											</ul>
-											<a title="Add to cart" href="#" class="btn">add to cart</a>
-										</div>
-									</div>
-								</div>
-
-							</div>
-						</div>
-					</div> -->
-            </div><!-- col-md-7 /- -->
-
-            <!-- col-md-5 -->
-            <div class="col-12 col-md-12 col-lg-5 single-product-sidebar">
-                <!-- <ul class="categories-list">
+    <!-- col-md-5 -->
+    <div class="col-12 col-md-12 col-lg-5 single-product-sidebar">
+        <!-- <ul class="categories-list">
 						<li><a title="Women" href="#">Women</a></li>
 						<li><a title="Wear" href="#">Wear</a></li>
 						<li><a title="Top" href="#">Top</a></li>
 					</ul> -->
-                <div class="page-header">
+        <div class="page-header">
 
-                </div>
-                <!-- <ul class="star">
+        </div>
+        <!-- <ul class="star">
 						<li>
 							<i class="fa fa-star"></i>
 							<i class="fa fa-star"></i>
@@ -295,7 +286,7 @@
 							<i class="fa fa-star-o"></i> <span>- ADD Rivew</span>
 						</li>
 					</ul> -->
-                <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing Donec Nulla lectus nunc, efficitur dui vitae,
+        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing Donec Nulla lectus nunc, efficitur dui vitae,
 						viverra finibus massa Vestibulum molestie accumsan.</p>
 					<ul class="single-side-widget top-social ow-left-padding">
 						<li><a title="Facebook" href="#"><i class="fa fa-facebook"></i></a></li>
@@ -329,7 +320,7 @@
 							</a>
 						</li>
 					</ul> -->
-                <!-- <h4>Color</h4>
+        <!-- <h4>Color</h4>
 					<ul id="color-widget" class="single-side-widget color-widget top-social ow-left-padding">
 						<li><a title="Check" href="#" class="white"><i class="fa fa-check"></i></a></li>
 						<li><a title="Check" href="#" class="color color1 active"><i class="fa fa-check"></i></a></li>
@@ -339,15 +330,15 @@
 
 
 
-                <!-- <h4>Brand or Sponsored</h4>
+        <!-- <h4>Brand or Sponsored</h4>
 					<ul class="single-side-widget top-social ow-left-padding">
 						<li><img src="images/summary/gucci-icon.png" alt="gucci" /></li>
 					</ul> -->
 
 
-            </div>
-            <!-- col-md-5 /- -->
-        </div>
+    </div>
+    <!-- col-md-5 /- -->
+    </div>
     </div><!-- Container /- -->
     </div>
     <!-- Single Product /- -->

@@ -15,6 +15,7 @@ use App\Http\Controllers\Auth\CustomCreateNewUser;
 use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\Admin\DiscountController;
 
 
 
@@ -85,6 +86,12 @@ Route::prefix('admin')->middleware(['auth:sanctum', 'admin'])->group(function ()
     Route::get('admin/emails/counts-by-day', [AdminEmailController::class, 'countsByDay'])->name('admin.emails.countsByDay');
     Route::get('/admin/emails/data', [AdminEmailController::class, 'getEmailData'])->name('admin.emails.data');
     Route::post('admin/emails/import', [AdminEmailController::class, 'importEmails'])->name('admin.emails.import');
+
+    // Discount routes
+    Route::get('discounts', [DiscountController::class, 'index'])->name('discounts.index'); // List all discounts
+    Route::post('discounts', [DiscountController::class, 'store'])->name('discounts.store'); // Store new discount
+    Route::put('discounts/{discount}', [DiscountController::class, 'update'])->name('discounts.update'); // Update discount
+    Route::delete('discounts/{discount}', [DiscountController::class, 'destroy'])->name('discounts.destroy'); // Delete discount
 });
 
 
@@ -181,6 +188,7 @@ Route::post('/store-address', [AddressController::class, 'storeAddress'])->name(
 
 Route::post('/checkout/set-selected-address', [CheckoutController::class, 'setSelectedAddress']);
 Route::get('/checkout', [CheckoutController::class, 'showCheckout']);
+Route::post('/apply-discount', [CheckoutController::class, 'applyDiscount'])->name('apply.discount');
 
 
 

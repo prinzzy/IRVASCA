@@ -1480,7 +1480,147 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
+
+    const applyDiscountBtn = document.querySelector(".apply-discount-btn");
+    const discountInput = document.querySelector(".discount-input");
+    const grandTotalElement = document.getElementById("grandTotal");
+    const discountAmountElement = document.getElementById("discountAmount");
+    const discountValueElement = document.getElementById("discountValue");
+    const originalGrandTotal = parseFloat(
+        grandTotalElement.innerText.replace(/[^0-9,-]+/g, "").replace(",", ".")
+    );
+
+    applyDiscountBtn.addEventListener("click", function () {
+        const discountCode = discountInput.value.trim();
+
+        fetch("/apply-discount", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRF-TOKEN": document
+                    .querySelector('meta[name="csrf-token"]')
+                    .getAttribute("content"), // Include CSRF token if using Laravel
+            },
+            body: JSON.stringify({
+                discount_code: discountCode,
+                grand_total: originalGrandTotal,
+            }),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.success) {
+                    // Update the displayed total and discount amount
+                    const newTotal = data.new_total;
+                    const discountAmount = originalGrandTotal - newTotal;
+
+                    grandTotalElement.innerText = `Grand Total: Rp ${newTotal.toLocaleString(
+                        "id-ID"
+                    )},00`;
+                    discountValueElement.innerText =
+                        discountAmount.toLocaleString("id-ID"); // Update discount value
+                    discountAmountElement.style.display = "block"; // Show the discount info
+                    discountAmountElement.style.color = "green"; // Success message color
+                    discountInput.value = ""; // Clear the input
+
+                    // Show success message with SweetAlert
+                    Swal.fire({
+                        title: "Success!",
+                        text: "Discount applied successfully!",
+                        icon: "success",
+                        confirmButtonText: "OK",
+                        timer: 3000, // Close after 3 seconds
+                        timerProgressBar: true, // Optional: show a progress bar
+                        willClose: () => {
+                            // Optional: Any action before closing (if needed)
+                        },
+                    });
+                } else {
+                    // Show error message with SweetAlert
+                    Swal.fire({
+                        title: "Error!",
+                        text: data.message || "Failed to apply discount.",
+                        icon: "error",
+                        confirmButtonText: "OK",
+                        timer: 3000, // Close after 3 seconds
+                        timerProgressBar: true, // Optional: show a progress bar
+                        willClose: () => {
+                            // Optional: Any action before closing (if needed)
+                        },
+                    });
+                }
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+                // Show error message with SweetAlert
+                Swal.fire({
+                    title: "Error!",
+                    text: "An error occurred while applying the discount.",
+                    icon: "error",
+                    confirmButtonText: "OK",
+                    timer: 3000, // Close after 3 seconds
+                    timerProgressBar: true, // Optional: show a progress bar
+                    willClose: () => {
+                        // Optional: Any action before closing (if needed)
+                    },
+                });
+            });
+    });
 });
+
+// Discount
+// document.addEventListener("DOMContentLoaded", function () {
+//     const applyDiscountBtn = document.querySelector(".apply-discount-btn");
+//     const discountInput = document.querySelector(".discount-input");
+//     const grandTotalElement = document.getElementById("grandTotal");
+//     const discountAmountElement = document.getElementById("discountAmount");
+//     const discountValueElement = document.getElementById("discountValue");
+//     const originalGrandTotal = parseFloat(
+//         grandTotalElement.innerText.replace(/[^0-9,-]+/g, "").replace(",", ".")
+//     );
+
+//     applyDiscountBtn.addEventListener("click", function () {
+//         const discountCode = discountInput.value.trim();
+
+//         fetch("/apply-discount", {
+//             // Adjust the URL according to your route
+//             method: "POST",
+//             headers: {
+//                 "Content-Type": "application/json",
+//                 "X-CSRF-TOKEN": document
+//                     .querySelector('meta[name="csrf-token"]')
+//                     .getAttribute("content"), // Include CSRF token if using Laravel
+//             },
+//             body: JSON.stringify({
+//                 discount_code: discountCode,
+//                 grand_total: originalGrandTotal,
+//             }),
+//         })
+//             .then((response) => response.json())
+//             .then((data) => {
+//                 if (data.success) {
+//                     // Update the displayed total and discount amount
+//                     const newTotal = data.new_total;
+//                     const discountAmount = originalGrandTotal - newTotal;
+
+//                     grandTotalElement.innerText = `Grand Total: Rp ${newTotal.toLocaleString(
+//                         "id-ID"
+//                     )},00`;
+//                     discountValueElement.innerText =
+//                         discountAmount.toLocaleString("id-ID"); // Update discount value
+//                     discountAmountElement.style.display = "block"; // Show the discount info
+//                     discountAmountElement.style.color = "green"; // Success message color
+//                     discountInput.value = ""; // Clear the input
+//                 } else {
+//                     // Show error message (optional)
+//                     alert(data.message); // Or handle it in a more user-friendly way
+//                 }
+//             })
+//             .catch((error) => {
+//                 console.error("Error:", error);
+//                 alert("An error occurred while applying the discount.");
+//             });
+//     });
+// });
 
 // document
 //     .getElementById("addressSubmit")

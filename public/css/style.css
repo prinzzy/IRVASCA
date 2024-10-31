@@ -4003,3 +4003,146 @@ select:focus {
     border-color: #b3aa9b;
     background-color: #e5e5e5;
 }
+
+/* Base styles */
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+.checkout-container {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px;
+}
+
+.checkout-header h2 {
+    font-size: 24px;
+    color: #520055;
+    margin-bottom: 20px;
+}
+
+/* Delivery Address Section */
+.address-section,
+.cart-section {
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.address-section p,
+.cart-section p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+/* Cart Items */
+.cart-item {
+    padding: 10px;
+    background-color: #fafafa;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.cart-item p {
+    font-size: 15px;
+    margin: 4px 0;
+}
+
+.grand-total h3 {
+    font-size: 20px;
+    color: #b78027;
+    margin-top: 10px;
+    text-align: right;
+}
+
+.discount-info p {
+    font-size: 16px;
+    margin-top: 10px;
+    text-align: right;
+}
+/* Button */
+.continue-btn {
+    display: inline-block;
+    padding: 12px 20px;
+    margin-top: 20px;
+    background-color: #520055;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    text-transform: uppercase;
+    transition: background 0.3s;
+}
+
+.continue-btn:hover {
+    background-color: #333;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 10px 0;
+}
+
+/* Container and Layout */
+.discount-container {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.discount-header h3 {
+    font-size: 20px;
+    color: #520055;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Discount Input and Button */
+.discount-section p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.discount-input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.apply-discount-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #b78027;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    text-transform: uppercase;
+    transition: background 0.3s;
+}
+
+.apply-discount-btn:hover {
+    background-color: #e2a650;
+}
+
+/* Spacing Adjustments */
+.checkout-container,
+.discount-container {
+    margin-bottom: 20px;
+}
