@@ -206,6 +206,7 @@
                         <div class="checkout-header">
                             <h2>Checkout</h2>
                         </div>
+                        
 
                         <!-- Delivery Address Section -->
                         <div class="checkout-section address-section">
@@ -217,28 +218,30 @@
                         </div>
 
                         <!-- Cart Items Section -->
-                        <div class="checkout-section cart-section">
-                            <h3>Order Details</h3>
-                            @foreach ($cartItems as $cartItem)
-                            <div class="cart-item">
-                                <p><strong>Product:</strong> {{ $cartItem['name'] ?? 'N/A' }}</p>
-                                <p><strong>Price:</strong> Rp {{ number_format($cartItem['price'] ?? 0, 0, ',', '.') }},00</p>
-                                <p><strong>Quantity:</strong> {{ $cartItem['quantity'] }}</p>
-                                <p><strong>Size:</strong> {{ $cartItem['size'] }}</p>
-                            </div>
-                            <hr>
-                            @endforeach
+                        <form action="{{ route('checkout.process') }}" method="POST">
+                            @csrf
+                            <div class="checkout-section cart-section">
+                                <h3>Order Details</h3>
+                                @foreach ($cartItems as $cartItem)
+                                <div class="cart-item">
+                                    <p><strong>Product:</strong> {{ $cartItem['name'] ?? 'N/A' }}</p>
+                                    <p><strong>Price:</strong> Rp {{ number_format($cartItem['price'] ?? 0, 0, ',', '.') }},00</p>
+                                    <p><strong>Quantity:</strong> {{ $cartItem['quantity'] }}</p>
+                                    <p><strong>Size:</strong> {{ $cartItem['size'] }}</p>
+                                </div>
+                                <hr>
+                                @endforeach
 
-                            <!-- Discount Section -->
-                            <div class="discount-info">
-                                <p id="discountAmount" style="display: none;"><strong>Discount:</strong> Rp <span id="discountValue">0</span>,00</p>
-                            </div>
+                                <!-- Discount Section -->
+                                <div class="discount-info">
+                                    <p id="discountAmount" style="display: none;"><strong>Discount:</strong> Rp <span id="discountValue">0</span>,00</p>
+                                </div>
 
-                            <!-- Grand total -->
-                            <div class="grand-total">
-                                <h3 id="grandTotal">Grand Total: Rp {{ number_format($totalPrice, 0, ',', '.') }},00</h3>
+                                <!-- Grand total -->
+                                <div class="grand-total">
+                                    <h3 id="grandTotal">Grand Total: Rp {{ number_format($totalPrice, 0, ',', '.') }},00</h3>
+                                </div>
                             </div>
-                        </div>
                     </div>
 
                     <!-- Continue to Payment Button -->
