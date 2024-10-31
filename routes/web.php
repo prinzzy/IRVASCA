@@ -14,6 +14,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\Auth\CustomCreateNewUser;
 use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\AddressController;
+use App\Http\Controllers\CheckoutController;
 
 
 
@@ -177,6 +178,11 @@ Route::get('/check-auth', function () {
 
 Route::get('/address-modal-data', [AddressController::class, 'showAddressModal'])->name('showAddressModal');
 Route::post('/store-address', [AddressController::class, 'storeAddress'])->name('address.store');
+
+Route::post('/checkout/set-selected-address', [CheckoutController::class, 'setSelectedAddress']);
+Route::get('/checkout', [CheckoutController::class, 'showCheckout']);
+
+
 
 
 Route::get('/', function () {

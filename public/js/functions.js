@@ -1275,7 +1275,6 @@ $(document).ready(function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    // Fetch existing addresses and show modal on checkout button click
     let selectedAddressId = null;
 
     // Event listener for "Checkout" button to load addresses
@@ -1359,7 +1358,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const addressSubmitButton = document.getElementById("addressSubmit");
     if (addressSubmitButton) {
         addressSubmitButton.addEventListener("click", function () {
-            console.log("Submit button clicked"); // Log for debugging
             const formData = {
                 name: document.getElementById("name").value,
                 street: document.getElementById("street").value,
@@ -1450,13 +1448,33 @@ document.addEventListener("DOMContentLoaded", function () {
                 console.error("Error fetching addresses:", error)
             );
     }
+
+    // Event listener for Continue button
     const continueButton = document.getElementById("continueButton");
     if (continueButton) {
         continueButton.addEventListener("click", function () {
             if (selectedAddressId) {
-                // Proceed to the next step of checkout with selectedAddressId
-                console.log("Proceeding with address ID:", selectedAddressId);
-                // Implement further logic as required for checkout
+                // Send selected address ID to the backend
+                fetch("/checkout/set-selected-address", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-CSRF-TOKEN": document
+                            .querySelector('meta[name="csrf-token"]')
+                            .getAttribute("content"),
+                    },
+                    body: JSON.stringify({ address_id: selectedAddressId }),
+                })
+                    .then((response) => response.json())
+                    .then((data) => {
+                        if (data.success) {
+                            // Redirect to checkout page
+                            window.location.href = "/checkout";
+                        } else {
+                            alert("Failed to proceed to checkout.");
+                        }
+                    })
+                    .catch((error) => console.error("Error:", error));
             } else {
                 alert("Please select an address before continuing.");
             }
