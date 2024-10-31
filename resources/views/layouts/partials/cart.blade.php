@@ -22,10 +22,12 @@
 </table>
 
 <div class="sub-total">
-<p><span>Sub Total</span> Rp{{ number_format($subtotal, 0, ',', '.') }}</p> <!-- Format subtotal in Rupiah -->
+    <p><span>Sub Total</span> Rp{{ number_format($subtotal, 0, ',', '.') }}</p> <!-- Format subtotal in Rupiah -->
     <p><span>Total</span> Rp{{ number_format($total, 0, ',', '.') }}</p> <!-- Format total in Rupiah -->
 </div>
 
 <div class="cart-button">
-    <a title="Checkout" href="#">Checkout</a>
+    <button id="checkoutButton" type="button" class="btn btn-primary" style="background-color: #b3aa9b; border-color: #b3aa9b;">
+        Checkout
+    </button>
 </div>

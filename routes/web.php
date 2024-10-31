@@ -13,6 +13,7 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\Auth\CustomCreateNewUser;
 use App\Http\Controllers\RedirectController;
+use App\Http\Controllers\AddressController;
 
 
 
@@ -156,6 +157,9 @@ Route::get('/finish-member', function () {
     return view('home.11_finish');
 });
 
+Route::get('/privacy-policy', function () {
+    return view('home.privacy_policy');
+});
 
 
 Route::get('/products/{id}', [IndexController::class, 'showProduct'])->name('product.show');
@@ -165,12 +169,22 @@ Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add')
 Route::post('/cart/remove', [CartController::class, 'removeFromCart'])->name('cart.remove');
 
 
+// CHECK AUTH
+Route::get('/check-auth', function () {
+    return response()->json(['isAuthenticated' => auth()->check()]);
+});
+
+
+Route::get('/address-modal-data', [AddressController::class, 'showAddressModal'])->name('showAddressModal');
+Route::post('/store-address', [AddressController::class, 'storeAddress'])->name('address.store');
+
+
 Route::get('/', function () {
     $products = Product::all(); // Fetch all products
     return view('countdown', compact('products'));
 })->name('countdown');
 
-Route::get('/index', [IndexController::class, 'index'])->name('index');
+Route::get('/shop', [IndexController::class, 'index'])->name('shop');
 
 
 

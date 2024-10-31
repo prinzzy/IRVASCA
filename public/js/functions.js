@@ -1151,4 +1151,343 @@ $(document).ready(function () {
             $("#resendOtpBtn").hide(); // Hide button if still in cooldown
         }
     }
+    $("#checkoutButton").on("click", function () {
+        fetch("/check-auth")
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.isAuthenticated) {
+                    // Show the address modal if the user is authenticated
+                    $("#addressModal").modal("show");
+                } else {
+                    // Display a message prompting the user to register or log in first, with a timer
+                    Swal.fire({
+                        icon: "info",
+                        title: "Access Restricted",
+                        text: "Please register or log in to proceed to checkout.",
+                        timer: 3000, // Time in milliseconds (3000ms = 3 seconds)
+                        timerProgressBar: true,
+                        showConfirmButton: false, // Hide the confirm button to make it auto-close
+                        willClose: () => {
+                            // Show the user account modal after the alert automatically closes
+                            $("#userAccountModal").modal("show");
+                        },
+                    });
+                }
+            })
+            .catch((error) => console.error("Error:", error));
+
+        // // Event listener for addressSubmit button
+        // const addressSubmitButton = document.getElementById("addressSubmit");
+        // if (addressSubmitButton) {
+        //     addressSubmitButton.addEventListener("click", function () {
+        //         console.log("Submit button clicked"); // Log for debugging
+        //         const formData = {
+        //             name: document.getElementById("name").value,
+        //             street: document.getElementById("street").value,
+        //             city: document.getElementById("city").value,
+        //             state: document.getElementById("state").value,
+        //             postal_code: document.getElementById("postal_code").value,
+        //             country: document.getElementById("country").value,
+        //             phone: document.getElementById("phone").value,
+        //         };
+
+        //         fetch("/store-address", {
+        //             method: "POST",
+        //             headers: {
+        //                 "Content-Type": "application/json",
+        //                 "X-CSRF-TOKEN": document
+        //                     .querySelector('meta[name="csrf-token"]')
+        //                     .getAttribute("content"),
+        //             },
+        //             body: JSON.stringify(formData),
+        //         })
+        //             .then((response) => response.json())
+        //             .then((data) => {
+        //                 if (data.success) {
+        //                     alert(
+        //                         "Address saved successfully, please select your address."
+        //                     );
+
+        //                     // Clear form inputs after submission
+        //                     document.getElementById("addressForm").reset();
+
+        //                     // Hide the form and display the "Add New Address" button
+        //                     document.getElementById(
+        //                         "addressForm"
+        //                     ).style.display = "none";
+        //                     document.getElementById(
+        //                         "addNewAddressButton"
+        //                     ).style.display = "block";
+
+        //                     // Update address cards
+        //                     updateAddressDropdown();
+        //                 } else {
+        //                     alert("Failed to save address");
+        //                 }
+        //             })
+        //             .catch((error) => console.error("Error:", error));
+        //     });
+        // }
+        // // Function to update the address dropdown
+        // function updateAddressDropdown() {
+        //     const existingAddressCards = document.getElementById(
+        //         "existingAddressCards"
+        //     );
+        //     existingAddressCards.innerHTML = ""; // Clear existing cards
+
+        //     fetch("/address-modal-data") // Adjust route as necessary
+        //         .then((response) => response.json())
+        //         .then((data) => {
+        //             data.addresses.forEach((address) => {
+        //                 // Create a card element for each address
+        //                 const card = document.createElement("div");
+        //                 card.classList.add(
+        //                     "address-card",
+        //                     "p-3",
+        //                     "rounded",
+        //                     "border"
+        //                 );
+        //                 card.style.cursor = "pointer";
+        //                 card.innerHTML = `
+        //             <strong>${address.name}</strong><br>
+        //             ${address.street}<br>
+        //             ${address.phone}
+        //         `;
+
+        //                 // Set up click event to select this address
+        //                 card.addEventListener("click", function () {
+        //                     // Mark as selected and clear previous selections
+        //                     document
+        //                         .querySelectorAll(".address-card")
+        //                         .forEach((c) => c.classList.remove("selected"));
+        //                     card.classList.add("selected");
+        //                     selectedAddressId = address.id; // Store selected address ID
+        //                 });
+
+        //                 existingAddressCards.appendChild(card);
+        //             });
+        //         })
+        //         .catch((error) =>
+        //             console.error("Error fetching addresses:", error)
+        //         );
+        // }
+    });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Fetch existing addresses and show modal on checkout button click
+    let selectedAddressId = null;
+
+    // Event listener for "Checkout" button to load addresses
+    const checkoutButton = document.getElementById("checkoutButton");
+    if (checkoutButton) {
+        checkoutButton.addEventListener("click", function () {
+            const existingAddressCards = document.getElementById(
+                "existingAddressCards"
+            );
+            existingAddressCards.innerHTML = ""; // Clear existing cards
+
+            fetch("/address-modal-data") // Adjust route as necessary
+                .then((response) => response.json())
+                .then((data) => {
+                    data.addresses.forEach((address) => {
+                        // Create a card element for each address
+                        const card = document.createElement("div");
+                        card.classList.add(
+                            "address-card",
+                            "p-3",
+                            "rounded",
+                            "border"
+                        );
+                        card.style.cursor = "pointer";
+                        card.innerHTML = `
+                            <strong>${address.name}</strong><br>
+                            ${address.street}<br>
+                            ${address.phone}
+                        `;
+
+                        // Click event to select this address
+                        card.addEventListener("click", function () {
+                            // Clear previous selections and mark this one as selected
+                            document
+                                .querySelectorAll(".address-card")
+                                .forEach((c) => c.classList.remove("selected"));
+                            card.classList.add("selected");
+                            selectedAddressId = address.id;
+
+                            document.getElementById(
+                                "continueButton"
+                            ).style.display = "block";
+
+                            // Hide the address form and show the "Add New Address" button
+                            document.getElementById(
+                                "addressForm"
+                            ).style.display = "none";
+                            document.getElementById(
+                                "addNewAddressButton"
+                            ).style.display = "block";
+                        });
+
+                        existingAddressCards.appendChild(card);
+                    });
+                })
+                .catch((error) =>
+                    console.error("Error fetching addresses:", error)
+                );
+        });
+    }
+
+    // Show the address form when "Add New Address" button is clicked
+    const addNewAddressButton = document.getElementById("addNewAddressButton");
+    if (addNewAddressButton) {
+        addNewAddressButton.addEventListener("click", function () {
+            document.getElementById("addressForm").style.display = "block";
+            this.style.display = "none";
+
+            // Clear selected address ID and remove selection highlights
+            selectedAddressId = null;
+            document
+                .querySelectorAll(".address-card")
+                .forEach((c) => c.classList.remove("selected"));
+
+            // Hide the Continue button when adding a new address
+            document.getElementById("continueButton").style.display = "none";
+        });
+    }
+
+    // Event listener for addressSubmit button
+    const addressSubmitButton = document.getElementById("addressSubmit");
+    if (addressSubmitButton) {
+        addressSubmitButton.addEventListener("click", function () {
+            console.log("Submit button clicked"); // Log for debugging
+            const formData = {
+                name: document.getElementById("name").value,
+                street: document.getElementById("street").value,
+                city: document.getElementById("city").value,
+                state: document.getElementById("state").value,
+                postal_code: document.getElementById("postal_code").value,
+                country: document.getElementById("country").value,
+                phone: document.getElementById("phone").value,
+            };
+
+            fetch("/store-address", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRF-TOKEN": document
+                        .querySelector('meta[name="csrf-token"]')
+                        .getAttribute("content"),
+                },
+                body: JSON.stringify(formData),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    if (data.success) {
+                        alert(
+                            "Address saved successfully, please select your address."
+                        );
+
+                        // Clear form inputs after submission
+                        document.getElementById("addressForm").reset();
+
+                        // Hide the form and display the "Add New Address" button
+                        document.getElementById("addressForm").style.display =
+                            "none";
+                        document.getElementById(
+                            "addNewAddressButton"
+                        ).style.display = "block";
+
+                        // Update address cards
+                        updateAddressDropdown();
+                    } else {
+                        alert("Failed to save address");
+                    }
+                })
+                .catch((error) => console.error("Error:", error));
+        });
+    }
+
+    // Function to update the address dropdown
+    function updateAddressDropdown() {
+        const existingAddressCards = document.getElementById(
+            "existingAddressCards"
+        );
+        existingAddressCards.innerHTML = ""; // Clear existing cards
+
+        fetch("/address-modal-data") // Adjust route as necessary
+            .then((response) => response.json())
+            .then((data) => {
+                data.addresses.forEach((address) => {
+                    // Create a card element for each address
+                    const card = document.createElement("div");
+                    card.classList.add(
+                        "address-card",
+                        "p-3",
+                        "rounded",
+                        "border"
+                    );
+                    card.style.cursor = "pointer";
+                    card.innerHTML = `
+                        <strong>${address.name}</strong><br>
+                        ${address.street}<br>
+                        ${address.phone}
+                    `;
+
+                    // Set up click event to select this address
+                    card.addEventListener("click", function () {
+                        // Mark as selected and clear previous selections
+                        document
+                            .querySelectorAll(".address-card")
+                            .forEach((c) => c.classList.remove("selected"));
+                        card.classList.add("selected");
+                        selectedAddressId = address.id; // Store selected address ID
+                    });
+
+                    existingAddressCards.appendChild(card);
+                });
+            })
+            .catch((error) =>
+                console.error("Error fetching addresses:", error)
+            );
+    }
+    const continueButton = document.getElementById("continueButton");
+    if (continueButton) {
+        continueButton.addEventListener("click", function () {
+            if (selectedAddressId) {
+                // Proceed to the next step of checkout with selectedAddressId
+                console.log("Proceeding with address ID:", selectedAddressId);
+                // Implement further logic as required for checkout
+            } else {
+                alert("Please select an address before continuing.");
+            }
+        });
+    }
+});
+
+// document
+//     .getElementById("addressSubmit")
+//     .addEventListener("click", function () {
+//         const formData = new FormData(
+//             document.getElementById("addressForm")
+//         );
+
+//         fetch("/checkout/address", {
+//             method: "POST",
+//             headers: {
+//                 "X-CSRF-TOKEN": document
+//                     .querySelector('meta[name="csrf-token"]')
+//                     .getAttribute("content"),
+//             },
+//             body: formData,
+//         })
+//             .then((response) => response.json())
+//             .then((data) => {
+//                 if (data.success) {
+//                     $("#addressModal").modal("hide");
+//                     $("#deliveryMethodModal").modal("show"); // Proceed to delivery modal
+//                 } else {
+//                     alert("Error saving address");
+//                 }
+//             })
+//             .catch((error) => console.error("Error:", error));
+//     });

@@ -16,7 +16,7 @@ class RedirectController extends Controller
         if ($user->role === 'admin') {
             return redirect('/dashboard');
         } elseif ($user->role === 'customer') {
-            return redirect('/index');
+            return redirect('/shop');
         } else {
             return redirect('/'); // Default redirection for other roles
         }

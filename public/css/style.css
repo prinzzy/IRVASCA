@@ -203,6 +203,9 @@ a {
 .entry-content p,
 .product-description a {
     color: #999;
+    word-wrap: break-word; /* Allows long words to be broken onto the next line */
+    display: inline-block; /* Ensures it behaves like a block element */
+    text-align: left;
 }
 
 .blog-section,
@@ -3975,4 +3978,28 @@ select:focus {
     height: 300px; /* Set a fixed height */
     object-fit: cover; /* Scale the image to cover the container without stretching */
     border-radius: 5px; /* Optional: add some border radius for styling */
+}
+
+.custom-modal-dialog {
+    margin-top: 250px; /* Adjust this value as needed */
+}
+
+#existingAddressCards .address-card {
+    border: 1px solid #b3aa9b;
+    border-radius: 8px;
+    padding: 10px 15px;
+    width: 100%;
+    /* max-width: 320px; */
+    cursor: pointer;
+    background-color: #f8f8f8;
+    transition: background-color 0.3s ease;
+}
+
+#existingAddressCards .address-card:hover {
+    background-color: #eaeaea;
+}
+
+#existingAddressCards .address-card.selected {
+    border-color: #b3aa9b;
+    background-color: #e5e5e5;
 }

@@ -17,6 +17,7 @@
 
 	<!-- Bootstrap CSS -->
 	<link href="{{ asset('libraries/bootstrap/bootstrap.min.css') }}" rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 
 	<!-- jQuery UI (Fuel UX) -->
 	<link rel="stylesheet" href="{{ asset('libraries/fuelux/jquery-ui.min.css') }}">
@@ -108,18 +109,18 @@
 			<!-- container -->
 			<div class="container">
 				<div class="row">
-				<ul class="top-social col-12 col-md-12 col-lg-6">
-    <!-- Facebook Icon -->
-    <li><a title="Facebook" href="https://www.facebook.com/irvasca/"><i class="fa fa-facebook"></i></a></li>
+					<ul class="top-social col-12 col-md-12 col-lg-6">
+						<!-- Facebook Icon -->
+						<li><a title="Facebook" href="https://www.facebook.com/irvasca/"><i class="fa fa-facebook"></i></a></li>
 
-    <!-- TikTok Icon -->
-    <li><a title="TikTok" href="https://www.tiktok.com/@irvasca"><svg viewBox="0 0 448 512">
-        <path d="M448,209.2a209.3,209.3,0,0,1-135.6-48V349.7a94.2,94.2,0,1,1-87-93.4v60.8a33.4,33.4,0,1,0,21.5,30.6V128h66.3c7.4,47.7,46.9,83.9,93.8,83.9v61.2Z" />
-    </svg></a></li>
+						<!-- TikTok Icon -->
+						<li><a title="TikTok" href="https://www.tiktok.com/@irvasca"><svg viewBox="0 0 448 512">
+									<path d="M448,209.2a209.3,209.3,0,0,1-135.6-48V349.7a94.2,94.2,0,1,1-87-93.4v60.8a33.4,33.4,0,1,0,21.5,30.6V128h66.3c7.4,47.7,46.9,83.9,93.8,83.9v61.2Z" />
+								</svg></a></li>
 
-    <!-- Instagram Icon -->
-    <li><a title="Instagram" href="https://www.instagram.com/irvasca/"><i class="fa fa-instagram"></i></a></li>
-</ul>
+						<!-- Instagram Icon -->
+						<li><a title="Instagram" href="https://www.instagram.com/irvasca/"><i class="fa fa-instagram"></i></a></li>
+					</ul>
 					<div
 						class="col-12 col-md-12 col-lg-6 ow-right-padding  ow-right-padding2 d-flex align-content-center justify-content-end">
 						<ul class="top-menu">
@@ -153,7 +154,7 @@
 						</div><!-- /input-group -->
 					</div>
 					<div class="col-12 col-md-12 col-lg-6 logo-block">
-						<a title="Logo" href="{{ url('/index') }}">
+						<a title="Logo" href="{{ url('/shop') }}">
 							<img src=" {{ asset('images/logo/logo_putihNOBG.png') }}" alt="Logo" style="width: 35%; height: 100%;">
 						</a>
 					</div>
@@ -180,7 +181,7 @@
 			<div class="container">
 				<nav class="navbar navbar-expand-lg bg-body-tertiary navbar-static-top">
 					<div class="navbar-header">
-						<a href="{{ url('/index') }}" class="logo"><img src=" {{ asset('images/logo/logo_putihNOBG.png') }}" alt="logo" style="max-width: 35%; height: auto;"></a>
+						<a href="{{ url('/shop') }}" class="logo"><img src=" {{ asset('images/logo/logo_putihNOBG.png') }}" alt="logo" style="max-width: 35%; height: auto;"></a>
 						<button class=" navbar-toggler collapsed" aria-controls="navbar" aria-expanded="false"
 							data-bs-target="#navbar" data-bs-toggle="collapse" type="button"
 							aria-label="Toggle navigation">
@@ -190,7 +191,7 @@
 					<div class="collapse navbar-collapse" id="navbar">
 						<ul class="nav navbar-nav">
 							<li class="nav-item active"><a class="nav-link active" title="Home"
-									href="{{ url('/index') }}">Home</a></li>
+									href="{{ url('/shop') }}">Home</a></li>
 							<li class="nav-item active"><a class="nav-link active" title="Home"
 									href="{{ url('/catalog') }}">Shop</a></li>
 							<!-- <li class="nav-item"><a class="nav-link" title="Look Book" href="{{ url('/lookbook') }}">Look
@@ -410,7 +411,7 @@
 					<!-- widget about -->
 					<aside class="col-12 col-md-12 col-lg-3  widget widget_about">
 						<h3 class="widget-title logo-block">
-							<a title="Logo" href="{{ url('/index') }}">
+							<a title="Logo" href="{{ url('/shop') }}">
 								<img src="images/logo/logo_putihNOBG.png" alt="Logo" style="max-width: 60%; height: auto;">
 							</a>
 						</h3>
@@ -436,6 +437,11 @@
 							</svg>
 							<h4>Help Lines</h4>
 							<p>+62 812-389-333</p>
+							<a href="https://wa.me/62812389333" target="_blank" title="Chat on WhatsApp" style="display: flex; align-items: center; gap: 8px;">Chat on WhatsApp
+								<i class="bi bi-whatsapp" style="color: #25D366; font-size: 24px;"></i>
+
+							</a>
+
 						</div>
 					</aside><!-- widget about /- -->
 
@@ -448,11 +454,11 @@
 									<span>from our store</span>
 								</h3>
 								<ul>
-									<li><a title="Tshirts" href="">Tshirts</a></li>
-									<li><a title="Jackets" href="">Jackets</a></li>
-									<li><a title="Dress" href="">Dress</a></li>
-									<!-- <li><a title="Make Up" href="">Make Up</a></li>
-									<li><a title="Jewelry" href="">Jewelry</a></li>
+									<li><a title="Tshirts" href="" style="pointer-events: none;">Tshirts</a></li>
+									<li><a title="Jackets" href="" style="pointer-events: none;">Jackets</a></li>
+									<li><a title="Dress" href="" style="pointer-events: none;">Dress</a></li>
+									<li><a title="Hoodie" href="" style="pointer-events: none;">Hoodie</a></li>
+									<!-- <li><a title="Jewelry" href="">Jewelry</a></li>
 									<li><a title="Clothing" href="">Clothing</a></li> -->
 								</ul>
 							</aside>
@@ -463,12 +469,12 @@
 									<span>informative details</span>
 								</h3>
 								<ul>
-									<li><a title="Order Status" href="#">Order Status</a></li>
-									<li><a title="My Order History" href="#">My Order History</a></li>
-									<li><a title="My Favorites" href="#">My Favorites</a></li>
-									<li><a title="Promo codes" href="#">Promo codes</a></li>
-									<li><a title="Payments" href="#">Payments</a></li>
-									<li><a title="Returns" href="#">Returns</a></li>
+									<li><a title="Order Status" href="">Order Status</a></li>
+									<li><a title="My Order History" href="">My Order History</a></li>
+									<li><a title="My Favorites" href="">Privacy Policy</a></li>
+									<!-- <li><a title="Promo codes" href="#">Promo codes</a></li> -->
+									<!-- <li><a title="Payments" href="#">Payments</a></li> -->
+									<!-- <li><a title="Returns" href="#">Returns</a></li> -->
 								</ul>
 							</aside>
 
@@ -478,126 +484,111 @@
 									<span>store locations</span>
 								</h3>
 								<ul>
-								<li><a title="Indonesia" href="#">Indonesia</a></li>
-								<li><a title="USA" href="#">USA</a></li>
-								<li><a title="Europe" href="#">Europe</a></li>
-									<li><a title="Malaysia" href="#">Malaysia</a></li>
-									<li><a title="Thailand" href="#">Thailand</a></li>
-									<li><a title="Sidney" href="#">Australia</a></li>
-									<li><a title="Hong Kong" href="#">Hong Kong</a></li>
-									<li><a title="Philippines" href="#">Philippines</a></li>
+									<li><a title="Indonesia" href="#" style="pointer-events: none;">Indonesia</a></li>
+									<li><a title="USA" href="#" style="pointer-events: none;">USA</a></li>
+									<li><a title="Europe" href="#" style="pointer-events: none;">Europe</a></li>
+									<li><a title="Malaysia" href="#" style="pointer-events: none;">Malaysia</a></li>
+									<li><a title="Thailand" href="#" style="pointer-events: none;">Thailand</a></li>
+									<li><a title="Sidney" href="#" style="pointer-events: none;">Australia</a></li>
+									<li><a title="Hong Kong" href="#" style="pointer-events: none;">Hong Kong</a></li>
+									<li><a title="Philippines" href="#" style="pointer-events: none;">Philippines</a></li>
+
 								</ul>
 							</aside>
 						</div>
-					</div><!-- col-md-6 /- -->
-
-					<!--	<aside class="col-12 col-md-12 col-lg-3 widget widget_facebook">-->
-					<!--		<div class="widget-title">-->
-					<!--			<h4>IRVASCA <span>1.000.000 members </span></h4>-->
-					<!--			<button type="submit" value="like" class="btn btn-default pull-right">Like <i-->
-					<!--					class="fa fa-thumbs-o-up"></i> </button>-->
-					<!--		</div>-->
-					<!--		<ul>-->
-					<!--			<li><a title="Facebook photo" href="#"><img src="images/footer/fb-1.jpg"-->
-					<!--						alt="facebook-photo" /></a></li>-->
-					<!--			<li><a title="Facebook photo" href="#"><img src="images/footer/fb-2.jpg"-->
-					<!--						alt="facebook-photot" /></a></li>-->
-					<!--			<li><a title="Facebook photo" href="#"><img src="images/footer/fb-3.jpg"-->
-					<!--						alt="facebook-photo" /></a></li>-->
-					<!--			<li><a title="Facebook photo" href="#"><img src="images/footer/fb-4.jpg"-->
-					<!--						alt="facebook-photo" /></a></li>-->
-					<!--			<li><a title="Facebook photo" href="#"><img src="images/footer/fb-5.jpg"-->
-					<!--						alt="facebook-photo" /></a></li>-->
-					<!--			<li><a title="Facebook photo" href="#"><img src="images/footer/fb-6.jpg"-->
-					<!--						alt="facebook-photo" /></a></li>-->
-					<!--			<li><a title="Facebook photo" href="#"><img src="images/footer/fb-7.jpg"-->
-					<!--						alt="facebook-photo" /></a></li>-->
-					<!--			<li><a title="Facebook photo" href="#"><img src="images/footer/fb-8.jpg"-->
-					<!--						alt="facebook-photo" /></a></li>-->
-					<!--		</ul>-->
-					<!--		<a href="#"> facebook page </a>-->
-					<!--	</aside>-->
-					<!--</div>-->
-				</div><!-- container /- -->
-			</div><!-- widget section /- -->
-			<!-- Footer bottom -->
-			<div class="footer-bottom">
-				<!-- container -->
-				<div class="container">
-					<div class="row">
-						<div class="col-12 col-md-6 col-lg-3 top-header">
-							<ul class="top-social ">
-								<li><a title="Facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-								<li><a title="Twitter" href="#"><svg viewBox="0 0 512 512">
-											<path
-												d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" />
-										</svg></a></li>
-								<li><a title="Google plus" href="#"><svg viewBox="0 0 448 512">
-											<path
-												d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
-										</svg></a></li>
-								<li><a title="Pinterest" href="#"><i class="fa fa-pinterest-p"></i></a></li>
-							</ul>
-						</div>
-						<div class="col-12 col-md-6 col-lg-6 copy-rights">
-							<p> PT INOVASI IRVASCA INDONESIA&copy; 2024 </p>
-						</div>
-						<!--<div class="col-12 col-md-12 col-lg-3">-->
-						<!--	<a title="Payment-getway" href="#"><img src="images/footer/payment-getway-icon.png"-->
-						<!--			alt="payment-getway-icon"></a>-->
-						<!--</div>-->
 					</div>
-				</div><!-- container /- -->
-				<a title="Back-to-top" id="back-to-top" href="#back-to-top" class="back-to-top"><i
-						class="fa fa-caret-up"></i></a>
-			</div><!-- Footer Bottom -->
-		</div><!-- Footer Section /- -->
 
-		<!-- jQuery Include -->
-		<script src="{{ asset('libraries/jquery.min.js') }}"></script>
+					<aside class="col-12 col-md-12 col-lg-3 widget widget_list_style">
+						<h3 class="widget-title">
+							PAYMENTS
+							<span>Quick, Easy & Secure Payment Options!</span>
+						</h3>
+						<ul>
+							<li><a title="Facebook photo"><img src="images/logo/payment.png"
+										alt="facebook-photo" /></a></li>
+						</ul>
+					</aside>
+				</div>
+			</div><!-- container /- -->
+		</div><!-- widget section /- -->
+		<!-- Footer bottom -->
+		<div class="footer-bottom">
+			<!-- container -->
+			<div class="container">
+				<div class="row">
+					<div class="col-12 col-md-6 col-lg-3 top-header">
+						<ul class="top-social ">
+							<!-- Facebook Icon -->
+							<li><a title="Facebook" href="https://www.facebook.com/irvasca/"><i class="fa fa-facebook"></i></a></li>
 
-		<!-- Google Maps API -->
-		<script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script>
+							<!-- TikTok Icon -->
+							<li><a title="TikTok" href="https://www.tiktok.com/@irvasca"><svg viewBox="0 0 448 512">
+										<path d="M448,209.2a209.3,209.3,0,0,1-135.6-48V349.7a94.2,94.2,0,1,1-87-93.4v60.8a33.4,33.4,0,1,0,21.5,30.6V128h66.3c7.4,47.7,46.9,83.9,93.8,83.9v61.2Z" />
+									</svg></a></li>
 
-		<!-- gMap Plugin -->
-		<script src="{{ asset('libraries/gmap/jquery.gmap.min.js') }}"></script>
+							<!-- Instagram Icon -->
+							<li><a title="Instagram" href="https://www.instagram.com/irvasca/"><i class="fa fa-instagram"></i></a></li>
+						</ul>
+					</div>
+					<div class="col-12 col-md-6 col-lg-6 copy-rights">
+						<p> PT INOVASI IRVASCA INDONESIA&copy; 2024 </p>
+					</div>
+					<!--<div class="col-12 col-md-12 col-lg-3">-->
+					<!--	<a title="Payment-getway" href="#"><img src="images/footer/payment-getway-icon.png"-->
+					<!--			alt="payment-getway-icon"></a>-->
+					<!--</div>-->
+				</div>
+			</div><!-- container /- -->
+			<a title="Back-to-top" id="back-to-top" href="#back-to-top" class="back-to-top"><i
+					class="fa fa-caret-up"></i></a>
+		</div><!-- Footer Bottom -->
+	</div><!-- Footer Section /- -->
 
-		<!-- Easing Animation Effect -->
-		<script src="{{ asset('libraries/jquery.easing.min.js') }}"></script>
+	<!-- jQuery Include -->
+	<script src="{{ asset('libraries/jquery.min.js') }}"></script>
 
-		<!-- Core Bootstrap -->
-		<script src="{{ asset('libraries/bootstrap/bootstrap.bundle.min.js') }}"></script>
+	<!-- Google Maps API -->
+	<script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script>
 
-		<!-- jQuery UI (Fuel UX) -->
-		<script src="{{ asset('libraries/fuelux/jquery-ui.min.js') }}"></script>
+	<!-- gMap Plugin -->
+	<script src="{{ asset('libraries/gmap/jquery.gmap.min.js') }}"></script>
 
-		<!-- Animated Numbers -->
-		<script src="{{ asset('libraries/jquery.animateNumber.min.js') }}"></script>
+	<!-- Easing Animation Effect -->
+	<script src="{{ asset('libraries/jquery.easing.min.js') }}"></script>
 
-		<!-- jQuery Appear -->
-		<script src="{{ asset('libraries/jquery.appear.js') }}"></script>
+	<!-- Core Bootstrap -->
+	<script src="{{ asset('libraries/bootstrap/bootstrap.bundle.min.js') }}"></script>
 
-		<!-- jQuery Knob (Loading Circle) -->
-		<script src="{{ asset('libraries/jquery.knob.js') }}"></script>
+	<!-- jQuery UI (Fuel UX) -->
+	<script src="{{ asset('libraries/fuelux/jquery-ui.min.js') }}"></script>
 
-		<!-- WOW.js for Animations -->
-		<script src="{{ asset('libraries/wow.min.js') }}"></script>
+	<!-- Animated Numbers -->
+	<script src="{{ asset('libraries/jquery.animateNumber.min.js') }}"></script>
 
-		<!-- Owl Carousel -->
-		<script src="{{ asset('libraries/owl-carousel/owl.carousel.min.js') }}"></script>
+	<!-- jQuery Appear -->
+	<script src="{{ asset('libraries/jquery.appear.js') }}"></script>
 
-		<!-- Expanding Search (Modernizr) -->
-		<script src="{{ asset('libraries/expanding-search/modernizr.custom.js') }}"></script>
+	<!-- jQuery Knob (Loading Circle) -->
+	<script src="{{ asset('libraries/jquery.knob.js') }}"></script>
 
-		<!-- Flexslider -->
-		<script src="{{ asset('libraries/flexslider/jquery.flexslider-min.js') }}"></script>
+	<!-- WOW.js for Animations -->
+	<script src="{{ asset('libraries/wow.min.js') }}"></script>
 
-		<!-- Magnific Popup (Light Box) -->
-		<script src="{{ asset('libraries/jquery.magnific-popup.min.js') }}"></script>
-		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<!-- Owl Carousel -->
+	<script src="{{ asset('libraries/owl-carousel/owl.carousel.min.js') }}"></script>
 
-		<!-- Customized Scripts -->
-		<script src="{{ asset('js/functions.js') }}"></script>
+	<!-- Expanding Search (Modernizr) -->
+	<script src="{{ asset('libraries/expanding-search/modernizr.custom.js') }}"></script>
+
+	<!-- Flexslider -->
+	<script src="{{ asset('libraries/flexslider/jquery.flexslider-min.js') }}"></script>
+
+	<!-- Magnific Popup (Light Box) -->
+	<script src="{{ asset('libraries/jquery.magnific-popup.min.js') }}"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+	<!-- Customized Scripts -->
+	<script src="{{ asset('js/functions.js') }}"></script>
 
 
 </body>

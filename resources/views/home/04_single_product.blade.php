@@ -17,6 +17,7 @@
 
 	<!-- Bootstrap CSS -->
 	<link href="{{ asset('libraries/bootstrap/bootstrap.min.css') }}" rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 
 	<!-- jQuery UI (Fuel UX) -->
 	<link rel="stylesheet" href="{{ asset('libraries/fuelux/jquery-ui.min.css') }}">
@@ -109,16 +110,16 @@
 			<div class="container">
 				<div class="row">
 					<ul class="top-social col-12 col-md-12 col-lg-6">
-						<li><a title="Facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-						<li><a title="Twitter" href="#"><svg viewBox="0 0 512 512">
-									<path
-										d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" />
+						<!-- Facebook Icon -->
+						<li><a title="Facebook" href="https://www.facebook.com/irvasca/"><i class="fa fa-facebook"></i></a></li>
+
+						<!-- TikTok Icon -->
+						<li><a title="TikTok" href="https://www.tiktok.com/@irvasca"><svg viewBox="0 0 448 512">
+									<path d="M448,209.2a209.3,209.3,0,0,1-135.6-48V349.7a94.2,94.2,0,1,1-87-93.4v60.8a33.4,33.4,0,1,0,21.5,30.6V128h66.3c7.4,47.7,46.9,83.9,93.8,83.9v61.2Z" />
 								</svg></a></li>
-						<li><a title="Google" href="#"><svg viewBox="0 0 448 512">
-									<path
-										d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
-								</svg></a></li>
-						<li><a title="Pinterest" href="#"><i class="fa fa-pinterest-p"></i></a></li>
+
+						<!-- Instagram Icon -->
+						<li><a title="Instagram" href="https://www.instagram.com/irvasca/"><i class="fa fa-instagram"></i></a></li>
 					</ul>
 					<div
 						class="col-12 col-md-12 col-lg-6 ow-right-padding  ow-right-padding2 d-flex align-content-center justify-content-end">
@@ -129,7 +130,7 @@
 						<ul class="top-menu">
 							<li>
 								<a href="#" title="User Account" data-bs-toggle="modal" data-bs-target="#userAccountModal">
-									<i class="fa fa-user" aria-hidden="true"></i>
+									<i class="fa fa-user" aria-hidden="true"> Login/Register</i>
 								</a>
 							</li>
 						</ul>
@@ -154,7 +155,7 @@
 						</div><!-- /input-group -->
 					</div>
 					<div class="col-12 col-md-12 col-lg-6 logo-block">
-						<a title="Logo" href="{{ url('/index') }}">
+						<a title="Logo" href="{{ url('/shop') }}">
 							<img src=" {{ asset('images/logo/logo_putihNOBG.png') }}" alt="Logo" style="width: 35%; height: 100%;">
 						</a>
 					</div>
@@ -180,7 +181,7 @@
 			<div class="container">
 				<nav class="navbar navbar-expand-lg bg-body-tertiary navbar-static-top">
 					<div class="navbar-header">
-						<a href="{{ url('/index') }}" class="logo"><img src=" {{ asset('images/logo/logo_putihNOBG.png') }}" alt="logo" style="max-width: 35%; height: auto;"></a>
+						<a href="{{ url('/shop') }}" class="logo"><img src=" {{ asset('images/logo/logo_putihNOBG.png') }}" alt="logo" style="max-width: 35%; height: auto;"></a>
 						<button class=" navbar-toggler collapsed" aria-controls="navbar" aria-expanded="false"
 							data-bs-target="#navbar" data-bs-toggle="collapse" type="button"
 							aria-label="Toggle navigation">
@@ -190,7 +191,7 @@
 					<div class="collapse navbar-collapse" id="navbar">
 						<ul class="nav navbar-nav">
 							<li class="nav-item active"><a class="nav-link active" title="Home"
-									href="{{ url('/index') }}">Home</a></li>
+									href="{{ url('/shop') }}">Home</a></li>
 							<li class="nav-item active"><a class="nav-link active" title="Home"
 									href="{{ url('/catalog') }}">Shop</a></li>
 							<!-- <li class="nav-item"><a class="nav-link" title="Look Book" href="{{ url('/lookbook') }}">Look
@@ -231,12 +232,12 @@
 	<div class="container">
 		<div class="page-breadcrumb">
 			<ol class="breadcrumb">
-				<li><a title="Home" href="/index">Home</a></li>
+				<li><a title="Home" href="/shop">Home</a></li>
 				<li><a title="Catalog" href="/catalog">Catalog</a></li>
 				<li class="active">Product</li>
 			</ol>
 			<div class="return-home-link pull-right">
-				<a title="Return to home page" href="/index">return to home page</a>
+				<a title="Return to home page" href="/shop">return to home page</a>
 			</div>
 		</div>
 	</div><!-- container /- -->
@@ -288,11 +289,19 @@
 						</div>
 					</div>
 					<!-- Section Header /- -->
-					<!-- <div class="page-header ow-bottom-padding categories">
-						<h3><span>Beauty & Brain</span> Related Products</h3>
-					</div>Section Header /- -->
-					<div class="category-box-main product-box-main">
-						<!-- <div class="row">
+					<div class="page-header ow-bottom-padding categories">
+						<div class="product-description">
+							<a href="#">
+								<pre style="white-space: pre-wrap; text-align: left; font-family: 'PT Serif', serif !important;">
+                <b>{{ $product->description }}</b>
+            </pre>
+							</a>
+						</div>
+					</div>
+
+
+					<!-- <div class="category-box-main product-box-main">
+						<div class="row">
 							<div class="col-12 col-md-6 col-lg-6 main-product">
 								<div class="category-box product-box">
 									<div class="inner-product">
@@ -307,47 +316,10 @@
 										</div>
 									</div>
 								</div>
-								<a title="Fashionable Pink Top" href="#" class="product-title">Trench Dress</a>
-								<ul class="star">
-									<li>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star-o"></i>
-										<i class="fa fa-star-o"></i>
-									</li>
-								</ul>
-								<span class="amount"><del>&dollar;24.99</del> &dollar;19.99</span>
+
 							</div>
-							<div class="col-12 col-md-6 col-lg-6 main-product">
-								<div class="category-box product-box">
-									<span class="sale">sales</span>
-									<div class="inner-product">
-										<img src="images/featured/featured-3.jpg" alt="featured-img" />
-										<div class="product-box-inner">
-											<ul>
-												<li><a title="Eye Icon" href="images/featured/featured-3.jpg"><i
-															class="fa fa-eye"></i></a></li>
-												<li><a title="Heart Icon" href="#"><i class="fa fa-heart"></i></a></li>
-											</ul>
-											<a title="Add to cart" href="#" class="btn">add to cart</a>
-										</div>
-									</div>
-								</div>
-								<a title="Fashionable Pink Top" href="#" class="product-title">Bandage Dress</a>
-								<ul class="star">
-									<li>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star-o"></i>
-										<i class="fa fa-star-o"></i>
-									</li>
-								</ul>
-								<span class="amount"><del>&dollar;24.99</del> &dollar;19.99</span>
-							</div>
-						</div> -->
-					</div>
+						</div>
+					</div> -->
 				</div><!-- col-md-7 /- -->
 
 				<!-- col-md-5 -->
@@ -358,7 +330,7 @@
 						<li><a title="Top" href="#">Top</a></li>
 					</ul> -->
 					<div class="page-header">
-						<h3>{{ $product->name }}</h3> <!-- Display the dynamic product name -->
+						<h2>{{ $product->name }}</h2> <!-- Display the dynamic product name -->
 					</div>
 					<!-- <ul class="star">
 						<li>
@@ -452,7 +424,7 @@
 											<tbody>
 												<tr class="cart-subtotal">
 													<th>Product Price</th>
-													<td><span class="amount">${{ number_format($product->price, 2) }}</span></td> <!-- Dynamic product price -->
+													<td><span class="amount">Rp {{ number_format($product->price, 0, ',', '.') }}</span></td>
 												</tr>
 												<!-- <tr class="cart-subtotal">
 													<th>Product Quantity</th>
@@ -470,7 +442,7 @@
 											</tbody>
 										</table>
 										<ul>
-											<li><a title="But Now" href="#">But Now</a></li>
+											<li><a title="Buy Now" href="#">Buy Now</a></li>
 											<li>
 												<a title="Add To Cart" href="#"
 													class="add-to-cart-btn"
@@ -731,8 +703,8 @@
 					<!-- widget about -->
 					<aside class="col-12 col-md-12 col-lg-3  widget widget_about">
 						<h3 class="widget-title logo-block">
-							<a title="Logo" href="{{ url('/index') }}">
-								<img src="{{ asset('images/logo/logo_putihNOBG.png') }}" alt="Logo" style="max-width: 60%; height: auto;">
+							<a title="Logo" href="{{ url('/shop') }}">
+								<img src=" {{ asset('images/logo/logo_putihNOBG.png') }}" alt="Logo" style="max-width: 60%; height: auto;">
 							</a>
 						</h3>
 						<div class="address">
@@ -743,6 +715,24 @@
 							<h4>IRVASCA Headquarters </h4>
 							<p>Griya Pamoyanan, Blok G 17, Pamoyanan </p>
 							<p>Bogor, Indonesia, 16136</p>
+						</div>
+						<div class="helpline">
+							<svg viewBox="0 0 51.413 51.413">
+								<path
+									d="M25.989,12.274c8.663,0.085,14.09-0.454,14.823,9.148h10.564c0-14.875-12.973-16.88-25.662-16.88    c-12.69,0-25.662,2.005-25.662,16.88h10.482C11.345,11.637,17.398,12.19,25.989,12.274z" />
+								<path
+									d="M5.291,26.204c2.573,0,4.714,0.154,5.19-2.377c0.064-0.344,0.101-0.734,0.101-1.185H10.46H0    C0,26.407,2.369,26.204,5.291,26.204z" />
+								<path
+									d="M40.88,22.642h-0.099c0,0.454,0.039,0.845,0.112,1.185c0.502,2.334,2.64,2.189,5.204,2.189    c2.936,0,5.316,0.193,5.316-3.374H40.88z" />
+								<path
+									d="M35.719,20.078v-1.496c0-0.669-0.771-0.711-1.723-0.711h-1.555c-0.951,0-1.722,0.042-1.722,0.711    v1.289v1h-11v-1v-1.289c0-0.669-0.771-0.711-1.722-0.711h-1.556c-0.951,0-1.722,0.042-1.722,0.711v1.496v1.306    C12.213,23.988,4.013,35.073,3.715,36.415l0.004,8.955c0,0.827,0.673,1.5,1.5,1.5h40c0.827,0,1.5-0.673,1.5-1.5v-9    c-0.295-1.303-8.493-12.383-11-14.987V20.078z M19.177,37.62c-0.805,0-1.458-0.652-1.458-1.458s0.653-1.458,1.458-1.458    s1.458,0.652,1.458,1.458S19.982,37.62,19.177,37.62z M19.177,32.62c-0.805,0-1.458-0.652-1.458-1.458s0.653-1.458,1.458-1.458    s1.458,0.652,1.458,1.458S19.982,32.62,19.177,32.62z M19.177,27.621c-0.805,0-1.458-0.652-1.458-1.458    c0-0.805,0.653-1.458,1.458-1.458s1.458,0.653,1.458,1.458C20.635,26.969,19.982,27.621,19.177,27.621z M25.177,37.62    c-0.805,0-1.458-0.652-1.458-1.458s0.653-1.458,1.458-1.458c0.806,0,1.458,0.652,1.458,1.458S25.983,37.62,25.177,37.62z     M25.177,32.62c-0.805,0-1.458-0.652-1.458-1.458s0.653-1.458,1.458-1.458c0.806,0,1.458,0.652,1.458,1.458    S25.983,32.62,25.177,32.62z M25.177,27.621c-0.805,0-1.458-0.652-1.458-1.458c0-0.805,0.653-1.458,1.458-1.458    c0.806,0,1.458,0.653,1.458,1.458C26.635,26.969,25.983,27.621,25.177,27.621z M31.177,37.62c-0.806,0-1.458-0.652-1.458-1.458    s0.652-1.458,1.458-1.458s1.458,0.652,1.458,1.458S31.983,37.62,31.177,37.62z M31.177,32.62c-0.806,0-1.458-0.652-1.458-1.458    s0.652-1.458,1.458-1.458s1.458,0.652,1.458,1.458S31.983,32.62,31.177,32.62z M31.177,27.621c-0.806,0-1.458-0.652-1.458-1.458    c0-0.805,0.652-1.458,1.458-1.458s1.458,0.653,1.458,1.458C32.635,26.969,31.983,27.621,31.177,27.621z" />
+							</svg>
+							<h4>Help Lines</h4>
+							<p>+62 812-389-333</p>
+							<a href="https://wa.me/62812389333" target="_blank" title="Chat on WhatsApp" style="display: flex; align-items: center; gap: 8px;">Chat on WhatsApp
+								<i class="bi bi-whatsapp" style="color: #25D366; font-size: 24px;"></i>
+
+							</a>
 						</div>
 					</aside><!-- widget about /- -->
 
@@ -755,12 +745,12 @@
 									<span>from our store</span>
 								</h3>
 								<ul>
-									<li><a title="Shoes" href="02_categories.html">Shoes</a></li>
-									<li><a title="Perfumes" href="02_categories.html">Perfumes</a></li>
-									<li><a title="Bags" href="02_categories.html">Bags</a></li>
-									<li><a title="Make Up" href="02_categories.html">Make Up</a></li>
-									<li><a title="Jewelry" href="02_categories.html">Jewelry</a></li>
-									<li><a title="Clothing" href="02_categories.html">Clothing</a></li>
+									<li><a title="Tshirts" href="" style="pointer-events: none;">Tshirts</a></li>
+									<li><a title="Jackets" href="" style="pointer-events: none;">Jackets</a></li>
+									<li><a title="Dress" href="" style="pointer-events: none;">Dress</a></li>
+									<li><a title="Hoodie" href="" style="pointer-events: none;">Hoodie</a></li>
+									<!-- <li><a title="Jewelry" href="">Jewelry</a></li>
+									<li><a title="Clothing" href="">Clothing</a></li> -->
 								</ul>
 							</aside>
 
@@ -770,12 +760,12 @@
 									<span>informative details</span>
 								</h3>
 								<ul>
-									<li><a title="Order Status" href="#">Order Status</a></li>
-									<li><a title="My Order History" href="#">My Order History</a></li>
-									<li><a title="My Favorites" href="#">My Favorites</a></li>
-									<li><a title="Promo codes" href="#">Promo codes</a></li>
-									<li><a title="Payments" href="#">Payments</a></li>
-									<li><a title="Returns" href="#">Returns</a></li>
+									<li><a title="Order Status" href="">Order Status</a></li>
+									<li><a title="My Order History" href="">My Order History</a></li>
+									<li><a title="My Favorites" href="">Privacy Policy</a></li>
+									<!-- <li><a title="Promo codes" href="#">Promo codes</a></li> -->
+									<!-- <li><a title="Payments" href="#">Payments</a></li> -->
+									<!-- <li><a title="Returns" href="#">Returns</a></li> -->
 								</ul>
 							</aside>
 
@@ -785,124 +775,111 @@
 									<span>store locations</span>
 								</h3>
 								<ul>
-									<li><a title="Mumbai" href="#">Indonesia</a></li>
-									<li><a title="INDORE" href="#">Malaysia</a></li>
-									<li><a title="Toronto" href="#">Thailand</a></li>
-									<li><a title="Sidney" href="#">Australia</a></li>
-									<li><a title="New York" href="#">Hong Kong</a></li>
-									<li><a title="Paris" href="#">Philippines</a></li>
+									<li><a title="Indonesia" href="#" style="pointer-events: none;">Indonesia</a></li>
+									<li><a title="USA" href="#" style="pointer-events: none;">USA</a></li>
+									<li><a title="Europe" href="#" style="pointer-events: none;">Europe</a></li>
+									<li><a title="Malaysia" href="#" style="pointer-events: none;">Malaysia</a></li>
+									<li><a title="Thailand" href="#" style="pointer-events: none;">Thailand</a></li>
+									<li><a title="Sidney" href="#" style="pointer-events: none;">Australia</a></li>
+									<li><a title="Hong Kong" href="#" style="pointer-events: none;">Hong Kong</a></li>
+									<li><a title="Philippines" href="#" style="pointer-events: none;">Philippines</a></li>
+
 								</ul>
 							</aside>
 						</div>
-					</div><!-- col-md-6 /- -->
-
-					<!--	<aside class="col-12 col-md-12 col-lg-3 widget widget_facebook">-->
-					<!--		<div class="widget-title">-->
-					<!--			<h4>IRVASCA <span>1.000.000 members </span></h4>-->
-					<!--			<button type="submit" value="like" class="btn btn-default pull-right">Like <i-->
-					<!--					class="fa fa-thumbs-o-up"></i> </button>-->
-					<!--		</div>-->
-					<!--		<ul>-->
-					<!--			<li><a title="Facebook photo" href="#"><img src="images/footer/fb-1.jpg"-->
-					<!--						alt="facebook-photo" /></a></li>-->
-					<!--			<li><a title="Facebook photo" href="#"><img src="images/footer/fb-2.jpg"-->
-					<!--						alt="facebook-photot" /></a></li>-->
-					<!--			<li><a title="Facebook photo" href="#"><img src="images/footer/fb-3.jpg"-->
-					<!--						alt="facebook-photo" /></a></li>-->
-					<!--			<li><a title="Facebook photo" href="#"><img src="images/footer/fb-4.jpg"-->
-					<!--						alt="facebook-photo" /></a></li>-->
-					<!--			<li><a title="Facebook photo" href="#"><img src="images/footer/fb-5.jpg"-->
-					<!--						alt="facebook-photo" /></a></li>-->
-					<!--			<li><a title="Facebook photo" href="#"><img src="images/footer/fb-6.jpg"-->
-					<!--						alt="facebook-photo" /></a></li>-->
-					<!--			<li><a title="Facebook photo" href="#"><img src="images/footer/fb-7.jpg"-->
-					<!--						alt="facebook-photo" /></a></li>-->
-					<!--			<li><a title="Facebook photo" href="#"><img src="images/footer/fb-8.jpg"-->
-					<!--						alt="facebook-photo" /></a></li>-->
-					<!--		</ul>-->
-					<!--		<a href="#"> facebook page </a>-->
-					<!--	</aside>-->
-					<!--</div>-->
-				</div><!-- container /- -->
-			</div><!-- widget section /- -->
-			<!-- Footer bottom -->
-			<div class="footer-bottom">
-				<!-- container -->
-				<div class="container">
-					<div class="row">
-						<div class="col-12 col-md-6 col-lg-3 top-header">
-							<ul class="top-social ">
-								<li><a title="Facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-								<li><a title="Twitter" href="#"><svg viewBox="0 0 512 512">
-											<path
-												d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" />
-										</svg></a></li>
-								<li><a title="Google plus" href="#"><svg viewBox="0 0 448 512">
-											<path
-												d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
-										</svg></a></li>
-								<li><a title="Pinterest" href="#"><i class="fa fa-pinterest-p"></i></a></li>
-							</ul>
-						</div>
-						<div class="col-12 col-md-6 col-lg-6 copy-rights">
-							<p> IRVASCA&copy; 2024 </p>
-						</div>
-						<!--<div class="col-12 col-md-12 col-lg-3">-->
-						<!--	<a title="Payment-getway" href="#"><img src="images/footer/payment-getway-icon.png"-->
-						<!--			alt="payment-getway-icon"></a>-->
-						<!--</div>-->
 					</div>
-				</div><!-- container /- -->
-				<a title="Back-to-top" id="back-to-top" href="#back-to-top" class="back-to-top"><i
-						class="fa fa-caret-up"></i></a>
-			</div><!-- Footer Bottom -->
-		</div><!-- Footer Section /- -->
 
-		<!-- jQuery Include -->
-		<script src="{{ asset('libraries/jquery.min.js') }}"></script>
+					<aside class="col-12 col-md-12 col-lg-3 widget widget_list_style">
+						<h3 class="widget-title">
+							PAYMENTS
+							<span>Quick, Easy & Secure Payment Options!</span>
+						</h3>
+						<ul>
+							<li><a title="Facebook photo"><img src="{{ asset('images/logo/payment.png') }}"
+										alt="facebook-photo" /></a></li>
+						</ul>
+					</aside>
+				</div>
+			</div><!-- container /- -->
+		</div><!-- widget section /- -->
+		<!-- Footer bottom -->
+		<div class="footer-bottom">
+			<!-- container -->
+			<div class="container">
+				<div class="row">
+					<div class="col-12 col-md-6 col-lg-3 top-header">
+						<ul class="top-social ">
+							<!-- Facebook Icon -->
+							<li><a title="Facebook" href="https://www.facebook.com/irvasca/"><i class="fa fa-facebook"></i></a></li>
 
-		<!-- Google Maps API -->
-		<script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script>
+							<!-- TikTok Icon -->
+							<li><a title="TikTok" href="https://www.tiktok.com/@irvasca"><svg viewBox="0 0 448 512">
+										<path d="M448,209.2a209.3,209.3,0,0,1-135.6-48V349.7a94.2,94.2,0,1,1-87-93.4v60.8a33.4,33.4,0,1,0,21.5,30.6V128h66.3c7.4,47.7,46.9,83.9,93.8,83.9v61.2Z" />
+									</svg></a></li>
 
-		<!-- gMap Plugin -->
-		<script src="{{ asset('libraries/gmap/jquery.gmap.min.js') }}"></script>
+							<!-- Instagram Icon -->
+							<li><a title="Instagram" href="https://www.instagram.com/irvasca/"><i class="fa fa-instagram"></i></a></li>
+						</ul>
+					</div>
+					<div class="col-12 col-md-6 col-lg-6 copy-rights">
+						<p> PT INOVASI IRVASCA INDONESIA&copy; 2024 </p>
+					</div>
+					<!--<div class="col-12 col-md-12 col-lg-3">-->
+					<!--	<a title="Payment-getway" href="#"><img src="images/footer/payment-getway-icon.png"-->
+					<!--			alt="payment-getway-icon"></a>-->
+					<!--</div>-->
+				</div>
+			</div><!-- container /- -->
+			<a title="Back-to-top" id="back-to-top" href="#back-to-top" class="back-to-top"><i
+					class="fa fa-caret-up"></i></a>
+		</div><!-- Footer Bottom -->
+	</div><!-- Footer Section /- -->
 
-		<!-- Easing Animation Effect -->
-		<script src="{{ asset('libraries/jquery.easing.min.js') }}"></script>
+	<!-- jQuery Include -->
+	<script src="{{ asset('libraries/jquery.min.js') }}"></script>
 
-		<!-- Core Bootstrap -->
-		<script src="{{ asset('libraries/bootstrap/bootstrap.bundle.min.js') }}"></script>
+	<!-- Google Maps API -->
+	<script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script>
 
-		<!-- jQuery UI (Fuel UX) -->
-		<script src="{{ asset('libraries/fuelux/jquery-ui.min.js') }}"></script>
+	<!-- gMap Plugin -->
+	<script src="{{ asset('libraries/gmap/jquery.gmap.min.js') }}"></script>
 
-		<!-- Animated Numbers -->
-		<script src="{{ asset('libraries/jquery.animateNumber.min.js') }}"></script>
+	<!-- Easing Animation Effect -->
+	<script src="{{ asset('libraries/jquery.easing.min.js') }}"></script>
 
-		<!-- jQuery Appear -->
-		<script src="{{ asset('libraries/jquery.appear.js') }}"></script>
+	<!-- Core Bootstrap -->
+	<script src="{{ asset('libraries/bootstrap/bootstrap.bundle.min.js') }}"></script>
 
-		<!-- jQuery Knob (Loading Circle) -->
-		<script src="{{ asset('libraries/jquery.knob.js') }}"></script>
+	<!-- jQuery UI (Fuel UX) -->
+	<script src="{{ asset('libraries/fuelux/jquery-ui.min.js') }}"></script>
 
-		<!-- WOW.js for Animations -->
-		<script src="{{ asset('libraries/wow.min.js') }}"></script>
+	<!-- Animated Numbers -->
+	<script src="{{ asset('libraries/jquery.animateNumber.min.js') }}"></script>
 
-		<!-- Owl Carousel -->
-		<script src="{{ asset('libraries/owl-carousel/owl.carousel.min.js') }}"></script>
+	<!-- jQuery Appear -->
+	<script src="{{ asset('libraries/jquery.appear.js') }}"></script>
 
-		<!-- Expanding Search (Modernizr) -->
-		<script src="{{ asset('libraries/expanding-search/modernizr.custom.js') }}"></script>
+	<!-- jQuery Knob (Loading Circle) -->
+	<script src="{{ asset('libraries/jquery.knob.js') }}"></script>
 
-		<!-- Flexslider -->
-		<script src="{{ asset('libraries/flexslider/jquery.flexslider-min.js') }}"></script>
+	<!-- WOW.js for Animations -->
+	<script src="{{ asset('libraries/wow.min.js') }}"></script>
 
-		<!-- Magnific Popup (Light Box) -->
-		<script src="{{ asset('libraries/jquery.magnific-popup.min.js') }}"></script>
-		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<!-- Owl Carousel -->
+	<script src="{{ asset('libraries/owl-carousel/owl.carousel.min.js') }}"></script>
 
-		<!-- Customized Scripts -->
-		<script src="{{ asset('js/functions.js') }}"></script>
+	<!-- Expanding Search (Modernizr) -->
+	<script src="{{ asset('libraries/expanding-search/modernizr.custom.js') }}"></script>
+
+	<!-- Flexslider -->
+	<script src="{{ asset('libraries/flexslider/jquery.flexslider-min.js') }}"></script>
+
+	<!-- Magnific Popup (Light Box) -->
+	<script src="{{ asset('libraries/jquery.magnific-popup.min.js') }}"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+	<!-- Customized Scripts -->
+	<script src="{{ asset('js/functions.js') }}"></script>
 
 
 

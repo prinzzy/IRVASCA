@@ -110,7 +110,93 @@
                         <button type="button" class="btn btn-link" id="resendOtpBtn" style="display:none;">Resend OTP</button>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Register</button>
+                    <button type="submit" class="btn btn-primary" style="background-color: #b3aa9b; border-color: #b3aa9b;">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Address Modal -->
+<div class="modal fade" id="addressModal" tabindex="-1" aria-labelledby="addressModalLabel" aria-hidden="true">
+    <div class="modal-dialog custom-modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addressModalLabel">Enter Address</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Address selection cards -->
+                <div class="form-group">
+                    <label>Select an Existing Address</label>
+                    <div id="existingAddressCards" class="d-flex flex-wrap gap-2 mt-2">
+                        <!-- Address cards will be populated here by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- New address form -->
+                <form id="addressForm" style="display: none;">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="street">Street</label>
+                        <input type="text" class="form-control" id="street" name="street" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" class="form-control" id="city" name="city" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="state">State</label>
+                        <input type="text" class="form-control" id="state" name="state" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="postal_code">Postal Code</label>
+                        <input type="text" class="form-control" id="postal_code" name="postal_code" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="country">Country</label>
+                        <input type="text" class="form-control" id="country" name="country" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="text" class="form-control" id="phone" name="phone" required>
+                    </div>
+                    <button type="button" id="addressSubmit" class="btn btn-primary mt-3" style="background-color: #b3aa9b; border-color: #b3aa9b;">Save Address</button>
+                </form>
+
+                <!-- Toggle button to add a new address -->
+                <button type="button" id="addNewAddressButton" class="btn btn-link">add a new address</button>
+                <button type="button" id="continueButton" class="btn btn-primary mt-3" style="display: none; background-color: #b3aa9b; border-color: #b3aa9b;">Continue</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<!-- DELIVERY MODAL -->
+<div class=" modal fade" id="deliveryMethodModal" tabindex="-1" role="dialog" aria-labelledby="deliveryMethodModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deliveryMethodModalLabel">Select Delivery Method</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="deliveryMethodForm">
+                    <!-- Radio buttons for delivery methods -->
+                    <button type="button" class="btn btn-primary" id="deliverySubmit" style="background-color: #b3aa9b; border-color: #b3aa9b;">Proceed to Payment</button>
                 </form>
             </div>
         </div>
