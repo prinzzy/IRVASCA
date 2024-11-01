@@ -30,4 +30,11 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'winpay' => [
+        'merchant_id' => env('WINPAY_MERCHANT_ID'),
+        'secret_key' => env('WINPAY_SECRET_KEY'),
+        'base_url' => env('WINPAY_BASE_URL'),
+    ],
+
+
 ];

@@ -189,6 +189,7 @@ Route::post('/store-address', [AddressController::class, 'storeAddress'])->name(
 Route::post('/checkout/set-selected-address', [CheckoutController::class, 'setSelectedAddress']);
 Route::get('/checkout', [CheckoutController::class, 'showCheckout']);
 Route::post('/apply-discount', [CheckoutController::class, 'applyDiscount'])->name('apply.discount');
+Route::post('/checkout/process', [CheckoutController::class, 'checkoutProcess'])->name('checkout.process');
 
 
 

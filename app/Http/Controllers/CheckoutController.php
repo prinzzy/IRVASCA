@@ -7,6 +7,7 @@ use App\Models\Cartitem;
 use App\Models\Address;
 use App\Models\Discount;
 use Illuminate\Support\Facades\Auth;
+use App\Services\WinPayService;
 
 class CheckoutController extends Controller
 {
@@ -90,6 +91,24 @@ class CheckoutController extends Controller
                 'success' => false,
                 'message' => 'Invalid discount code.',
             ]);
+        }
+    }
+    public function checkoutProcess(Request $request, WinPayService $winPayService)
+    {
+        $orderId = 'ORDER_' . time(); // Generate a unique order ID
+        $totalAmount = $this->calculateTotalWithDiscount($request->input('discount_code'));
+
+        $response = $winPayService->createInvoice(
+            $totalAmount,
+            $orderId,
+            $request->user()->name,
+            $request->user()->email
+        );
+
+        if ($response['status'] == 'success') {
+            return redirect($response['payment_url']);
+        } else {
+            return redirect()->back()->withErrors('Failed to create payment.');
         }
     }
 }
