@@ -8,6 +8,7 @@ use App\Models\Address;
 use App\Models\Discount;
 use Illuminate\Support\Facades\Auth;
 use App\Services\WinPayService;
+use Illuminate\Support\Facades\Log;
 
 class CheckoutController extends Controller
 {
@@ -95,20 +96,82 @@ class CheckoutController extends Controller
     }
     public function checkoutProcess(Request $request, WinPayService $winPayService)
     {
-        $orderId = 'ORDER_' . time(); // Generate a unique order ID
-        $totalAmount = $this->calculateTotalWithDiscount($request->input('discount_code'));
+        $orderId = 'ORDER_' . now()->setTimezone('Asia/Jakarta'); // Generate a unique order ID
+        $totalAmount = (int) $request->input('grand_total'); // Use the grand total from the form directly
 
+        // Prepare the customer data from the request
+        $customerName = $request->input('customer_name'); // Get the customer name from the form
+        $customerEmail = $request->user()->email; // Assuming the email is still retrieved from the authenticated user
+        $customerPhone = $request->input('customer_phone'); // Get the customer phone from the form
+
+        // Retrieve the products array from the request
+        $productsData = $request->input('products', []);
+        $products = [];
+        $originalTotalPrice = 0; // To calculate original total price without quantity
+        $actualTotalPrice = 0;   // To calculate actual total price with quantity
+
+        // Decode the product data and calculate totals
+        foreach ($productsData as $productJson) {
+            $product = json_decode($productJson, true); // Decode JSON to array
+
+            // Filter the product name, quantity, and price
+            if (isset($product['name']) && isset($product['quantity']) && isset($product['price'])) {
+                $price = (int) $product['price'];
+                $quantity = (int) $product['quantity'];
+
+                // Add product to the list for the invoice
+                $products[] = [
+                    'name' => $product['name'],
+                    'qty' => $quantity,
+                    'price' => $price,
+                ];
+
+                // Calculate original total (price only) and actual total (price * quantity)
+                $originalTotalPrice += $price;
+                $actualTotalPrice += $price * $quantity;
+            }
+        }
+
+        // Log totals for debugging
+        Log::info('Original total price (sum of prices without qty): ' . $originalTotalPrice);
+        Log::info('Actual total price (sum with qty): ' . $actualTotalPrice);
+        Log::info('Total amount (grand total): ' . $totalAmount);
+
+        // Only create discount product if neither total matches the total amount
+        if ($originalTotalPrice !== $totalAmount && $actualTotalPrice !== $totalAmount) {
+            // Set all existing products' prices to 0
+            foreach ($products as &$product) {
+                $product['price'] = 0; // Set original product prices to 0
+            }
+
+            // Add a new discount product with the total amount
+            $discountProduct = [
+                'name' => 'Discount',
+                'qty' => 1, // Quantity for the discount product
+                'price' => $totalAmount, // Set the price to the total amount
+            ];
+            $products[] = $discountProduct; // Add the discount product to the list
+        }
+
+        // Call the createInvoice method in the WinPay service
         $response = $winPayService->createInvoice(
             $totalAmount,
             $orderId,
-            $request->user()->name,
-            $request->user()->email
+            $customerName,
+            $customerEmail,
+            $customerPhone, // Add customer phone to the method
+            'https://irvasca.com/shop', // Replace with your actual back URL
+            $products // Pass the filtered product details array
         );
 
-        if ($response['status'] == 'success') {
-            return redirect($response['payment_url']);
+        // Log the response from WinPay for debugging
+        Log::info('WinPay Response:', ['response' => $response]);
+
+        // Check if the response contains the necessary redirect URL for payment
+        if (isset($response['responseData']['redirect_url'])) {
+            return redirect($response['responseData']['redirect_url']);
         } else {
-            return redirect()->back()->withErrors('Failed to create payment.');
+            return redirect()->back()->withErrors('Failed to create payment: ' . ($response['responseMessage'] ?? 'Unknown error.'));
         }
     }
 }

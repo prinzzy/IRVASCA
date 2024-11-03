@@ -1486,6 +1486,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const grandTotalElement = document.getElementById("grandTotal");
     const discountAmountElement = document.getElementById("discountAmount");
     const discountValueElement = document.getElementById("discountValue");
+    const finalTotalInput = document.getElementById("finalTotal"); // Hidden input for the updated grand total
+    const discountCodeInputHidden = document.getElementById(
+        "discountCodeInputHidden"
+    ); // Hidden input for the discount code
     const originalGrandTotal = parseFloat(
         grandTotalElement.innerText.replace(/[^0-9,-]+/g, "").replace(",", ".")
     );
@@ -1499,7 +1503,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 "Content-Type": "application/json",
                 "X-CSRF-TOKEN": document
                     .querySelector('meta[name="csrf-token"]')
-                    .getAttribute("content"), // Include CSRF token if using Laravel
+                    .getAttribute("content"),
             },
             body: JSON.stringify({
                 discount_code: discountCode,
@@ -1508,7 +1512,9 @@ document.addEventListener("DOMContentLoaded", function () {
         })
             .then((response) => response.json())
             .then((data) => {
-                if (data.success) {
+                console.log("Response Data:", data);
+
+                if (data.success === true) {
                     // Update the displayed total and discount amount
                     const newTotal = data.new_total;
                     const discountAmount = originalGrandTotal - newTotal;
@@ -1517,10 +1523,14 @@ document.addEventListener("DOMContentLoaded", function () {
                         "id-ID"
                     )},00`;
                     discountValueElement.innerText =
-                        discountAmount.toLocaleString("id-ID"); // Update discount value
-                    discountAmountElement.style.display = "block"; // Show the discount info
-                    discountAmountElement.style.color = "green"; // Success message color
+                        discountAmount.toLocaleString("id-ID");
+                    discountAmountElement.style.display = "block";
+                    discountAmountElement.style.color = "green";
                     discountInput.value = ""; // Clear the input
+
+                    // Update the hidden inputs for form submission
+                    finalTotalInput.value = newTotal;
+                    discountCodeInputHidden.value = discountCode;
 
                     // Show success message with SweetAlert
                     Swal.fire({
@@ -1528,40 +1538,30 @@ document.addEventListener("DOMContentLoaded", function () {
                         text: "Discount applied successfully!",
                         icon: "success",
                         confirmButtonText: "OK",
-                        timer: 3000, // Close after 3 seconds
-                        timerProgressBar: true, // Optional: show a progress bar
-                        willClose: () => {
-                            // Optional: Any action before closing (if needed)
-                        },
+                        timer: 3000,
+                        timerProgressBar: true,
                     });
                 } else {
-                    // Show error message with SweetAlert
+                    // Show error message with SweetAlert for unexpected responses
                     Swal.fire({
                         title: "Error!",
                         text: data.message || "Failed to apply discount.",
                         icon: "error",
                         confirmButtonText: "OK",
-                        timer: 3000, // Close after 3 seconds
-                        timerProgressBar: true, // Optional: show a progress bar
-                        willClose: () => {
-                            // Optional: Any action before closing (if needed)
-                        },
+                        timer: 3000,
+                        timerProgressBar: true,
                     });
                 }
             })
             .catch((error) => {
                 console.error("Error:", error);
-                // Show error message with SweetAlert
                 Swal.fire({
                     title: "Error!",
                     text: "An error occurred while applying the discount.",
                     icon: "error",
                     confirmButtonText: "OK",
-                    timer: 3000, // Close after 3 seconds
-                    timerProgressBar: true, // Optional: show a progress bar
-                    willClose: () => {
-                        // Optional: Any action before closing (if needed)
-                    },
+                    timer: 3000,
+                    timerProgressBar: true,
                 });
             });
     });

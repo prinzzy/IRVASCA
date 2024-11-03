@@ -242,12 +242,24 @@
                             </div>
                         </div>
                     </div>
-                    <input type="hidden" id="finalTotal" name="grand_total" value="{{ $totalPrice }}">
+                    <!-- <input type="hidden" id="finalTotal" name="grand_total" value="{{ $totalPrice }}"> -->
 
                     <!-- Continue to Payment Button -->
                     <div class="checkout-footer">
-                        <button class="continue-btn">Continue to Payment</button>
+                        <form action="{{ route('checkout.process') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="discount_code" value="" id="discountCodeInputHidden">
+                            <input type="hidden" id="finalTotal" name="grand_total" value="{{ $totalPrice }}">
+                            <input type="hidden" name="customer_name" value="{{ $address->name }}"> <!-- Customer name -->
+                            <input type="hidden" name="customer_phone" value="{{ $address->phone }}"> <!-- Customer phone -->
+                            <!-- Include products in the form -->
+                            @foreach ($cartItems as $cartItem)
+                            <input type="hidden" name="products[]" value="{{ json_encode(['name' => $cartItem['name'], 'price' => $cartItem['price'], 'quantity' => $cartItem['quantity'], 'size' => $cartItem['size']]) }}">
+                            @endforeach
+                            <button type="submit" class="continue-btn">Continue to Payment</button>
+                        </form>
                     </div>
+
                 </div>
 
                 <!-- Right Column: Discount Section -->

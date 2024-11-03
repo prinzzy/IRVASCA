@@ -16,6 +16,7 @@ use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\Admin\DiscountController;
+use App\Http\Controllers\PaymentCallbackController;
 
 
 
@@ -190,6 +191,10 @@ Route::post('/checkout/set-selected-address', [CheckoutController::class, 'setSe
 Route::get('/checkout', [CheckoutController::class, 'showCheckout']);
 Route::post('/apply-discount', [CheckoutController::class, 'applyDiscount'])->name('apply.discount');
 Route::post('/checkout/process', [CheckoutController::class, 'checkoutProcess'])->name('checkout.process');
+
+// CallBack
+Route::post('/winpay/callback', [PaymentCallbackController::class, 'handleCallback']);
+
 
 
 
