@@ -17,6 +17,7 @@ use App\Http\Controllers\AddressController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\Admin\DiscountController;
 use App\Http\Controllers\PaymentCallbackController;
+use App\Http\Controllers\Admin\TransactionController;
 
 
 
@@ -93,6 +94,10 @@ Route::prefix('admin')->middleware(['auth:sanctum', 'admin'])->group(function ()
     Route::post('discounts', [DiscountController::class, 'store'])->name('discounts.store'); // Store new discount
     Route::put('discounts/{discount}', [DiscountController::class, 'update'])->name('discounts.update'); // Update discount
     Route::delete('discounts/{discount}', [DiscountController::class, 'destroy'])->name('discounts.destroy'); // Delete discount
+
+    Route::get('transactions', [TransactionController::class, 'index'])->name('transactions.index');
+    Route::get('transactions/{id}', [TransactionController::class, 'show'])->name('transactions.show');
+    Route::delete('transactions/{id}', [TransactionController::class, 'destroy'])->name('transactions.destroy');
 });
 
 

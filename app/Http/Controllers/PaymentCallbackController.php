@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Transaction;
-
+use Illuminate\Support\Facades\Log;
 class PaymentCallbackController extends Controller
 {
     public function handleCallback(Request $request)
     {
+        Log::info('Callback received:', $request->all());
         $data = $request->all();
 
         // Validate required fields

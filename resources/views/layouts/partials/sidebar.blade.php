@@ -11,4 +11,7 @@
     <x-maz-sidebar-item name="Countdown" icon="bi bi-clock">
         <x-maz-sidebar-sub-item name="Submitted Email" :link="route('admin.emails.index')"></x-maz-sidebar-sub-item>
     </x-maz-sidebar-item>
+    <x-maz-sidebar-item name="Transactions" icon="bi bi-bank">
+        <x-maz-sidebar-sub-item name="Transaction History" :link="route('transactions.index')"></x-maz-sidebar-sub-item>
+    </x-maz-sidebar-item>
 </x-maz-sidebar>

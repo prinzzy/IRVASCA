@@ -1565,6 +1565,35 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
             });
     });
+
+    window.showTransactionDetails = function (transactionId) {
+        fetch(`/admin/transactions/${transactionId}`)
+            .then((response) => response.json())
+            .then((data) => {
+                // Populate the modal with transaction details
+                document.getElementById("modalUuid").innerText = data.uuid;
+                document.getElementById("modalRef").innerText = data.ref;
+                document.getElementById("modalChannel").innerText =
+                    data.channel;
+                document.getElementById("modalAmount").innerText = data.amount;
+                document.getElementById("modalFee").innerText = data.fee;
+                document.getElementById("modalNettAmount").innerText =
+                    data.nett_amount;
+                document.getElementById("modalProducts").innerText =
+                    JSON.stringify(data.products, null, 2);
+                document.getElementById("modalCustomerDetails").innerText =
+                    JSON.stringify(data.customer_details, null, 2);
+                document.getElementById(
+                    "modalInvoiceUrl"
+                ).innerHTML = `<a href="${data.invoice_url}" target="_blank">${data.invoice_url}</a>`;
+
+                // Show the modal
+                $("#transactionModal").modal("show");
+            })
+            .catch((error) =>
+                console.error("Error fetching transaction details:", error)
+            );
+    };
 });
 
 // Discount
