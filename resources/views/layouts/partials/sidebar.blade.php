@@ -13,5 +13,6 @@
     </x-maz-sidebar-item>
     <x-maz-sidebar-item name="Transactions" icon="bi bi-bank">
         <x-maz-sidebar-sub-item name="Transaction History" :link="route('transactions.index')"></x-maz-sidebar-sub-item>
+        <x-maz-sidebar-sub-item name="Order History" :link="route('admin.orders.index')"></x-maz-sidebar-sub-item>
     </x-maz-sidebar-item>
 </x-maz-sidebar>

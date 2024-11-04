@@ -221,7 +221,8 @@
 			<div class="carousel-inner" role="listbox">
 				@foreach($bannerProducts as $index => $product)
 				<div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
-					<img src="{{ asset('storage/' . $product->image_path) }}" alt="{{ $product->name }}" style="width: 100%; height: auto;">
+					<!-- Use thumbnails with path correction -->
+					<img src="{{ asset('storage/' . str_replace('\\', '/', $product->thumbnails)) }}" alt="{{ $product->name }}" style="width: 100%; height: auto;">
 					<div class="container">
 						<div class="slider-box">
 							<!-- <button class="btn">Buy</button> -->
@@ -240,6 +241,7 @@
 			</a>
 		</div>
 	</div>
+
 
 	<!-- Slider Section /- -->
 
@@ -283,10 +285,11 @@
 							<span class="sale">sales</span>
 							@endif
 							<div class="inner-product">
-								<img src="{{ asset('storage/' . $product->image_path) }}" alt="{{ $product->name }}" img class="product-image" />
+								<!-- Display product thumbnail image, replacing any backslashes with forward slashes -->
+								<img src="{{ asset('storage/' . str_replace('\\', '/', $product->thumbnails)) }}" alt="{{ $product->name }}" class="product-image" />
 								<div class="product-box-inner">
 									<ul>
-										<li><a title="View" href="{{ asset('storage/' . $product->image_path) }}"><i class="fa fa-eye"></i></a></li>
+										<li><a title="View" href="{{ asset('storage/' . str_replace('\\', '/', $product->thumbnails)) }}"><i class="fa fa-eye"></i></a></li>
 										<li><a title="Wishlist" href="#"><i class="fa fa-heart"></i></a></li>
 									</ul>
 									<a title="Add to cart" href="{{ route('product.show', $product->id) }}" class="btn">Add to cart</a>
@@ -318,6 +321,7 @@
 				</div>
 				@endforeach
 			</div>
+
 		</div><!-- container /- -->
 	</section>
 

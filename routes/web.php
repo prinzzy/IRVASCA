@@ -18,6 +18,7 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\Admin\DiscountController;
 use App\Http\Controllers\PaymentCallbackController;
 use App\Http\Controllers\Admin\TransactionController;
+use App\Http\Controllers\Admin\OrderController;
 
 
 
@@ -98,6 +99,10 @@ Route::prefix('admin')->middleware(['auth:sanctum', 'admin'])->group(function ()
     Route::get('transactions', [TransactionController::class, 'index'])->name('transactions.index');
     Route::get('transactions/{id}', [TransactionController::class, 'show'])->name('transactions.show');
     Route::delete('transactions/{id}', [TransactionController::class, 'destroy'])->name('transactions.destroy');
+
+
+    Route::get('/orders', [OrderController::class, 'index'])->name('admin.orders.index');
+    Route::post('/orders/{order}/update', [OrderController::class, 'updateStatus'])->name('admin.orders.updateStatus');
 });
 
 

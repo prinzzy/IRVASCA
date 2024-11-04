@@ -11,20 +11,18 @@ return new class extends Migration
      *
      * @return void
      */
+    // database/migrations/xxxx_xx_xx_add_resi_to_orders_table.php
     public function up()
     {
-        Schema::table('transactions', function (Blueprint $table) {
-            $table->foreignId('order_id')->constrained()->onDelete('cascade');
+        Schema::table('orders', function (Blueprint $table) {
+            $table->string('resi')->nullable()->after('status');
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
-        Schema::dropIfExists('transactions');
+        Schema::table('orders', function (Blueprint $table) {
+            $table->dropColumn('resi');
+        });
     }
 };

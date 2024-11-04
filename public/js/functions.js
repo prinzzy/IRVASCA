@@ -1566,34 +1566,76 @@ document.addEventListener("DOMContentLoaded", function () {
             });
     });
 
-    window.showTransactionDetails = function (transactionId) {
-        fetch(`/admin/transactions/${transactionId}`)
-            .then((response) => response.json())
-            .then((data) => {
-                // Populate the modal with transaction details
-                document.getElementById("modalUuid").innerText = data.uuid;
-                document.getElementById("modalRef").innerText = data.ref;
-                document.getElementById("modalChannel").innerText =
-                    data.channel;
-                document.getElementById("modalAmount").innerText = data.amount;
-                document.getElementById("modalFee").innerText = data.fee;
-                document.getElementById("modalNettAmount").innerText =
-                    data.nett_amount;
-                document.getElementById("modalProducts").innerText =
-                    JSON.stringify(data.products, null, 2);
-                document.getElementById("modalCustomerDetails").innerText =
-                    JSON.stringify(data.customer_details, null, 2);
-                document.getElementById(
-                    "modalInvoiceUrl"
-                ).innerHTML = `<a href="${data.invoice_url}" target="_blank">${data.invoice_url}</a>`;
+    document.addEventListener("DOMContentLoaded", () => {
+        // Attach click listeners to all view buttons
+        const buttons = document.querySelectorAll(".view-transaction-btn");
+        buttons.forEach((button) => {
+            button.addEventListener("click", function () {
+                const transactionId = this.getAttribute("data-transaction-id");
+                showTransactionDetails(transactionId);
+            });
+        });
+    });
 
-                // Show the modal
-                $("#transactionModal").modal("show");
+    // Function to display transaction details in a modal
+    function showTransactionDetails(transactionId) {
+        console.log("Transaction ID:", transactionId); // For debugging
+
+        // Fetch the transaction details via AJAX
+        fetch(`/admin/transactions/${transactionId}`)
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Failed to fetch transaction details");
+                }
+                return response.json();
             })
-            .catch((error) =>
-                console.error("Error fetching transaction details:", error)
-            );
-    };
+            .then((data) => {
+                console.log("Transaction Data:", data); // For debugging
+
+                // Populate modal with transaction details
+                document.getElementById(
+                    "transactionModalLabel"
+                ).innerText = `Transaction Details for ID: ${transactionId}`;
+                document.getElementById("transactionUUID").innerText =
+                    data.uuid;
+                document.getElementById("transactionRef").innerText = data.ref;
+                document.getElementById("transactionChannel").innerText =
+                    data.channel;
+                document.getElementById(
+                    "transactionAmount"
+                ).innerText = `Rp ${new Intl.NumberFormat("id-ID").format(
+                    data.amount
+                )}`;
+                document.getElementById(
+                    "transactionFee"
+                ).innerText = `Rp ${new Intl.NumberFormat("id-ID").format(
+                    data.fee
+                )}`;
+                document.getElementById(
+                    "transactionNettAmount"
+                ).innerText = `Rp ${new Intl.NumberFormat("id-ID").format(
+                    data.nett_amount
+                )}`;
+                document.getElementById("transactionProducts").innerText =
+                    JSON.stringify(data.products, null, 2);
+                document.getElementById("transactionCustomer").innerText =
+                    JSON.stringify(data.customer_details, null, 2);
+                document.getElementById("transactionInvoiceURL").href =
+                    data.invoice_url;
+                document.getElementById("transactionInvoiceURL").innerText =
+                    data.invoice_url;
+
+                // Initialize and show the Bootstrap modal
+                const transactionModal = new bootstrap.Modal(
+                    document.getElementById("transactionModal")
+                );
+                transactionModal.show();
+            })
+            .catch((error) => {
+                console.error("Error fetching transaction details:", error);
+                alert("Failed to load transaction details.");
+            });
+    }
 });
 
 // Discount

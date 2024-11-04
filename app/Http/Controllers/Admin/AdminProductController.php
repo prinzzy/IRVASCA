@@ -38,7 +38,7 @@ class AdminProductController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:100000', // Primary image
             'images' => 'nullable|array', // Multiple images
             'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:100000',
-            'thumbnails' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:100000', // Thumbnail
+            'thumbnails' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:100000', // Thumbnail
         ]);
 
         $data = $request->except(['image', 'images', 'thumbnails', 'sizes']); // Exclude images & thumbnail from $data initially
@@ -117,7 +117,7 @@ class AdminProductController extends Controller
             'description' => 'nullable|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:100000', // Primary image
             'additional_images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:100000', // Additional images
-            'thumbnails' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:100000', // Thumbnail
+            'thumbnails' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:100000', // Thumbnail
         ]);
 
 
