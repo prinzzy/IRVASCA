@@ -1396,23 +1396,23 @@ document.addEventListener("DOMContentLoaded", function () {
                         ).style.display = "block";
 
                         // Update address cards
-                        updateAddressDropdown();
+                        loadAddresses(data.newAddressId);
                     } else {
-                        alert("Failed to save address");
+                        alert("Failed to save address.");
                     }
                 })
                 .catch((error) => console.error("Error:", error));
         });
     }
 
-    // Function to update the address dropdown
-    function updateAddressDropdown() {
+    // **Updated: loadAddresses function with a selectedId parameter to auto-select the new address**
+    function loadAddresses(selectedId = null) {
         const existingAddressCards = document.getElementById(
             "existingAddressCards"
         );
         existingAddressCards.innerHTML = ""; // Clear existing cards
 
-        fetch("/address-modal-data") // Adjust route as necessary
+        fetch("/address-modal-data")
             .then((response) => response.json())
             .then((data) => {
                 data.addresses.forEach((address) => {
@@ -1431,14 +1431,26 @@ document.addEventListener("DOMContentLoaded", function () {
                         ${address.phone}
                     `;
 
+                    // **Updated: Automatically select the card if it matches the selectedId**
+                    if (selectedId && address.id === selectedId) {
+                        card.classList.add("selected");
+                        selectedAddressId = address.id;
+                        document.getElementById(
+                            "continueButton"
+                        ).style.display = "block";
+                    }
+
                     // Set up click event to select this address
                     card.addEventListener("click", function () {
-                        // Mark as selected and clear previous selections
                         document
                             .querySelectorAll(".address-card")
                             .forEach((c) => c.classList.remove("selected"));
                         card.classList.add("selected");
-                        selectedAddressId = address.id; // Store selected address ID
+                        selectedAddressId = address.id;
+
+                        document.getElementById(
+                            "continueButton"
+                        ).style.display = "block";
                     });
 
                     existingAddressCards.appendChild(card);

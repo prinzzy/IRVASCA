@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Transaction;
 use App\Models\Order;
+use App\Models\Transaction;
 use Illuminate\Support\Facades\Log;
 
 class PaymentCallbackController extends Controller
@@ -14,10 +14,9 @@ class PaymentCallbackController extends Controller
         Log::info('Callback received:', $request->all());
         $data = $request->all();
 
-        // Validate required fields
         $validatedData = $request->validate([
             'uuid' => 'required|string',
-            'ref' => 'required|string', // Assuming this 'ref' links to an order ID or unique reference
+            'ref' => 'required|string',
             'channel' => 'required|string',
             'amount' => 'required|integer',
             'fee' => 'required|integer',
@@ -28,12 +27,12 @@ class PaymentCallbackController extends Controller
         ]);
 
         // Find the associated order
-        $order = Order::where('reference', $data['ref'])->first();
+        $order = Order::where('order_id', $data['ref'])->first();
 
         if ($order) {
-            // Store data in the transactions table, linking it to the order
+            // Step 1: Store the transaction record
             Transaction::create([
-                'order_id' => $order->id, // Link transaction to the order
+                'order_id' => $order->id,
                 'uuid' => $data['uuid'],
                 'ref' => $data['ref'],
                 'channel' => $data['channel'],
@@ -45,15 +44,13 @@ class PaymentCallbackController extends Controller
                 'invoice_url' => $data['invoice']['url'],
             ]);
 
-            // Update the order status to completed or paid
-            $order->status = 'paid'; // Or 'paid' or similar status
+            // Step 2: Update the order status to "paid"
+            $order->status = 'paid';
             $order->save();
         } else {
-            // Log an error if the order was not found
             Log::error('Order not found for ref: ' . $data['ref']);
         }
 
-        // Respond with "ACCEPTED" to confirm receipt
         return response('ACCEPTED', 200);
     }
 }

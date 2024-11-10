@@ -107,6 +107,7 @@ Route::prefix('admin')->middleware(['auth:sanctum', 'admin'])->group(function ()
 
 
 
+
 // HOMEPAGE
 Route::get('/login-member', function () {
     return view('home.07_login_register');
@@ -204,6 +205,10 @@ Route::post('/checkout/process', [CheckoutController::class, 'checkoutProcess'])
 
 // CallBack
 Route::post('/winpay/callback', [PaymentCallbackController::class, 'handleCallback']);
+
+Route::get('/thank-you', function () {
+    return view('thankyou');
+})->name('thankyou');
 
 
 

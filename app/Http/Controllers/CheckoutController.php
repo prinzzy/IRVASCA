@@ -9,6 +9,7 @@ use App\Models\Discount;
 use Illuminate\Support\Facades\Auth;
 use App\Services\WinPayService;
 use Illuminate\Support\Facades\Log;
+use App\Models\Order;
 
 class CheckoutController extends Controller
 {
@@ -153,6 +154,20 @@ class CheckoutController extends Controller
             $products[] = $discountProduct; // Add the discount product to the list
         }
 
+        // Step 1: Store the initial order in the orders table with status "waiting for payment"
+        $order = Order::create([
+            'order_id' => $orderId,
+            'customer_name' => $customerName,
+            'customer_email' => $customerEmail,
+            'customer_phone' => $customerPhone,
+            'products' => json_encode($products),
+            'total_amount' => $totalAmount,
+            'status' => 'waiting for payment', // Initial status
+            'resi' => null, // Airway bill initially null
+        ]);
+
+        session(['order_id' => $order->order_id, 'total_amount' => $totalAmount]);
+
         // Call the createInvoice method in the WinPay service
         $response = $winPayService->createInvoice(
             $totalAmount,
@@ -160,7 +175,7 @@ class CheckoutController extends Controller
             $customerName,
             $customerEmail,
             $customerPhone, // Add customer phone to the method
-            'https://irvasca.com/shop', // Replace with your actual back URL
+            'https://irvasca.com/thank-you', // Replace with your actual back URL
             $products // Pass the filtered product details array
         );
 
