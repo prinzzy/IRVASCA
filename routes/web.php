@@ -19,6 +19,7 @@ use App\Http\Controllers\Admin\DiscountController;
 use App\Http\Controllers\PaymentCallbackController;
 use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\OrdersController;
 
 
 
@@ -210,6 +211,8 @@ Route::get('/thank-you', function () {
     return view('thankyou');
 })->name('thankyou');
 
+
+Route::get('/myorders', [OrdersController::class, 'index'])->name('orders.cust');
 
 
 

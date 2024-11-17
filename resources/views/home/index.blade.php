@@ -473,8 +473,7 @@
 									<span>informative details</span>
 								</h3>
 								<ul>
-									<li><a title="Order Status" href="">Order Status</a></li>
-									<li><a title="My Order History" href="">My Order History</a></li>
+									<li><a title="My Order History" href="/myorders">My Order History</a></li>
 									<li><a title="My Favorites" href="">Privacy Policy</a></li>
 									<!-- <li><a title="Promo codes" href="#">Promo codes</a></li> -->
 									<!-- <li><a title="Payments" href="#">Payments</a></li> -->
