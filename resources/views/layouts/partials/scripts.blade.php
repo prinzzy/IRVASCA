@@ -5,6 +5,7 @@
 <script src="{{ asset('/js/functions.js') }}"></script>
 
 
+
 <script src="{{ asset('/js/bootstrap.bundle.min.js') }}"></script>
 
 @livewireScripts

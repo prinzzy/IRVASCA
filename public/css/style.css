@@ -4146,3 +4146,50 @@ hr {
 .discount-container {
     margin-bottom: 20px;
 }
+
+/* Styling the Button */
+.more-products-btn {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff; /* White text */
+    background: linear-gradient(
+        45deg,
+        #520055,
+        #b78027
+    ); /* Purple to gold gradient */
+    border: none;
+    border-radius: 30px; /* Rounded edges */
+    text-decoration: none;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); /* Add subtle shadow */
+    transition: all 0.3s ease-in-out; /* Smooth animation for hover and other transitions */
+    cursor: pointer;
+    opacity: 0; /* Hidden initially for scroll animation */
+    transform: translateY(20px); /* Slightly move down initially */
+}
+
+/* Hover Effect */
+.more-products-btn:hover {
+    background: linear-gradient(
+        45deg,
+        #b78027,
+        #520055
+    ); /* Reverse gradient on hover */
+    color: #ffffff; /* Ensure white text remains on hover */
+    transform: translateY(-5px); /* Slightly move up on hover */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
+}
+
+/* Visible State for Scroll Animation */
+.more-products-btn.show {
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* Reset position */
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Center Button in the Container */
+.text-center {
+    text-align: center;
+    margin-top: 20px;
+}

@@ -1,17 +1,22 @@
 <x-app-layout>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-dark leading-tight">
         </h2>
     </x-slot>
     <div class="container">
         <h2>Order Management</h2>
-        <table class="table table-striped">
+        <!-- Include DataTables CSS -->
+
+
+        <table id="ordersTable" class="table table-striped">
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>Customer</th>
                     <th>Amount</th>
                     <th>Status</th>
+                    <th>Discount Code</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -21,7 +26,8 @@
                     <td>{{ $order->id }}</td>
                     <td>{{ json_decode($order->customer_details)->name ?? 'N/A' }}</td>
                     <td>Rp {{ number_format($order->amount, 0, ',', '.') }}</td>
-                    <td>{{ $order->status }}</td>
+                    <td>{{ ucfirst($order->status) }}</td>
+                    <td>{{ $order->discount_code ?? 'None' }}</td>
                     <td>
                         <button class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#orderModal{{ $order->id }}">View / Edit</button>
                     </td>
@@ -40,6 +46,7 @@
                                 <p><strong>Phone:</strong> {{ json_decode($order->customer_details)->phone ?? 'N/A' }}</p>
                                 <p><strong>Address:</strong> {{ json_decode($order->customer_details)->address ?? 'N/A' }}</p>
                                 <p><strong>Amount:</strong> Rp {{ number_format($order->amount, 0, ',', '.') }}</p>
+                                <p><strong>Discount Code:</strong> {{ $order->discount_code ?? 'None' }}</p>
                                 <p><strong>Products:</strong> {{ $order->products }}</p>
                                 <form action="{{ route('admin.orders.updateStatus', $order->id) }}" method="POST">
                                     @csrf
@@ -66,9 +73,28 @@
                 @endforeach
             </tbody>
         </table>
+        @if (session('success'))
+        <div class="alert alert-success">{{ session('success') }}</div>
+        @endif
+
+        <!-- Include jQuery and DataTables JS -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+        <script>
+            $(document).ready(function() {
+                $('#ordersTable').DataTable({
+                    responsive: true,
+                    order: [
+                        [0, 'desc']
+                    ], // Default order by ID descending
+                    pageLength: 10, // Number of rows per page
+                    lengthMenu: [10, 25, 50, 100], // Page length options
+                });
+            });
+        </script>
+
     </div>
 
-    @if (session('success'))
-    <div class="alert alert-success">{{ session('success') }}</div>
-    @endif
+
 </x-app-layout>

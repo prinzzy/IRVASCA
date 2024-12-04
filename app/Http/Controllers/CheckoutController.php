@@ -104,6 +104,8 @@ class CheckoutController extends Controller
         $customerName = $request->input('customer_name'); // Get the customer name from the form
         $customerEmail = $request->user()->email; // Assuming the email is still retrieved from the authenticated user
         $customerPhone = $request->input('customer_phone'); // Get the customer phone from the form
+        $customerAddress = $request->input('customer_address');
+        $discountCode = $request->input('discount_code');
 
         // Retrieve the products array from the request
         $productsData = $request->input('products', []);
@@ -122,7 +124,7 @@ class CheckoutController extends Controller
 
                 // Add product to the list for the invoice
                 $products[] = [
-                    'name' => $product['name'],
+                    'name' => $product['name'] . ' | Size: ' . $product['size'],
                     'qty' => $quantity,
                     'price' => $price,
                 ];
@@ -157,14 +159,18 @@ class CheckoutController extends Controller
         // Step 1: Store the initial order in the orders table with status "waiting for payment"
         $order = Order::create([
             'order_id' => $orderId,
+            'user_id' => Auth::id(), // Set the user_id here
             'customer_name' => $customerName,
             'customer_email' => $customerEmail,
             'customer_phone' => $customerPhone,
+            'customer_address' => $customerAddress,
             'products' => json_encode($products),
             'total_amount' => $totalAmount,
-            'status' => 'waiting for payment', // Initial status
+            'status' => 'Pending', // Initial status
             'resi' => null, // Airway bill initially null
+            'discount_code' => $discountCode,
         ]);
+
 
         session(['order_id' => $order->order_id, 'total_amount' => $totalAmount]);
 

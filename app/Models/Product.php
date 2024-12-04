@@ -21,6 +21,7 @@ class Product extends Model
         'image_path',
         'images', // Add this
         'thumbnails', // Add this
+        'coming_soon',
     ];
 
     protected $casts = [

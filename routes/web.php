@@ -20,6 +20,9 @@ use App\Http\Controllers\PaymentCallbackController;
 use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\OrdersController;
+use App\Http\Controllers\Admin\EmailBlastController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\SalesTransactionController;
 
 
 
@@ -104,7 +107,30 @@ Route::prefix('admin')->middleware(['auth:sanctum', 'admin'])->group(function ()
 
     Route::get('/orders', [OrderController::class, 'index'])->name('admin.orders.index');
     Route::post('/orders/{order}/update', [OrderController::class, 'updateStatus'])->name('admin.orders.updateStatus');
+
+    Route::get('/email-blast', [EmailBlastController::class, 'index'])->name('admin.emailBlast.index');
+    Route::post('/email-blast/create', [EmailBlastController::class, 'create'])->name('admin.emailBlast.create');
+    Route::get('/email-blast/logs/{emailBlastId}', [EmailBlastController::class, 'getLogs'])->name('admin.emailBlast.logs');
+    Route::post('/emailblast/test', [EmailBlastController::class, 'testEmailBlast']);
+
+    Route::get('/users', [UserController::class, 'index'])->name('admin.users.index');
+    Route::post('/users', [UserController::class, 'store'])->name('admin.users.store');
+    Route::put('/users/{user}', [UserController::class, 'update'])->name('admin.users.update');
+    Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('admin.users.destroy');
 });
+
+// Collaborators / Partner
+Route::get('/dashboard-collaborator', function () {
+    return view('dashboardcust'); // Ganti 'your-view-file' dengan nama file blade Anda
+})->name('dashboard-collaborator');
+
+Route::get('/profile/show1', function () {
+    return view('profile.show1');
+})->name('profile.show1');
+
+
+Route::get('/sales', [SalesTransactionController::class, 'index'])->name('sales.index');
+Route::get('/api/dashboard-data', [SalesTransactionController::class, 'getDashboardData']);
 
 
 

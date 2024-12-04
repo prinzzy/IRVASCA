@@ -252,6 +252,7 @@
                             <input type="hidden" id="finalTotal" name="grand_total" value="{{ $totalPrice }}">
                             <input type="hidden" name="customer_name" value="{{ $address->name }}"> <!-- Customer name -->
                             <input type="hidden" name="customer_phone" value="{{ $address->phone }}"> <!-- Customer phone -->
+                            <input type="hidden" name="customer_address" value="{{ $address->street }}, {{ $address->city }}, {{ $address->state }} {{ $address->postal_code }} {{ $address->country }}">
                             <!-- Include products in the form -->
                             @foreach ($cartItems as $cartItem)
                             <input type="hidden" name="products[]" value="{{ json_encode(['name' => $cartItem['name'], 'price' => $cartItem['price'], 'quantity' => $cartItem['quantity'], 'size' => $cartItem['size']]) }}">

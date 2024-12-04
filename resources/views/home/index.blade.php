@@ -272,7 +272,7 @@
 		<div class="container">
 			<!-- Section Header -->
 			<div class="section-header">
-				<h3>Featured products</h3>
+				<h3>Our best seller</h3>
 				<p>Explore our selection of featured products, carefully curated to meet diverse needs and preferences. Each item stands out for its quality, functionality, and design, ensuring they enhance your everyday life.</p>
 			</div><!-- Section Header /- -->
 
@@ -321,6 +321,14 @@
 				</div>
 				@endforeach
 			</div>
+
+			<div class="text-center">
+				<a href="/shop" class="more-products-btn">
+					More Products
+				</a>
+			</div>
+
+
 
 		</div><!-- container /- -->
 	</section>
@@ -592,6 +600,27 @@
 
 	<!-- Customized Scripts -->
 	<script src="{{ asset('js/functions.js') }}"></script>
+
+	<script>
+		document.addEventListener("DOMContentLoaded", () => {
+			const button = document.querySelector(".more-products-btn");
+
+			const revealOnScroll = () => {
+				const rect = button.getBoundingClientRect();
+				const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+
+				if (rect.top <= windowHeight - 50) {
+					button.classList.add("show"); // Add the 'show' class when in view
+				}
+			};
+
+			// Attach the scroll event listener
+			window.addEventListener("scroll", revealOnScroll);
+
+			// Call it once in case the button is already in view
+			revealOnScroll();
+		});
+	</script>
 
 
 </body>

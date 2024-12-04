@@ -37,6 +37,7 @@
                     <th>Original Price</th>
                     <th>Discount Price</th>
                     <th>Star Rating</th>
+                    <th>Coming Soon</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -62,6 +63,7 @@
                         @endif
                     </td>
                     <td>{{ number_format($product->star_rating, 1) }} / 5</td>
+                    <td>{{ $product->coming_soon ? 'Yes' : 'No' }}</td>
                     <td>
                         <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#viewProductModal{{ $product->id }}">View</button>
                         <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editProductModal{{ $product->id }}">Edit</button>
@@ -164,6 +166,13 @@
                                             @foreach ($subcategories as $subcategory)
                                             <option value="{{ $subcategory->id }}" {{ $product->subcategory_id == $subcategory->id ? 'selected' : '' }}>{{ $subcategory->name }}</option>
                                             @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="status">Status:</label>
+                                        <select name="status" id="status">
+                                            <option value="yes">Yes</option>
+                                            <option value="no">No</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -299,6 +308,13 @@
                                 @foreach ($subcategories as $subcategory)
                                 <option value="{{ $subcategory->id }}">{{ $subcategory->name }}</option>
                                 @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="status">Status:</label>
+                            <select name="status" id="status">
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
                             </select>
                         </div>
                         <div class="form-group">

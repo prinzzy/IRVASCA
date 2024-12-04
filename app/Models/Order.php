@@ -11,13 +11,18 @@ class Order extends Model
 
     protected $fillable = [
         'user_id',
+        'order_id',
         'reference',
         'status',
         'total_price',
         'products',
         'customer_address',
         'customer_phone',
+        'customer_name',
+        'customer_email',
+        'total_amount',
         'resi',
+        'discount_code',
     ];
 
     // Define relationship with the User model
@@ -30,5 +35,10 @@ class Order extends Model
     public function transaction()
     {
         return $this->hasOne(Transaction::class);
+    }
+
+    public function discount()
+    {
+        return $this->belongsTo(Discount::class, 'discount_code', 'code');
     }
 }

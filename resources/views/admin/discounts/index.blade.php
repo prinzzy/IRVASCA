@@ -22,6 +22,7 @@
                     <th>Percentage</th>
                     <th>Expiry Date</th>
                     <th>Status</th> <!-- Added Status Column -->
+                    <th>Collaborator</th> <!-- Added Collaborator Column -->
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -33,6 +34,7 @@
                     <td>{{ $discount->discount_percentage }}%</td> <!-- Updated field -->
                     <td>{{ $discount->expiration_date }}</td> <!-- Updated field -->
                     <td>{{ $discount->status }}</td> <!-- Displaying Status -->
+                    <td>{{ $discount->user ? $discount->user->name : '-' }}</td> <!-- Displaying Collaborator or '-' -->
                     <td>
                         <!-- Edit Button -->
                         <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editDiscountModal{{ $discount->id }}">Edit</button>
@@ -64,6 +66,17 @@
                                     <div class="form-group">
                                         <label for="expiration_date">Expiry Date</label> <!-- Updated field -->
                                         <input type="date" name="expiration_date" class="form-control" value="{{ $discount->expiration_date }}" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="user_id">Collaborator (Optional)</label>
+                                        <select name="user_id" class="form-control">
+                                            <option value="">Select Collaborator</option>
+                                            @foreach($collaborators as $collaborator)
+                                                <option value="{{ $collaborator->id }}" {{ isset($discount) && $discount->user_id == $collaborator->id ? 'selected' : '' }}>
+                                                    {{ $collaborator->name }}
+                                                </option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="status">Status</label>
@@ -130,6 +143,15 @@
                             <div class="form-group">
                                 <label for="expiration_date">Expiry Date</label> <!-- Updated field -->
                                 <input type="date" name="expiration_date" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="user_id">Collaborator (Optional)</label>
+                                <select name="user_id" class="form-control">
+                                    <option value="">Select Collaborator</option>
+                                    @foreach($collaborators as $collaborator)
+                                        <option value="{{ $collaborator->id }}">{{ $collaborator->name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="status">Status</label>

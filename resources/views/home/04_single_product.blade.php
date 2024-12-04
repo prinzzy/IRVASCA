@@ -443,6 +443,7 @@
 										</table>
 										<ul>
 											<li><a title="Buy Now" href="#">Buy Now</a></li>
+											@if ($product->coming_soon !== 'yes')
 											<li>
 												<a title="Add To Cart" href="#"
 													class="add-to-cart-btn"
@@ -452,6 +453,7 @@
 													Add To Cart
 												</a>
 											</li>
+											@endif
 										</ul>
 									</div>
 									<!-- <a title="Add Banner" href="#"><img src="images/single-product/add-banner.png"

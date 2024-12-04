@@ -17,6 +17,8 @@ class RedirectController extends Controller
             return redirect('/dashboard');
         } elseif ($user->role === 'customer') {
             return redirect('/shop');
+        } elseif ($user->role === 'collaborator') {
+            return redirect('/dashboard-collaborator');
         } else {
             return redirect('/'); // Default redirection for other roles
         }

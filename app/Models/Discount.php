@@ -14,6 +14,12 @@ class Discount extends Model
         'discount_percentage',
         'expiration_date',
         'status',
+        'user_id',
 
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

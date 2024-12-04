@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Discount;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -12,7 +13,9 @@ class DiscountController extends Controller
     public function index()
     {
         $discounts = Discount::all();
-        return view('admin.discounts.index', compact('discounts'));
+        $collaborators = User::where('role', 'collaborator')->get();
+        
+        return view('admin.discounts.index', compact('discounts', 'collaborators'));
     }
 
     public function create()
@@ -27,7 +30,8 @@ class DiscountController extends Controller
             'code' => 'required|unique:discounts,code',
             'discount_percentage' => 'required|numeric|min:0|max:100',
             'expiration_date' => 'required|date|after:today',
-            'status' => 'required|string|in:Active,Inactive', // Updated to match DB
+            'status' => 'required|string|in:Active,Inactive',
+            'user_id' => 'nullable|exists:users,id',
         ]);
         Log::info('Validation passed.');
 
@@ -50,7 +54,8 @@ class DiscountController extends Controller
             'code' => 'required|unique:discounts,code,' . $discount->id,
             'discount_percentage' => 'required|numeric|min:0|max:100',
             'expiration_date' => 'required|date|after:today',
-            'status' => 'required|string|in:Active,Inactive', // Updated to match DB
+            'status' => 'required|string|in:Active,Inactive',
+            'user_id' => 'nullable|exists:users,id',
         ]);
 
         $discount->update($request->only([
@@ -58,6 +63,7 @@ class DiscountController extends Controller
             'discount_percentage',
             'expiration_date',
             'status',
+            'user_id',
         ]));
 
         Log::info('Discount updated successfully.');
