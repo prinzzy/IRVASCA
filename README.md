@@ -1,10 +1,5 @@
 ## Installation
-1. Clone this project
-    ```bash
-    git clone https://github.com/zuramai/laravel-mazer
-    cd laravel-mazer
-    ```
-2. Install dependencies
+1. Install dependencies
     ```bash
     composer install
     ```
@@ -17,28 +12,26 @@
     npm install && npm run dev
     ```
 
-3. Set up Laravel configurations
+2. Set up Laravel configurations
     ```bash
     copy .env.example .env
     php artisan key:generate
     ```
 
-4. Set your database in .env
+3. Set your database in .env
 
-5. Migrate database
+4. Migrate database
     ```bash
     php artisan migrate --seed
     ```
 
-6. Serve the application
+5. Serve the application
     ```bash
     php artisan serve
     ```
 
-7. Login credentials
+6. Login credentials
 
 **Email:** user@gmail.com
 
 **Password:** password
-## Contributing
-Feel free to contribute and make a pull request.
